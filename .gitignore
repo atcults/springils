@@ -1,0 +1,27 @@
+# INTELLIJ IDEA IGNORES
+*.iml
+*.ipr
+*.iws
+.idea
+
+# GRADLE IGNORES
+.gradle
+bin
+classes
+build/
+logs/
+target/
+
+
+# NODE IGNORES
+node_modules/
+bower_components/
+
+# MISC IGNORES
+.settings
+.classpath
+.project
+
+*.db
+*.log
+*.orig

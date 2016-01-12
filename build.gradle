@@ -1,0 +1,62 @@
+//Refer: https://www.credera.com/blog/technology-insights/java/gradle-profiles-for-multi-project-spring-boot-applications/
+
+description = 'ILS Root'
+
+buildscript {
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.1.RELEASE")
+    }
+}
+
+allprojects {
+    group = 'org.sanelib.ils'
+    version = '0.0.1-SNAPSHOT'
+
+    apply plugin: 'idea'
+
+    task wrapper(type: Wrapper) {
+        gradleVersion = '2.10'
+    }
+
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'spring-boot'
+    apply plugin: 'groovy'
+    apply plugin: "jacoco"
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        compile 'org.codehaus.groovy:groovy-all:2.4.5'
+        compile 'com.google.guava:guava:19.0-rc2'
+        testCompile 'org.springframework.boot:spring-boot-starter-test'
+    }
+
+    test {
+        testLogging {
+            events "started", "passed", "skipped", "failed", "standardOut", "standardError"
+        }
+
+        testLogging.showStandardStreams = true
+
+        forkEvery = 10
+        maxParallelForks = 1
+        //maxParallelForks = Runtime.runtime.availableProcessors() / 2
+    }
+}
+
+apply from: rootProject.file('gradle/profiles.gradle');
