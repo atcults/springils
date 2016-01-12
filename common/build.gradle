@@ -1,0 +1,12 @@
+description = 'ils Common'
+
+jar {
+    baseName = 'common'
+    bootRepackage.enabled = false
+}
+
+
+dependencies {
+    compile 'org.yaml:snakeyaml:1.16'
+    compile 'org.springframework.boot:spring-boot-starter'
+}

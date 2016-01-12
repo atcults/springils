@@ -1,0 +1,28 @@
+#General
+name: Test
+version: 0.1
+releaseDate: 1/1/2005
+locale: EN
+messageBundle: yml
+
+# Api Server
+server:
+  port: 8070
+  context-path: /api
+
+# Database
+db:
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/ils
+  username: root
+
+
+# Hibernate
+hibernate:
+  dialect: org.hibernate.dialect.MySQL5Dialect
+  show_sql: true
+  hbm2ddl.auto: update
+
+# Entity Manager
+entitymanager:
+  packagesToScan: org.sanelib.ils.core
