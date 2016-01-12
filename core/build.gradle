@@ -1,0 +1,22 @@
+description = 'ils Core'
+
+jar {
+    baseName = 'core'
+    bootRepackage.enabled = false
+}
+
+processResources {
+    from '../common/src/main/resources'
+}
+
+dependencies {
+    compile project(':common')
+
+    compile 'commons-dbcp:commons-dbcp:1.4'
+
+    compile 'org.activiti:activiti-spring-boot-starter-basic:5.19.0.1'
+
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    compile 'postgresql:postgresql:9.1-901-1.jdbc4'
+}
