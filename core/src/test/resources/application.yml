@@ -1,0 +1,30 @@
+#General
+name: Test
+version: 0.1
+releaseDate: 1/1/2005
+locale: EN
+messageBundle: yml
+
+# Api Server
+server:
+  port: 8070
+  context-path: /api
+
+# Database
+db:
+  driver: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5439/ils
+    username: postgres
+    password: S2n3lib
+
+
+# Hibernate
+hibernate:
+  dialect: org.hibernate.dialect.PostgreSQL82Dialect
+  show_sql: true
+  hbm2ddl.auto: update
+
+
+# Entity Manager
+entitymanager:
+  packagesToScan: org.sanelib.ils.core
