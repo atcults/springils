@@ -12,18 +12,17 @@ server:
 
 # Database
 db:
-  driver: com.mysql.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/ils
-  username: sanelib
-  password: S2n3lib
+  driver: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5439/ils
+    username: postgres
+    password: S2n3lib
 
 
 # Hibernate
 hibernate:
-  dialect: org.hibernate.dialect.MySQL5Dialect
+  dialect: org.hibernate.dialect.PostgreSQL82Dialect
   show_sql: true
   hbm2ddl.auto: update
-
 
 # Entity Manager
 entitymanager:
