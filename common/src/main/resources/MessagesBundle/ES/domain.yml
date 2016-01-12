@@ -1,0 +1,8 @@
+common:
+  id: ID
+
+publishers:
+  name: Editorial Nombre
+  city: Editorial Ciudad
+  state: Editorial Estado
+  country: Editorial País
