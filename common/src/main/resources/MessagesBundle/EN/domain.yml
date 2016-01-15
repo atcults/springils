@@ -2,7 +2,7 @@ common:
   id: Id
   code: Code
 
-publishers:
+publisher:
   name: Publisher Name
   city: Publisher City
   state: Publisher State
