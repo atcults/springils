@@ -3,6 +3,7 @@ package org.sanelib.ils.core.activities.publisher;
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.JavaDelegate;
 import org.sanelib.ils.core.commands.publisher.AddPublisher;
+import org.sanelib.ils.core.commands.publisher.UpdatePublisher;
 import org.sanelib.ils.core.dao.PublisherRepository;
 import org.sanelib.ils.core.domain.entity.Publisher;
 import org.sanelib.ils.core.exceptions.AppException;
@@ -27,13 +28,18 @@ public class CheckPublisherDuplicationDelegate implements JavaDelegate {
         Object command = execution.getVariable("command");
         ProcessError processError = (ProcessError) execution.getVariable("errors");
 
+        boolean isUpdate = command instanceof UpdatePublisher;
+
         String existingPublisherCode = ((AddPublisher) command).getCode();
 
         List<Publisher> publishers = publisherRepository.findByColumnAndValue("id", existingPublisherCode);
 
-        if(!publishers.isEmpty() && !Objects.equals(existingPublisherCode, publishers.get(0).getId())){
-            processError.addError("common.field.duplicate", "code", Arrays.asList("domain.entity.publisher", "domain.common.code"), existingPublisherCode);
+        if(!publishers.isEmpty()) {
+            if(!isUpdate || !Objects.equals(existingPublisherCode, publishers.get(0).getId())){
+                processError.addError("common.field.duplicate", "code", Arrays.asList("domain.entity.publisher", "domain.common.code"), existingPublisherCode);
+            }
         }
+
 
         if(!processError.isValid()){
             throw new AppException(processError);

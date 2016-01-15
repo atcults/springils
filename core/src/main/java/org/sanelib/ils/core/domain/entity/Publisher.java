@@ -15,14 +15,14 @@ public class Publisher implements DomainEntity {
     private String id;
 
     public String getId() {
-        return id;
+        return Strings.isNullOrEmpty(this.id) ? null : this.id.trim();
     }
 
     public void setId(String id) {
-        if (!Strings.isNullOrEmpty(this.id) && !this.id.equals(id)) {
+        if (Strings.isNullOrEmpty(id) && !this.id.equals(id)) {
             throw new IllegalStateException("The ID must not be changed after it is set.");
         }
-        this.id = id;
+        this.id = id.trim();
     }
 
 	@Column(name = "pub_name")
