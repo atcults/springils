@@ -1,5 +1,6 @@
 package org.sanelib.ils.core.dao;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
@@ -44,13 +45,13 @@ public abstract class EntityRepositoryBase<T extends DomainEntity> implements En
 	}
 
 	@Override
-	public T load(final long id) {
+	public T load(final Serializable id) {
 		return (T) getSession().load(entityClass, id);
 
 	}
 
 	@Override
-	public T get(final long id) {
+	public T get(final Serializable id) {
 		return (T) getSession().get(entityClass, id);
 	}
 

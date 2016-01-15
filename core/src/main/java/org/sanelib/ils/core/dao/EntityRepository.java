@@ -1,5 +1,6 @@
 package org.sanelib.ils.core.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
@@ -9,9 +10,9 @@ public interface EntityRepository<T extends DomainEntity> {
 
 	List<T> loadAll();
 
-	T load(long id);
+	T load(Serializable id);
 
-	T get(long id);
+	T get(Serializable id);
 
 	void save(T entity);
 
