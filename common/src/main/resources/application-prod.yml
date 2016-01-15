@@ -15,8 +15,7 @@ db:
   driver: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5439/ils
     username: postgres
-    password: S2n3lib
-
+    password:
 
 # Hibernate
 hibernate:
