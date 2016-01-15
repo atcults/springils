@@ -14,7 +14,7 @@ import org.sanelib.ils.common.utils.CustomClock;
 import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.dao.UnitOfWork;
-import org.sanelib.ils.core.domain.entity.EntityBase;
+import org.sanelib.ils.core.domain.entity.DomainEntity;
 import org.sanelib.ils.core.exceptions.ProcessError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -96,7 +96,7 @@ public abstract class EntityIntegrationTestBase {
         return (T) this.unitOfWork.getCurrentSession().get(klass, id);
     }
 
-    public void persist(EntityBase entity) {
+    public void persist(DomainEntity entity) {
         this.unitOfWork.getCurrentSession().save(entity);
         this.unitOfWork.flush();
         this.unitOfWork.clear();
