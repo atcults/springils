@@ -3,8 +3,7 @@
              xmlns:activiti="http://activiti.org/bpmn"
              typeLanguage="http://www.w3.org/2001/XMLSchema"
              expressionLanguage="http://www.w3.org/1999/XPath"
-             targetNamespace="http://www.activiti.org/processdef"
-             xmlns:modeler="http://activiti.com/modeler"
+             targetNamespace="http://www.activiti.org/processdef" xmlns:modeler="http://activiti.com/modeler"
              modeler:version="1.0ev"
              modeler:exportDateTime="20160105111356"
              modeler:modelId="969940"
@@ -19,7 +18,7 @@
     <endEvent id="endUpdatePublisherID" name="End"/>
     <sequenceFlow id="sid-6802A059-E013-4C23-9D9C-9E84A85B1CDF" sourceRef="serviceUpdatePublisher" targetRef="endUpdatePublisherID"/>
     <sequenceFlow id="sid-8480C7A9-CF53-44DA-B8D4-0B048498A807" sourceRef="startUpdatePublisher" targetRef="IdExistCheck"/>
-    <serviceTask id="IdExistCheck" name="ID Exists Process" activiti:delegateExpression="${checkEntityExistsDelegate}"/>
+    <serviceTask id="IdExistCheck" name="ID Exists Process" activiti:delegateExpression="${checkEntityExistsWithCodeDelegate}"/>
     <sequenceFlow id="sid-FB20CBEA-D2CF-41FA-9BFD-7F26662B497F" sourceRef="IdExistCheck" targetRef="serviceCheckDuplicateId"/>
   </process>
 </definitions>
