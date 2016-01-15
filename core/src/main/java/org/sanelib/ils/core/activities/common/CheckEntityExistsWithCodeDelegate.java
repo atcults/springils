@@ -9,6 +9,8 @@ import org.sanelib.ils.core.exceptions.ProcessError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 @Component
 public class CheckEntityExistsWithCodeDelegate implements JavaDelegate {
 
@@ -29,7 +31,7 @@ public class CheckEntityExistsWithCodeDelegate implements JavaDelegate {
         String code = ((ProcessCommandWithCode) command).getCode();
 
         if(this.unitOfWork.getCurrentSession().get(((ProcessCommandWithCode) command).getRootEntityClass(), code) == null){
-            processError.addError("common.field.notexist", "code", "domain.common.code", code);
+            processError.addError("common.field.notexist", "code", Arrays.asList("domain.entity.publisher", "domain.common.code"), code);
         }
 
         if(!processError.isValid()){
