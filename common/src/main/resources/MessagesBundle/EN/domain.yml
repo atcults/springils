@@ -2,8 +2,11 @@ common:
   id: Id
   code: Code
 
+entity:
+  publisher: Publisher
+
 publisher:
-  name: Publisher Name
-  city: Publisher City
-  state: Publisher State
-  country: Publisher Country
+  name: Name
+  city: City
+  state: State
+  country: Country
