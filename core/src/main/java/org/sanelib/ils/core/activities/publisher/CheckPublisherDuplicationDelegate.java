@@ -29,13 +29,10 @@ public class CheckPublisherDuplicationDelegate implements JavaDelegate {
 
         String existingPublisherCode = ((AddPublisher) command).getCode();
 
-        //Name duplication check
-        String name = ((AddPublisher) command).getName();
-
         List<Publisher> publishers = publisherRepository.findByColumnAndValue("id", existingPublisherCode);
 
         if(!publishers.isEmpty() && !Objects.equals(existingPublisherCode, publishers.get(0).getId())){
-            processError.addError("common.field.duplicate", "code", Arrays.asList("domain.publisher.name", "domain.publisher.code"), name);
+            processError.addError("common.field.duplicate", "code", Arrays.asList("domain.entity.publisher", "domain.common.code"), existingPublisherCode);
         }
 
         if(!processError.isValid()){

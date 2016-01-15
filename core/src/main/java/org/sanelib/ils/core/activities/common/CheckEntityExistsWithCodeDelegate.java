@@ -29,7 +29,7 @@ public class CheckEntityExistsWithCodeDelegate implements JavaDelegate {
         String code = ((ProcessCommandWithCode) command).getCode();
 
         if(this.unitOfWork.getCurrentSession().get(((ProcessCommandWithCode) command).getRootEntityClass(), code) == null){
-            processError.addError("common.field.notexist", "id", "domain.common.code", code);
+            processError.addError("common.field.notexist", "code", "domain.common.code", code);
         }
 
         if(!processError.isValid()){
