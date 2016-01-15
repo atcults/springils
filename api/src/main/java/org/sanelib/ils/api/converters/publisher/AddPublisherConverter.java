@@ -26,7 +26,12 @@ public class AddPublisherConverter implements DtoToCommandConverter<PublisherDto
         }
 
         command.setCity(dto.getCity());
-        command.setState(dto.getState());
+
+        //Check State should not more than 2 characters
+        if(ConverterHelper.checkRequiredLength(dto.getState(), 2, "state", "domain.publisher.state", processError)){
+            command.setState(dto.getState());
+        }
+
         command.setCountry(dto.getCountry());
 
         return command;

@@ -14,4 +14,12 @@ public class ConverterHelper {
             command.setCode(dto.getCode());
         }
     }
+
+    public static boolean checkRequiredLength(String value, int len, String fieldKey, String labelName, ProcessError processError){
+        if(!Strings.isNullOrEmpty(value) && value.length() > len){
+            processError.addError("common.field.length", fieldKey, labelName, String.valueOf(len));
+            return false;
+        }
+        return true;
+    }
 }
