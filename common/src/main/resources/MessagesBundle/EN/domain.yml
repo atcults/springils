@@ -1,5 +1,6 @@
 common:
-  id: ID
+  id: Id
+  code: Code
 
 publishers:
   name: Publisher Name

@@ -1,5 +1,6 @@
 common:
-  id: ID
+  id: Id
+  code: Código
 
 publishers:
   name: Editorial Nombre
