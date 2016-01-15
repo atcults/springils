@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:activiti="http://activiti.org/bpmn"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/processdef"
+             xmlns:modeler="http://activiti.com/modeler"
+             modeler:version="1.0ev"
+             modeler:exportDateTime="20160105111356"
+             modeler:modelId="969940"
+             modeler:modelVersion="1"
+             modeler:modelLastUpdated="1451992423194">
+  <process id="updatePublisherProcess" name="updatePublisherProcess" isExecutable="true">
+    <documentation>Activitu Diagram for Updating Publisher Process</documentation>
+    <startEvent id="startUpdatePublisher" name="Start"/>
+    <serviceTask id="serviceCheckDuplicateId" name="Duplicate Check" activiti:delegateExpression="${checkPublisherDuplicationDelegate}"/>
+    <sequenceFlow id="sid-6E51D6EB-0C6B-44B1-842E-E52959DD5134" sourceRef="serviceCheckDuplicateId" targetRef="serviceUpdatePublisher"/>
+    <serviceTask id="serviceUpdatePublisher" name="Update Publisher Process" activiti:delegateExpression="${processUpdatePublisherDelegate}"/>
+    <endEvent id="endUpdatePublisherID" name="End"/>
+    <sequenceFlow id="sid-6802A059-E013-4C23-9D9C-9E84A85B1CDF" sourceRef="serviceUpdatePublisher" targetRef="endUpdatePublisherID"/>
+    <sequenceFlow id="sid-8480C7A9-CF53-44DA-B8D4-0B048498A807" sourceRef="startUpdatePublisher" targetRef="IdExistCheck"/>
+    <serviceTask id="IdExistCheck" name="ID Exists Process" activiti:delegateExpression="${checkEntityExistsDelegate}"/>
+    <sequenceFlow id="sid-FB20CBEA-D2CF-41FA-9BFD-7F26662B497F" sourceRef="IdExistCheck" targetRef="serviceCheckDuplicateId"/>
+  </process>
+</definitions>

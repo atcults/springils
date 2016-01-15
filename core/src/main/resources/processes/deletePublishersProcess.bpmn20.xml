@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:activiti="http://activiti.org/bpmn"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/processdef"
+             xmlns:modeler="http://activiti.com/modeler"
+             modeler:version="1.0ev"
+             modeler:exportDateTime="20160105111356"
+             modeler:modelId="969940"
+             modeler:modelVersion="1"
+             modeler:modelLastUpdated="1451992423194">
+  <process id="deletePublisherProcess" name="deletePublisherProcess" isExecutable="true">
+    <documentation>This is activiti  for Deleting Publisher.</documentation>
+    <startEvent id="startDelete" name="Start"/>
+    <sequenceFlow id="sid-2A9BDFD7-4BD2-423B-BBFA-4D0A9E0921A3" sourceRef="startDelete" targetRef="serviceIdExistCheck"/>
+    <serviceTask id="serviceIdExistCheck" name="Publisher ID Exists" activiti:delegateExpression="${checkEntityExistsDelegate}"/>
+    <sequenceFlow id="sid-77077173-6F9E-44C0-A83D-384F0D4AEE82" sourceRef="serviceIdExistCheck" targetRef="serviceDeleteProcess"/>
+    <serviceTask id="serviceDeleteProcess" name="Delete Publisher" activiti:delegateExpression="${processDeletePublisherDelegate}"/>
+    <endEvent id="serviceEmplpyeeDeleteEnd" name="End"/>
+    <sequenceFlow id="sid-E10ED343-DE5F-442A-9B41-D2B6B6535762" sourceRef="serviceDeleteProcess" targetRef="serviceEmplpyeeDeleteEnd"/>
+  </process>
+</definitions>
