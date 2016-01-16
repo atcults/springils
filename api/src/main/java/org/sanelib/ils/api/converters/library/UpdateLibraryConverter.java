@@ -1,5 +1,6 @@
 package org.sanelib.ils.api.converters.library;
 
+import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.dto.library.LibraryDto;
 import org.sanelib.ils.common.utils.ReflectionHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
@@ -15,9 +16,9 @@ public class UpdateLibraryConverter extends AddLibraryConverter {
     public ProcessCommand convert(LibraryDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
 
         AddLibrary addLibrary = (AddLibrary) super.convert(dto, processError);
-
         UpdateLibrary updateLibrary = new UpdateLibrary();
         ReflectionHelper.copy(addLibrary, updateLibrary);
+        ConverterHelper.checkIdRequired(dto, updateLibrary, processError);
 
         return updateLibrary;
     }

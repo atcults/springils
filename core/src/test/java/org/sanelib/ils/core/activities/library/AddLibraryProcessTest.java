@@ -4,9 +4,7 @@ import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.library.AddLibrary;
-import org.sanelib.ils.core.commands.publisher.AddPublisher;
 import org.sanelib.ils.core.domain.entity.Library;
-import org.sanelib.ils.core.domain.entity.Publisher;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -18,7 +16,6 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
 
         AddLibrary addLibrary = new AddLibrary();
 
-        addLibrary.setId(1);
         addLibrary.setName("name");
         addLibrary.setCity("city");
         addLibrary.setState("ST");
@@ -27,6 +24,8 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
         String result = execute(addLibrary, ActivitiProcessConstants.Admin.ADD_LIBRARY);
 
         assertNotNull(result);
+
+        addLibrary.setId(Integer.parseInt(result));
 
         Library library = fetch(Library.class, addLibrary.getId());
 

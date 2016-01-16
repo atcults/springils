@@ -30,7 +30,7 @@ public class PublisherService extends ApiServiceBase {
     }
 
     @POST
-    public String addPublisher(org.sanelib.ils.api.dto.publisher.PublisherDto publisherDto) throws Throwable {
+    public String addPublisher(PublisherDto publisherDto) throws Throwable {
         return execute(publisherDto, ActivitiProcessConstants.Admin.ADD_PUBLISHER);
     }
 

@@ -8,9 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Order;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.*;
 import org.hibernate.transform.Transformers;
 import org.sanelib.ils.core.domain.entity.Constants;
 import org.sanelib.ils.core.domain.entity.DBValue;
@@ -54,6 +52,15 @@ public abstract class EntityRepositoryBase<T extends DomainEntity> implements En
 	public T get(final Serializable id) {
 		return (T) getSession().get(entityClass, id);
 	}
+
+    public Integer getNextId() {
+        System.out.println("Getting next id for entity");
+
+        DetachedCriteria maxId = DetachedCriteria.forClass(entityClass).setProjection( Projections.max("id") );
+        List list = this.unitOfWork.getCurrentSession().createCriteria(entityClass).add(Property.forName("id").eq(maxId)).list();
+
+        return list.size() == 0 ? 1 : ((Integer) list.get(0)) + 1;
+    }
 
 	@Override
 	public void save(final T entity) {

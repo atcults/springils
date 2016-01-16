@@ -22,7 +22,7 @@ public class ProcessAddLibraryDelegate implements JavaDelegate {
 
         Library entity = new Library();
 
-        entity.setId(command.getId());
+        entity.setId(libraryRepository.getNextId());
         entity.setName(command.getName());
         entity.setCity(command.getCity());
         entity.setState(command.getState());

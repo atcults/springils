@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@Path(ApiEndPointConstants.Admin.PUBLISHER_END_POINT)
+@Path(ApiEndPointConstants.Admin.LIBRARY_END_POINT)
 @Produces(MediaType.APPLICATION_JSON)
 public class LibraryService extends ApiServiceBase {
 
@@ -35,7 +35,7 @@ public class LibraryService extends ApiServiceBase {
     }
 
     @PUT
-    public String updatePublisher(LibraryDto dto) throws Throwable {
+    public String updateLibrary(LibraryDto dto) throws Throwable {
         return execute(dto, ActivitiProcessConstants.Admin.UPDATE_LIBRARY);
     }
 

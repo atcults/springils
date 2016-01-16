@@ -1,7 +1,6 @@
 package org.sanelib.ils.api.converters.library;
 
 import com.google.common.base.Strings;
-import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.library.LibraryDto;
 import org.sanelib.ils.core.commands.ProcessCommand;
@@ -16,12 +15,10 @@ public class AddLibraryConverter implements DtoToCommandConverter<LibraryDto> {
     public ProcessCommand convert(LibraryDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
         AddLibrary command = new AddLibrary();
 
-        ConverterHelper.checkIdRequired(dto, command, processError);
-
         //Check name and convert
         if(Strings.isNullOrEmpty(dto.getName())){
             processError.addError("common.field.required", "name", "domain.library.name");
-        }else{
+        } else{
             command.setName(dto.getName());
         }
 
