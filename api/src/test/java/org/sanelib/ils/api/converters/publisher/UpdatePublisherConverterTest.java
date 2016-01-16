@@ -18,7 +18,7 @@ public class UpdatePublisherConverterTest {
         dto.setCode("PUBS");
         dto.setName("Publisher");
         dto.setCity("City");
-        dto.setState("State");
+        dto.setState("GJ");
         dto.setCountry("Country");
 
         ProcessError processError = new ProcessError();

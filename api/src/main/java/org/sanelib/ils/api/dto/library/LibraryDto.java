@@ -14,7 +14,7 @@ public class LibraryDto implements DtoWithId {
         return this.id;
     }
 
-    public void setid(String id) {
+    public void setId(String id) {
         this.id = id;
     }
 

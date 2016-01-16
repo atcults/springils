@@ -12,10 +12,10 @@ import static org.junit.Assert.assertTrue;
 public class AddLibraryConverterTest {
 
     @Test
-    public void testAddPublisherSuccessExecute() throws Exception{
+    public void testAddLibrarySuccessExecute() throws Exception{
         LibraryDto dto = new LibraryDto();
 
-        dto.setid("1");
+        dto.setId("1");
         dto.setName("Library");
         dto.setCity("City");
         dto.setState("State");
@@ -30,6 +30,7 @@ public class AddLibraryConverterTest {
         assertTrue("Wrong output " + command, command instanceof AddLibrary);
 
         AddLibrary addLibrary = (AddLibrary) command;
+
         assertEquals("Id is not mapped", dto.getId(), String.valueOf(addLibrary.getId()));
         assertEquals("Name is not mapped", dto.getName(), addLibrary.getName());
         assertEquals("City is not mapped", dto.getCity(), addLibrary.getCity());

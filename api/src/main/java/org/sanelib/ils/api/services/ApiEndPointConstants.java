@@ -4,5 +4,6 @@ public class ApiEndPointConstants {
 
     public class Admin{
         public static final String PUBLISHER_END_POINT = "/publisher";
+        public static final String LIBRARY_END_POINT = "/library";
     }
 }
