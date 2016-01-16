@@ -29,7 +29,7 @@ public class UpdateLibraryConverterTest {
         assertTrue("Conversion error occurred", processError.isValid());
         assertTrue("Wrong output " + command, command instanceof UpdateLibrary);
         UpdateLibrary updateLibrary = (UpdateLibrary) command;
-        assertEquals("Code is not mapped", dto.getId(), String.valueOf(updateLibrary.getId()));
+        assertEquals("Id is not mapped", dto.getId(), String.valueOf(updateLibrary.getId()));
         assertEquals("Name is not mapped", dto.getName(), updateLibrary.getName());
         assertEquals("City is not mapped", dto.getCity(), updateLibrary.getCity());
         assertEquals("State is not mapped", dto.getState(), updateLibrary.getState());
