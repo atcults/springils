@@ -19,4 +19,9 @@ public class DeletePublisher implements ProcessCommandWithCode {
     public Class getRootEntityClass() {
         return Publisher.class;
     }
+
+    @Override
+    public String getRootEntityName() {
+        return "domain.entity.publisher";
+    }
 }

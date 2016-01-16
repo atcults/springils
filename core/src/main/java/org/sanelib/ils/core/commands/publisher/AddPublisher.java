@@ -24,6 +24,11 @@ public class AddPublisher implements ProcessCommandWithCode {
         return Publisher.class;
     }
 
+    @Override
+    public String getRootEntityName() {
+        return "domain.entity.publisher";
+    }
+
     public String getName() {
         return name;
     }
