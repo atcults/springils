@@ -15,5 +15,14 @@ public class AddAgency extends ProcessCommandWithLibraryId {
         return "domain.entity.agency";
     }
 
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
 

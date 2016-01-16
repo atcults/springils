@@ -54,11 +54,12 @@ public abstract class EntityRepositoryBase<T extends DomainEntity> implements En
 	}
 
     public Integer getNextId() {
-        System.out.println("Getting next id for entity");
+        return getNextId("id");
+    }
 
-        DetachedCriteria maxId = DetachedCriteria.forClass(entityClass).setProjection( Projections.max("id") );
-        List list = this.unitOfWork.getCurrentSession().createCriteria(entityClass).add(Property.forName("id").eq(maxId)).list();
-
+    public Integer getNextId(String columnName) {
+        DetachedCriteria maxId = DetachedCriteria.forClass(entityClass).setProjection( Projections.max(columnName) );
+        List list = this.unitOfWork.getCurrentSession().createCriteria(entityClass).add(Property.forName(columnName).eq(maxId)).list();
         return list.size() == 0 ? 1 : ((Integer) list.get(0)) + 1;
     }
 

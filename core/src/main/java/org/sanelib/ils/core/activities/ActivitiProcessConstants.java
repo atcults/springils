@@ -10,5 +10,9 @@ public class ActivitiProcessConstants {
         public static final String ADD_LIBRARY = "addLibrary";
         public static final String UPDATE_LIBRARY = "updateLibrary";
         public static final String DELETE_LIBRARY = "deleteLibrary";
+
+        public static final String ADD_AGENCY = "addAgency";
+        public static final String UPDATE_AGENCY = "updateAgency";
+        public static final String DELETE_AGENCY = "deleteAgency";
     }
 }
