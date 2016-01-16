@@ -1,10 +1,12 @@
 common:
   id: Id
   code: Code
+  library_id: Library Id
 
 entity:
   library: Library
   publisher: Publisher
+  agency: Agency
 
 library:
   name: Name
@@ -17,3 +19,6 @@ publisher:
   city: City
   state: State
   country: Country
+
+agency:
+  name: Name
