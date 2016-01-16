@@ -41,10 +41,10 @@ public class UpdatePublisherProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(publisher);
 
-        assertEquals(updatedPublisher.getId(), updatedPublisher.getId());
-        assertEquals(updatedPublisher.getName() ,updatedPublisher.getName());
-        assertEquals(updatedPublisher.getCity() , updatedPublisher.getCity());
-        assertEquals(updatedPublisher.getState() ,updatedPublisher.getState());
-        assertEquals(updatedPublisher.getCountry() ,updatedPublisher.getCountry());
+        assertEquals(updatePublisher.getCode(), updatedPublisher.getId());
+        assertEquals(updatePublisher.getName() ,updatedPublisher.getName());
+        assertEquals(updatePublisher.getCity() , updatedPublisher.getCity());
+        assertEquals(updatePublisher.getState() ,updatedPublisher.getState());
+        assertEquals(updatePublisher.getCountry() ,updatedPublisher.getCountry());
     }
 }
