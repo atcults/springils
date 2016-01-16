@@ -11,7 +11,7 @@ import static org.junit.Assert.assertNull;
 public class DeletePublisherProcessTest extends EntityIntegrationTestBase {
 
     @Test
-    public void testDeleteEmployeeSuccess() throws Throwable {
+    public void testDeletePublisherSuccess() throws Throwable {
 
         Publisher publisher = new Publisher();
         publisher.setId("1");
@@ -22,10 +22,10 @@ public class DeletePublisherProcessTest extends EntityIntegrationTestBase {
 
         persist(publisher);
 
-        DeletePublisher deleteEmployee = new DeletePublisher();
-        deleteEmployee.setCode(publisher.getId());
+        DeletePublisher deletePublisher = new DeletePublisher();
+        deletePublisher.setCode(publisher.getId());
 
-        String result = execute(deleteEmployee, ActivitiProcessConstants.Admin.DELETE_PUBLISHER);
+        String result = execute(deletePublisher, ActivitiProcessConstants.Admin.DELETE_PUBLISHER);
         assertNull(result);
 
         Publisher deletedPublisher = fetch(Publisher.class, publisher.getId());
