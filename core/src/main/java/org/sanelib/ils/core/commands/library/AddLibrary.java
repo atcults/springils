@@ -4,6 +4,7 @@ import org.sanelib.ils.core.commands.ProcessCommandWithId;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.sanelib.ils.core.domain.entity.Publisher;
 
+//TODO: Move Id from AddLibrary to UpdateLibrary
 public class AddLibrary implements ProcessCommandWithId {
 
     private Integer id;
