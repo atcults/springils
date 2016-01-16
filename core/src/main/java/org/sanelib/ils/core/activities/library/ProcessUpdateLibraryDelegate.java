@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.library;
 
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.JavaDelegate;
-import org.sanelib.ils.core.commands.library.AddLibrary;
 import org.sanelib.ils.core.commands.library.UpdateLibrary;
 import org.sanelib.ils.core.dao.LibraryRepository;
 import org.sanelib.ils.core.domain.entity.Library;
