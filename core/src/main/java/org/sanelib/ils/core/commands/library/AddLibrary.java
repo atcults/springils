@@ -1,6 +1,7 @@
 package org.sanelib.ils.core.commands.library;
 
 import org.sanelib.ils.core.commands.ProcessCommandWithId;
+import org.sanelib.ils.core.domain.entity.Library;
 import org.sanelib.ils.core.domain.entity.Publisher;
 
 public class AddLibrary implements ProcessCommandWithId {
@@ -21,7 +22,12 @@ public class AddLibrary implements ProcessCommandWithId {
 
     @Override
     public Class getRootEntityClass() {
-        return Publisher.class;
+        return Library.class;
+    }
+
+    @Override
+    public String getRootEntityName() {
+        return "domain.entity.publisher";
     }
 
     public String getName() {
