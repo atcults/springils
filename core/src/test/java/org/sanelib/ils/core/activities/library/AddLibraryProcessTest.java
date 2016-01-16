@@ -25,13 +25,12 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(result);
 
-        addLibrary.setId(Integer.parseInt(result));
+        Integer libraryId = Integer.parseInt(result);
 
-        Library library = fetch(Library.class, addLibrary.getId());
+        Library library = fetch(Library.class, libraryId);
 
         assertNotNull(library);
 
-        assertEquals((int) addLibrary.getId(), library.getId());
         assertEquals(addLibrary.getName() ,library.getName());
         assertEquals(addLibrary.getCity() , library.getCity());
         assertEquals(addLibrary.getState() , library.getState());

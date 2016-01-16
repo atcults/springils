@@ -1,25 +1,16 @@
 package org.sanelib.ils.core.commands.library;
 
+import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.ProcessCommandWithId;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.sanelib.ils.core.domain.entity.Publisher;
 
-//TODO: Move Id from AddLibrary to UpdateLibrary
-public class AddLibrary implements ProcessCommandWithId {
+public class AddLibrary implements ProcessCommand {
 
-    private Integer id;
     private String name;
     private String city;
     private String state;
     private String country;
-
-    public Integer getId() {
-        return this.id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     @Override
     public Class getRootEntityClass() {
@@ -66,8 +57,7 @@ public class AddLibrary implements ProcessCommandWithId {
     @Override
     public String toString() {
         return "AddLibrary{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", country='" + country + '\'' +

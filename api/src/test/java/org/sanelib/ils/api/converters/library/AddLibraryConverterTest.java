@@ -31,7 +31,6 @@ public class AddLibraryConverterTest {
 
         AddLibrary addLibrary = (AddLibrary) command;
 
-        assertEquals("Id is not mapped", dto.getId(), String.valueOf(addLibrary.getId()));
         assertEquals("Name is not mapped", dto.getName(), addLibrary.getName());
         assertEquals("City is not mapped", dto.getCity(), addLibrary.getCity());
         assertEquals("State is not mapped", dto.getState(), addLibrary.getState());

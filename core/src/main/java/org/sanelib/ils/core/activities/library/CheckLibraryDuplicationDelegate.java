@@ -3,6 +3,7 @@ package org.sanelib.ils.core.activities.library;
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.JavaDelegate;
 import org.sanelib.ils.core.commands.library.AddLibrary;
+import org.sanelib.ils.core.commands.library.UpdateLibrary;
 import org.sanelib.ils.core.dao.LibraryRepository;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.sanelib.ils.core.exceptions.AppException;
@@ -27,12 +28,17 @@ public class CheckLibraryDuplicationDelegate implements JavaDelegate {
         Object command = execution.getVariable("command");
         ProcessError processError = (ProcessError) execution.getVariable("errors");
 
-        Integer existingId = ((AddLibrary) command).getId();
+        boolean isUpdate = command instanceof UpdateLibrary;
 
-        List<Library> libraries = libraryRepository.findByColumnAndValue("id", existingId);
+        Integer libraryId = isUpdate ? ((UpdateLibrary) command).getId() : null;
+        String libraryName = ((AddLibrary) command).getName();
 
-        if(!libraries.isEmpty()&& !Objects.equals(existingId, libraries.get(0).getId())){
-            processError.addError("common.field.duplicate", "id", Arrays.asList("domain.entity.library", "domain.common.id"), String.valueOf(existingId));
+        List<Library> libraries = libraryRepository.findByColumnAndValue("name", libraryName);
+
+        Library dbLibrary = libraries.isEmpty() ? null : libraries.get(0);
+
+        if(dbLibrary != null && (!isUpdate || !Objects.equals(libraryId, dbLibrary.getId()))){
+            processError.addError("common.field.duplicate", "name", Arrays.asList("domain.entity.library", "domain.library.name"), libraryName);
         }
 
         if(!processError.isValid()){
