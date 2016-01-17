@@ -5,18 +5,23 @@ import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.library.DeleteLibrary;
 import org.sanelib.ils.core.commands.publisher.DeletePublisher;
+import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.sanelib.ils.core.domain.entity.Publisher;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.assertNull;
 
 public class DeleteLibraryProcessTest extends EntityIntegrationTestBase {
 
+    @Autowired
+    HibernateHelper hibernateHelper;
+
     @Test
     public void testDeleteLibrarySuccess() throws Throwable {
 
         Library library = new Library();
-        library.setId(1);
+        library.setId(hibernateHelper.getNextId(Library.class));
         library.setName("Library");
         library.setCity("City");
         library.setState("State");

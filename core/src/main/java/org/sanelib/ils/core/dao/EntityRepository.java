@@ -14,8 +14,6 @@ public interface EntityRepository<T extends DomainEntity> {
 
 	T get(Serializable id);
 
-    Integer getNextId();
-
 	void save(T entity);
 
 	void update(T entity);

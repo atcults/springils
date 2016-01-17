@@ -6,6 +6,15 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class AgencyId implements LibraryIdAndEntityId{
 
+    public AgencyId(){
+
+    }
+
+    public AgencyId(Integer libraryId, Integer id) {
+        this.libraryId = libraryId;
+        this.id = id;
+    }
+
     @Column(name = "library_id")
     private int libraryId;
 

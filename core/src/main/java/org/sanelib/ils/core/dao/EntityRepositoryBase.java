@@ -53,22 +53,6 @@ public abstract class EntityRepositoryBase<T extends DomainEntity> implements En
 		return (T) getSession().get(entityClass, id);
 	}
 
-    public Integer getNextId() {
-        return getNextId("id");
-    }
-
-    public Integer getNextId(String columnName) {
-        Criteria criteria = this.unitOfWork.getCurrentSession()
-                .createCriteria(entityClass)
-                .setProjection(Projections.max(columnName));
-
-        List list = criteria.list();
-
-        Integer lastId = list.isEmpty() ? 0 : (Integer) (list.get(0) == null ? 0 : list.get(0));
-
-        return lastId + 1;
-    }
-
 	@Override
 	public void save(final T entity) {
 		getSession().save(entity);

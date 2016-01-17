@@ -1,9 +1,8 @@
 package org.sanelib.ils.core.commands.agency;
 
 import org.sanelib.ils.core.commands.ProcessCommandWithId;
-import org.sanelib.ils.core.commands.library.AddLibrary;
 
-public class UpdateAgency extends AddLibrary implements ProcessCommandWithId {
+public class UpdateAgency extends AddAgency implements ProcessCommandWithId {
 
     private Integer id;
 

@@ -3,6 +3,7 @@ package org.sanelib.ils.core.activities.library;
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.JavaDelegate;
 import org.sanelib.ils.core.commands.library.AddLibrary;
+import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.LibraryRepository;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessAddLibraryDelegate implements JavaDelegate {
+
+    @Autowired
+    HibernateHelper hibernateHelper;
 
     @Autowired
     LibraryRepository libraryRepository;
@@ -22,7 +26,7 @@ public class ProcessAddLibraryDelegate implements JavaDelegate {
 
         Library entity = new Library();
 
-        entity.setId(libraryRepository.getNextId());
+        entity.setId(hibernateHelper.getNextId(Library.class));
         entity.setName(command.getName());
         entity.setCity(command.getCity());
         entity.setState(command.getState());

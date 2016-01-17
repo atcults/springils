@@ -11,7 +11,7 @@ public class Agency implements DomainEntity {
     @EmbeddedId
     private AgencyId agencyId;
 
-	@Column(name = "library_name")
+	@Column(name = "agency_name")
 	private String name;
 
     public AgencyId getAgencyId() {
@@ -24,11 +24,11 @@ public class Agency implements DomainEntity {
 
     public void setAgencyId(int id, int libraryId){
         if(this.agencyId == null){
-            this.agencyId = new AgencyId();
+            this.agencyId = new AgencyId(libraryId, id);
+        } else {
+            this.agencyId.setId(id);
+            this.agencyId.setLibraryId(libraryId);
         }
-
-        this.agencyId.setId(id);
-        this.agencyId.setLibraryId(libraryId);
     }
 
     public String getName() {

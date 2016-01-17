@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.agency.AddAgency;
+import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.LibraryRepository;
 import org.sanelib.ils.core.domain.entity.Agency;
 import org.sanelib.ils.core.domain.entity.AgencyId;
@@ -16,13 +17,16 @@ import static org.junit.Assert.assertNotNull;
 public class AddAgencyProcessTest extends EntityIntegrationTestBase {
 
     @Autowired
+    HibernateHelper hibernateHelper;
+
+    @Autowired
     LibraryRepository libraryRepository;
 
     @Test
     public void testAddAgencyProcess() throws Throwable {
 
         Library library = new Library();
-        library.setId(libraryRepository.getNextId());
+        library.setId(hibernateHelper.getNextId(Library.class));
         library.setName("Library");
 
         persist(library);
@@ -36,11 +40,7 @@ public class AddAgencyProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(result);
 
-        AgencyId agencyId = new AgencyId();
-        agencyId.setLibraryId(library.getId());
-        agencyId.setId(Integer.parseInt(result));
-
-        Agency agency = fetch(Agency.class, agencyId);
+        Agency agency = fetch(Agency.class, new AgencyId(library.getId(), Integer.parseInt(result)));
 
         assertNotNull(agency);
 
