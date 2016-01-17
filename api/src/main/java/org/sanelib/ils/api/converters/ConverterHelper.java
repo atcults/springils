@@ -3,9 +3,11 @@ package org.sanelib.ils.api.converters;
 import com.google.common.base.Strings;
 import org.sanelib.ils.api.dto.DtoWithCode;
 import org.sanelib.ils.api.dto.DtoWithId;
+import org.sanelib.ils.api.dto.DtoWithLibraryId;
 import org.sanelib.ils.common.utils.RegularExpressionHelper;
 import org.sanelib.ils.core.commands.ProcessCommandWithCode;
 import org.sanelib.ils.core.commands.ProcessCommandWithId;
+import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.exceptions.ProcessError;
 
 public class ConverterHelper {
@@ -18,6 +20,17 @@ public class ConverterHelper {
             processError.addError("common.field.pattern", "id", "domain.common.id", RegularExpressionHelper.ID_FORMAT);
         } else {
             command.setId(Integer.parseInt(dto.getId()));
+        }
+    }
+
+    public static void checkLibraryIdRequired(DtoWithLibraryId dto, ProcessCommandWithLibraryId command, ProcessError processError){
+        if(Strings.isNullOrEmpty(dto.getLibraryId())){
+            processError.addError("common.field.required", "libraryId", "domain.common.library_id");
+        }
+        else if(!RegularExpressionHelper.checkIdFormat(dto.getLibraryId())){
+            processError.addError("common.field.pattern", "libraryId", "domain.common.library_id", RegularExpressionHelper.ID_FORMAT);
+        } else {
+            command.setLibraryId(Integer.parseInt(dto.getLibraryId()));
         }
     }
 
