@@ -2,9 +2,10 @@ package org.sanelib.ils.core.domain.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import java.io.Serializable;
 
 @Embeddable
-public class AgencyId implements LibraryIdAndEntityId{
+public class AgencyId implements Serializable, LibraryIdAndEntityId {
 
     public AgencyId(){
 

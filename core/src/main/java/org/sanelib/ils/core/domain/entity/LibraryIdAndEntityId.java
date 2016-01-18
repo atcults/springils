@@ -1,6 +1,6 @@
 package org.sanelib.ils.core.domain.entity;
 
-public interface LibraryIdAndEntityId extends EmbeddedKey {
+public interface LibraryIdAndEntityId {
     int getLibraryId();
     void setLibraryId(int libraryId);
     int getId();
