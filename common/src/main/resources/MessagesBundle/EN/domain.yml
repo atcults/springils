@@ -7,6 +7,7 @@ entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  fiscalyear: Fiscal Year
 
 library:
   name: Name
@@ -22,3 +23,8 @@ publisher:
 
 agency:
   name: Name
+
+fiscalyear:
+  startDate: Start Date
+  endDate: End Date
+  entryDate: Entry Date
