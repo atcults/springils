@@ -35,7 +35,7 @@ public class CheckPublisherDuplicationDelegate implements JavaDelegate {
         List<Publisher> publishers = publisherRepository.findByColumnAndValue("id", existingPublisherCode);
 
         if(!publishers.isEmpty()) {
-            if(!isUpdate || !Objects.equals(existingPublisherCode, publishers.get(0).getId())){
+            if(!isUpdate || !Objects.equals(existingPublisherCode, publishers.get(0).getCode())){
                 processError.addError("common.field.duplicate", "code", Arrays.asList("domain.entity.publisher", "domain.common.code"), existingPublisherCode);
             }
         }
