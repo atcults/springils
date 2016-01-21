@@ -7,6 +7,7 @@ entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  serialBoundVolume: SerialBoundVolume
 
 library:
   name: Name
@@ -21,4 +22,7 @@ publisher:
   country: Country
 
 agency:
+  name: Name
+
+serialBoundVolume:
   name: Name
