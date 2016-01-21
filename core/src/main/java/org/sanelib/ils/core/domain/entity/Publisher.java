@@ -20,7 +20,7 @@ public class Publisher implements DomainEntity {
 
     public void setCode(String code) {
         if (Strings.isNullOrEmpty(code) && !this.code.equals(code)) {
-            throw new IllegalStateException("The ID must not be changed after it is set.");
+            throw new IllegalStateException("The CODE must not be changed after it is set.");
         }
         this.code = code.trim();
     }
