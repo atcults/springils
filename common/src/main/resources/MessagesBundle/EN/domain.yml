@@ -7,6 +7,7 @@ entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  binderOrder: BinderOrder
 
 library:
   name: Name
@@ -22,3 +23,6 @@ publisher:
 
 agency:
   name: Name
+
+binderOrder:
+  binderId: Binder Id
