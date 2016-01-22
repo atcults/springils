@@ -17,7 +17,7 @@ public class UpdatePublisherProcessTest extends EntityIntegrationTestBase {
     public void testUpdatePublisherProcess() throws Throwable {
 
         Publisher publisher = new Publisher();
-        publisher.setId("1");
+        publisher.setCode("1");
         publisher.setName("Publisher");
         publisher.setCity("City");
         publisher.setState("GJ");
@@ -41,7 +41,7 @@ public class UpdatePublisherProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(publisher);
 
-        assertEquals(updatePublisher.getCode(), updatedPublisher.getId());
+        assertEquals(updatePublisher.getCode(), updatedPublisher.getCode());
         assertEquals(updatePublisher.getName() ,updatedPublisher.getName());
         assertEquals(updatePublisher.getCity() , updatedPublisher.getCity());
         assertEquals(updatePublisher.getState() ,updatedPublisher.getState());
