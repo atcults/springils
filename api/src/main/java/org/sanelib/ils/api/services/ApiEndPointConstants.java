@@ -6,5 +6,6 @@ public class ApiEndPointConstants {
         public static final String PUBLISHER_END_POINT = "/publisher";
         public static final String LIBRARY_END_POINT = "/library";
         public static final String AGENCY_END_POINT = "/agency";
+        public static final String BINDERORDER_END_POINT = "/binderorder";
     }
 }
