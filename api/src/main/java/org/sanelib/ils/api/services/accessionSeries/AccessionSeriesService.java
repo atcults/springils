@@ -28,7 +28,7 @@ public class AccessionSeriesService extends ApiServiceBase {
         accessionSeriesDto.setMaxNumber("100");
         accessionSeriesDto.setMaxZero("2");
         accessionSeriesDto.setPrefix("AS");
-        accessionSeriesDto.setTypeName(AccessionSeriesType.A);
+        accessionSeriesDto.setTypeName(AccessionSeriesType.Fixed);
         accessionSeriesDto.setEntryId("1");
         accessionSeriesDto.setEntryDate("2016/01/01");
 

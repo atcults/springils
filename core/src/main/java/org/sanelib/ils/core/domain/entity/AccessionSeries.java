@@ -1,6 +1,7 @@
 package org.sanelib.ils.core.domain.entity;
 
 import org.sanelib.ils.core.enums.AccessionSeriesType;
+import org.sanelib.ils.core.enums.AccessionSeriesTypeConverter;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -41,7 +42,7 @@ public class AccessionSeries implements DomainEntity {
     private String prefix;
 
     //NOTE: Fixed_variable stores 1 character. Series type is fixed or variable.
-    @Enumerated(EnumType.STRING)
+    @Convert( converter = AccessionSeriesTypeConverter.class )
     @Column(name = "fixed_variable")
     private AccessionSeriesType typeName;
 
