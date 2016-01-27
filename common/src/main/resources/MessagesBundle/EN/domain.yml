@@ -7,6 +7,7 @@ entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  accessionSeries: Accession Series
 
 library:
   name: Name
@@ -22,3 +23,13 @@ publisher:
 
 agency:
   name: Name
+
+accessionSeries:
+  code: Series Name
+  entryDate: Entry Date
+  maxNumber: Max Number
+  maxZero: Max Zero
+  prefix: Prefix
+  typeName: Fixed Or Variable
+  entryId: Entry Id
+  entryDate: Entry Date
