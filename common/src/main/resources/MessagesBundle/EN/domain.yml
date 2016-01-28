@@ -7,12 +7,7 @@ entity:
   library: Library
   publisher: Publisher
   agency: Agency
-
-library:
-  name: Name
-  city: City
-  state: State
-  country: Country
+  author: Author
 
 publisher:
   name: Name
@@ -22,3 +17,12 @@ publisher:
 
 agency:
   name: Name
+
+author:
+  lname: Last Name
+  fname: First Name
+  phone: Phone number
+  address: Address
+  city: City
+  state: State
+  zip: Zip Code
