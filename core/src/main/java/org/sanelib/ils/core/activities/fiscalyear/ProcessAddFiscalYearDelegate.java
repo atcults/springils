@@ -26,16 +26,10 @@ public class ProcessAddFiscalYearDelegate implements JavaDelegate{
         AddFiscalYear command = (AddFiscalYear) execution.getVariable("command");
 
         FiscalYear entity = new FiscalYear();
-
-        Integer nextId = hibernateHelper.getNextId(FiscalYear.class, "fiscalYearId.id");
-        entity.setFiscalYearId(nextId, command.getLibraryId());
-        entity.setFirstFiscalYear(command.getFirstFiscalYear());
-        entity.setSecondFiscalYear(command.getSecondFiscalYear());
+        entity.setLibraryId(command.getLibraryId());
         entity.setStartDate(command.getStartDate());
         entity.setEndDate(command.getEndDate());
-        entity.setStatus(command.getStatus());
         entity.setEntryId(command.getEntryId());
-        entity.setEntryDate(command.getEntryDate());
 
         fiscalYearRepository.save(entity);
 

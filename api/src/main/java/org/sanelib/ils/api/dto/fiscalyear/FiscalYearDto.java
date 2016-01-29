@@ -7,13 +7,9 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
 
     private String libraryId;
     private String id;
-    private String firstFiscalYear;
-    private String secondFiscalYear;
     private String startDate;
     private String endDate;
-    private String status;
     private String entryId;
-    private String entryDate;
 
     public String getId() {
         return this.id;
@@ -29,22 +25,6 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
 
     public void setLibraryId(String libraryId){
         this.libraryId = libraryId;
-    }
-
-    public String getFirstFiscalYear() {
-        return firstFiscalYear;
-    }
-
-    public void setFirstFiscalYear(String firstFiscalYear) {
-        this.firstFiscalYear = firstFiscalYear;
-    }
-
-    public String getSecondFiscalYear() {
-        return secondFiscalYear;
-    }
-
-    public void setSecondFiscalYear(String secondFiscalYear) {
-        this.secondFiscalYear = secondFiscalYear;
     }
 
     public String getStartDate() {
@@ -63,14 +43,6 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
         this.endDate = endDate;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getEntryId() {
         return entryId;
     }
@@ -79,12 +51,5 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
         this.entryId = entryId;
     }
 
-    public String getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(String entryDate) {
-        this.entryDate = entryDate;
-    }
 }
 

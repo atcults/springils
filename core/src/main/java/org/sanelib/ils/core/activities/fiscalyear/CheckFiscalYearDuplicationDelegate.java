@@ -11,8 +11,8 @@ import org.sanelib.ils.core.exceptions.ProcessError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Calendar;
 import java.util.List;
-import java.util.Objects;
 
 @Component
 public class CheckFiscalYearDuplicationDelegate implements JavaDelegate {
@@ -30,29 +30,23 @@ public class CheckFiscalYearDuplicationDelegate implements JavaDelegate {
 
         boolean isUpdate = command instanceof UpdateFiscalYear;
 
-        Integer fiscalYearId = isUpdate ? ((UpdateFiscalYear) command).getId() : null;
-        Integer libraryId = ((AddFiscalYear) command).getLibraryId();
+        AddFiscalYear addFiscalYear = (AddFiscalYear) command;
 
-        //First FiscalYear Duplication Check
-        Integer firstFiscalYear = ((AddFiscalYear) command).getFirstFiscalYear();
+        Integer libraryId = addFiscalYear.getLibraryId();
 
-        List<FiscalYear> firstFiscalYears = fiscalYearRepository.findByColumnAndValue(new String[] {"fiscalYearId.libraryId" ,"firstFiscalYear"}, new Object[]{libraryId , firstFiscalYear});
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(addFiscalYear.getStartDate());
+        Integer fiscalYearId = cal.get(Calendar.YEAR) * 10000;
 
-        FiscalYear firstFiscalYearCheck = firstFiscalYears.isEmpty() ? null : firstFiscalYears.get(0);
+        cal.setTime(addFiscalYear.getEndDate());
+        fiscalYearId += cal.get(Calendar.YEAR);
 
-        if (firstFiscalYearCheck != null && (!isUpdate || !Objects.equals(fiscalYearId, firstFiscalYearCheck.getFiscalYearId().getId()))) {
-            processError.addError("common.field.duplicate", "firstFiscalYear", "domain.fiscalYear.firstFiscalYear", String.valueOf(firstFiscalYear));
-        }
+        List<FiscalYear> firstFiscalYears = fiscalYearRepository.findByColumnAndValue(new String[] {"fiscalYearId.libraryId" ,"fiscalYearId.id"}, new Object[]{libraryId, fiscalYearId});
 
-        //Second FiscalYear Duplication Check
-        Integer secondFiscalYear = ((AddFiscalYear) command).getSecondFiscalYear();
+        FiscalYear dbFiscalYear = firstFiscalYears.isEmpty() ? null : firstFiscalYears.get(0);
 
-        List<FiscalYear> secondFiscalYears = fiscalYearRepository.findByColumnAndValue(new String[] {"fiscalYearId.libraryId" ,"secondFiscalYear"}, new Object[]{libraryId , secondFiscalYear});
-
-        FiscalYear secondFiscalYearCheck = secondFiscalYears.isEmpty() ? null : secondFiscalYears.get(0);
-
-        if (secondFiscalYearCheck != null && (!isUpdate || !Objects.equals(fiscalYearId, secondFiscalYearCheck.getFiscalYearId().getId()))) {
-            processError.addError("common.field.duplicate", "secondFiscalYear", "domain.fiscalYear.secondFiscalYear", String.valueOf(secondFiscalYear));
+        if(!isUpdate && dbFiscalYear != null){
+            processError.addError("common.field.duplicate", "id", "domain.fiscalYear.firstFiscalYear", String.valueOf(fiscalYearId));
         }
 
         if (!processError.isValid()) {

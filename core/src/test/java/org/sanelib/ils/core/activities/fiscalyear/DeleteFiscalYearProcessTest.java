@@ -28,16 +28,10 @@ public class DeleteFiscalYearProcessTest extends EntityIntegrationTestBase {
         persist(library);
 
         FiscalYear fiscalYear = new FiscalYear();
-
-        fiscalYear.setFiscalYearId(hibernateHelper.getNextId(FiscalYear.class, "fiscalYearId.id"), library.getId());
-
-        fiscalYear.setFirstFiscalYear(2015);
-        fiscalYear.setSecondFiscalYear(2016);
+        fiscalYear.setLibraryId(library.getId());
         fiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
         fiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
-        fiscalYear.setStatus("a");
         fiscalYear.setEntryId("john");
-        fiscalYear.setEntryDate(DateHelper.constructDate(2015 , 4 ,1));
 
         persist(fiscalYear);
 

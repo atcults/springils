@@ -13,32 +13,12 @@ public class AddFiscalYear extends ProcessCommandWithLibraryId {
 
     @Override
     public String getRootEntityName() {
-        return "domain.entity.fiscalyear";
+        return "domain.entity.fiscalYear";
     }
 
-    private Integer firstFiscalYear;
-    private Integer secondFiscalYear;
     private Date startDate;
     private Date endDate;
-    private String status;
     private String entryId;
-    private Date entryDate;
-
-    public Integer getFirstFiscalYear() {
-        return firstFiscalYear;
-    }
-
-    public void setFirstFiscalYear(Integer firstFiscalYear) {
-        this.firstFiscalYear = firstFiscalYear;
-    }
-
-    public Integer getSecondFiscalYear() {
-        return secondFiscalYear;
-    }
-
-    public void setSecondFiscalYear(Integer secondFiscalYear) {
-        this.secondFiscalYear = secondFiscalYear;
-    }
 
     public Date getStartDate() {
         return startDate;
@@ -56,14 +36,6 @@ public class AddFiscalYear extends ProcessCommandWithLibraryId {
         this.endDate = endDate;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getEntryId() {
         return entryId;
     }
@@ -72,11 +44,4 @@ public class AddFiscalYear extends ProcessCommandWithLibraryId {
         this.entryId = entryId;
     }
 
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
 }

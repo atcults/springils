@@ -24,7 +24,6 @@ public class AddFiscalYearProcessTest extends EntityIntegrationTestBase{
     @Autowired
     LibraryRepository libraryRepository;
 
-
     @Test
     public void testAddFiscalYearProcess() throws Throwable {
 
@@ -41,13 +40,9 @@ public class AddFiscalYearProcessTest extends EntityIntegrationTestBase{
         AddFiscalYear addFiscalYear = new AddFiscalYear();
 
         addFiscalYear.setLibraryId(library.getId());
-        addFiscalYear.setFirstFiscalYear(2015);
-        addFiscalYear.setSecondFiscalYear(2016);
         addFiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
         addFiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
-        addFiscalYear.setStatus("a");
         addFiscalYear.setEntryId("john");
-        addFiscalYear.setEntryDate(DateHelper.constructDate(2015 , 4 ,1));
 
         String result = execute(addFiscalYear, ActivitiProcessConstants.Admin.ADD_FISCALYEAR);
 
@@ -57,12 +52,8 @@ public class AddFiscalYearProcessTest extends EntityIntegrationTestBase{
 
         assertNotNull(fiscalYear);
 
-        assertEquals(addFiscalYear.getFirstFiscalYear(),fiscalYear.getFirstFiscalYear());
-        assertEquals(addFiscalYear.getSecondFiscalYear(),fiscalYear.getSecondFiscalYear());
         assertEquals(addFiscalYear.getStartDate(),fiscalYear.getStartDate());
         assertEquals(addFiscalYear.getEndDate(),fiscalYear.getEndDate());
-        assertEquals(addFiscalYear.getStatus(),fiscalYear.getStatus());
         assertEquals(addFiscalYear.getEntryId(),fiscalYear.getEntryId());
-        assertEquals(addFiscalYear.getEntryDate(),fiscalYear.getEntryDate());
     }
 }

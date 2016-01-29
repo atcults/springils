@@ -1,25 +1,17 @@
 package org.sanelib.ils.core.domain.entity;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity
 @Table(name = "acc_fiscal_year")
-public class FiscalYear implements DomainEntity{
+public class FiscalYear implements DomainEntity, RequireBeforePersist {
 
     private static final long serialVersionUID = 1L;
 
     @EmbeddedId
     private FiscalYearId fiscalYearId;
-
-    @Column(name = "year1")
-    private Integer firstFiscalYear;
-
-    @Column(name = "year2")
-    private Integer secondFiscalYear;
 
     @Column(name = "start_date")
     private Date startDate;
@@ -27,11 +19,17 @@ public class FiscalYear implements DomainEntity{
     @Column(name = "end_date")
     private Date endDate;
 
-    @Column(name = "status")
-    private String status;
-
     @Column(name = "entry_id ")
     private String entryId;
+
+    @Column(name = "year1")
+    private Integer startYear;
+
+    @Column(name = "year2")
+    private Integer endYear;
+
+    @Column(name = "status")
+    String status;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -40,33 +38,15 @@ public class FiscalYear implements DomainEntity{
         return fiscalYearId;
     }
 
-    public void setFiscalYearId(FiscalYearId fiscalYearId) {
-        this.fiscalYearId = fiscalYearId;
-    }
-
-    public void setFiscalYearId(int id, int libraryId){
-        if(this.fiscalYearId == null){
-            this.fiscalYearId = new FiscalYearId(libraryId, id);
-        } else {
-            this.fiscalYearId.setId(id);
-            this.fiscalYearId.setLibraryId(libraryId);
+    private void ensureFiscalIdNotNull(){
+        if (this.fiscalYearId == null) {
+            this.fiscalYearId = new FiscalYearId();
         }
     }
 
-    public Integer getFirstFiscalYear() {
-        return firstFiscalYear;
-    }
-
-    public void setFirstFiscalYear(Integer firstFiscalYear) {
-        this.firstFiscalYear = firstFiscalYear;
-    }
-
-    public Integer getSecondFiscalYear() {
-        return secondFiscalYear;
-    }
-
-    public void setSecondFiscalYear(Integer secondFiscalYear) {
-        this.secondFiscalYear = secondFiscalYear;
+    public void setLibraryId(int libraryId) {
+        ensureFiscalIdNotNull();
+        this.fiscalYearId.setLibraryId(libraryId);
     }
 
     public Date getStartDate() {
@@ -85,28 +65,12 @@ public class FiscalYear implements DomainEntity{
         this.endDate = endDate;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getEntryId() {
         return entryId;
     }
 
     public void setEntryId(String entryId) {
         this.entryId = entryId;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
     }
 
     @Override
@@ -125,4 +89,23 @@ public class FiscalYear implements DomainEntity{
         return fiscalYearId.hashCode();
     }
 
+    public void prePersist() {
+        status = "0";
+        startYear = 0;
+        if(startDate != null){
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(startDate);
+            startYear = cal.get(Calendar.YEAR);
+        }
+        endYear = 0;
+        if(endDate != null){
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(endDate);
+            endYear = cal.get(Calendar.YEAR);
+        }
+        getFiscalYearId().setId(startYear * 10000 + endYear);
+        entryDate = new Date();
+    }
 }
+
+

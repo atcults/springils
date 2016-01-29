@@ -8,7 +8,6 @@ import org.sanelib.ils.core.commands.fiscalyear.UpdateFiscalYear;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.FiscalYear;
 import org.sanelib.ils.core.domain.entity.FiscalYearId;
-import org.sanelib.ils.core.domain.entity.FiscalYear;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -34,34 +33,23 @@ public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
         persist(library);
 
         FiscalYear fiscalYear = new FiscalYear();
-
-        fiscalYear.setFiscalYearId(hibernateHelper.getNextId(FiscalYear.class, "fiscalYearId.id"), library.getId());
-
-        fiscalYear.setFirstFiscalYear(2015);
-        fiscalYear.setSecondFiscalYear(2016);
+        fiscalYear.setLibraryId(library.getId());
         fiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
         fiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
-        fiscalYear.setStatus("");
         fiscalYear.setEntryId("john");
-        fiscalYear.setEntryDate(DateHelper.constructDate(2015 , 4 ,1));
 
         persist(fiscalYear);
 
         Date startDate = DateHelper.constructDate(2015, 4, 1);
         Date endDate = DateHelper.constructDate(2016, 3 ,31);
-        Date entryDate = DateHelper.constructDate(2015, 4 ,1);
 
         UpdateFiscalYear updateFiscalYear = new UpdateFiscalYear();
 
         updateFiscalYear.setId(fiscalYear.getFiscalYearId().getId());
         updateFiscalYear.setLibraryId(library.getId());
-        updateFiscalYear.setFirstFiscalYear(2015);
-        updateFiscalYear.setSecondFiscalYear(2016);
         updateFiscalYear.setStartDate(startDate);
         updateFiscalYear.setEndDate(endDate);
-        updateFiscalYear.setStatus("");
         updateFiscalYear.setEntryId("johny");
-        updateFiscalYear.setEntryDate(entryDate);
 
         String result = execute(updateFiscalYear, ActivitiProcessConstants.Admin.UPDATE_FISCALYEAR);
 
@@ -71,13 +59,8 @@ public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(dbFiscalYear);
 
-        assertEquals(Integer.valueOf("2015"),updateFiscalYear.getFirstFiscalYear());
-        assertEquals(Integer.valueOf("2016"),updateFiscalYear.getSecondFiscalYear());
         assertEquals(startDate, fiscalYear.getStartDate());
         assertEquals(endDate,fiscalYear.getEndDate());
-        assertEquals("",updateFiscalYear.getStatus());
         assertEquals("johny",updateFiscalYear.getEntryId());
-        assertEquals(entryDate,fiscalYear.getEntryDate());
-
     }
 }
