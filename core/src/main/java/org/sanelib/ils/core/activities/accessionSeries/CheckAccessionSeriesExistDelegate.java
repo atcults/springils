@@ -47,7 +47,7 @@ public class CheckAccessionSeriesExistDelegate implements JavaDelegate {
         List list = criteria.list();
 
         if(list.isEmpty()){
-            processError.addError("common.field.notexist", "code", Arrays.asList(((ProcessCommand) command).getRootEntityName(), "domain.common.code"), String.valueOf(code));
+            processError.addError("common.field.notExist", "code", Arrays.asList(((ProcessCommand) command).getRootEntityName(), "domain.common.code"), String.valueOf(code));
         }
 
         if(!processError.isValid()){
