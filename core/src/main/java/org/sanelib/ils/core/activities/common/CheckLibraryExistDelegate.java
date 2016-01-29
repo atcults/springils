@@ -32,7 +32,7 @@ public class CheckLibraryExistDelegate implements JavaDelegate {
         Integer libraryId = ((ProcessCommandWithLibraryId) command).getLibraryId();
 
         if(this.unitOfWork.getCurrentSession().get(Library.class, libraryId) == null){
-            processError.addError("common.field.notexist", "id", Arrays.asList("domain.entity.library", "domain.common.id"), String.valueOf(libraryId));
+            processError.addError("common.field.notExist", "id", Arrays.asList("domain.entity.library", "domain.common.id"), String.valueOf(libraryId));
         }
 
         if(!processError.isValid()){

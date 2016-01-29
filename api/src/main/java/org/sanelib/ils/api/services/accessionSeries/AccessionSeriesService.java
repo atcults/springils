@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@Path(ApiEndPointConstants.Admin.ACCESSIONSERIES_END_POINT)
+@Path(ApiEndPointConstants.Admin.ACCESSION_SERIES_END_POINT)
 @Produces(MediaType.APPLICATION_JSON)
 public class AccessionSeriesService extends ApiServiceBase {
 

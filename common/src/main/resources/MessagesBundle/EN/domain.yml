@@ -7,6 +7,7 @@ entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  fiscalYear: Fiscal Year
   accessionSeries: Accession Series
 
 library:
@@ -23,6 +24,11 @@ publisher:
 
 agency:
   name: Name
+
+fiscalYear:
+  startDate: Start Date
+  endDate: End Date
+  entryDate: Entry Date
 
 accessionSeries:
   code: Series Name
