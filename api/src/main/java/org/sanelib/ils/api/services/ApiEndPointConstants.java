@@ -7,5 +7,6 @@ public class ApiEndPointConstants {
         public static final String LIBRARY_END_POINT = "/library";
         public static final String AGENCY_END_POINT = "/agency";
         public static final String FISCALYEAR_END_POINT = "/fiscalyear";
+        public static final String ACCESSIONSERIES_END_POINT = "/accessionseries";
     }
 }
