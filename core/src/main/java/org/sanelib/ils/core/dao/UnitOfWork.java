@@ -1,25 +1,26 @@
 package org.sanelib.ils.core.dao;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+
+import javax.persistence.EntityManagerFactory;
 
 public class UnitOfWork {
 
-    private SessionFactory sessionFactory;
+    private EntityManagerFactory entityManagerFactory;
     private Session currentSession;
 	private Transaction currentTransaction;
 
-    public UnitOfWork(SessionFactory sessionFactory){
-        this.sessionFactory = sessionFactory;
+    public UnitOfWork(EntityManagerFactory entityManagerFactory){
+        this.entityManagerFactory = entityManagerFactory;
     }
 
 	public void begin() {
-		this.currentSession = sessionFactory.openSession();
+		this.currentSession = entityManagerFactory.createEntityManager().unwrap(Session.class);
 		this.currentTransaction = currentSession.beginTransaction();
 	}
 
-	public Session getCurrentSession() {
+    public Session getCurrentSession() {
 		return this.currentSession;
 	}
 
