@@ -7,7 +7,14 @@ entity:
   library: Library
   publisher: Publisher
   agency: Agency
-  author: Author
+  fiscalYear: Fiscal Year
+  accessionSeries: Accession Series
+
+library:
+  name: Name
+  city: City
+  state: State
+  country: Country
 
 publisher:
   name: Name
@@ -18,11 +25,17 @@ publisher:
 agency:
   name: Name
 
-author:
-  lname: Last Name
-  fname: First Name
-  phone: Phone number
-  address: Address
-  city: City
-  state: State
-  zip: Zip Code
+fiscalYear:
+  startDate: Start Date
+  endDate: End Date
+  entryDate: Entry Date
+
+accessionSeries:
+  code: Series Name
+  entryDate: Entry Date
+  maxNumber: Max Number
+  maxZero: Max Zero
+  prefix: Prefix
+  typeName: Fixed Or Variable
+  entryId: Entry Id
+  entryDate: Entry Date
