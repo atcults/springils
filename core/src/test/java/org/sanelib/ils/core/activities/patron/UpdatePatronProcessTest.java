@@ -51,7 +51,7 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         patron.setPin("387003");
         patron.setPhone1("+91-9876543210");
         patron.setPhone2("+91-9876543210");
-        patron.setFax("987654321");
+        patron.setFax("+91-987654321");
         patron.setEmail("name@mail.com");
         patron.setPermanentAddress1("PAddress1");
         patron.setPermanentAddress2("PAddress2");
@@ -61,7 +61,7 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         patron.setPermanentPin("PPin");
         patron.setPermanentPhone1("+91-9876543210");
         patron.setPermanentPhone2("+91-9876543210");
-        patron.setPermanentFax("987654321");
+        patron.setPermanentFax("+91-987654321");
         patron.setPermanentEmail("name@mail.com");
         patron.setMembershipFrom(DateHelper.constructDate(2014,4,1));
         patron.setMembershipTo(DateHelper.constructDate(2016,3,31));
@@ -129,7 +129,7 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         updatePatron.setTwitterId("TId");
         updatePatron.setFacebookId("FId");
         updatePatron.setSubLocationId(1);
-        updatePatron.setLoginId("LId");
+        updatePatron.setLoginId("L1Id");
         updatePatron.setAuthenticateLocalDatabase("A");
 
         String result = execute(updatePatron, ActivitiProcessConstants.Admin.UPDATE_PATRON);
