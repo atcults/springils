@@ -17,7 +17,9 @@ public class UpdateLibraryConverter extends AddLibraryConverter {
 
         AddLibrary addLibrary = (AddLibrary) super.convert(dto, processError);
         UpdateLibrary updateLibrary = new UpdateLibrary();
+
         ReflectionHelper.copy(addLibrary, updateLibrary);
+
         ConverterHelper.checkIdRequired(dto, updateLibrary, processError);
 
         return updateLibrary;
