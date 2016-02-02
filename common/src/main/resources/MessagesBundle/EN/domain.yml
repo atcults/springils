@@ -1,20 +1,14 @@
 common:
   id: Id
   code: Code
-  library_id: Library Id
+  libraryId: Library Id
 
 entity:
   library: Library
   publisher: Publisher
   agency: Agency
-  fiscalYear: Fiscal Year
-  accessionSeries: Accession Series
-
-library:
-  name: Name
-  city: City
-  state: State
-  country: Country
+  author: Author
+  location: Location
 
 publisher:
   name: Name
@@ -25,17 +19,44 @@ publisher:
 agency:
   name: Name
 
-fiscalYear:
-  startDate: Start Date
-  endDate: End Date
-  entryDate: Entry Date
+library:
+  name: Name
+  serialmaster: Serial Master
+  cataloguemaster: Catalogue Master
+  acquisitionsmaster: Acquisition Master
+  createdOn: Created On
+  acquisitionStatus: Acquisition Status
+  cataloguingStatus: Cataloguing Status
+  smStatus: Sm status
+  hostLibraryId: Host Library Id
+  address1: First Address
+  address2: Second Address
+  city: City
+  state: State
+  pin: Pin
+  phoneNumber1: First Phone number
+  email: Email
+  phoneNumber2: Second Phone number
+  fax: Fax
+  country: Country
+  networkName: Network name
+  searchForms: Search Forms
+  facebookWidget: Facebook Widget
+  twitterWidget: Twitter Widget
+  aboutLibrary: About library
+  aboutOrganization: About Organization
+  libraryTimings: Library Timings
+  contactUs: Contact Us
+  mapWidget: Map widget
+  description: Description
+  webStatistics: Web statistics
 
-accessionSeries:
-  code: Series Name
-  entryDate: Entry Date
-  maxNumber: Max Number
-  maxZero: Max Zero
-  prefix: Prefix
-  typeName: Fixed Or Variable
-  entryId: Entry Id
-  entryDate: Entry Date
+author:
+  lname: Last Name
+  fname: First Name
+  phone: Phone number
+  address: Address
+  city: City
+  state: State
+  zip: Zip Code
+  contract: Contract
