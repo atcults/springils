@@ -12,6 +12,7 @@ public class AuthorDTO implements DtoWithCode {
     private String city;
     private String state;
     private String zipCode;
+    private String contract;
 
     @Override
     public String getCode() {
@@ -78,6 +79,15 @@ public class AuthorDTO implements DtoWithCode {
         this.zipCode = zipCode;
     }
 
+    public String getContract() {
+        return contract;
+    }
+
+    public void setContract(String contract) {
+        this.contract = contract;
+    }
+
+
     @Override
     public String toString() {
         return "AuthorDTO{" +
@@ -89,6 +99,7 @@ public class AuthorDTO implements DtoWithCode {
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zipCode='" + zipCode + '\'' +
+                ", contract='" + contract + '\'' +
                 '}';
     }
 }

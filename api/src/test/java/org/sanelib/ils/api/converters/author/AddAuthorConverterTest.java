@@ -24,6 +24,7 @@ public class AddAuthorConverterTest {
         dto.setCity("city");
         dto.setState("ST");
         dto.setZipCode("54321");
+        dto.setContract("true");
 
         ProcessError processError = new ProcessError();
 
@@ -43,5 +44,6 @@ public class AddAuthorConverterTest {
         assertEquals("City is not mapped", dto.getCity(), addAuthor.getCity());
         assertEquals("State is not mapped", dto.getState(), addAuthor.getState());
         assertEquals("Zip code is not mapped" ,dto.getZipCode() , addAuthor.getZipCode());
+        assertEquals("Contract is not mapped" ,Boolean.parseBoolean(dto.getContract()) , addAuthor.isContract());
     }
 }

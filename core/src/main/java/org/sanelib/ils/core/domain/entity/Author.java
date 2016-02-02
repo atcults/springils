@@ -49,6 +49,8 @@ public class Author implements DomainEntity{
     @Column(name = "zip")
     private String zipCode;
 
+    @Column(name = "contract")
+    private char isContract;
 
     public String getLastName() {
         return lastName;
@@ -104,6 +106,20 @@ public class Author implements DomainEntity{
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public boolean isContract() {
+        if(isContract == '1'){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    public void setContract(boolean contract) {
+        this.isContract = contract ? '1' : '0';
     }
 
 

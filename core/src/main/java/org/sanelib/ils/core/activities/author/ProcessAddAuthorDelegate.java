@@ -34,6 +34,7 @@ public class ProcessAddAuthorDelegate implements JavaDelegate {
         entity.setCity(command.getCity());
         entity.setState(command.getState());
         entity.setZipCode(command.getZipCode());
+        entity.setContract(command.isContract());
 
         authorRepository.save(entity);
 

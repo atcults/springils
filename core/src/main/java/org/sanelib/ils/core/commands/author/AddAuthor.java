@@ -13,6 +13,7 @@ public class AddAuthor implements ProcessCommandWithCode {
     private String city;
     private String state;
     private String zipCode;
+    private boolean isContract;
 
     @Override
     public Class getRootEntityClass() {
@@ -90,6 +91,14 @@ public class AddAuthor implements ProcessCommandWithCode {
         this.zipCode = zipCode;
     }
 
+    public boolean isContract() {
+        return isContract;
+    }
+
+    public void setContract(boolean contract) {
+        isContract = contract;
+    }
+
     @Override
     public String toString() {
         return "AddAuthor{" +
@@ -101,6 +110,7 @@ public class AddAuthor implements ProcessCommandWithCode {
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", zipCode='" + zipCode + '\'' +
+                ", isContract=" + isContract +
                 '}';
     }
 }

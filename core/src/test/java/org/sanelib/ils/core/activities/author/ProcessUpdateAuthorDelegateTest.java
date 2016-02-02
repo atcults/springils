@@ -36,6 +36,7 @@ public class ProcessUpdateAuthorDelegateTest {
         author.setCity("City");
         author.setState("GJ");
         author.setZipCode("5433");
+        author.setContract(true);
 
         Mockito.doNothing().when(authorRepositoryMock).save(Mockito.isA(Author.class));
 
@@ -51,6 +52,7 @@ public class ProcessUpdateAuthorDelegateTest {
         updateAuthor.setCity("new city");
         updateAuthor.setState("MH");
         updateAuthor.setZipCode("5433");
+        updateAuthor.setContract(false);
 
         DelegateExecution execution = Mockito.mock(DelegateExecution.class);
         Mockito.when(execution.getVariable("command")).thenReturn(updateAuthor);

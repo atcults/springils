@@ -36,6 +36,7 @@ public class AuthorService extends ApiServiceBase {
         author.setCity("city");
         author.setState("ST");
         author.setZipCode("54321");
+        author.setContract("false");
 
         list.add(author);
 

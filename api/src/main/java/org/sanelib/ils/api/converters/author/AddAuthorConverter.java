@@ -1,5 +1,6 @@
 package org.sanelib.ils.api.converters.author;
 
+import com.google.common.base.Strings;
 import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.author.AuthorDTO;
@@ -20,7 +21,13 @@ public class AddAuthorConverter implements DtoToCommandConverter<AuthorDTO> {
         ConverterHelper.checkCodeRequired(dto, command, processError);
 
         command.setLastName(dto.getLastName());
-        command.setFirstName(dto.getFirstName());
+
+        if(Strings.isNullOrEmpty(dto.getFirstName())){
+            processError.addError("common.field.required", "firstName", "domain.author.fname");
+        } else{
+            command.setFirstName(dto.getFirstName());
+        }
+
 
         //Check phone number and convert
         if(!RegularExpressionHelper.checkPhoneFormat(dto.getPhone())) {
@@ -43,6 +50,8 @@ public class AddAuthorConverter implements DtoToCommandConverter<AuthorDTO> {
         } else {
             command.setZipCode(dto.getZipCode());
         }
+
+        command.setContract(Boolean.parseBoolean(dto.getContract()));
 
         return command;
     }
