@@ -24,3 +24,9 @@ publisher:
 agency:
   name: Name
 
+bindingType:
+  bindType: Bind Type
+  price: Price
+  entryId: Entry Id
+  entryDate: Entry Id
+
