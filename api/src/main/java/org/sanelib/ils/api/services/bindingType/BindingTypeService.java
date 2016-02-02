@@ -6,7 +6,13 @@ import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.*;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +29,7 @@ public class BindingTypeService extends ApiServiceBase {
         bindingTypeDto.setId("1");
         bindingTypeDto.setLibraryId("1");
         bindingTypeDto.setBindType("BindType");
-        bindingTypeDto.setPrice("500");
+        bindingTypeDto.setPrice("500.00");
         bindingTypeDto.setEntryId("EntryId01");
         bindingTypeDto.setEntryDate("2007/01/02");
         list.add(bindingTypeDto);
