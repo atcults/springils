@@ -16,7 +16,7 @@ public class BindingType implements DomainEntity {
     private String bindType;
 
     @Column(name = "price")
-    private Integer price;
+    private Double price;
 
     @Column(name = "entry_id")
     private String entryId;
@@ -49,11 +49,11 @@ public class BindingType implements DomainEntity {
         this.bindType = bindType;
     }
 
-    public Integer getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

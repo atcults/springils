@@ -18,7 +18,7 @@ public class AddBindingType extends ProcessCommandWithLibraryId {
     }
 
     private String bindType;
-    private Integer price;
+    private Double price;
     private String entryId;
     private Date entryDate;
 
@@ -30,11 +30,11 @@ public class AddBindingType extends ProcessCommandWithLibraryId {
         this.bindType = bindType;
     }
 
-    public Integer getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
