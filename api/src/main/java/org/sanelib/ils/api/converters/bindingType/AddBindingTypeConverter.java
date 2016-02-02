@@ -1,6 +1,7 @@
 package org.sanelib.ils.api.converters.bindingType;
 
 
+import com.google.common.base.Strings;
 import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.bindingType.BindingTypeDto;
@@ -19,8 +20,13 @@ public class AddBindingTypeConverter implements DtoToCommandConverter<BindingTyp
 
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
 
-        command.setBindType(dto.getBindType());
-        command.setPrice(Integer.parseInt(dto.getPrice()));
+        if(Strings.isNullOrEmpty(dto.getBindType())){
+            processError.addError("common.field.required", "bindType", "domain.bindingType.bindType");
+        } else{
+            command.setBindType(dto.getBindType());
+        }
+
+        command.setPrice(Double.parseDouble(dto.getPrice()));
         command.setEntryId(dto.getEntryId());
         command.setEntryDate(DateHelper.fromDateString(dto.getEntryDate()));
 

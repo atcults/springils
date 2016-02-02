@@ -2,10 +2,8 @@ package org.sanelib.ils.api.converters.bindingType;
 
 import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
-import org.sanelib.ils.api.dto.agency.AgencyDto;
 import org.sanelib.ils.api.dto.bindingType.BindingTypeDto;
 import org.sanelib.ils.core.commands.ProcessCommand;
-import org.sanelib.ils.core.commands.agency.DeleteAgency;
 import org.sanelib.ils.core.commands.bindingType.DeleteBindingType;
 import org.sanelib.ils.core.exceptions.ProcessError;
 import org.springframework.stereotype.Component;
