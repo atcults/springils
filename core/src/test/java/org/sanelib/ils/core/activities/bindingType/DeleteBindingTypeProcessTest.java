@@ -3,10 +3,11 @@ package org.sanelib.ils.core.activities.bindingType;
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
-import org.sanelib.ils.core.commands.agency.DeleteAgency;
 import org.sanelib.ils.core.commands.bindingType.DeleteBindingType;
 import org.sanelib.ils.core.dao.HibernateHelper;
-import org.sanelib.ils.core.domain.entity.*;
+import org.sanelib.ils.core.domain.entity.BindingType;
+import org.sanelib.ils.core.domain.entity.BindingTypeId;
+import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.assertNull;
@@ -17,7 +18,7 @@ public class DeleteBindingTypeProcessTest extends EntityIntegrationTestBase {
     HibernateHelper hibernateHelper;
 
     @Test
-    public void testDeleteAgencyProcess() throws Throwable {
+    public void testDeleteBindingTypeProcess() throws Throwable {
 
         Library library = new Library();
         library.setId(hibernateHelper.getNextId(Library.class));

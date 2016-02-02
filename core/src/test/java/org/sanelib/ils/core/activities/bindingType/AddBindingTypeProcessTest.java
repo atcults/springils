@@ -7,9 +7,10 @@ import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.bindingType.AddBindingType;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.LibraryRepository;
-import org.sanelib.ils.core.domain.entity.*;
+import org.sanelib.ils.core.domain.entity.BindingType;
+import org.sanelib.ils.core.domain.entity.BindingTypeId;
+import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -35,7 +36,7 @@ public class AddBindingTypeProcessTest extends EntityIntegrationTestBase {
 
         addBindingType.setLibraryId(library.getId());
         addBindingType.setBindType("BindType");
-        addBindingType.setPrice(500);
+        addBindingType.setPrice(500.00);
         addBindingType.setEntryId("EntryId01");
         addBindingType.setEntryDate(DateHelper.fromDateString("2007/01/02"));
 

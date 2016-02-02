@@ -6,10 +6,15 @@ import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.bindingType.UpdateBindingType;
 import org.sanelib.ils.core.dao.HibernateHelper;
-import org.sanelib.ils.core.domain.entity.*;
+import org.sanelib.ils.core.domain.entity.BindingType;
+import org.sanelib.ils.core.domain.entity.BindingTypeId;
+import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertEquals;
+
 
 public class UpdateBindingTypeProcessTest extends EntityIntegrationTestBase {
 
@@ -37,7 +42,7 @@ public class UpdateBindingTypeProcessTest extends EntityIntegrationTestBase {
         updateBindingType.setId(bindingType.getBindingTypeId().getId());
         updateBindingType.setLibraryId(library.getId());
         updateBindingType.setBindType("updated bindingType");
-        bindingType.setPrice(500);
+        bindingType.setPrice(500.00);
         bindingType.setEntryId("EntryId01");
         bindingType.setEntryDate(DateHelper.fromDateString("2007/01/02"));
 
