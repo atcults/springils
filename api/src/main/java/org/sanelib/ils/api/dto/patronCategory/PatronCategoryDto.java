@@ -8,12 +8,11 @@ public class PatronCategoryDto implements DtoWithId, DtoWithLibraryId {
 
     private String libraryId;
     private String id;
-    private String patronCategoryName;
-    private String illThruNet;
-    private String renewalThruNet;
-    private String entryDate;
-    private String overallLoanLimit;
-    private String allowMultipleCopies;
+    private String name;
+    private boolean allowILLFromNet;
+    private boolean allowRenewalFromNet;
+    private Integer overallLoanLimit;
+    private boolean allowMultipleCopies;
     private String acqWorkflow;
 
     public String getLibraryId() {
@@ -32,51 +31,43 @@ public class PatronCategoryDto implements DtoWithId, DtoWithLibraryId {
         this.id = id;
     }
 
-    public String getPatronCategoryName() {
-        return patronCategoryName;
+    public String getName() {
+        return name;
     }
 
-    public void setPatronCategoryName(String patronCategoryName) {
-        this.patronCategoryName = patronCategoryName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getIllThruNet() {
-        return illThruNet;
+    public boolean isAllowILLFromNet() {
+        return allowILLFromNet;
     }
 
-    public void setIllThruNet(String illThruNet) {
-        this.illThruNet = illThruNet;
+    public void setAllowILLFromNet(boolean allowILLFromNet) {
+        this.allowILLFromNet = allowILLFromNet;
     }
 
-    public String getRenewalThruNet() {
-        return renewalThruNet;
+    public boolean isAllowRenewalFromNet() {
+        return allowRenewalFromNet;
     }
 
-    public void setRenewalThruNet(String renewalThruNet) {
-        this.renewalThruNet = renewalThruNet;
+    public void setAllowRenewalFromNet(boolean allowRenewalFromNet) {
+        this.allowRenewalFromNet = allowRenewalFromNet;
     }
 
-    public String getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(String entryDate) {
-        this.entryDate = entryDate;
-    }
-
-    public String getOverallLoanLimit() {
+    public Integer getOverallLoanLimit() {
         return overallLoanLimit;
     }
 
-    public void setOverallLoanLimit(String overallLoanLimit) {
+    public void setOverallLoanLimit(Integer overallLoanLimit) {
         this.overallLoanLimit = overallLoanLimit;
     }
 
-    public String getAllowMultipleCopies() {
+    public boolean isAllowMultipleCopies() {
         return allowMultipleCopies;
     }
 
-    public void setAllowMultipleCopies(String allowMultipleCopies) {
+    public void setAllowMultipleCopies(boolean allowMultipleCopies) {
         this.allowMultipleCopies = allowMultipleCopies;
     }
 
