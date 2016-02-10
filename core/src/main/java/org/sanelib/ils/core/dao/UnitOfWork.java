@@ -1,27 +1,36 @@
 package org.sanelib.ils.core.dao;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 
 public class UnitOfWork {
 
-    private SessionFactory sessionFactory;
+    private EntityManagerFactory entityManagerFactory;
+    private EntityManager entityManager;
     private Session currentSession;
-	private Transaction currentTransaction;
+    private EntityTransaction transaction;
 
-    public UnitOfWork(SessionFactory sessionFactory){
-        this.sessionFactory = sessionFactory;
+    public UnitOfWork(EntityManagerFactory entityManagerFactory){
+        this.entityManagerFactory = entityManagerFactory;
     }
 
 	public void begin() {
-		this.currentSession = sessionFactory.openSession();
-		this.currentTransaction = currentSession.beginTransaction();
+        this.entityManager = entityManagerFactory.createEntityManager();
+        this.transaction = entityManager.getTransaction();
+        this.transaction.begin();
+        this.currentSession = entityManager.unwrap(Session.class);
 	}
 
-	public Session getCurrentSession() {
+    public Session getCurrentSession() {
 		return this.currentSession;
 	}
+
+    public EntityManager getEntityManager(){
+        return this.entityManager;
+    }
 
 	public void flush() {
 		this.currentSession.flush();
@@ -32,15 +41,19 @@ public class UnitOfWork {
 	}
 
 	public void commit() {
-        this.currentTransaction.commit();
-        this.currentSession.close();
+        this.transaction.commit();
+        this.entityManager.close();
 	}
 
 	public void rollback() {
-		if(this.currentTransaction == null){
+		if(this.transaction == null){
 			return;
 		}
 
-		this.currentTransaction.rollback();
+		this.transaction.rollback();
+
+        if(this.entityManager.isOpen()){
+            this.entityManager.close();
+        }
 	}
 }

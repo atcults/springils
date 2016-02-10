@@ -1,6 +1,5 @@
 package org.sanelib.ils;
 
-import org.hibernate.SessionFactory;
 import org.sanelib.ils.common.utils.Clock;
 import org.sanelib.ils.common.utils.CustomClock;
 import org.sanelib.ils.core.dao.UnitOfWork;
@@ -8,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import javax.persistence.EntityManagerFactory;
+
 @SpringBootApplication
 public class CoreTestMain  {
 
     @Autowired
-    private SessionFactory sessionFactory;
+    private EntityManagerFactory entityManagerFactory;
 
     @Bean
     public Clock clock() {
@@ -21,7 +22,7 @@ public class CoreTestMain  {
 
     @Bean
     public UnitOfWork unitOfWork(){
-        return new UnitOfWork(this.sessionFactory);
+        return new UnitOfWork(this.entityManagerFactory);
     }
 
 }

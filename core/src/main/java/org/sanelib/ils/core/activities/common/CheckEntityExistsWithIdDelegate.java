@@ -33,7 +33,7 @@ public class CheckEntityExistsWithIdDelegate implements JavaDelegate {
         Integer id = ((ProcessCommandWithId) command).getId();
 
         if(this.unitOfWork.getCurrentSession().get(((ProcessCommand) command).getRootEntityClass(), id) == null){
-            processError.addError("common.field.notexist", "id", Arrays.asList(((ProcessCommand) command).getRootEntityName(), "domain.common.id"), String.valueOf(id));
+            processError.addError("common.field.notExist", "id", Arrays.asList(((ProcessCommand) command).getRootEntityName(), "domain.common.id"), String.valueOf(id));
         }
 
         if(!processError.isValid()){

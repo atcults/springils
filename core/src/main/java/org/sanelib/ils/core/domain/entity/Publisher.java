@@ -12,17 +12,17 @@ public class Publisher implements DomainEntity {
 
     @Id
     @Column(name = "pub_id")
-    private String id;
+    private String code;
 
-    public String getId() {
-        return Strings.isNullOrEmpty(this.id) ? null : this.id.trim();
+    public String getCode() {
+        return Strings.isNullOrEmpty(this.code) ? null : this.code.trim();
     }
 
-    public void setId(String id) {
-        if (Strings.isNullOrEmpty(id) && !this.id.equals(id)) {
-            throw new IllegalStateException("The ID must not be changed after it is set.");
+    public void setCode(String code) {
+        if (Strings.isNullOrEmpty(code) && !this.code.equals(code)) {
+            throw new IllegalStateException("The CODE must not be changed after it is set.");
         }
-        this.id = id.trim();
+        this.code = code.trim();
     }
 
 	@Column(name = "pub_name")
@@ -71,7 +71,7 @@ public class Publisher implements DomainEntity {
 
     @Override
     public int hashCode() {
-        return Strings.isNullOrEmpty(id) ? 0 : id.hashCode();
+        return Strings.isNullOrEmpty(code) ? 0 : code.hashCode();
     }
 
 }
