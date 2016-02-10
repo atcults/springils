@@ -1,10 +1,7 @@
 package org.sanelib.ils.core.domain.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -17,32 +14,28 @@ public class PatronCategory implements DomainEntity {
     private PatronCategoryId patronCategoryId;
 
     @Column(name = "patron_category_name")
-    private String patronCategoryName;
+    private String name;
 
     @Column(name = "ill_thru_net")
-    private String illThruNet;
+    private char allowILLFromNet;
 
     @Column(name = "renewal_thru_net")
-    private String renewalThruNet;
-
-    @Column(name = "entry_date")
-    private Date entryDate;
+    private char allowRenewalFromNet;
 
     @Column(name = "overall_loan_limit")
     private Integer overallLoanLimit;
 
     @Column(name="allow_multiple_copies")
-    private String allowMultipleCopies;
+    private char allowMultipleCopies;
 
     @Column(name="acq_workflow")
     private String acqWorkflow;
 
+    @Column(name = "entry_date")
+    private Date entryDate;
+
     public PatronCategoryId getPatronCategoryId() {
         return patronCategoryId;
-    }
-
-    public String getPatronCategoryName() {
-        return patronCategoryName;
     }
 
     public void setPatronCategoryId(int id, int libraryId){
@@ -54,32 +47,12 @@ public class PatronCategory implements DomainEntity {
         }
     }
 
-    public void setPatronCategoryName(String patronCategoryName) {
-        this.patronCategoryName = patronCategoryName;
+    public String getName() {
+        return name;
     }
 
-    public String getIllThruNet() {
-        return illThruNet;
-    }
-
-    public void setIllThruNet(String illThruNet) {
-        this.illThruNet = illThruNet;
-    }
-
-    public String getRenewalThruNet() {
-        return renewalThruNet;
-    }
-
-    public void setRenewalThruNet(String renewalThruNet) {
-        this.renewalThruNet = renewalThruNet;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
+    public void setName(String patronCategoryName) {
+        this.name = patronCategoryName;
     }
 
     public Integer getOverallLoanLimit() {
@@ -90,12 +63,28 @@ public class PatronCategory implements DomainEntity {
         this.overallLoanLimit = overallLoanLimit;
     }
 
-    public String getAllowMultipleCopies() {
-        return allowMultipleCopies;
+    public boolean getAllowILLFromNet() {
+        return allowILLFromNet == '1';
     }
 
-    public void setAllowMultipleCopies(String allowMultipleCopies) {
-        this.allowMultipleCopies = allowMultipleCopies;
+    public void setAllowILLFromNet(boolean allowILLFromNet) {
+        this.allowILLFromNet = allowILLFromNet ? '1' : '0';
+    }
+
+    public boolean getAllowRenewalFromNet() {
+        return allowRenewalFromNet == '1';
+    }
+
+    public void setAllowRenewalFromNet(boolean allowRenewalFromNet) {
+        this.allowRenewalFromNet = allowRenewalFromNet ? '1': '0';
+    }
+
+    public boolean getAllowMultipleCopies() {
+        return allowMultipleCopies == '1';
+    }
+
+    public void setAllowMultipleCopies(boolean allowMultipleCopies) {
+        this.allowMultipleCopies = allowMultipleCopies ? '1' : '0';
     }
 
     public String getAcqWorkflow() {
@@ -104,6 +93,10 @@ public class PatronCategory implements DomainEntity {
 
     public void setAcqWorkflow(String acqWorkflow) {
         this.acqWorkflow = acqWorkflow;
+    }
+
+    public Date getEntryDate() {
+        return entryDate;
     }
 
     @Override
@@ -119,5 +112,10 @@ public class PatronCategory implements DomainEntity {
     @Override
     public int hashCode() {
         return patronCategoryId.hashCode();
+    }
+
+    @PrePersist
+    public void prePersist() {
+        entryDate = new Date();
     }
 }
