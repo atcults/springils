@@ -63,7 +63,7 @@ public class PatronCategory implements DomainEntity {
         this.overallLoanLimit = overallLoanLimit;
     }
 
-    public boolean getAllowILLFromNet() {
+    public boolean isAllowILLFromNet() {
         return allowILLFromNet == '1';
     }
 
@@ -71,7 +71,7 @@ public class PatronCategory implements DomainEntity {
         this.allowILLFromNet = allowILLFromNet ? '1' : '0';
     }
 
-    public boolean getAllowRenewalFromNet() {
+    public boolean isAllowRenewalFromNet() {
         return allowRenewalFromNet == '1';
     }
 
@@ -79,7 +79,7 @@ public class PatronCategory implements DomainEntity {
         this.allowRenewalFromNet = allowRenewalFromNet ? '1': '0';
     }
 
-    public boolean getAllowMultipleCopies() {
+    public boolean isAllowMultipleCopies() {
         return allowMultipleCopies == '1';
     }
 

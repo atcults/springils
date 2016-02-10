@@ -17,44 +17,35 @@ public class AddPatronCategory extends ProcessCommandWithLibraryId {
         return "domain.entity.patronCategory";
     }
 
-    private String patronCategoryName;
-    private String illThruNet;
-    private String renewalThruNet;
-    private Date entryDate;
+    private String name;
+    private boolean allowILLFromNet;
+    private boolean allowRenewalFromNet;
     private Integer overallLoanLimit;
-    private String allowMultipleCopies;
+    private boolean allowMultipleCopies;
     private String acqWorkflow;
 
-    public String getPatronCategoryName() {
-        return patronCategoryName;
+    public String getName() {
+        return name;
     }
 
-    public void setPatronCategoryName(String patronCategoryName) {
-        this.patronCategoryName = patronCategoryName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getIllThruNet() {
-        return illThruNet;
+    public boolean isAllowILLFromNet() {
+        return allowILLFromNet;
     }
 
-    public void setIllThruNet(String illThruNet) {
-        this.illThruNet = illThruNet;
+    public void setAllowILLFromNet(boolean allowILLFromNet) {
+        this.allowILLFromNet = allowILLFromNet;
     }
 
-    public String getRenewalThruNet() {
-        return renewalThruNet;
+    public boolean isAllowRenewalFromNet() {
+        return allowRenewalFromNet;
     }
 
-    public void setRenewalThruNet(String renewalThruNet) {
-        this.renewalThruNet = renewalThruNet;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
+    public void setAllowRenewalFromNet(boolean allowRenewalFromNet) {
+        this.allowRenewalFromNet = allowRenewalFromNet;
     }
 
     public Integer getOverallLoanLimit() {
@@ -65,11 +56,11 @@ public class AddPatronCategory extends ProcessCommandWithLibraryId {
         this.overallLoanLimit = overallLoanLimit;
     }
 
-    public String getAllowMultipleCopies() {
+    public boolean isAllowMultipleCopies() {
         return allowMultipleCopies;
     }
 
-    public void setAllowMultipleCopies(String allowMultipleCopies) {
+    public void setAllowMultipleCopies(boolean allowMultipleCopies) {
         this.allowMultipleCopies = allowMultipleCopies;
     }
 
