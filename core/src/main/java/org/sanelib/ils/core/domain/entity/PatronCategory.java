@@ -41,10 +41,6 @@ public class PatronCategory implements DomainEntity {
         return patronCategoryId;
     }
 
-    public void setPatronCategoryId(PatronCategoryId patronCategoryId) {
-        this.patronCategoryId = patronCategoryId;
-    }
-
     public String getPatronCategoryName() {
         return patronCategoryName;
     }
