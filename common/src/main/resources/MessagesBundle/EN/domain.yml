@@ -1,7 +1,7 @@
 common:
   id: Id
   code: Code
-  library_id: Library Id
+  libraryId: Library Id
 
 entity:
   library: Library
