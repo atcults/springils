@@ -4,6 +4,7 @@ import org.sanelib.ils.api.dto.patronCategory.PatronCategoryDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
+import org.sanelib.ils.core.dao.read.ViewNameConstants;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
@@ -18,18 +19,7 @@ public class PatronCategoryService extends ApiServiceBase {
 
     @GET
     public List getAllPatronCategories() throws Throwable {
-        List<PatronCategoryDto> list = new ArrayList<>();
-        PatronCategoryDto patronCategoryDto = new PatronCategoryDto();
-        patronCategoryDto.setId("1");
-        patronCategoryDto.setLibraryId("1");
-        patronCategoryDto.setName("PatronCategory Name 1");
-        patronCategoryDto.setAllowILLFromNet(true);
-        patronCategoryDto.setAllowRenewalFromNet(true);
-        patronCategoryDto.setOverallLoanLimit("2");
-        patronCategoryDto.setAllowMultipleCopies(true);
-        patronCategoryDto.setAcqWorkflow("AcqWorkflow");
-        list.add(patronCategoryDto);
-        return list;
+        return fetchAll(ViewNameConstants.Admin.PATRON_CATEGORY);
     }
 
     @POST
