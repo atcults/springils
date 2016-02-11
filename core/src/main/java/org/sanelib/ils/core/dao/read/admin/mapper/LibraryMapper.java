@@ -14,7 +14,7 @@ public class LibraryMapper implements ViewMapper<LibraryView> {
 
         final String library = "library";
         final LibraryView libraryView = new LibraryView();
-        libraryView.setId(rs.getInt(library, "libraryId"));
+        libraryView.setId(rs.getInt(library, "library_id"));
         libraryView.setName(rs.getString(library, "library_name"));
         libraryView.setCity(rs.getString(library, "city"));
         libraryView.setState(rs.getString(library, "state"));

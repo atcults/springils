@@ -1,12 +1,14 @@
 common:
   id: Id
   code: Code
+  name: Name
   libraryId: Library Id
 
 entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  patronCategory: PatronCategory
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
 
@@ -39,3 +41,6 @@ accessionSeries:
   typeName: Fixed Or Variable
   entryId: Entry Id
   entryDate: Entry Date
+
+patronCategory:
+  name: Name
