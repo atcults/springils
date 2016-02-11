@@ -64,27 +64,27 @@ public class PatronCategory implements DomainEntity {
     }
 
     public boolean isAllowILLFromNet() {
-        return allowILLFromNet == '1';
+        return allowILLFromNet == 'Y';
     }
 
     public void setAllowILLFromNet(boolean allowILLFromNet) {
-        this.allowILLFromNet = allowILLFromNet ? '1' : '0';
+        this.allowILLFromNet = allowILLFromNet ? 'Y' : 'N';
     }
 
     public boolean isAllowRenewalFromNet() {
-        return allowRenewalFromNet == '1';
+        return allowRenewalFromNet == 'Y';
     }
 
     public void setAllowRenewalFromNet(boolean allowRenewalFromNet) {
-        this.allowRenewalFromNet = allowRenewalFromNet ? '1': '0';
+        this.allowRenewalFromNet = allowRenewalFromNet ? 'Y': 'N';
     }
 
     public boolean isAllowMultipleCopies() {
-        return allowMultipleCopies == '1';
+        return allowMultipleCopies == 'Y';
     }
 
     public void setAllowMultipleCopies(boolean allowMultipleCopies) {
-        this.allowMultipleCopies = allowMultipleCopies ? '1' : '0';
+        this.allowMultipleCopies = allowMultipleCopies ? 'Y' : 'N';
     }
 
     public String getAcqWorkflow() {
