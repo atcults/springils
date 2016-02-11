@@ -32,14 +32,14 @@ public class CheckPatronCategoryDuplicationDelegate implements JavaDelegate {
 
         Integer patronCategoryId = isUpdate ? ((UpdatePatronCategory) command).getId() : null;
         Integer libraryId = ((AddPatronCategory) command).getLibraryId();
-        String patronCategoryName = ((AddPatronCategory) command).getPatronCategoryName();
+        String patronCategoryName = ((AddPatronCategory) command).getName();
 
-        List<PatronCategory> patronCategories = patronCategoryRepository.findByColumnAndValue(new String[]{"patronCategoryId.libraryId", "patronCategoryName"}, new Object[] {libraryId, patronCategoryName});
+        List<PatronCategory> patronCategories = patronCategoryRepository.findByColumnAndValue(new String[]{"patronCategoryId.libraryId", "name"}, new Object[] {libraryId, patronCategoryName});
 
         PatronCategory dbPatronCategory = patronCategories.isEmpty() ? null : patronCategories.get(0);
 
         if(dbPatronCategory != null && (!isUpdate || !Objects.equals(patronCategoryId, dbPatronCategory.getPatronCategoryId().getId()))){
-            processError.addError("common.field.duplicate", "patronCategoryName", Arrays.asList("domain.entity.library", "domain.patronCategory.patronCategoryName"), patronCategoryName);
+            processError.addError("common.field.duplicate", "patronCategoryName", Arrays.asList("domain.entity.library", "domain.patronCategory.name"), patronCategoryName);
         }
 
         if(!processError.isValid()){

@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.patronCategory;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.patronCategory.AddPatronCategory;
 import org.sanelib.ils.core.dao.HibernateHelper;
@@ -33,12 +32,11 @@ public class AddPatronCategoryProcessTest extends EntityIntegrationTestBase {
         AddPatronCategory addPatronCategory = new AddPatronCategory();
 
         addPatronCategory.setLibraryId(library.getId());
-        addPatronCategory.setPatronCategoryName("PCName");
-        addPatronCategory.setIllThruNet("I");
-        addPatronCategory.setRenewalThruNet("R");
-        addPatronCategory.setEntryDate(DateHelper.fromDateString("2007/01/02"));
+        addPatronCategory.setName("PCName");
+        addPatronCategory.setAllowILLFromNet(true);
+        addPatronCategory.setAllowRenewalFromNet(true);
         addPatronCategory.setOverallLoanLimit(2);
-        addPatronCategory.setAllowMultipleCopies("M");
+        addPatronCategory.setAllowMultipleCopies(true);
         addPatronCategory.setAcqWorkflow("AcqWorkflow");
 
         String result = execute(addPatronCategory, ActivitiProcessConstants.Admin.ADD_PATRON_CATEGORY);
@@ -49,13 +47,11 @@ public class AddPatronCategoryProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(patronCategory);
 
-        assertEquals(addPatronCategory.getPatronCategoryName() ,patronCategory.getPatronCategoryName());
-        assertEquals(addPatronCategory.getPatronCategoryName(),patronCategory.getPatronCategoryName());
-        assertEquals(addPatronCategory.getIllThruNet(),patronCategory.getIllThruNet());
-        assertEquals(addPatronCategory.getRenewalThruNet(),patronCategory.getRenewalThruNet());
-        assertEquals(addPatronCategory.getEntryDate(),patronCategory.getEntryDate());
-        assertEquals(addPatronCategory.getOverallLoanLimit(),patronCategory.getOverallLoanLimit());
-        assertEquals(addPatronCategory.getAllowMultipleCopies(),patronCategory.getAllowMultipleCopies());
+        assertEquals(addPatronCategory.getName(), patronCategory.getName());
+        assertEquals(addPatronCategory.isAllowILLFromNet(), patronCategory.isAllowILLFromNet());
+        assertEquals(addPatronCategory.isAllowRenewalFromNet(), patronCategory.isAllowRenewalFromNet());
+        assertEquals(addPatronCategory.getOverallLoanLimit(), patronCategory.getOverallLoanLimit());
+        assertEquals(addPatronCategory.isAllowMultipleCopies(), patronCategory.isAllowMultipleCopies());
         assertEquals(addPatronCategory.getAcqWorkflow(),patronCategory.getAcqWorkflow());
     }
 }

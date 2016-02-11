@@ -28,12 +28,11 @@ public class ProcessAddPatronCategoryDelegate implements JavaDelegate {
 
         Integer nextId = hibernateHelper.getNextId(PatronCategory.class, "patronCategoryId.id");
         entity.setPatronCategoryId(nextId, command.getLibraryId());
-        entity.setPatronCategoryName(command.getPatronCategoryName());
-        entity.setIllThruNet(command.getIllThruNet());
-        entity.setRenewalThruNet(command.getRenewalThruNet());
-        entity.setEntryDate(command.getEntryDate());
+        entity.setName(command.getName());
+        entity.setAllowILLFromNet(command.isAllowILLFromNet());
+        entity.setAllowRenewalFromNet(command.isAllowRenewalFromNet());
         entity.setOverallLoanLimit(command.getOverallLoanLimit());
-        entity.setAllowMultipleCopies(command.getAllowMultipleCopies());
+        entity.setAllowMultipleCopies(command.isAllowMultipleCopies());
         entity.setAcqWorkflow(command.getAcqWorkflow());
 
         patronCategoryRepository.save(entity);

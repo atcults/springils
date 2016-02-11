@@ -27,7 +27,7 @@ public class DeletePatronCategoryProcessTest extends EntityIntegrationTestBase {
         PatronCategory patronCategory = new PatronCategory();
 
         patronCategory.setPatronCategoryId(hibernateHelper.getNextId(PatronCategory.class, "patronCategoryId.id"), library.getId());
-        patronCategory.setPatronCategoryName("patronCategory");
+        patronCategory.setName("patronCategory");
 
         persist(patronCategory);
 

@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.patronCategory;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.patronCategory.UpdatePatronCategory;
 import org.sanelib.ils.core.dao.HibernateHelper;
@@ -28,7 +27,7 @@ public class UpdatePatronCategoryProcessTest extends EntityIntegrationTestBase {
         PatronCategory patronCategory = new PatronCategory();
 
         patronCategory.setPatronCategoryId(hibernateHelper.getNextId(PatronCategory.class, "patronCategoryId.id"), library.getId());
-        patronCategory.setPatronCategoryName("patronCategory");
+        patronCategory.setName("patronCategory");
 
         persist(patronCategory);
 
@@ -36,12 +35,11 @@ public class UpdatePatronCategoryProcessTest extends EntityIntegrationTestBase {
 
         updatePatronCategory.setId(patronCategory.getPatronCategoryId().getId());
         updatePatronCategory.setLibraryId(library.getId());
-        updatePatronCategory.setPatronCategoryName("updated PatronCategory");
-        updatePatronCategory.setIllThruNet("T");
-        updatePatronCategory.setRenewalThruNet("T");
-        updatePatronCategory.setEntryDate(DateHelper.fromDateString("2007/02/02"));
+        updatePatronCategory.setName("updated PatronCategory");
+        updatePatronCategory.setAllowILLFromNet(true);
+        updatePatronCategory.setAllowRenewalFromNet(true);
         updatePatronCategory.setOverallLoanLimit(3);
-        updatePatronCategory.setAllowMultipleCopies("M");
+        updatePatronCategory.setAllowMultipleCopies(true);
         updatePatronCategory.setAcqWorkflow("NewAcqWorkflow");
 
         String result = execute(updatePatronCategory, ActivitiProcessConstants.Admin.UPDATE_PATRON_CATEGORY);
@@ -52,12 +50,11 @@ public class UpdatePatronCategoryProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(dbPatronCategory);
 
-        assertEquals(updatePatronCategory.getPatronCategoryName(), dbPatronCategory.getPatronCategoryName());
-        assertEquals(updatePatronCategory.getIllThruNet(), dbPatronCategory.getIllThruNet());
-        assertEquals(updatePatronCategory.getRenewalThruNet(), dbPatronCategory.getRenewalThruNet());
-        assertEquals(updatePatronCategory.getEntryDate(), dbPatronCategory.getEntryDate());
+        assertEquals(updatePatronCategory.getName(), dbPatronCategory.getName());
+        assertEquals(updatePatronCategory.isAllowILLFromNet(), dbPatronCategory.isAllowILLFromNet());
+        assertEquals(updatePatronCategory.isAllowRenewalFromNet(), dbPatronCategory.isAllowRenewalFromNet());
         assertEquals(updatePatronCategory.getOverallLoanLimit(), dbPatronCategory.getOverallLoanLimit());
-        assertEquals(updatePatronCategory.getAllowMultipleCopies(), dbPatronCategory.getAllowMultipleCopies());
+        assertEquals(updatePatronCategory.isAllowMultipleCopies(), dbPatronCategory.isAllowMultipleCopies());
         assertEquals(updatePatronCategory.getAcqWorkflow(), dbPatronCategory.getAcqWorkflow());
     }
 }
