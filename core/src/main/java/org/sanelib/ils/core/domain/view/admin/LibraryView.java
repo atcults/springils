@@ -4,14 +4,14 @@ import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithId;
 
 public class LibraryView implements DomainView, ViewWithId {
-    private int id;
+    private Integer id;
     private String name;
     private String city;
     private String state;
     private String country;
 
     @Override
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
