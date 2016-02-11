@@ -116,6 +116,18 @@ public class PatronCategory implements DomainEntity {
 
     @PrePersist
     public void prePersist() {
+        if(!isAllowILLFromNet()){
+            setAllowILLFromNet(false);
+        }
+
+        if(!isAllowMultipleCopies()){
+            setAllowMultipleCopies(false);
+        }
+
+        if(!isAllowRenewalFromNet()){
+            setAllowRenewalFromNet(false);
+        }
+
         entryDate = new Date();
     }
 }
