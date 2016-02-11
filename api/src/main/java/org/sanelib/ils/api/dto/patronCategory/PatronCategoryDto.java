@@ -11,7 +11,7 @@ public class PatronCategoryDto implements DtoWithId, DtoWithLibraryId {
     private String name;
     private boolean allowILLFromNet;
     private boolean allowRenewalFromNet;
-    private Integer overallLoanLimit;
+    private String overallLoanLimit;
     private boolean allowMultipleCopies;
     private String acqWorkflow;
 
@@ -55,11 +55,11 @@ public class PatronCategoryDto implements DtoWithId, DtoWithLibraryId {
         this.allowRenewalFromNet = allowRenewalFromNet;
     }
 
-    public Integer getOverallLoanLimit() {
+    public String getOverallLoanLimit() {
         return overallLoanLimit;
     }
 
-    public void setOverallLoanLimit(Integer overallLoanLimit) {
+    public void setOverallLoanLimit(String overallLoanLimit) {
         this.overallLoanLimit = overallLoanLimit;
     }
 
