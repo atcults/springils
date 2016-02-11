@@ -1,6 +1,5 @@
 package org.sanelib.ils.api.services.patronCategory;
 
-import org.sanelib.ils.api.dto.agency.AgencyDto;
 import org.sanelib.ils.api.dto.patronCategory.PatronCategoryDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
@@ -23,12 +22,11 @@ public class PatronCategoryService extends ApiServiceBase {
         PatronCategoryDto patronCategoryDto = new PatronCategoryDto();
         patronCategoryDto.setId("1");
         patronCategoryDto.setLibraryId("1");
-        patronCategoryDto.setPatronCategoryName("PatronCategory Name 1");
-        patronCategoryDto.setIllThruNet("I");
-        patronCategoryDto.setRenewalThruNet("R");
-        patronCategoryDto.setEntryDate("2007/01/02");
+        patronCategoryDto.setName("PatronCategory Name 1");
+        patronCategoryDto.setAllowILLFromNet(true);
+        patronCategoryDto.setAllowRenewalFromNet(true);
         patronCategoryDto.setOverallLoanLimit("2");
-        patronCategoryDto.setAllowMultipleCopies("A");
+        patronCategoryDto.setAllowMultipleCopies(true);
         patronCategoryDto.setAcqWorkflow("AcqWorkflow");
         list.add(patronCategoryDto);
         return list;

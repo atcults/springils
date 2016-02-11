@@ -17,12 +17,11 @@ public class AddPatronCategoryConverterTest {
         PatronCategoryDto dto = new PatronCategoryDto();
 
         dto.setLibraryId("1");
-        dto.setPatronCategoryName("PCName");
-        dto.setIllThruNet("I");
-        dto.setRenewalThruNet("R");
-        dto.setEntryDate("2007/01/02");
+        dto.setName("PCName");
+        dto.setAllowILLFromNet(true);
+        dto.setAllowRenewalFromNet(true);
         dto.setOverallLoanLimit("2");
-        dto.setAllowMultipleCopies("A");
+        dto.setAllowMultipleCopies(true);
         dto.setAcqWorkflow("AcqWorkflow");
 
         ProcessError processError = new ProcessError();
@@ -35,12 +34,11 @@ public class AddPatronCategoryConverterTest {
 
         AddPatronCategory addPatronCategory = (AddPatronCategory) command;
         assertEquals("Library Id is not mapped", dto.getLibraryId(), String.valueOf(addPatronCategory.getLibraryId()));
-        assertEquals("Name is not mapped", dto.getPatronCategoryName(), addPatronCategory.getPatronCategoryName());
-        assertEquals("Ill Thru Net not Mapped ", dto.getIllThruNet(),addPatronCategory.getIllThruNet());
-        assertEquals("Renewal Thru Net not Mapped ", dto.getRenewalThruNet(),addPatronCategory.getRenewalThruNet());
-        assertEquals("Entry date not Mapped ", dto.getEntryDate(), DateHelper.toDateString(addPatronCategory.getEntryDate()));
-        assertEquals("Overall Loan limit not Mapped ", dto.getOverallLoanLimit(),String.valueOf(addPatronCategory.getOverallLoanLimit()));
-        assertEquals("Allow Multiple Copies not Mapped ", dto.getAllowMultipleCopies(),addPatronCategory.getAllowMultipleCopies());
+        assertEquals("Name is not mapped", dto.getName(), addPatronCategory.getName());
+        assertEquals("Ill Thru Net not Mapped ", dto.isAllowILLFromNet(), addPatronCategory.isAllowILLFromNet());
+        assertEquals("Renewal Thru Net not Mapped ", dto.isAllowRenewalFromNet(), addPatronCategory.isAllowRenewalFromNet());
+        assertEquals("Overall Loan limit not Mapped ", dto.getOverallLoanLimit(), String.valueOf(addPatronCategory.getOverallLoanLimit()));
+        assertEquals("Allow Multiple Copies not Mapped ", dto.isAllowMultipleCopies(), addPatronCategory.isAllowILLFromNet());
         assertEquals("Acq Workflow not Mapped ", dto.getAcqWorkflow(),addPatronCategory.getAcqWorkflow());
     }
 }

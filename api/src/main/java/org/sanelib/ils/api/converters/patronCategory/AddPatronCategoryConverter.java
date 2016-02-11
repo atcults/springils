@@ -20,17 +20,16 @@ public class AddPatronCategoryConverter implements DtoToCommandConverter<PatronC
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
 
         //Check name and convert
-        if(Strings.isNullOrEmpty(dto.getPatronCategoryName())){
-            processError.addError("common.field.required", "patronCategoryName", "domain.patronCategory.patronCategoryName");
+        if(Strings.isNullOrEmpty(dto.getName())){
+            processError.addError("common.field.required", "name", "domain.patronCategory.name");
         } else{
-            command.setPatronCategoryName(dto.getPatronCategoryName());
+            command.setName(dto.getName());
         }
 
-        command.setIllThruNet(dto.getIllThruNet());
-        command.setRenewalThruNet(dto.getRenewalThruNet());
-        command.setEntryDate(DateHelper.fromDateString(dto.getEntryDate()));
+        command.setAllowILLFromNet(dto.isAllowILLFromNet());
+        command.setAllowRenewalFromNet(dto.isAllowRenewalFromNet());
         command.setOverallLoanLimit(Integer.parseInt(dto.getOverallLoanLimit()));
-        command.setAllowMultipleCopies(dto.getAllowMultipleCopies());
+        command.setAllowMultipleCopies(dto.isAllowMultipleCopies());
         command.setAcqWorkflow(dto.getAcqWorkflow());
 
         return command;
