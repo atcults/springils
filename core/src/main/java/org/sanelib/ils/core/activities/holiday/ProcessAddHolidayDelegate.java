@@ -9,7 +9,6 @@ import org.sanelib.ils.core.commands.holiday.AddHoliday;
 import org.sanelib.ils.core.dao.FiscalYearRepository;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.HolidayRepository;
-import org.sanelib.ils.core.dao.UnitOfWork;
 import org.sanelib.ils.core.domain.entity.Holiday;
 import org.sanelib.ils.core.enums.HolidayType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +30,6 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
 
     @Autowired
     FiscalYearRepository fiscalYearRepository;
-
-    @Autowired
-    UnitOfWork unitOfWork;
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
@@ -84,11 +80,7 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
                 holidayRepository.save(entity);
 
             }
-                unitOfWork.flush();
-                unitOfWork.clear();
         }
-
-
 
         execution.setVariable("result", addedHolidays);
     }
