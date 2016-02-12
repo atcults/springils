@@ -82,6 +82,14 @@ public class Holiday implements DomainEntity{
         this.entryId = entryId;
     }
 
+    public int getEntryLibraryId() {
+        return entryLibraryId;
+    }
+
+    public void setEntryLibraryId(int entryLibraryId) {
+        this.entryLibraryId = entryLibraryId;
+    }
+
     @PrePersist
     public void prePersist() {
         entryDate = new Date();
