@@ -6,10 +6,12 @@ import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.holiday.HolidayDto;
 import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.common.utils.RegularExpressionHelper;
+import org.sanelib.ils.common.utils.SystemClock;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.holiday.AddHoliday;
 import org.sanelib.ils.core.enums.HolidayType;
 import org.sanelib.ils.core.exceptions.ProcessError;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
@@ -18,6 +20,10 @@ import java.util.Date;
 
 @Component
 public class AddHolidayConverter implements DtoToCommandConverter<HolidayDto>{
+
+    @Autowired
+    SystemClock clock;
+
     @Override
     public ProcessCommand convert(HolidayDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
 
@@ -31,24 +37,12 @@ public class AddHolidayConverter implements DtoToCommandConverter<HolidayDto>{
             command.setFiscalYearId(Integer.valueOf(dto.getFiscalYearId()));
         }
 
-        Date todaysDate = new Date();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(todaysDate);
-
-        cal.set( Calendar.HOUR_OF_DAY, 0 );
-        cal.set( Calendar.MINUTE, 0 );
-        cal.set( Calendar.SECOND, 0 );
-        cal.set( Calendar.MILLISECOND, 0 );
-
-        Date convertedDate = cal.getTime();
-
-
         if(!RegularExpressionHelper.checkDateFormat(dto.getStartDate())) {
             processError.addError("common.field.pattern", "StartDate", "domain.holiday.startDate", RegularExpressionHelper.DATE_FORMAT_EXAMPLE);
         }
         else{
             command.setStartDate(DateHelper.fromDateString(dto.getStartDate()));
-            if(command.getStartDate().before(convertedDate)){
+            if(command.getStartDate().before(clock.today())){
                 throw new RuntimeException("Start should be after today's date");
             }
         }
@@ -63,7 +57,7 @@ public class AddHolidayConverter implements DtoToCommandConverter<HolidayDto>{
             }
         }
 
-        HolidayType holidayType = HolidayType.getByValue(String.valueOf(dto.getHolidayType()));
+        HolidayType holidayType = HolidayType.getByName(dto.getHolidayType());
 
         if(!holidayType.toString().equals("R") && !holidayType.toString().equals("S")){
             processError.addError("common.field.select", "holidayType", "domain.holiday.holidayType");
