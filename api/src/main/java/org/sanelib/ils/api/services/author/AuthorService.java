@@ -4,6 +4,7 @@ import org.sanelib.ils.api.dto.author.AuthorDTO;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
+import org.sanelib.ils.core.dao.read.ViewNameConstants;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.DELETE;
@@ -14,8 +15,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
+
 
 @Component
 @Path(ApiEndPointConstants.Admin.AUTHOR_END_POINT)
@@ -24,23 +25,7 @@ public class AuthorService extends ApiServiceBase {
 
     @GET
     public List getAllAuthors() throws Throwable {
-        List<AuthorDTO> list = new ArrayList<>();
-
-        AuthorDTO author = new AuthorDTO();
-
-        author.setCode("1");
-        author.setLastName("Author Last Name");
-        author.setFirstName("Author First Name");
-        author.setPhone("+91-9876543219");
-        author.setAddress("Address");
-        author.setCity("city");
-        author.setState("ST");
-        author.setZipCode("54321");
-        author.setContract("false");
-
-        list.add(author);
-
-        return list;
+        return fetchAll(ViewNameConstants.Admin.AUTHOR);
     }
 
     @POST
