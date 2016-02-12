@@ -4,10 +4,8 @@ import org.junit.Test;
 import org.sanelib.ils.api.dto.holiday.HolidayDto;
 import org.sanelib.ils.common.utils.CustomClock;
 import org.sanelib.ils.common.utils.DateHelper;
-import org.sanelib.ils.common.utils.SystemClock;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.holiday.AddHoliday;
-import org.sanelib.ils.core.enums.HolidayType;
 import org.sanelib.ils.core.exceptions.ProcessError;
 
 import static org.junit.Assert.assertEquals;
@@ -32,7 +30,6 @@ public class AddHolidayConverterTest {
         ProcessError processError = new ProcessError();
 
         AddHolidayConverter addHolidayConverter = new AddHolidayConverter();
-        addHolidayConverter.clock = new SystemClock();
 
         ProcessCommand command = addHolidayConverter.convert(dto, processError);
 

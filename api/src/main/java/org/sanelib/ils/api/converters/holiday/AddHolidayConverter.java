@@ -6,23 +6,14 @@ import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.holiday.HolidayDto;
 import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.common.utils.RegularExpressionHelper;
-import org.sanelib.ils.common.utils.SystemClock;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.holiday.AddHoliday;
 import org.sanelib.ils.core.enums.HolidayType;
 import org.sanelib.ils.core.exceptions.ProcessError;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 @Component
 public class AddHolidayConverter implements DtoToCommandConverter<HolidayDto>{
-
-    @Autowired
-    SystemClock clock;
 
     @Override
     public ProcessCommand convert(HolidayDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
@@ -42,9 +33,6 @@ public class AddHolidayConverter implements DtoToCommandConverter<HolidayDto>{
         }
         else{
             command.setStartDate(DateHelper.fromDateString(dto.getStartDate()));
-            if(command.getStartDate().before(clock.today())){
-                throw new RuntimeException("Start should be after today's date");
-            }
         }
 
         if(!RegularExpressionHelper.checkDateFormat(dto.getEndDate())) {
