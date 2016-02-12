@@ -4,6 +4,7 @@ import org.sanelib.ils.api.dto.library.LibraryDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
+import org.sanelib.ils.core.dao.read.ViewNameConstants;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
@@ -18,15 +19,7 @@ public class LibraryService extends ApiServiceBase {
 
     @GET
     public List getAllLibraries() throws Throwable {
-        List<LibraryDto> list = new ArrayList<>();
-        LibraryDto libraryDto = new LibraryDto();
-        libraryDto.setId("1");
-        libraryDto.setName("Library Name 1");
-        libraryDto.setCity("City");
-        libraryDto.setState("State");
-        libraryDto.setCountry("Country");
-        list.add(libraryDto);
-        return list;
+        return fetchAll(ViewNameConstants.Admin.LIBRARY);
     }
 
     @POST
