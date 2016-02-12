@@ -1,15 +1,18 @@
 common:
   id: Id
   code: Code
-  library_id: Library Id
+  name: Name
+  libraryId: Library Id
+  entryId: Patron Id
+  entryLibraryId: Patron Library Id
 
 entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  patronCategory: PatronCategory
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
-  domain: Domain
   holiday: Holiday
 
 library:
@@ -46,7 +49,8 @@ holiday:
   fiscalYearId: Fisal Year
   holidayType: Holiday Type
   note: Note
-  entryId: Entry Id
+  startDate: Start Id
   endDate: End Date
-  entryLibraryId: Entry Library Id
-  entryDate: Entry Date
+
+patronCategory:
+  name: Name
