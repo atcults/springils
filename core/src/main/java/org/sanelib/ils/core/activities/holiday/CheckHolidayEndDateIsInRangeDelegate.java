@@ -2,6 +2,7 @@ package org.sanelib.ils.core.activities.holiday;
 
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.JavaDelegate;
+import org.sanelib.ils.common.utils.Clock;
 import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.holiday.AddHoliday;
 import org.sanelib.ils.core.dao.FiscalYearRepository;
@@ -18,6 +19,9 @@ public class CheckHolidayEndDateIsInRangeDelegate implements JavaDelegate {
     @Autowired
     FiscalYearRepository fiscalYearRepository;
 
+    @Autowired
+    Clock clock;
+
     @Override
     public void execute(DelegateExecution execution) throws Exception {
         System.out.println("Checking end date with fiscal year end date");
@@ -33,6 +37,10 @@ public class CheckHolidayEndDateIsInRangeDelegate implements JavaDelegate {
         AddHoliday addHoliday = (AddHoliday) command;
 
         FiscalYear fiscalYear = fiscalYearRepository.get(new FiscalYearId(addHoliday.getLibraryId(), addHoliday.getFiscalYearId()));
+
+        if(addHoliday.getStartDate().before(clock.today())){
+            throw new RuntimeException("Start should be after today's date");
+        }
 
         if(addHoliday.getEndDate().after(fiscalYear.getEndDate())){
             processError.addError("common.holiday.endDateOutOfRange", "endDate", "domain.holiday.endDate", DateHelper.toDateString(fiscalYear.getEndDate()));
