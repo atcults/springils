@@ -47,7 +47,7 @@ public class AddHolidayConverter implements DtoToCommandConverter<HolidayDto>{
 
         HolidayType holidayType = HolidayType.getByName(dto.getHolidayType());
 
-        if(!holidayType.toString().equals("R") && !holidayType.toString().equals("S")){
+        if(holidayType == null){
             processError.addError("common.field.select", "holidayType", "domain.holiday.holidayType");
         }else {
             command.setHolidayType(holidayType);

@@ -8,6 +8,7 @@ import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.common.utils.RegularExpressionHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.holiday.DeleteHoliday;
+import org.sanelib.ils.core.enums.HolidayType;
 import org.sanelib.ils.core.exceptions.ProcessError;
 import org.springframework.stereotype.Component;
 
@@ -40,6 +41,15 @@ public class DeleteHolidayConverter implements DtoToCommandConverter<HolidayDto>
         else {
             command.setEndDate(DateHelper.fromDateString(dto.getEndDate()));
         }
+
+        HolidayType holidayType = HolidayType.getByName(dto.getHolidayType());
+
+        if(holidayType == null){
+            processError.addError("common.field.select", "holidayType", "domain.holiday.holidayType");
+        }else {
+            command.setHolidayType(holidayType);
+        }
+
 
         return command;
     }
