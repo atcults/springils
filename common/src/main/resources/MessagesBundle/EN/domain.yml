@@ -9,6 +9,8 @@ entity:
   agency: Agency
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
+  domain: Domain
+  holiday: Holiday
 
 library:
   name: Name
@@ -38,4 +40,13 @@ accessionSeries:
   prefix: Prefix
   typeName: Fixed Or Variable
   entryId: Entry Id
+  entryDate: Entry Date
+
+holiday:
+  fiscalYearId: Fisal Year
+  holidayType: Holiday Type
+  note: Note
+  entryId: Entry Id
+  endDate: End Date
+  entryLibraryId: Entry Library Id
   entryDate: Entry Date

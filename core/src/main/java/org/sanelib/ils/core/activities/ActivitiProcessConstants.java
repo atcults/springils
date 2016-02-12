@@ -22,5 +22,8 @@ public class ActivitiProcessConstants {
         public static final String ADD_ACCESSIONSERIES = "addAccessionSeries";
         public static final String UPDATE_ACCESSIONSERIES = "updateAccessionSeries";
         public static final String DELETE_ACCESSIONSERIES = "deleteAccessionSeries";
+
+        public static final String ADD_HOLIDAY = "addHoliday";
+        public static final String DELETE_HOLIDAY = "deleteHoliday";
     }
 }
