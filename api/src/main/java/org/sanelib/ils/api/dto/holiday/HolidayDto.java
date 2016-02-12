@@ -1,13 +1,12 @@
 package org.sanelib.ils.api.dto.holiday;
 
 import org.sanelib.ils.api.dto.DtoWithLibraryId;
-import org.sanelib.ils.core.enums.HolidayType;
 
 public class HolidayDto implements DtoWithLibraryId{
 
     private String libraryId;
     private String fiscalYearId;
-    private HolidayType holidayType;
+    private String holidayTypeName;
     private String startDate;
     private String endDate;
     private String note;
@@ -29,12 +28,12 @@ public class HolidayDto implements DtoWithLibraryId{
         this.fiscalYearId = fiscalYearId;
     }
 
-    public HolidayType getHolidayType() {
-        return holidayType;
+    public String getHolidayType() {
+        return holidayTypeName;
     }
 
-    public void setHolidayType(HolidayType holidayType) {
-        this.holidayType = holidayType;
+    public void setHolidayType(String holidayTypeName) {
+        this.holidayTypeName = holidayTypeName;
     }
 
     public String getStartDate() {
