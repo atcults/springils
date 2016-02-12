@@ -55,9 +55,9 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
     private Date membershipFrom;
     private Date membershipTo;
     private String delinquencyReason;
-    private String commonEmail;
-    private String commonInstantMsg;
-    private String commonPrint;
+    private boolean commonEmail;
+    private boolean commonInstantMsg;
+    private boolean commonPrint;
     private Date entryDate;
     private String userPassword;
     private Integer courseId;
@@ -353,36 +353,32 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
         this.delinquencyReason = delinquencyReason;
     }
 
-    public String getCommonEmail() {
+    public boolean commonEmail() {
         return commonEmail;
     }
 
-    public void setCommonEmail(String commonEmail) {
+    public void setCommonEmail(boolean commonEmail) {
         this.commonEmail = commonEmail;
     }
 
-    public String getCommonInstantMsg() {
+    public boolean commonInstantMsg() {
         return commonInstantMsg;
     }
 
-    public void setCommonInstantMsg(String commonInstantMsg) {
+    public void setCommonInstantMsg(boolean commonInstantMsg) {
         this.commonInstantMsg = commonInstantMsg;
     }
 
-    public String getCommonPrint() {
+    public boolean commonPrint() {
         return commonPrint;
     }
 
-    public void setCommonPrint(String commonPrint) {
+    public void setCommonPrint(boolean commonPrint) {
         this.commonPrint = commonPrint;
     }
 
     public Date getEntryDate() {
         return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
     }
 
     public String getUserPassword() {

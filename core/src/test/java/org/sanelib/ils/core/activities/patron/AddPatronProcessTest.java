@@ -70,10 +70,9 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
         addPatron.setMembershipFrom(DateHelper.constructDate(2014,4,1));
         addPatron.setMembershipTo(DateHelper.constructDate(2016,3,31));
         addPatron.setDelinquencyReason("Reason");
-        addPatron.setCommonEmail("A");
-        addPatron.setCommonInstantMsg("B");
-        addPatron.setCommonPrint("A");
-        addPatron.setEntryDate(DateHelper.constructDate(2013,2,1));
+        addPatron.setCommonEmail(true);
+        addPatron.setCommonInstantMsg(true);
+        addPatron.setCommonPrint(true);
         addPatron.setUserPassword("password");
         addPatron.setCourseId(1);
         addPatron.setCustom("Custom");
@@ -81,7 +80,7 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
         addPatron.setTwitterId("TId");
         addPatron.setFacebookId("FId");
         addPatron.setSubLocationId(1);
-        addPatron.setLoginId("LId");
+        addPatron.setLoginId("L1Id2");
         addPatron.setAuthenticateLocalDatabase("A");
 
         PatronType patronType = PatronType.getByName("Patron");
@@ -127,9 +126,9 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
         assertEquals(addPatron.getMembershipFrom() ,patron.getMembershipFrom());
         assertEquals(addPatron.getMembershipTo() ,patron.getMembershipTo());
         assertEquals(addPatron.getDelinquencyReason() ,patron.getDelinquencyReason());
-        assertEquals(addPatron.getCommonEmail() ,patron.getCommonEmail());
-        assertEquals(addPatron.getCommonInstantMsg() ,patron.getCommonInstantMsg());
-        assertEquals(addPatron.getCommonPrint() ,patron.getCommonPrint());
+        assertEquals(addPatron.commonEmail() ,patron.commonEmail());
+        assertEquals(addPatron.commonInstantMsg() ,patron.commonInstantMsg());
+        assertEquals(addPatron.commonPrint() ,patron.commonPrint());
         assertEquals(addPatron.getEntryDate() ,patron.getEntryDate());
         assertEquals(addPatron.getUserPassword() ,patron.getUserPassword());
         assertEquals(addPatron.getCourseId() ,patron.getCourseId());

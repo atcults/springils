@@ -64,10 +64,9 @@ public class DeletePatronProcessTest extends EntityIntegrationTestBase {
         patron.setMembershipFrom(DateHelper.constructDate(2014,4,1));
         patron.setMembershipTo(DateHelper.constructDate(2016,3,31));
         patron.setDelinquencyReason("Reason");
-        patron.setCommonEmail("A");
-        patron.setCommonInstantMsg("B");
-        patron.setCommonPrint("A");
-        patron.setEntryDate(DateHelper.constructDate(2013,2,1));
+        patron.setCommonEmail(true);
+        patron.setCommonInstantMsg(true);
+        patron.setCommonPrint(true);
         patron.setUserPassword("password");
         patron.setCourseId(1);
         patron.setCustom("Custom");
@@ -75,7 +74,7 @@ public class DeletePatronProcessTest extends EntityIntegrationTestBase {
         patron.setTwitterId("TId");
         patron.setFacebookId("FId");
         patron.setSubLocationId(1);
-        patron.setLoginId("LId");
+        patron.setLoginId("L12Id");
         patron.setAuthenticateLocalDatabase("A");
 
         persist(patron);

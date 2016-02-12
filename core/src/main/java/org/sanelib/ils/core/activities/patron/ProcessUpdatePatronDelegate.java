@@ -60,10 +60,9 @@ public class ProcessUpdatePatronDelegate implements JavaDelegate {
         entity.setMembershipFrom(command.getMembershipFrom());
         entity.setMembershipTo(command.getMembershipTo());
         entity.setDelinquencyReason(command.getDelinquencyReason());
-        entity.setCommonEmail(command.getCommonEmail());
-        entity.setCommonInstantMsg(command.getCommonInstantMsg());
-        entity.setCommonPrint(command.getCommonPrint());
-        entity.setEntryDate(command.getEntryDate());
+        entity.setCommonEmail(command.commonEmail());
+        entity.setCommonInstantMsg(command.commonInstantMsg());
+        entity.setCommonPrint(command.commonPrint());
         entity.setUserPassword(command.getUserPassword());
         entity.setCourseId(command.getCourseId());
         entity.setSendToAddress(command.getSendToAddress());

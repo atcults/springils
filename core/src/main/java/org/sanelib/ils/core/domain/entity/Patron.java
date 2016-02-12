@@ -137,13 +137,13 @@ public class Patron implements DomainEntity {
     private String delinquencyReason;
 
     @Column(name = "common_email")
-    private String commonEmail;
+    private char commonEmail;
 
     @Column(name = "common_instant_msg")
-    private String commonInstantMsg;
+    private char commonInstantMsg;
 
     @Column(name = "common_print")
-    private String commonPrint;
+    private char commonPrint;
 
     @Column(name="entry_date")
     private Date entryDate;
@@ -446,36 +446,38 @@ public class Patron implements DomainEntity {
         this.delinquencyReason = delinquencyReason;
     }
 
-    public String getCommonEmail() {
-        return commonEmail;
+    public boolean commonEmail() {
+
+        return commonEmail == 'Y';
     }
 
-    public void setCommonEmail(String commonEmail) {
-        this.commonEmail = commonEmail;
+    public void setCommonEmail(boolean commonEmail) {
+
+        this.commonEmail = commonEmail ? 'Y' : 'N';
     }
 
-    public String getCommonInstantMsg() {
-        return commonInstantMsg;
+    public boolean commonInstantMsg() {
+
+        return commonInstantMsg == 'Y';
     }
 
-    public void setCommonInstantMsg(String commonInstantMsg) {
-        this.commonInstantMsg = commonInstantMsg;
+    public void setCommonInstantMsg(boolean commonInstantMsg) {
+
+        this.commonInstantMsg = commonInstantMsg ? 'Y' : 'N';
     }
 
-    public String getCommonPrint() {
-        return commonPrint;
+    public boolean commonPrint() {
+
+        return commonPrint == 'Y';
     }
 
-    public void setCommonPrint(String commonPrint) {
-        this.commonPrint = commonPrint;
+    public void setCommonPrint(boolean commonPrint) {
+
+        this.commonPrint = commonPrint ? 'Y' : 'N';
     }
 
     public Date getEntryDate() {
         return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
     }
 
     public String getUserPassword() {
@@ -566,4 +568,20 @@ public class Patron implements DomainEntity {
         this.authenticateLocalDatabase = authenticateLocalDatabase;
     }
 
+    @PrePersist
+    public void prePersist() {
+        if(!commonEmail()){
+            setCommonEmail(false);
+        }
+
+        if(!commonInstantMsg()){
+            setCommonInstantMsg(false);
+        }
+
+        if(!commonPrint()){
+            setCommonPrint(false);
+        }
+
+        entryDate = new Date();
+    }
 }

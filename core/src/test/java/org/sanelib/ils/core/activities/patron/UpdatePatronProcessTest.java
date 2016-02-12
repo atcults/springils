@@ -66,10 +66,9 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         patron.setMembershipFrom(DateHelper.constructDate(2014,4,1));
         patron.setMembershipTo(DateHelper.constructDate(2016,3,31));
         patron.setDelinquencyReason("Reason");
-        patron.setCommonEmail("A");
-        patron.setCommonInstantMsg("B");
-        patron.setCommonPrint("A");
-        patron.setEntryDate(DateHelper.constructDate(2013,2,1));
+        patron.setCommonEmail(true);
+        patron.setCommonInstantMsg(true);
+        patron.setCommonPrint(true);
         patron.setUserPassword("password");
         patron.setCourseId(1);
         patron.setCustom("Custom");
@@ -77,7 +76,7 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         patron.setTwitterId("TId");
         patron.setFacebookId("FId");
         patron.setSubLocationId(1);
-        patron.setLoginId("LId");
+        patron.setLoginId("L2Id");
         patron.setAuthenticateLocalDatabase("A");
 
         persist(patron);
@@ -103,7 +102,7 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         updatePatron.setPin("387003");
         updatePatron.setPhone1("+91-9876543210");
         updatePatron.setPhone2("+91-9876543210");
-        updatePatron.setFax("987654321");
+        updatePatron.setFax("+91-987654321");
         updatePatron.setEmail("name@mail.com");
         updatePatron.setPermanentAddress1("PAddress1");
         updatePatron.setPermanentAddress2("PAddress2");
@@ -113,15 +112,14 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         updatePatron.setPermanentPin("PPin");
         updatePatron.setPermanentPhone1("+91-9876543210");
         updatePatron.setPermanentPhone2("+91-9876543210");
-        updatePatron.setPermanentFax("987654321");
+        updatePatron.setPermanentFax("+91-987654321");
         updatePatron.setPermanentEmail("name@mail.com");
         updatePatron.setMembershipFrom(DateHelper.constructDate(2014,4,1));
         updatePatron.setMembershipTo(DateHelper.constructDate(2016,3,31));
         updatePatron.setDelinquencyReason("Reason");
-        updatePatron.setCommonEmail("A");
-        updatePatron.setCommonInstantMsg("B");
-        updatePatron.setCommonPrint("A");
-        updatePatron.setEntryDate(DateHelper.constructDate(2013,2,1));
+        updatePatron.setCommonEmail(true);
+        updatePatron.setCommonInstantMsg(true);
+        updatePatron.setCommonPrint(true);
         updatePatron.setUserPassword("password");
         updatePatron.setCourseId(1);
         updatePatron.setCustom("Custom");
@@ -129,7 +127,7 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         updatePatron.setTwitterId("TId");
         updatePatron.setFacebookId("FId");
         updatePatron.setSubLocationId(1);
-        updatePatron.setLoginId("L1Id");
+        updatePatron.setLoginId("L2Id");
         updatePatron.setAuthenticateLocalDatabase("A");
 
         String result = execute(updatePatron, ActivitiProcessConstants.Admin.UPDATE_PATRON);
@@ -172,9 +170,9 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         assertEquals(updatePatron.getMembershipFrom() ,patron.getMembershipFrom());
         assertEquals(updatePatron.getMembershipTo() ,patron.getMembershipTo());
         assertEquals(updatePatron.getDelinquencyReason() ,patron.getDelinquencyReason());
-        assertEquals(updatePatron.getCommonEmail() ,patron.getCommonEmail());
-        assertEquals(updatePatron.getCommonInstantMsg() ,patron.getCommonInstantMsg());
-        assertEquals(updatePatron.getCommonPrint() ,patron.getCommonPrint());
+        assertEquals(updatePatron.commonEmail() ,patron.commonEmail());
+        assertEquals(updatePatron.commonInstantMsg() ,patron.commonInstantMsg());
+        assertEquals(updatePatron.commonPrint() ,patron.commonPrint());
         assertEquals(updatePatron.getEntryDate() ,patron.getEntryDate());
         assertEquals(updatePatron.getUserPassword() ,patron.getUserPassword());
         assertEquals(updatePatron.getCourseId() ,patron.getCourseId());
