@@ -7,25 +7,18 @@ import org.hibernate.criterion.Restrictions;
 import org.joda.time.LocalDate;
 import org.sanelib.ils.core.commands.holiday.DeleteHoliday;
 import org.sanelib.ils.core.dao.HolidayRepository;
-import org.sanelib.ils.core.dao.UnitOfWork;
 import org.sanelib.ils.core.domain.entity.Holiday;
-import org.sanelib.ils.core.domain.entity.HolidayId;
+import org.sanelib.ils.core.enums.HolidayType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class ProcessDeleteHolidayDelegate implements JavaDelegate {
 
     @Autowired
     HolidayRepository holidayRepository;
-
-    @Autowired
-    UnitOfWork unitOfWork;
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
@@ -37,7 +30,7 @@ public class ProcessDeleteHolidayDelegate implements JavaDelegate {
         detachedCriteria.add(Restrictions.ge("holidayId.holidayDate", command.getStartDate()));
         detachedCriteria.add(Restrictions.lt("holidayId.holidayDate", command.getEndDate()));
 
-        List list = holidayRepository.executeQueryObject(detachedCriteria, Holiday.class);
+        List list = this.holidayRepository.executeQueryObject(detachedCriteria, Holiday.class);
 
         Map<Date, Holiday> existingHolidays = new HashMap<>();
 
@@ -46,18 +39,25 @@ public class ProcessDeleteHolidayDelegate implements JavaDelegate {
             existingHolidays.put(holiday.getHolidayId().getHolidayDate(), holiday);
         }
 
+        Integer removedHolidays = 0;
+        int increment = command.getHolidayType() == HolidayType.Specific ? 1 : 7;
 
-        for (LocalDate date = LocalDate.fromDateFields(command.getStartDate()); date.isBefore(LocalDate.fromDateFields(command.getEndDate()).plusDays(1)); date = date.plusDays(1)) {
+        for (LocalDate date = LocalDate.fromDateFields(command.getStartDate()); date.isBefore(LocalDate.fromDateFields(command.getEndDate()).plusDays(1)); date = date.plusDays(increment)) {
             Date currDate = date.toDate();
 
             if(existingHolidays.containsKey(currDate)){
 
-            Holiday holiday = this.holidayRepository.load(new HolidayId(command.getLibraryId(), new HolidayId().getHolidayDate()));
-            holidayRepository.remove(holiday);
+                Holiday holiday = existingHolidays.get(currDate);
+
+                if(Objects.equals(command.getHolidayType(), HolidayType.Repeated) && Objects.equals(holiday.getHolidayType(), HolidayType.Specific)){
+                    continue;
+                }
+
+                holidayRepository.remove(existingHolidays.get(currDate));
+                removedHolidays ++;
             }
         }
-        unitOfWork.flush();
-        unitOfWork.clear();
 
+        execution.setVariable("result", removedHolidays);
     }
 }

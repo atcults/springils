@@ -14,10 +14,7 @@ import org.sanelib.ils.core.enums.HolidayType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Component
 public class ProcessAddHolidayDelegate implements JavaDelegate {
@@ -38,8 +35,6 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
 
         AddHoliday command = (AddHoliday) execution.getVariable("command");
 
-        Holiday entity = new Holiday();
-
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Holiday.class);
         detachedCriteria.add(Restrictions.eq("holidayId.libraryId", command.getLibraryId()));
         detachedCriteria.add(Restrictions.ge("holidayId.holidayDate", command.getStartDate()));
@@ -58,9 +53,11 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
         int increment = command.getHolidayType() == HolidayType.Specific ? 1 : 7;
 
         for (LocalDate date = LocalDate.fromDateFields(command.getStartDate()); date.isBefore(LocalDate.fromDateFields(command.getEndDate()).plusDays(1)); date = date.plusDays(increment)) {
-            Date currDate = date.toDate();
 
-            if(existingHolidays.containsKey(currDate) && command.getHolidayType() == HolidayType.Specific) {
+            Date currDate = date.toDate();
+            Holiday entity = new Holiday();
+
+            if(existingHolidays.containsKey(currDate) && Objects.equals(command.getHolidayType(), HolidayType.Specific)) {
                 entity.setEntryId(command.getEntryId());
                 entity.setHolidayType(command.getHolidayType());
                 entity.setNote(command.getNote());

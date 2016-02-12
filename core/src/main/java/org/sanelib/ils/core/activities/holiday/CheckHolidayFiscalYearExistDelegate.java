@@ -5,6 +5,7 @@ import org.activiti.engine.delegate.JavaDelegate;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.commands.holiday.AddHoliday;
+import org.sanelib.ils.core.commands.holiday.DeleteHoliday;
 import org.sanelib.ils.core.dao.FiscalYearRepository;
 import org.sanelib.ils.core.domain.entity.FiscalYear;
 import org.sanelib.ils.core.domain.entity.FiscalYearId;
@@ -32,8 +33,15 @@ public class CheckHolidayFiscalYearExistDelegate implements JavaDelegate {
             throw new RuntimeException("Command is invalid. It should implement proper interface.");
         }
 
-        Integer id = ((AddHoliday) command).getFiscalYearId();
-        Integer libraryId = ((ProcessCommandWithLibraryId) command).getLibraryId();
+        Integer id, libraryId;
+
+        if(command instanceof AddHoliday){
+            id = ((AddHoliday) command).getFiscalYearId();
+        } else {
+            id = ((DeleteHoliday) command).getFiscalYearId();
+        }
+
+        libraryId = ((ProcessCommandWithLibraryId) command).getLibraryId();
 
         FiscalYear fiscalYear = fiscalYearRepository.get(new FiscalYearId(libraryId, id));
 
