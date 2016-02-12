@@ -2,11 +2,14 @@ package org.sanelib.ils.core.activities.holiday;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
+import org.sanelib.ils.common.utils.Clock;
+import org.sanelib.ils.common.utils.CustomClock;
 import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.holiday.AddHoliday;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.HolidayRepository;
+import org.sanelib.ils.core.domain.entity.FiscalYear;
 import org.sanelib.ils.core.domain.entity.Holiday;
 import org.sanelib.ils.core.domain.entity.HolidayId;
 import org.sanelib.ils.core.domain.entity.Library;
@@ -24,6 +27,9 @@ public class AddHolidayProcessTest extends EntityIntegrationTestBase{
     @Autowired
     HolidayRepository holidayRepository;
 
+    @Autowired
+    Clock clock;
+
     @Test
     public void testAddHolidayProcess() throws Throwable{
 
@@ -37,27 +43,32 @@ public class AddHolidayProcessTest extends EntityIntegrationTestBase{
 
         persist(library);
 
+        FiscalYear fiscalYear = new FiscalYear();
+        fiscalYear.setLibraryId(library.getId());
+        fiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
+        fiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
+        fiscalYear.setEntryId("1");
+
+        persist(fiscalYear);
+
         AddHoliday addHoliday = new AddHoliday();
 
-        addHoliday.setStartDate(DateHelper.constructDate(2015 , 2 , 6));
-        addHoliday.setEndDate(DateHelper.constructDate(2015 , 2, 9));
+        //NOTE: Setting today as 1st january 2016
+        CustomClock customClock = (CustomClock) clock;
+        customClock.set(DateHelper.constructDate(2016, 1, 1));
+
         addHoliday.setLibraryId(library.getId());
         addHoliday.setFiscalYearId(20152016);
         addHoliday.setHolidayType(HolidayType.Specific);
-        addHoliday.setNote("1");
+        addHoliday.setStartDate(DateHelper.constructDate(2016 , 2 , 6));
+        addHoliday.setEndDate(DateHelper.constructDate(2016 , 2, 9));
+        addHoliday.setNote("Test Holiday");
         addHoliday.setEntryId(1);
+        addHoliday.setEntryLibraryId(1);
 
         String result = execute(addHoliday , ActivitiProcessConstants.Admin.ADD_HOLIDAY);
 
-
-        assertNotNull(result);
-
-        Holiday holiday = fetch(Holiday.class , new HolidayId(library.getId() , addHoliday.getStartDate()));
-
-        assertEquals(addHoliday.getFiscalYearId(), holiday.getFiscalYearId());
-        assertEquals(addHoliday.getHolidayType(), holiday.getHolidayType());
-        assertEquals(addHoliday.getNote(), holiday.getNote());
-        assertEquals(addHoliday.getEntryId(), holiday.getEntryId());
-
+        //4 Records should be added
+        assertEquals("4", result);
     }
 }
