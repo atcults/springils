@@ -11,6 +11,7 @@ entity:
   patronCategory: PatronCategory
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
+  department: Department
 
 library:
   name: Name
@@ -34,7 +35,6 @@ fiscalYear:
 
 accessionSeries:
   code: Series Name
-  entryDate: Entry Date
   maxNumber: Max Number
   maxZero: Max Zero
   prefix: Prefix
@@ -44,3 +44,9 @@ accessionSeries:
 
 patronCategory:
   name: Name
+
+Department:
+  name: Department Name
+  hodId: HOD Id
+  entryDate: Entry Date
+  entryId: Entry Id
