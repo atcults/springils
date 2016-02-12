@@ -40,10 +40,10 @@
 	- This field stores the First name of Patron.
 
   	8. mname - String **Optional**
-	
-   - This field stores the Middle Name of Patron.
 
-   9. lname - String **Optional**
+	- This field stores the Middle Name of Patron.
+
+	9. lname - String **Optional**
 
 	- This field stores the Last Name of Patron.
 
@@ -59,13 +59,13 @@
 
  	- Name of the City
 
-   13. state - String **Optional**
+	13. state - String **Optional**
 
 	- Name of the State
 
  	14.  country - String **Optional**
 
-   - Name of the Country
+	- Name of the Country
 
 	15. pin - String **Optional**
 
@@ -141,7 +141,7 @@
   	- Starting Date of membership.
   		- e.g. DATE_FORMAT_EXAMPLE ="1991/01/01"
 
-   31.  membership_expiry_date - String **Optional**
+	31.  membership_expiry_date - String **Optional**
 
 	- Expiry date of membership.
 		- e.g. DATE_FORMAT_EXAMPLE ="1991/01/01"
@@ -267,9 +267,6 @@
 #### *Response*  
 - Record will be deleted from the database
 - No data will be recieved as a response
-```
-204 - no content
-```    
 
 ### Method Requirement
 
@@ -281,3 +278,51 @@
 		- *Expected Response*: Throw Appropriate Exception for No such record found
 	2. *Scenario 2*: If record exists
 		- *Expected Response*:Execute Successfully 
+
+### Search Patron 
+* This method will be used to search any record from existing records
+
+#### *Request*
+- Request Path: http://localhost:8070/api/patron/?{libraryId=value}
+	- *Note*: In url, any parameter can be passed in the place of library id
+- Request Method - Get
+- Request Parameter - PatronDto
+	1. patron_id - String **Required**
+
+	- Patron id is the Primary key of patron, hence passing this will allow find unique record
+
+	2. login_id - String **Optional**
+
+	- This is the Login id of patron, which is unique hence can be passed to get expected record
+
+	3. fname - String **Optional**
+
+	- This field stores the First name of Patron.
+
+* Any one of the above fields value can be passed to fetch the record
+  	    	
+#### *Response*  
+- Record will be fetched from the database
+- Records fulfilling the categories will be displayed
+    
+
+### Method Requirement
+
+- Either of the following values have to be passed
+	1. Department Name
+	2. Course
+	3. Patron Category
+	4. Patron Type
+	5. Sub Location
+- If no value passed manually, By Default the value in the above fields are 'Any'
+- Value can be passed in more than one field, that will provide more appropiate result 	
+
+### Acceptance Criteria
+- *Criteria 1*: Passing the values to filter the records from the database
+ 	1. *Scenario 1*: If No record matches the passed value
+		- *Expected Response*: Throw Appropriate Exception for No such record found
+	2. *Scenario 2*: If record exists
+		- *Expected Response*: Display all the records after filtering the database 
+
+
+
