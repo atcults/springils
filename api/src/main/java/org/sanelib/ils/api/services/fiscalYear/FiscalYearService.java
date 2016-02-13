@@ -4,11 +4,17 @@ import org.sanelib.ils.api.dto.fiscalYear.FiscalYearDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
+import org.sanelib.ils.core.dao.read.ViewNameConstants;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.*;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -17,21 +23,8 @@ import java.util.List;
 public class FiscalYearService extends ApiServiceBase {
 
     @GET
-    public List<FiscalYearDto> getAllFiscalYearDTOs() throws Exception {
-
-        List<FiscalYearDto> dtos = new ArrayList<>();
-
-        FiscalYearDto fiscalYearDTO = new FiscalYearDto();
-
-        fiscalYearDTO.setLibraryId("101");
-        fiscalYearDTO.setId("12345");
-        fiscalYearDTO.setStartDate("2015/04/01");
-        fiscalYearDTO.setEndDate("2016/03/31");
-        fiscalYearDTO.setEntryId("john");
-
-        dtos.add(fiscalYearDTO);
-
-        return dtos;
+    public List getAllFiscalYears() throws Throwable {
+        return fetchAll(ViewNameConstants.Admin.FISCALYEAR);
     }
 
     @POST
