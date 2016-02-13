@@ -12,6 +12,9 @@ import org.sanelib.ils.core.enums.HolidayType;
 import org.sanelib.ils.core.exceptions.ProcessError;
 import org.springframework.stereotype.Component;
 
+import java.util.Calendar;
+import java.util.Objects;
+
 @Component
 public class AddHolidayConverter implements DtoToCommandConverter<HolidayDto>{
 
@@ -54,6 +57,23 @@ public class AddHolidayConverter implements DtoToCommandConverter<HolidayDto>{
         }
 
         command.setNote(dto.getNote());
+
+        //create an array of days
+        String[] strDays = new String[]{
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+        };
+
+        if(Objects.equals(holidayType, HolidayType.Repeated) && command.getStartDate() != null){
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(command.getStartDate());
+            command.setNote(strDays[calendar.get(Calendar.DAY_OF_WEEK) - 1]);
+        }
 
         return command;
     }
