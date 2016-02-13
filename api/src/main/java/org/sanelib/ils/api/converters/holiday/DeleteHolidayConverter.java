@@ -42,7 +42,7 @@ public class DeleteHolidayConverter implements DtoToCommandConverter<HolidayDto>
             command.setEndDate(DateHelper.fromDateString(dto.getEndDate()));
         }
 
-        HolidayType holidayType = HolidayType.getByName(dto.getHolidayType());
+        HolidayType holidayType = HolidayType.getByName(dto.getHolidayTypeName());
 
         if(holidayType == null){
             processError.addError("common.field.select", "holidayType", "domain.holiday.holidayType");

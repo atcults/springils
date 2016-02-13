@@ -28,11 +28,11 @@ public class HolidayDto implements DtoWithLibraryId{
         this.fiscalYearId = fiscalYearId;
     }
 
-    public String getHolidayType() {
+    public String getHolidayTypeName() {
         return holidayTypeName;
     }
 
-    public void setHolidayType(String holidayTypeName) {
+    public void setHolidayTypeName(String holidayTypeName) {
         this.holidayTypeName = holidayTypeName;
     }
 

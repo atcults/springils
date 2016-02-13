@@ -24,7 +24,7 @@ public class AddHolidayConverterTest {
         dto.setFiscalYearId("20152016");
         dto.setStartDate(DateHelper.toDateString(clock.today()));
         dto.setEndDate(DateHelper.toDateString(clock.today()));
-        dto.setHolidayType("Specific");
+        dto.setHolidayTypeName("Specific");
         dto.setNote("Test Note");
 
         ProcessError processError = new ProcessError();
@@ -41,7 +41,7 @@ public class AddHolidayConverterTest {
         assertEquals("Library Id is not mapped ", dto.getLibraryId(), String.valueOf(addHoliday.getLibraryId()));
         assertEquals("Start Date is not mapped ", dto.getStartDate(), DateHelper.toDateString(addHoliday.getStartDate()));
         assertEquals("End Date is not mapped ", dto.getEndDate(), DateHelper.toDateString(addHoliday.getEndDate()));
-        assertEquals("Holiday type is not mapped ", dto.getHolidayType(), addHoliday.getHolidayType().name());
+        assertEquals("Holiday type is not mapped ", dto.getHolidayTypeName(), addHoliday.getHolidayType().name());
         assertEquals("Note is not mapped ", dto.getNote(), addHoliday.getNote());
     }
 }

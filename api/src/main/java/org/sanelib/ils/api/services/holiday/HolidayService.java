@@ -6,10 +6,7 @@ import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +27,8 @@ public class HolidayService extends ApiServiceBase {
         holidayDto.setFiscalYearId("20152016");
         holidayDto.setStartDate("2016/02/09");
         holidayDto.setEndDate("2016/02/29");
-        holidayDto.setHolidayType("Specific");
-        holidayDto.setNote(null);
+        holidayDto.setHolidayTypeName("Specific");
+        holidayDto.setNote("note");
 
         dtos.add(holidayDto);
 
@@ -41,5 +38,21 @@ public class HolidayService extends ApiServiceBase {
     @POST
     public String addHoliday(HolidayDto holidayDto) throws Throwable {
         return execute(holidayDto, ActivitiProcessConstants.Admin.ADD_HOLIDAY);
+    }
+
+    @DELETE
+    @Path("/{libraryId}/{fiscalYearId}/{holidayType}/{startDate}/{endDate}")
+    public String deleteHoliday(@PathParam("libraryId") String libraryId,
+                                @PathParam("fiscalYearId") String fiscalYearId,
+                                @PathParam("holidayType") String holidayType,
+                                @PathParam("startDate") String startDate,
+                                @PathParam("endDate") String endDate) throws Throwable {
+        HolidayDto dto = new HolidayDto();
+        dto.setLibraryId(libraryId);
+        dto.setFiscalYearId(fiscalYearId);
+        dto.setHolidayTypeName(holidayType);
+        dto.setStartDate(startDate);
+        dto.setEndDate(endDate);
+        return execute(dto, ActivitiProcessConstants.Admin.DELETE_LIBRARY);
     }
 }

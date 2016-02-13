@@ -50,6 +50,4 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
     public void setEntryId(String entryId) {
         this.entryId = entryId;
     }
-
 }
-

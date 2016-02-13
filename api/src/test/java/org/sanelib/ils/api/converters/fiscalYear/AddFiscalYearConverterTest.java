@@ -17,9 +17,9 @@ public class AddFiscalYearConverterTest {
 
         FiscalYearDto dto = new FiscalYearDto();
         dto.setLibraryId("1");
-        dto.setStartDate("2015/04/01");
-        dto.setEndDate("2016/03/31");
-        dto.setEntryId("john");
+        dto.setStartDate("2015-04-01");
+        dto.setEndDate("2016-03-31");
+        dto.setEntryId("1");
 
         ProcessError processError = new ProcessError();
 

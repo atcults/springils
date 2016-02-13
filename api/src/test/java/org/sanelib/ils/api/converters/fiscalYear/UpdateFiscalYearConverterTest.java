@@ -18,9 +18,9 @@ public class UpdateFiscalYearConverterTest {
 
         dto.setId("12345");
         dto.setLibraryId("101");
-        dto.setStartDate("2015/04/01");
-        dto.setEndDate("2016/03/31");
-        dto.setEntryId("john");
+        dto.setStartDate("2015-04-01");
+        dto.setEndDate("2016-03-31");
+        dto.setEntryId("1");
 
         ProcessError processError = new ProcessError();
 

@@ -20,9 +20,9 @@ public class DeleteHolidayConverterTest {
 
         dto.setLibraryId("2");
         dto.setFiscalYearId("20152016");
-        dto.setStartDate("2016/02/09");
-        dto.setEndDate("2016/02/11");
-        dto.setHolidayType("Specific");
+        dto.setStartDate("2016-02-09");
+        dto.setEndDate("2016-02-11");
+        dto.setHolidayTypeName("Specific");
 
         ProcessError processError = new ProcessError();
 
