@@ -23,13 +23,8 @@ public class ActivitiProcessConstants {
         public static final String UPDATE_ACCESSIONSERIES = "updateAccessionSeries";
         public static final String DELETE_ACCESSIONSERIES = "deleteAccessionSeries";
 
-        public static final String ADD_AUTHOR = "addAuthor";
-        public static final String UPDATE_AUTHOR = "updateAuthor";
-        public static final String DELETE_AUTHOR = "deleteAuthor";
-
-        public static final String ADD_LOCATION = "addLocation";
-        public static final String UPDATE_LOCATION = "updateLocation";
-        public static final String DELETE_LOCATION = "deleteLocation";
-
+        public static final String ADD_PATRON_CATEGORY = "addPatronCategory";
+        public static final String UPDATE_PATRON_CATEGORY = "updatePatronCategory";
+        public static final String DELETE_PATRON_CATEGORY = "deletePatronCategory";
     }
 }

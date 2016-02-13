@@ -2,6 +2,7 @@ package org.sanelib.ils.core.configs;
 
 import java.util.Properties;
 
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp.BasicDataSource;
@@ -10,6 +11,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 /**
  * Contains database configurations.
@@ -17,17 +20,16 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 @Configuration
 public class DatabaseConfig {
 
-	// ------------------------
-	// PUBLIC METHODS
-	// ------------------------
 
-	/**
+    @Autowired
+    private Environment env;
+
+    /**
 	 * DataSource definition for database connection. Settings are read from
 	 * the application.properties file (using the env object).
 	 */
-
-	@Bean
-	public DataSource dataSource() {
+    @Bean
+    public DataSource dataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
 		System.out.println(env);
 		dataSource.setDriverClassName(env.getProperty("db.driver"));
@@ -38,32 +40,22 @@ public class DatabaseConfig {
 		return dataSource;
 	}
 
-	@Bean
-	public LocalSessionFactoryBean sessionFactory() {
-		LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
-		sessionFactoryBean.setDataSource(dataSource());
-		sessionFactoryBean.setPackagesToScan(env.getProperty("entitymanager.packagesToScan"));
-        sessionFactoryBean.setEntityInterceptor(new IlsHibernateInterceptor());
-		// Hibernate properties
-		Properties additionalProperties = new Properties();
-		additionalProperties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
-		additionalProperties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-		additionalProperties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+    @Bean
+    public EntityManagerFactory entityManagerFactory() {
+        LocalContainerEntityManagerFactoryBean lef = new LocalContainerEntityManagerFactoryBean();
+        lef.setDataSource(dataSource());
+        lef.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+        lef.setPackagesToScan(env.getProperty("entitymanager.packagesToScan"));
 
-		sessionFactoryBean.setHibernateProperties(additionalProperties);
-		return sessionFactoryBean;
-	}
+        Properties additionalProperties = new Properties();
+        additionalProperties.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
+        additionalProperties.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
+        additionalProperties.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
+        lef.setJpaProperties(additionalProperties);
 
-	// ------------------------
-	// PRIVATE FIELDS
-	// ------------------------
+        lef.afterPropertiesSet();
 
-   /* @Bean
-    ProcessEngineConfiguration getActivitiProcessEngineConf(){
-        ProcessEngineConfiguration
+        return lef.getObject();
+    }
 
-    }*/
-	@Autowired
-	private Environment env;
-
-} // class DatabaseConfig
+}

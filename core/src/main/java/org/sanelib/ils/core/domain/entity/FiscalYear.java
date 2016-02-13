@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "acc_fiscal_year")
-public class FiscalYear implements DomainEntity, RequireBeforePersist {
+public class FiscalYear implements DomainEntity{
 
     private static final long serialVersionUID = 1L;
 
@@ -89,6 +89,7 @@ public class FiscalYear implements DomainEntity, RequireBeforePersist {
         return fiscalYearId.hashCode();
     }
 
+    @PrePersist
     public void prePersist() {
         status = "0";
         startYear = 0;
