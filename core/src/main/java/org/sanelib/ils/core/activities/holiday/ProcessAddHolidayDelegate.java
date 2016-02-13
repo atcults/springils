@@ -55,14 +55,9 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
         for (LocalDate date = LocalDate.fromDateFields(command.getStartDate()); date.isBefore(LocalDate.fromDateFields(command.getEndDate()).plusDays(1)); date = date.plusDays(increment)) {
 
             Date currDate = date.toDate();
-            Holiday entity = new Holiday();
 
-            if(existingHolidays.containsKey(currDate) && Objects.equals(command.getHolidayType(), HolidayType.Specific)) {
-                entity.setEntryId(command.getEntryId());
-                entity.setHolidayType(command.getHolidayType());
-                entity.setNote(command.getNote());
-                holidayRepository.update(entity);
-            } else {
+            if(!existingHolidays.containsKey(currDate)) {
+                Holiday entity = new Holiday();
                 entity.setLibraryId(command.getLibraryId());
                 entity.setHolidayDate(currDate);
                 entity.setFiscalYearId(command.getFiscalYearId());
@@ -71,6 +66,12 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
                 entity.setNote(command.getNote());
                 holidayRepository.save(entity);
                 addedHolidays++;
+            } else if(Objects.equals(command.getHolidayType(), HolidayType.Specific)) {
+                Holiday entity = existingHolidays.get(currDate);
+                entity.setEntryId(command.getEntryId());
+                entity.setHolidayType(command.getHolidayType());
+                entity.setNote(command.getNote());
+                holidayRepository.update(entity);
             }
         }
 
