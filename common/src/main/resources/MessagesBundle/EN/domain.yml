@@ -49,7 +49,7 @@ holiday:
   fiscalYearId: Fisal Year
   holidayType: Holiday Type
   note: Note
-  startDate: Start Id
+  startDate: Start Date
   endDate: End Date
 
 patronCategory:
