@@ -15,6 +15,8 @@ import java.util.Date;
 @Table(name = "adm_co_holiday")
 public class Holiday implements DomainEntity{
 
+    private static final long serialVersionUID = 1L;
+
     @EmbeddedId
     private HolidayId holidayId;
 
@@ -38,20 +40,27 @@ public class Holiday implements DomainEntity{
     private Date entryDate;
 
     public HolidayId getHolidayId() {
-        return holidayId;
+        return this.holidayId;
     }
 
-    public void setHolidayId(Date holidayId , int libraryId) {
-        if(this.holidayId == null){
-            this.holidayId = new HolidayId(libraryId,holidayId);
-        } else{
-            this.holidayId.setHolidayDate(holidayId);
-            this.holidayId.setLibraryId(libraryId);
+    private void ensureHolidayIdNotNull(){
+        if (this.holidayId == null) {
+            this.holidayId = new HolidayId();
         }
     }
 
+    public void setLibraryId(int libraryId) {
+        this.ensureHolidayIdNotNull();
+        this.holidayId.setLibraryId(libraryId);
+    }
+
+    public void setHolidayDate(Date date) {
+        this.ensureHolidayIdNotNull();
+        this.holidayId.setHolidayDate(date);
+    }
+
     public Integer getFiscalYearId() {
-        return fiscalYearId;
+        return this.fiscalYearId;
     }
 
     public void setFiscalYearId(Integer fiscalYearId) {
@@ -59,7 +68,7 @@ public class Holiday implements DomainEntity{
     }
 
     public HolidayType getHolidayType() {
-        return holidayType;
+        return this.holidayType;
     }
 
     public void setHolidayType(HolidayType holidayType) {
@@ -67,7 +76,7 @@ public class Holiday implements DomainEntity{
     }
 
     public String getNote() {
-        return note;
+        return this.note;
     }
 
     public void setNote(String note) {
@@ -75,7 +84,7 @@ public class Holiday implements DomainEntity{
     }
 
     public Integer getEntryId() {
-        return entryId;
+        return this.entryId;
     }
 
     public void setEntryId(Integer entryId) {
@@ -83,7 +92,7 @@ public class Holiday implements DomainEntity{
     }
 
     public int getEntryLibraryId() {
-        return entryLibraryId;
+        return this.entryLibraryId;
     }
 
     public void setEntryLibraryId(int entryLibraryId) {
@@ -92,6 +101,6 @@ public class Holiday implements DomainEntity{
 
     @PrePersist
     public void prePersist() {
-        entryDate = new Date();
+        this.entryDate = new Date();
     }
 }
