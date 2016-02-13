@@ -39,7 +39,7 @@ public class CheckHolidayEndDateIsInRangeDelegate implements JavaDelegate {
         FiscalYear fiscalYear = fiscalYearRepository.get(new FiscalYearId(addHoliday.getLibraryId(), addHoliday.getFiscalYearId()));
 
         if(addHoliday.getStartDate().before(clock.today())){
-            throw new RuntimeException("Start should be after today's date");
+            processError.addError("common.holiday.startDateOutOfRange", "startDate", "domain.holiday.startDate", DateHelper.toDateString(clock.today()));
         }
 
         if(addHoliday.getEndDate().after(fiscalYear.getEndDate())){

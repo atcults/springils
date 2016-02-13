@@ -38,14 +38,14 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Holiday.class);
         detachedCriteria.add(Restrictions.eq("holidayId.libraryId", command.getLibraryId()));
         detachedCriteria.add(Restrictions.ge("holidayId.holidayDate", command.getStartDate()));
-        detachedCriteria.add(Restrictions.lt("holidayId.holidayDate", command.getEndDate()));
+        detachedCriteria.add(Restrictions.le("holidayId.holidayDate", command.getEndDate()));
 
-        List list = holidayRepository.executeQueryObject(detachedCriteria, Holiday.class);
+        List list = holidayRepository.executeQueryObject(detachedCriteria);
 
         Map<Date, Holiday> existingHolidays = new HashMap<>();
 
-        for(Object h : list){
-            Holiday holiday = (Holiday) h;
+        for(Object obj : list){
+            Holiday holiday = (Holiday) obj;
             existingHolidays.put(holiday.getHolidayId().getHolidayDate(), holiday);
         }
 
@@ -63,7 +63,8 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
                 entity.setNote(command.getNote());
                 holidayRepository.update(entity);
             } else {
-                entity.setHolidayId(currDate, command.getLibraryId());
+                entity.setLibraryId(command.getLibraryId());
+                entity.setHolidayDate(currDate);
                 entity.setFiscalYearId(command.getFiscalYearId());
                 entity.setEntryId(command.getEntryId());
                 entity.setHolidayType(command.getHolidayType());

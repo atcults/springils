@@ -49,7 +49,6 @@ public class CheckHolidayFiscalYearExistDelegate implements JavaDelegate {
             processError.addError("common.field.notExist", "id", Arrays.asList(((ProcessCommand) command).getRootEntityName(), "domain.common.id"), String.valueOf(id));
         }
 
-
         if(!processError.isValid()){
             throw new AppException(processError);
         }

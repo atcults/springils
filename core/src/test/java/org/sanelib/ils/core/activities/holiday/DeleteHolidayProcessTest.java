@@ -39,11 +39,13 @@ public class DeleteHolidayProcessTest extends EntityIntegrationTestBase{
         Holiday holiday = new Holiday();
 
         holiday.setFiscalYearId(20152016);
-        holiday.setHolidayId(DateHelper.constructDate(2016 , 2 , 12) , library.getId());
+        holiday.setLibraryId(library.getId());
+        holiday.setHolidayDate(DateHelper.constructDate(2016 , 2 , 12));
         holiday.setHolidayType(HolidayType.Specific);
         holiday.setNote("Holiday");
         holiday.setEntryId(1);
         holiday.setEntryLibraryId(1);
+
         persist(holiday);
 
         DeleteHoliday deleteHoliday = new DeleteHoliday();

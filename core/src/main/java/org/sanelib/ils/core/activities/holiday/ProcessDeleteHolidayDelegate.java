@@ -28,14 +28,14 @@ public class ProcessDeleteHolidayDelegate implements JavaDelegate {
         DetachedCriteria detachedCriteria = DetachedCriteria.forClass(Holiday.class);
         detachedCriteria.add(Restrictions.eq("holidayId.libraryId", command.getLibraryId()));
         detachedCriteria.add(Restrictions.ge("holidayId.holidayDate", command.getStartDate()));
-        detachedCriteria.add(Restrictions.lt("holidayId.holidayDate", command.getEndDate()));
+        detachedCriteria.add(Restrictions.le("holidayId.holidayDate", command.getEndDate()));
 
-        List list = this.holidayRepository.executeQueryObject(detachedCriteria, Holiday.class);
+        List list = this.holidayRepository.executeQueryObject(detachedCriteria);
 
         Map<Date, Holiday> existingHolidays = new HashMap<>();
 
-        for (Object h : list) {
-            Holiday holiday = (Holiday) h;
+        for (Object obj : list) {
+            Holiday holiday = (Holiday) obj;
             existingHolidays.put(holiday.getHolidayId().getHolidayDate(), holiday);
         }
 

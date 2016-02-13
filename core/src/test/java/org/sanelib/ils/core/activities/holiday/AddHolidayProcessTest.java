@@ -53,7 +53,7 @@ public class AddHolidayProcessTest extends EntityIntegrationTestBase{
 
         AddHoliday addHoliday = new AddHoliday();
 
-        //NOTE: Setting today as 1st january 2016
+        //NOTE: Setting today as 1st Feb 2016
         CustomClock customClock = (CustomClock) clock;
         customClock.set(DateHelper.constructDate(2016, 1, 1));
 
