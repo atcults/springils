@@ -9,7 +9,6 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
     private String id;
     private String startDate;
     private String endDate;
-    private String entryId;
 
     public String getId() {
         return this.id;
@@ -43,11 +42,4 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
         this.endDate = endDate;
     }
 
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
 }
