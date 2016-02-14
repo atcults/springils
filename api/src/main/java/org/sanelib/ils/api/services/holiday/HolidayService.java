@@ -53,6 +53,6 @@ public class HolidayService extends ApiServiceBase {
         dto.setHolidayTypeName(holidayType);
         dto.setStartDate(startDate);
         dto.setEndDate(endDate);
-        return execute(dto, ActivitiProcessConstants.Admin.DELETE_LIBRARY);
+        return execute(dto, ActivitiProcessConstants.Admin.DELETE_HOLIDAY);
     }
 }
