@@ -26,5 +26,9 @@ public class ActivitiProcessConstants {
         public static final String ADD_PATRON_CATEGORY = "addPatronCategory";
         public static final String UPDATE_PATRON_CATEGORY = "updatePatronCategory";
         public static final String DELETE_PATRON_CATEGORY = "deletePatronCategory";
+
+        public static final String ADD_BINDING_TYPE = "addBindingType";
+        public static final String UPDATE_BINDING_TYPE = "updateBindingType";
+        public static final String DELETE_BINDING_TYPE = "deleteBindingType";
     }
 }
