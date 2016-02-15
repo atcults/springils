@@ -112,24 +112,9 @@ public class AddPatronConverter implements DtoToCommandConverter<PatronDto> {
 
         command.setDelinquencyReason(dto.getDelinquencyReason());
 
-        if(ConverterHelper.checkRequiredLength(dto.getCommonEmail(), 1, "commonEmail", "domain.patron.commonEmail", processError)){
-            command.setCommonEmail(dto.getCommonEmail());
-        }
-
-        if(ConverterHelper.checkRequiredLength(dto.getCommonInstantMsg(), 1, "commonInstantMsg", "domain.patron.commonInstantMsg", processError)){
-            command.setCommonInstantMsg(dto.getCommonInstantMsg());
-        }
-
-        if(ConverterHelper.checkRequiredLength(dto.getCommonPrint(), 1, "commonPrint", "domain.patron.commonPrint", processError)){
-            command.setCommonPrint(dto.getCommonPrint());
-        }
-
-        if(!RegularExpressionHelper.checkDateFormat(dto.getEntryDate())) {
-            processError.addError("common.field.pattern", "entryDate", "domain.patron.entryDate", RegularExpressionHelper.DATE_FORMAT_EXAMPLE);
-        } else {
-            command.setEntryDate(DateHelper.fromDateString(dto.getEntryDate()));
-        }
-
+        command.setCommonEmail(dto.commonEmail());
+        command.setCommonInstantMsg(dto.commonInstantMsg());
+        command.setCommonPrint(dto.commonPrint());
         command.setUserPassword(dto.getUserPassword());
         command.setCourseId(Integer.parseInt(dto.getCourseId()));
         command.setSendToAddress(dto.getSendToAddress());

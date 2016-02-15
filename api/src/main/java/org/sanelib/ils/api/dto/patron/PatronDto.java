@@ -43,9 +43,9 @@ public class PatronDto implements DtoWithCode, DtoWithLibraryId {
     private String membershipFrom;
     private String membershipTo;
     private String delinquencyReason;
-    private String commonEmail;
-    private String commonInstantMsg;
-    private String commonPrint;
+    private boolean commonEmail;
+    private boolean commonInstantMsg;
+    private boolean commonPrint;
     private String entryDate;
     private String userPassword;
     private String courseId;
@@ -345,27 +345,27 @@ public class PatronDto implements DtoWithCode, DtoWithLibraryId {
         this.delinquencyReason = delinquencyReason;
     }
 
-    public String getCommonEmail() {
+    public boolean commonEmail() {
         return commonEmail;
     }
 
-    public void setCommonEmail(String commonEmail) {
+    public void setCommonEmail(boolean commonEmail) {
         this.commonEmail = commonEmail;
     }
 
-    public String getCommonInstantMsg() {
+    public boolean commonInstantMsg() {
         return commonInstantMsg;
     }
 
-    public void setCommonInstantMsg(String commonInstantMsg) {
+    public void setCommonInstantMsg(boolean commonInstantMsg) {
         this.commonInstantMsg = commonInstantMsg;
     }
 
-    public String getCommonPrint() {
+    public boolean commonPrint() {
         return commonPrint;
     }
 
-    public void setCommonPrint(String commonPrint) {
+    public void setCommonPrint(boolean commonPrint) {
         this.commonPrint = commonPrint;
     }
 

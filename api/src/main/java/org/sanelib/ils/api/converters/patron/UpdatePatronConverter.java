@@ -17,12 +17,9 @@ public class UpdatePatronConverter extends AddPatronConverter {
     public ProcessCommand convert(PatronDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
 
         AddPatron addPatron = (AddPatron) super.convert(dto, processError);
-
         UpdatePatron updatePatron = new UpdatePatron();
-
         ReflectionHelper.copy(addPatron, updatePatron);
         ConverterHelper.checkCodeRequired(dto, updatePatron, processError);
-
         return updatePatron;
     }
 }

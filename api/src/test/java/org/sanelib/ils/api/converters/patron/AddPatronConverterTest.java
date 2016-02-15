@@ -53,10 +53,9 @@ public class AddPatronConverterTest {
         dto.setMembershipFrom("2014/04/01");
         dto.setMembershipTo("2016/03/31");
         dto.setDelinquencyReason("Reason");
-        dto.setCommonEmail("A");
-        dto.setCommonInstantMsg("B");
-        dto.setCommonPrint("A");
-        dto.setEntryDate("2013/02/01");
+        dto.setCommonEmail(true);
+        dto.setCommonInstantMsg(true);
+        dto.setCommonPrint(true);
         dto.setUserPassword("password");
         dto.setCourseId("1");
         dto.setCustom("Custom");
@@ -109,10 +108,9 @@ public class AddPatronConverterTest {
         assertEquals(dto.getMembershipFrom() ,DateHelper.toDateString(addPatron.getMembershipFrom()));
         assertEquals(dto.getMembershipTo() , DateHelper.toDateString(addPatron.getMembershipTo()));
         assertEquals(dto.getDelinquencyReason() ,addPatron.getDelinquencyReason());
-        assertEquals(dto.getCommonEmail() ,addPatron.getCommonEmail());
-        assertEquals(dto.getCommonInstantMsg() ,addPatron.getCommonInstantMsg());
-        assertEquals(dto.getCommonPrint() ,addPatron.getCommonPrint());
-        assertEquals(dto.getEntryDate() ,DateHelper.toDateString(addPatron.getEntryDate()));
+        assertEquals(dto.commonEmail() ,addPatron.commonEmail());
+        assertEquals(dto.commonInstantMsg() ,addPatron.commonInstantMsg());
+        assertEquals(dto.commonPrint() ,addPatron.commonPrint());
         assertEquals(dto.getUserPassword() ,addPatron.getUserPassword());
         assertEquals(dto.getCourseId() ,String.valueOf(addPatron.getCourseId()));
         assertEquals(dto.getCustom() ,addPatron.getCustom());
