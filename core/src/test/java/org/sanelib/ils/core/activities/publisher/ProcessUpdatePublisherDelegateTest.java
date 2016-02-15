@@ -26,7 +26,7 @@ public class ProcessUpdatePublisherDelegateTest {
     public void testUpdatePublisher() throws Exception{
 
         Publisher publisher = new Publisher();
-        publisher.setId("1");
+        publisher.setCode("1");
         publisher.setName("Publisher");
         publisher.setCity("City");
         publisher.setState("GJ");

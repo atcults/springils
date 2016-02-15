@@ -25,10 +25,10 @@ public class ConverterHelper {
 
     public static void checkLibraryIdRequired(DtoWithLibraryId dto, ProcessCommandWithLibraryId command, ProcessError processError){
         if(Strings.isNullOrEmpty(dto.getLibraryId())){
-            processError.addError("common.field.required", "libraryId", "domain.common.library_id");
+            processError.addError("common.field.required", "libraryId", "domain.common.libraryId");
         }
         else if(!RegularExpressionHelper.checkIdFormat(dto.getLibraryId())){
-            processError.addError("common.field.pattern", "libraryId", "domain.common.library_id", RegularExpressionHelper.ID_FORMAT);
+            processError.addError("common.field.pattern", "libraryId", "domain.common.libraryId", RegularExpressionHelper.ID_FORMAT);
         } else {
             command.setLibraryId(Integer.parseInt(dto.getLibraryId()));
         }

@@ -8,5 +8,6 @@ field:
   required: ~0 is required
   duplicate: ~0 with ~1 ^0 already exists.
   pattern: ~0 format is incorrect. Ex. ^0
-  notexist: ~0 with ~1 ^0 does not exist.
+  notExist: ~0 with ~1 ^0 does not exist.
   length: ~0 length should not more than ^0
+  select: ~0 should be selected from list.

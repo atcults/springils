@@ -1,13 +1,16 @@
 common:
   id: Id
   code: Code
-  library_id: Library Id
+  name: Name
+  libraryId: Library Id
 
 entity:
   library: Library
   publisher: Publisher
   agency: Agency
-  bindingType: BindingType
+  patronCategory: PatronCategory
+  fiscalYear: Fiscal Year
+  accessionSeries: Accession Series
 
 library:
   name: Name
@@ -24,9 +27,20 @@ publisher:
 agency:
   name: Name
 
-bindingType:
-  bindType: Bind Type
-  price: Price
-  entryId: Entry Id
-  entryDate: Entry Id
+fiscalYear:
+  startDate: Start Date
+  endDate: End Date
+  entryDate: Entry Date
 
+accessionSeries:
+  code: Series Name
+  entryDate: Entry Date
+  maxNumber: Max Number
+  maxZero: Max Zero
+  prefix: Prefix
+  typeName: Fixed Or Variable
+  entryId: Entry Id
+  entryDate: Entry Date
+
+patronCategory:
+  name: Name
