@@ -4,6 +4,7 @@ import org.sanelib.ils.api.dto.bindingType.BindingTypeDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
+import org.sanelib.ils.core.dao.read.ViewNameConstants;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.DELETE;
@@ -14,7 +15,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -23,17 +23,8 @@ import java.util.List;
 public class BindingTypeService extends ApiServiceBase {
 
     @GET
-    public List getAllBindngType() throws Throwable {
-        List<BindingTypeDto> list = new ArrayList<>();
-        BindingTypeDto bindingTypeDto = new BindingTypeDto();
-        bindingTypeDto.setId("1");
-        bindingTypeDto.setLibraryId("1");
-        bindingTypeDto.setBindType("BindType");
-        bindingTypeDto.setPrice("500.00");
-        bindingTypeDto.setEntryId("EntryId01");
-        bindingTypeDto.setEntryDate("2007/01/02");
-        list.add(bindingTypeDto);
-        return list;
+    public List getAllPatronCategories() throws Throwable {
+        return fetchAll(ViewNameConstants.Admin.BINDING_TYPE);
     }
 
     @POST
