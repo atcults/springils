@@ -2,7 +2,6 @@ package org.sanelib.ils;
 
 import java.util.Locale;
 
-import org.hibernate.SessionFactory;
 import org.sanelib.ils.common.properties.AppProperties;
 import org.sanelib.ils.common.utils.Clock;
 import org.sanelib.ils.common.utils.SystemClock;
@@ -15,6 +14,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 
+import javax.persistence.EntityManagerFactory;
+
 @SpringBootApplication
 public class ApiMain implements CommandLineRunner {
 
@@ -22,7 +23,7 @@ public class ApiMain implements CommandLineRunner {
 	private AppProperties appProperties;
 
     @Autowired
-    private SessionFactory sessionFactory;
+    private EntityManagerFactory entityManagerFactory;
 
     @Override
 	public void run(String... args) {
@@ -41,7 +42,7 @@ public class ApiMain implements CommandLineRunner {
     @Bean
     @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
     public UnitOfWork unitOfWork(){
-        return new UnitOfWork(this.sessionFactory);
+        return new UnitOfWork(this.entityManagerFactory);
 
     }
 
