@@ -26,11 +26,10 @@ public class UpdateBinderOrderConverterTest {
         dto.setFormLetterNo("FormLetterNumber");
         dto.setSubject("Subject");
         dto.setContent("Content");
-        dto.setMailStatus("M");
-        dto.setPrintStatus("P");
+        dto.setMailStatus(true);
+        dto.setPrintStatus(true);
         dto.setStatus("SetStatus");
         dto.setEntryId("EntryId");
-        dto.setEntryDate("2015/11/10");
 
         ProcessError processError = new ProcessError();
 
@@ -50,11 +49,10 @@ public class UpdateBinderOrderConverterTest {
         assertEquals("Returned Date is not mapped", DateHelper.fromDateString(dto.getReturnedDate()), updateBinderOrder.getReturnedDate());
         assertEquals("Form Letter Number is not mapped", dto.getFormLetterNo(), updateBinderOrder.getFormLetterNo());
         assertEquals("Subject is not mapped", dto.getSubject(), updateBinderOrder.getSubject());
-        assertEquals("Mail Status is not mapped", dto.getMailStatus(), updateBinderOrder.getMailStatus());
-        assertEquals("Print Status is not mapped", dto.getPrintStatus(), updateBinderOrder.getPrintStatus());
+        assertEquals("Mail Status is not mapped", dto.isMailStatus(), updateBinderOrder.isMailStatus());
+        assertEquals("Print Status is not mapped", dto.isPrintStatus(), updateBinderOrder.isPrintStatus());
         assertEquals("Status is not mapped", dto.getStatus(), updateBinderOrder.getStatus());
         assertEquals("Entry Id is not mapped", dto.getEntryId(), updateBinderOrder.getEntryId());
-        assertEquals("Entry Date is not mapped", DateHelper.fromDateString(dto.getEntryDate()), updateBinderOrder.getEntryDate());
     }
 
 }
