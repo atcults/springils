@@ -32,8 +32,7 @@ public class ProcessAddDepartmentDelegate implements JavaDelegate {
         entity.setDepartmentId(nextId, command.getLibraryId());
         entity.setDeptName(command.getDeptName());
         entity.setHodId(command.getHodId());
-        entity.setEntryId("system");
-        entity.setEntryDate(new Timestamp(new Date().getTime()));
+        entity.setEntryId(command.getEntryId());
 
         departmentRepository.save(entity);
 

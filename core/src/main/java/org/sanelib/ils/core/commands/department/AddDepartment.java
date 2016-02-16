@@ -17,6 +17,7 @@ public class AddDepartment extends ProcessCommandWithLibraryId {
 
     private String deptName;
     private String hodId;
+    private String entryId;
 
     public String getDeptName() {
         return deptName;
@@ -29,4 +30,12 @@ public class AddDepartment extends ProcessCommandWithLibraryId {
     public String getHodId() { return hodId; }
 
     public void setHodId(String hodId) { this.hodId = hodId; }
+
+    public String getEntryId() {
+        return entryId;
+    }
+
+    public void setEntryId(String entryId) {
+        this.entryId = entryId;
+    }
 }

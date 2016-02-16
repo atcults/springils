@@ -12,7 +12,7 @@ public class DepartmentDto implements DtoWithId, DtoWithLibraryId {
     private String deptName;
     private String hodId;
     private String entryId;
-    private Date entryDate;
+    private String entryDate;
 
     @Override
     public String getLibraryId() {
@@ -56,11 +56,11 @@ public class DepartmentDto implements DtoWithId, DtoWithLibraryId {
         this.entryId = entryId;
     }
 
-    public Date getEntryDate() {
+    public String getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(Date entryDate) {
+    public void setEntryDate(String entryDate) {
         this.entryDate = entryDate;
     }
 }

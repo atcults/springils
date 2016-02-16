@@ -1,10 +1,8 @@
 package org.sanelib.ils.core.domain.entity;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Table(name = "dept")
@@ -25,7 +23,7 @@ public class Department implements DomainEntity {
     private String entryId;
 
     @Column(name = "entry_date")
-    private Timestamp entryDate;
+    private Date entryDate;
 
     public DepartmentId getDepartmentId() {
         return departmentId;
@@ -65,12 +63,9 @@ public class Department implements DomainEntity {
         this.entryId = entryId;
     }
 
-    public Timestamp getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Timestamp entryDate) {
-        this.entryDate = entryDate;
+    @PrePersist
+    public void prePersist() {
+        entryDate = new Date();
     }
 
     @Override

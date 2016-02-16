@@ -21,8 +21,7 @@ public class ProcessDeleteDepartmentDelegate implements JavaDelegate {
 
         DeleteDepartment command = (DeleteDepartment) execution.getVariable("command");
         Department department = this.departmentRepository.load(new DepartmentId(command.getLibraryId(), command.getId()));
-        departmentRepository.remove(department);
-        execution.setVariable("result", "Record Deleted successfully " + department.getDepartmentId().getId());
 
+        departmentRepository.remove(department);
     }
 }
