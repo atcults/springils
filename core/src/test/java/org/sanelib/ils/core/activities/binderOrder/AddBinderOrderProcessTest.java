@@ -42,11 +42,10 @@ public class AddBinderOrderProcessTest extends EntityIntegrationTestBase {
         addBinderOrder.setFormLetterNo("FormLetterNumber");
         addBinderOrder.setSubject("Subject");
         addBinderOrder.setContent("Content");
-        addBinderOrder.setMailStatus("M");
-        addBinderOrder.setPrintStatus("P");
+        addBinderOrder.setMailStatus(true);
+        addBinderOrder.setPrintStatus(true);
         addBinderOrder.setStatus("SetStatus");
         addBinderOrder.setEntryId("EntryId");
-        addBinderOrder.setEntryDate(DateHelper.constructDate(2015 , 11 ,10));
 
         String result = execute(addBinderOrder, ActivitiProcessConstants.Admin.ADD_BINDERORDER);
 
@@ -63,10 +62,9 @@ public class AddBinderOrderProcessTest extends EntityIntegrationTestBase {
         assertEquals(addBinderOrder.getFormLetterNo() ,binderOrder.getFormLetterNo());
         assertEquals(addBinderOrder.getSubject() ,binderOrder.getSubject());
         assertEquals(addBinderOrder.getContent() ,binderOrder.getContent());
-        assertEquals(addBinderOrder.getMailStatus() ,binderOrder.getMailStatus());
-        assertEquals(addBinderOrder.getPrintStatus() ,binderOrder.getPrintStatus());
+        assertEquals(addBinderOrder.isMailStatus() ,binderOrder.isMailStatus());
+        assertEquals(addBinderOrder.isPrintStatus() ,binderOrder.isPrintStatus());
         assertEquals(addBinderOrder.getStatus() ,binderOrder.getStatus());
         assertEquals(addBinderOrder.getEntryId() ,binderOrder.getEntryId());
-        assertEquals(addBinderOrder.getEntryDate() ,binderOrder.getEntryDate());
     }
 }
