@@ -3,6 +3,7 @@ package org.sanelib.ils.core.dao.read.admin;
 import org.sanelib.ils.core.dao.read.ViewService;
 import org.sanelib.ils.core.dao.read.ViewServiceBase;
 import org.sanelib.ils.core.dao.read.admin.mapper.BinderOrderMapper;
+import org.sanelib.ils.core.domain.view.admin.BinderOrderView;
 import org.sanelib.ils.core.domain.view.admin.LibraryView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,7 +26,7 @@ public class BinderOrderViewRepository extends ViewServiceBase {
         return Collections.singletonList("select * from cir_binder_order");
     }
 
-   public List<LibraryView> getAll() throws Throwable {
+   public List<BinderOrderView> getAll() throws Throwable {
         return viewService.loadQuery(getStatements().get(0), mapper);
     }
 }
