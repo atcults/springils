@@ -10,14 +10,17 @@ import org.springframework.stereotype.Component;
 public class BindingTypeViewConverter implements ViewToDtoConverter<BindingTypeDto, BindingTypeView> {
 
     @Override
-    public BindingTypeDto convert(BindingTypeView libraryView) {
+    public BindingTypeDto convert(BindingTypeView bindingTypeView) {
+
         BindingTypeDto dto = new BindingTypeDto();
-        dto.setLibraryId(String.valueOf(libraryView.getLibraryId()));
-        dto.setId(String.valueOf(libraryView.getId()));
-        dto.setBindType(libraryView.getBindType());
-        dto.setPrice(String.valueOf(libraryView.getPrice()));
-        dto.setEntryId(libraryView.getEntryId());
-        dto.setEntryDate(DateHelper.toDateString(libraryView.getEntryDate()));
+
+        dto.setLibraryId(String.valueOf(bindingTypeView.getLibraryId()));
+        dto.setId(String.valueOf(bindingTypeView.getId()));
+        dto.setBindType(bindingTypeView.getBindType());
+        dto.setPrice(String.valueOf(bindingTypeView.getPrice()));
+        dto.setEntryId(bindingTypeView.getEntryId());
+        dto.setEntryDate(DateHelper.toDateString(bindingTypeView.getEntryDate()));
+
         return dto;
     }
 }

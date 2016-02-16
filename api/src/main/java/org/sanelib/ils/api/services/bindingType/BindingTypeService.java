@@ -23,7 +23,7 @@ import java.util.List;
 public class BindingTypeService extends ApiServiceBase {
 
     @GET
-    public List getAllPatronCategories() throws Throwable {
+    public List getAllBindingType() throws Throwable {
         return fetchAll(ViewNameConstants.Admin.BINDING_TYPE);
     }
 
