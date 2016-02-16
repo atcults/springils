@@ -4,6 +4,7 @@ import org.sanelib.ils.api.dto.binderOrder.BinderOrderDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
+import org.sanelib.ils.core.dao.read.ViewNameConstants;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.DELETE;
@@ -14,7 +15,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -23,29 +23,8 @@ import java.util.List;
 public class BinderOrderService extends ApiServiceBase {
 
     @GET
-    public List getAllAgencies() throws Throwable {
-        List<BinderOrderDto> list = new ArrayList<>();
-
-        BinderOrderDto binderOrderDto = new BinderOrderDto();
-
-        binderOrderDto.setId("1");
-        binderOrderDto.setLibraryId("1");
-        binderOrderDto.setBinderId("101");
-        binderOrderDto.setOrderDate("2015/11/10");
-        binderOrderDto.setDueDate("2015/11/25");
-        binderOrderDto.setReturnedDate("2015/11/24");
-        binderOrderDto.setFormLetterNo("FormLetterNumber");
-        binderOrderDto.setSubject("Subject");
-        binderOrderDto.setContent("Content");
-        binderOrderDto.setMailStatus("M");
-        binderOrderDto.setPrintStatus("P");
-        binderOrderDto.setStatus("SetStatus");
-        binderOrderDto.setEntryId("EntryId");
-        binderOrderDto.setEntryDate("2015/11/10");
-
-        list.add(binderOrderDto);
-
-        return list;
+    public List getAllBinderOrder() throws Throwable {
+        return fetchAll(ViewNameConstants.Admin.BINDER_ORDER);
     }
 
     @POST
@@ -66,6 +45,6 @@ public class BinderOrderService extends ApiServiceBase {
         binderOrderDto.setLibraryId(libraryId);
         binderOrderDto.setId(id);
 
-        return execute(binderOrderDto, ActivitiProcessConstants.Admin.UPDATE_BINDERORDER);
+        return execute(binderOrderDto, ActivitiProcessConstants.Admin.DELETE_BINDERORDER);
     }
 }

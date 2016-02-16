@@ -14,8 +14,8 @@ public class BinderOrderDto implements DtoWithId, DtoWithLibraryId {
     private String formLetterNo;
     private String subject;
     private String content;
-    private String mailStatus;
-    private String printStatus;
+    private boolean mailStatus;
+    private boolean printStatus;
     private String status;
     private String entryId;
     private String entryDate;
@@ -94,21 +94,13 @@ public class BinderOrderDto implements DtoWithId, DtoWithLibraryId {
         this.content = content;
     }
 
-    public String getMailStatus() {
-        return mailStatus;
-    }
+    public boolean isMailStatus() {  return mailStatus;  }
 
-    public void setMailStatus(String mailStatus) {
-        this.mailStatus = mailStatus;
-    }
+    public void setMailStatus(boolean mailStatus) { this.mailStatus = mailStatus;  }
 
-    public String getPrintStatus() {
-        return printStatus;
-    }
+    public boolean isPrintStatus() {  return printStatus;  }
 
-    public void setPrintStatus(String printStatus) {
-        this.printStatus = printStatus;
-    }
+    public void setPrintStatus(boolean printStatus) { this.printStatus = printStatus;  }
 
     public String getStatus() {
         return status;
