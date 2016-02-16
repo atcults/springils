@@ -3,7 +3,12 @@ package org.sanelib.ils.core.domain.entity;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
 import org.sanelib.ils.core.enums.AccessionSeriesTypeConverter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -46,6 +51,9 @@ public class AccessionSeries implements DomainEntity {
     @Column(name = "fixed_variable")
     private AccessionSeriesType typeName;
 
+    @Column(name="entry_library_id")
+    private Integer entryLibraryId;
+
     @Column(name="entry_id")
     private String entryId;
 
@@ -82,6 +90,10 @@ public class AccessionSeries implements DomainEntity {
         this.typeName = typeName;
     }
 
+    public Integer getEntryLibraryId() { return entryLibraryId; }
+
+    public void setEntrylibraryId(Integer entryLibraryId) { this.entryLibraryId = entryLibraryId; }
+
     public String getEntryId() {
         return entryId;
     }
@@ -90,11 +102,8 @@ public class AccessionSeries implements DomainEntity {
         this.entryId = entryId;
     }
 
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
+    @PrePersist
+    public void prePersist() {
+        entryDate = new Date();
     }
 }
