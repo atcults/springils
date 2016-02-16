@@ -138,10 +138,9 @@ public abstract class EntityRepositoryBase<T extends DomainEntity> implements En
 	}
 
 	@Override
-	public List<T> executeQueryObject(final DetachedCriteria detachedCriteria, Class clazz) {
+	public List<T> executeQueryObject(final DetachedCriteria detachedCriteria) {
 		Criteria criteria = detachedCriteria.getExecutableCriteria(getSession());
-		return criteria.setResultTransformer(Transformers.aliasToBean(clazz)).list();
-
+        return criteria.list();
 	}
 
 	private void setParamValues(final String[] paramValues, SQLQuery query) {

@@ -14,6 +14,11 @@ public class CustomClock implements Clock {
         return now;
     }
 
+    @Override
+    public Date today() {
+        return now;
+    }
+
     public void set(Date date) {
         now = date;
     }

@@ -3,6 +3,8 @@ common:
   code: Code
   name: Name
   libraryId: Library Id
+  entryId: Patron Id
+  entryLibraryId: Patron Library Id
 
 entity:
   library: Library
@@ -11,6 +13,7 @@ entity:
   patronCategory: PatronCategory
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
+  holiday: Holiday
 
 library:
   name: Name
@@ -41,6 +44,13 @@ accessionSeries:
   typeName: Fixed Or Variable
   entryId: Entry Id
   entryDate: Entry Date
+
+holiday:
+  fiscalYearId: Fisal Year
+  holidayType: Holiday Type
+  note: Note
+  startDate: Start Date
+  endDate: End Date
 
 patronCategory:
   name: Name

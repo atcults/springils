@@ -41,7 +41,7 @@ public class CheckFiscalYearDuplicationDelegate implements JavaDelegate {
         cal.setTime(addFiscalYear.getEndDate());
         fiscalYearId += cal.get(Calendar.YEAR);
 
-        List<FiscalYear> firstFiscalYears = fiscalYearRepository.findByColumnAndValue(new String[] {"fiscalYearId.libraryId" ,"fiscalYearId.id"}, new Object[]{libraryId, fiscalYearId});
+        List<FiscalYear> firstFiscalYears = fiscalYearRepository.findByColumnAndValue(new String[] {"fiscalYearId.libraryId", "fiscalYearId.id"}, new Object[]{libraryId, fiscalYearId});
 
         FiscalYear dbFiscalYear = firstFiscalYears.isEmpty() ? null : firstFiscalYears.get(0);
 
