@@ -4,6 +4,7 @@ import org.sanelib.ils.api.dto.binder.BinderDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
+import org.sanelib.ils.core.dao.read.ViewNameConstants;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
@@ -18,28 +19,7 @@ public class BinderService extends ApiServiceBase {
 
     @GET
     public List getAllBinders() throws Throwable {
-        List<BinderDto> list = new ArrayList<>();
-
-        BinderDto binderDto = new BinderDto();
-
-        binderDto.setId("1");
-        binderDto.setLibraryId("1");
-        binderDto.setBinderName("Test Binder");
-        binderDto.setPrimaryAddress("Primary Address");
-        binderDto.setSecondaryAddress("Secondary Address");
-        binderDto.setCity("TestCity");
-        binderDto.setState("TestState");
-        binderDto.setCountry("TestCountry");
-        binderDto.setPin("654321");
-        binderDto.setPrimaryPhoneNumber("+91-987654321");
-        binderDto.setSecondaryPhoneNumber("+91-879654321");
-        binderDto.setFax("87654321");
-        binderDto.setEmail("user@emailprovider.com");
-        binderDto.setEntryId("user");
-        binderDto.setEntryDate("2015/04/01");
-        list.add(binderDto);
-
-        return list;
+       return fetchAll(ViewNameConstants.Admin.BINDER);
     }
 
     @POST
