@@ -1,14 +1,17 @@
 package org.sanelib.ils.api.services.holiday;
 
+import org.sanelib.ils.api.converters.holiday.HolidayViewConverter;
 import org.sanelib.ils.api.dto.holiday.HolidayDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
+import org.sanelib.ils.core.dao.read.admin.HolidayViewRepository;
+import org.sanelib.ils.core.domain.view.admin.HolidayView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -16,23 +19,20 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class HolidayService extends ApiServiceBase {
 
+    @Autowired
+    HolidayViewRepository holidayViewRepository;
+
+    @Autowired
+    HolidayViewConverter holidaysViewConverter;
+
     @GET
-    public List<HolidayDto> getAllHolidayDtos() throws Exception{
-
-        List<HolidayDto> dtos = new ArrayList<>();
-
-        HolidayDto holidayDto = new HolidayDto();
-
-        holidayDto.setLibraryId("1");
-        holidayDto.setFiscalYearId("20152016");
-        holidayDto.setStartDate("2016/02/09");
-        holidayDto.setEndDate("2016/02/29");
-        holidayDto.setHolidayTypeName("Specific");
-        holidayDto.setNote("note");
-
-        dtos.add(holidayDto);
-
-        return dtos;
+    @SuppressWarnings("unchecked")
+    @Path("/{libraryId}/{fiscalYearId}")
+    public List<HolidayDto> getAllHolidays(@PathParam("libraryId") String libraryId,
+                                           @PathParam("fiscalYearId") String fiscalYearId) throws Exception{
+        //check string to int
+        List viewList = holidayViewRepository.getHolidaysForFiscalYear(Integer.parseInt(libraryId), Integer.parseInt(fiscalYearId));
+        return holidaysViewConverter.convert(viewList);
     }
 
     @POST
