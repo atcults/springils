@@ -12,7 +12,7 @@ public class BindingTypeMapper implements ViewMapper<BindingTypeView> {
 
     public BindingTypeView map(final DataResultSet rs) throws SQLException {
 
-        final String viewName = "binding_type";
+        final String viewName = "cir_co_bind_types";
 
         final BindingTypeView view = new BindingTypeView();
         view.setLibraryId(rs.getInt(viewName, "library_id"));
@@ -21,6 +21,7 @@ public class BindingTypeMapper implements ViewMapper<BindingTypeView> {
         view.setPrice(rs.getDouble(viewName, "price"));
         view.setEntryId(rs.getString(viewName, "entry_id"));
         view.setEntryDate(rs.getDate(viewName, "entry_date"));
+
         return view;
     }
 }
