@@ -22,7 +22,7 @@ public class ProcessAddPublisherDelegate implements JavaDelegate {
 
         Publisher entity = new Publisher();
 
-        entity.setId(command.getCode());
+        entity.setCode(command.getCode());
         entity.setName(command.getName());
         entity.setCity(command.getCity());
         entity.setState(command.getState());
@@ -30,6 +30,6 @@ public class ProcessAddPublisherDelegate implements JavaDelegate {
 
         publisherRepository.save(entity);
 
-        execution.setVariable("result", entity.getId());
+        execution.setVariable("result", entity.getCode());
 	}
 }

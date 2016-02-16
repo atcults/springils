@@ -14,7 +14,7 @@ public class DeletePublisherProcessTest extends EntityIntegrationTestBase {
     public void testDeletePublisherSuccess() throws Throwable {
 
         Publisher publisher = new Publisher();
-        publisher.setId("1");
+        publisher.setCode("1");
         publisher.setName("Publisher");
         publisher.setCity("City");
         publisher.setState("GJ");
@@ -23,12 +23,12 @@ public class DeletePublisherProcessTest extends EntityIntegrationTestBase {
         persist(publisher);
 
         DeletePublisher deletePublisher = new DeletePublisher();
-        deletePublisher.setCode(publisher.getId());
+        deletePublisher.setCode(publisher.getCode());
 
         String result = execute(deletePublisher, ActivitiProcessConstants.Admin.DELETE_PUBLISHER);
         assertNull(result);
 
-        Publisher deletedPublisher = fetch(Publisher.class, publisher.getId());
+        Publisher deletedPublisher = fetch(Publisher.class, publisher.getCode());
         assertNull(deletedPublisher);
     }
 }

@@ -24,7 +24,7 @@ public class ProcessUpdatePublisherDelegate implements JavaDelegate {
 
         Publisher entity = publisherRepository.get(command.getCode());
 
-        entity.setId(command.getCode());
+        entity.setCode(command.getCode());
         entity.setName(command.getName());
         entity.setCity(command.getCity());
         entity.setState(command.getState());
