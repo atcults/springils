@@ -1,9 +1,10 @@
 package org.sanelib.ils.api.converters.binder;
 
+import com.google.common.base.Strings;
 import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.binder.BinderDto;
-import org.sanelib.ils.common.utils.DateHelper;
+import org.sanelib.ils.common.utils.RegularExpressionHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.binder.AddBinder;
 import org.sanelib.ils.core.exceptions.ProcessError;
@@ -18,19 +19,42 @@ public class AddBinderConverter implements DtoToCommandConverter<BinderDto> {
 
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
 
-        command.setBinderName(dto.getBinderName());
+        if(Strings.isNullOrEmpty(dto.getBinderName())) {
+            processError.addError("common.field.required", "name", "domain.binder.name");
+        }else {
+            command.setBinderName(dto.getBinderName());
+        }
+
         command.setPrimaryAddress(dto.getPrimaryAddress());
         command.setSecondaryAddress(dto.getSecondaryAddress());
         command.setCity(dto.getCity());
         command.setState(dto.getState());
         command.setCountry(dto.getCountry());
         command.setPin(dto.getPin());
-        command.setPrimaryPhoneNumber(dto.getPrimaryPhoneNumber());
-        command.setSecondaryPhoneNumber(dto.getSecondaryPhoneNumber());
-        command.setFax(dto.getFax());
-        command.setEmail(dto.getEmail());
-        command.setEntryId(dto.getEntryId());
-        command.setEntryDate(DateHelper.fromDateString(dto.getEntryDate()));
+
+        if(!RegularExpressionHelper.checkPhoneFormat(dto.getPrimaryPhoneNumber())){
+            processError.addError("common.field.pattern", "phone1", "domain.binder.phone1", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
+        }else {
+            command.setPrimaryPhoneNumber(dto.getPrimaryPhoneNumber());
+        }
+
+        if(!RegularExpressionHelper.checkPhoneFormat(dto.getSecondaryPhoneNumber())){
+            processError.addError("common.field.pattern", "phone2", "domain.binder.phone2", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
+        }else{
+            command.setSecondaryPhoneNumber(dto.getSecondaryPhoneNumber());
+        }
+
+        if(!RegularExpressionHelper.checkPhoneFormat(dto.getFax())){
+            processError.addError("common.field.pattern", "fax", "domain.binder.fax", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
+        }else {
+            command.setFax(dto.getFax());
+        }
+
+        if(!RegularExpressionHelper.checkEmailFormat(dto.getEmail())){
+            processError.addError("common.field.pattern", "email", "domain.binder.email", RegularExpressionHelper.EMAIL_FORMAT_EXAMPLE);
+        }else {
+            command.setEmail(dto.getEmail());
+        }
 
         return command;
     }

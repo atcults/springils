@@ -27,6 +27,21 @@ publisher:
 agency:
   name: Name
 
+binder:
+  binderName: Binder name
+  address1: Primary Address
+  address2: Secondary Address
+  city: City
+  state: State
+  country: Country
+  pin: Pin
+  phone1: Primary Phone number
+  phone2: Secondary Phone number
+  fax: Fax
+  email: Email
+  entryId: Entry Id
+  entryDate: Entry Date
+
 fiscalYear:
   startDate: Start Date
   endDate: End Date
