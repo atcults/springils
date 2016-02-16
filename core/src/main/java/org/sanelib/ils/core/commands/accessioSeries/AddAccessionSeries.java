@@ -24,6 +24,7 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
     private Integer maxZero;
     private String prefix;
     private AccessionSeriesType typeName;
+    private Integer entryLibraryId;
     private String entryId;
     private Date entryDate;
 
@@ -61,6 +62,10 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
         return typeName;
     }
 
+    public Integer getEntryLibraryId() { return entryLibraryId;  }
+
+    public void setEntryLibraryId(Integer entryLibraryId) { this.entryLibraryId = entryLibraryId; }
+
     public void setTypeName(AccessionSeriesType typeName) {
         this.typeName = typeName;
     }
@@ -73,7 +78,6 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
         this.entryId = entryId;
     }
 
-
     public Date getEntryDate() {
         return entryDate;
     }
@@ -81,5 +85,7 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
     public void setEntryDate(Date entryDate) {
         this.entryDate = entryDate;
     }
+
+
 }
 

@@ -14,6 +14,11 @@ public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
     private AccessionSeriesType typeName;
     private String entryId;
     private String entryDate;
+    private String entryLibraryId;
+
+    public String getEntryLibraryId() { return entryLibraryId; }
+
+    public void setEntryLibraryId(String entryLibraryId) { this.entryLibraryId = entryLibraryId; }
 
     public String getCode() {
         return this.code;
@@ -78,5 +83,7 @@ public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
     public void setTypeName(AccessionSeriesType  typeName) {
         this.typeName = typeName;
     }
+
+
 }
 

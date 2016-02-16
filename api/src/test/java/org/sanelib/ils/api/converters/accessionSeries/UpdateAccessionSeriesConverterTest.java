@@ -26,6 +26,7 @@ public class UpdateAccessionSeriesConverterTest {
         dto.setTypeName(AccessionSeriesType.Fixed);
         dto.setEntryId("1");
         dto.setEntryDate("2016/01/01");
+        dto.setEntryLibraryId("1");
 
         ProcessError processError = new ProcessError();
 
@@ -45,5 +46,6 @@ public class UpdateAccessionSeriesConverterTest {
         assertEquals("Series Type not mapped",dto.getTypeName(),  updateAccessionSeries.getTypeName());
         assertEquals("EntryId of series not mapped",dto.getEntryId(),  updateAccessionSeries.getEntryId());
         assertEquals("EntryDate not mapped",dto.getEntryDate(),  DateHelper.toDateString(updateAccessionSeries.getEntryDate()));
+        assertEquals("EntryLibraryId is not mapped", dto.getEntryLibraryId(), String.valueOf(updateAccessionSeries.getEntryLibraryId()));
     }
 }

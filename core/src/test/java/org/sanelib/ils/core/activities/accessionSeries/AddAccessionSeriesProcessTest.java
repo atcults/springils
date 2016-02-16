@@ -40,6 +40,7 @@ public class AddAccessionSeriesProcessTest extends EntityIntegrationTestBase {
         addAccessionSeries.setMaxNumber(100);
         addAccessionSeries.setMaxZero(2);
         addAccessionSeries.setPrefix("AS");
+        addAccessionSeries.setEntryLibraryId(1);
 
         AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByName("Fixed");
         addAccessionSeries.setTypeName(accessionSeriesType);
@@ -61,7 +62,6 @@ public class AddAccessionSeriesProcessTest extends EntityIntegrationTestBase {
         assertEquals(addAccessionSeries.getPrefix() ,accessionSeries.getPrefix());
         assertEquals(addAccessionSeries.getTypeName() ,accessionSeries.getTypeName());
         assertEquals(addAccessionSeries.getEntryId() ,accessionSeries.getEntryId());
-        assertEquals(addAccessionSeries.getEntryDate() ,accessionSeries.getEntryDate());
-
+        assertEquals(addAccessionSeries.getEntryLibraryId(), accessionSeries.getEntryLibraryId());
     }
 }

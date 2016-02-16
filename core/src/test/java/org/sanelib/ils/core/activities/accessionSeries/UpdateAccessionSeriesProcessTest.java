@@ -36,7 +36,6 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         accessionSeries.setPrefix("AS");
         accessionSeries.setTypeName(AccessionSeriesType.Fixed);
         accessionSeries.setEntryId("1");
-        accessionSeries.setEntryDate(DateHelper.fromDateString("2016/01/01"));
 
         persist(accessionSeries);
 
@@ -65,6 +64,6 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         assertEquals(updateAccessionSeries.getPrefix() ,accessionSeries.getPrefix());
         assertEquals(updateAccessionSeries.getTypeName() ,accessionSeries.getTypeName());
         assertEquals(updateAccessionSeries.getEntryId() ,accessionSeries.getEntryId());
-        assertEquals(updateAccessionSeries.getEntryDate() ,accessionSeries.getEntryDate());
+        assertEquals(updateAccessionSeries.getEntryLibraryId(), accessionSeries.getEntryLibraryId());
     }
 }
