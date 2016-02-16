@@ -4,10 +4,11 @@ import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
-import org.sanelib.ils.core.commands.agency.UpdateAgency;
 import org.sanelib.ils.core.commands.binderOrder.UpdateBinderOrder;
 import org.sanelib.ils.core.dao.HibernateHelper;
-import org.sanelib.ils.core.domain.entity.*;
+import org.sanelib.ils.core.domain.entity.BinderOrder;
+import org.sanelib.ils.core.domain.entity.BinderOrderId;
+import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
@@ -38,11 +39,10 @@ public class UpdateBinderOrderProcessTest extends EntityIntegrationTestBase {
         binderOrder.setFormLetterNo("FormLetterNumber");
         binderOrder.setSubject("Subject");
         binderOrder.setContent("Content");
-        binderOrder.setMailStatus("M");
-        binderOrder.setPrintStatus("P");
+        binderOrder.setMailStatus(true);
+        binderOrder.setPrintStatus(true);
         binderOrder.setStatus("SetStatus");
         binderOrder.setEntryId("EntryId");
-        binderOrder.setEntryDate(DateHelper.constructDate(2015 , 11 ,10));
 
         persist(binderOrder);
 
@@ -59,11 +59,10 @@ public class UpdateBinderOrderProcessTest extends EntityIntegrationTestBase {
         updateBinderOrder.setFormLetterNo("Updated FormLetterNumber");
         updateBinderOrder.setSubject("Updated Subject");
         updateBinderOrder.setContent("Updated Content");
-        updateBinderOrder.setMailStatus("M");
-        updateBinderOrder.setPrintStatus("P");
+        updateBinderOrder.setMailStatus(true);
+        updateBinderOrder.setPrintStatus(true);
         updateBinderOrder.setStatus("Updated Status");
         updateBinderOrder.setEntryId("EntryId");
-        updateBinderOrder.setEntryDate(DateHelper.constructDate(2015 , 11 ,10));
 
         String result = execute(updateBinderOrder, ActivitiProcessConstants.Admin.UPDATE_BINDERORDER);
 
@@ -80,10 +79,9 @@ public class UpdateBinderOrderProcessTest extends EntityIntegrationTestBase {
         assertEquals(updateBinderOrder.getFormLetterNo(), dbBinderOrder.getFormLetterNo());
         assertEquals(updateBinderOrder.getSubject(), dbBinderOrder.getSubject());
         assertEquals(updateBinderOrder.getContent(), dbBinderOrder.getContent());
-        assertEquals(updateBinderOrder.getMailStatus(), dbBinderOrder.getMailStatus());
-        assertEquals(updateBinderOrder.getPrintStatus(), dbBinderOrder.getPrintStatus());
+        assertEquals(updateBinderOrder.isMailStatus(), dbBinderOrder.isMailStatus());
+        assertEquals(updateBinderOrder.isPrintStatus(), dbBinderOrder.isPrintStatus());
         assertEquals(updateBinderOrder.getStatus(), dbBinderOrder.getStatus());
         assertEquals(updateBinderOrder.getEntryId(), dbBinderOrder.getEntryId());
-        assertEquals(updateBinderOrder.getEntryDate(), dbBinderOrder.getEntryDate());
     }
 }

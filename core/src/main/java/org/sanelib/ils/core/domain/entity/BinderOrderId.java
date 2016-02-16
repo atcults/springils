@@ -16,10 +16,10 @@ public class BinderOrderId implements Serializable, LibraryIdAndEntityId{
     }
 
     @Column(name = "library_id")
-    private int libraryId;
+    private Integer libraryId;
 
     @Column(name = "order_no")
-    private int id;
+    private Integer id;
 
     @Override
     public int getLibraryId() {

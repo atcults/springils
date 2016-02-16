@@ -3,6 +3,7 @@ package org.sanelib.ils.core.domain.entity;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -37,10 +38,10 @@ public class BinderOrder implements DomainEntity{
     private String content;
 
     @Column(name = "mail_status")
-    private String mailStatus;
+    private char mailStatus;
 
     @Column(name = "print_status")
-    private String printStatus;
+    private char printStatus;
 
     @Column(name = "status")
     private String status;
@@ -124,20 +125,20 @@ public class BinderOrder implements DomainEntity{
         this.content = content;
     }
 
-    public String getMailStatus() {
-        return mailStatus;
+    public boolean isMailStatus() {
+        return mailStatus == 'Y';
     }
 
-    public void setMailStatus(String mailStatus) {
-        this.mailStatus = mailStatus;
+    public void setMailStatus(boolean mailStatus) {
+        this.mailStatus = mailStatus ? 'Y' : 'N';
     }
 
-    public String getPrintStatus() {
-        return printStatus;
+    public boolean isPrintStatus() {
+        return printStatus == 'Y';
     }
 
-    public void setPrintStatus(String printStatus) {
-        this.printStatus = printStatus;
+    public void setPrintStatus(boolean printStatus) {
+        this.printStatus = printStatus ? 'Y' : 'N';
     }
 
     public String getStatus() {
@@ -160,10 +161,6 @@ public class BinderOrder implements DomainEntity{
         return entryDate;
     }
 
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -178,5 +175,18 @@ public class BinderOrder implements DomainEntity{
     @Override
     public int hashCode() {
         return binderOrderId.hashCode();
+    }
+
+    @PrePersist
+    public void prePersist() {
+        if(!isMailStatus()){
+            setMailStatus(false);
+        }
+
+        if(!isPrintStatus()){
+            setPrintStatus(false);
+        }
+
+        entryDate = new Date();
     }
 }

@@ -37,11 +37,10 @@ public class DeleteBinderOrderProcessTest extends EntityIntegrationTestBase {
         binderOrder.setFormLetterNo("FormLetterNumber");
         binderOrder.setSubject("Subject");
         binderOrder.setContent("Content");
-        binderOrder.setMailStatus("M");
-        binderOrder.setPrintStatus("P");
+        binderOrder.setMailStatus(true);
+        binderOrder.setPrintStatus(true);
         binderOrder.setStatus("SetStatus");
         binderOrder.setEntryId("EntryId");
-        binderOrder.setEntryDate(DateHelper.constructDate(2015 , 11 ,10));
 
         persist(binderOrder);
 

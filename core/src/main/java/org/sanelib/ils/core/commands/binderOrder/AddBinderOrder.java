@@ -24,11 +24,10 @@ public class AddBinderOrder extends ProcessCommandWithLibraryId {
     private String formLetterNo;
     private String subject;
     private String content;
-    private String mailStatus;
-    private String printStatus;
+    private boolean mailStatus;
+    private boolean printStatus;
     private String status;
     private String entryId;
-    private Date entryDate;
 
     public Integer getBinderId() {
         return binderId;
@@ -86,21 +85,13 @@ public class AddBinderOrder extends ProcessCommandWithLibraryId {
         this.content = content;
     }
 
-    public String getMailStatus() {
-        return mailStatus;
-    }
+    public boolean isMailStatus() { return mailStatus;  }
 
-    public void setMailStatus(String mailStatus) {
-        this.mailStatus = mailStatus;
-    }
+    public void setMailStatus(boolean mailStatus) { this.mailStatus = mailStatus; }
 
-    public String getPrintStatus() {
-        return printStatus;
-    }
+    public boolean isPrintStatus() { return printStatus;  }
 
-    public void setPrintStatus(String printStatus) {
-        this.printStatus = printStatus;
-    }
+    public void setPrintStatus(boolean printStatus) { this.printStatus = printStatus;  }
 
     public String getStatus() {
         return status;
@@ -118,12 +109,5 @@ public class AddBinderOrder extends ProcessCommandWithLibraryId {
         this.entryId = entryId;
     }
 
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
 }
 

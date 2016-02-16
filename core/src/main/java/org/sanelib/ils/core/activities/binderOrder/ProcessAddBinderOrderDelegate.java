@@ -35,11 +35,10 @@ public class ProcessAddBinderOrderDelegate implements JavaDelegate {
         entity.setFormLetterNo(command.getFormLetterNo());
         entity.setSubject(command.getSubject());
         entity.setContent(command.getContent());
-        entity.setMailStatus(command.getMailStatus());
-        entity.setPrintStatus(command.getPrintStatus());
+        entity.setMailStatus(command.isMailStatus());
+        entity.setPrintStatus(command.isPrintStatus());
         entity.setStatus(command.getStatus());
         entity.setEntryId(command.getEntryId());
-        entity.setEntryDate(command.getEntryDate());
 
         binderOrderRepository.save(entity);
 
