@@ -10,7 +10,6 @@ public class CourseDto implements DtoWithId,DtoWithLibraryId {
     private String name;
     private String hodId;
     private String entryId;
-    private String entryDate;
     private String pCourseId;
 
     public void setId(String id) {  this.id = id;    }
@@ -32,10 +31,6 @@ public class CourseDto implements DtoWithId,DtoWithLibraryId {
     public String getEntryId() {   return entryId;    }
 
     public void setEntryId(String entryId) {   this.entryId = entryId;    }
-
-    public String getEntryDate() {   return entryDate;    }
-
-    public void setEntryDate(String entryDate) {     this.entryDate = entryDate;    }
 
     public String getpCourseId() {    return pCourseId;    }
 

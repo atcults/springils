@@ -26,7 +26,6 @@ public class AddCourseConverter implements DtoToCommandConverter<CourseDto> {
         //NOTE: Default value set 0.99 in NGL.
         command.setHodId(Double.valueOf(dto.getHodId()));
         command.setEntryId(dto.getEntryId());
-        command.setEntryDate(DateHelper.fromDateString(dto.getEntryDate()));
         command.setpCourseId(Integer.parseInt(dto.getpCourseId()));
 
         return command;

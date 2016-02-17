@@ -22,7 +22,6 @@ public class UpdateCourseConverterTest {
         dto.setName("name");
         dto.setHodId("10.01");
         dto.setEntryId("1");
-        dto.setEntryDate("1993/08/12");
         dto.setpCourseId("1");
 
         ProcessError processError=new ProcessError();
@@ -39,7 +38,6 @@ public class UpdateCourseConverterTest {
         assertEquals("Name is not mapped",dto.getName(),updateCourse.getName());
         assertEquals("Hod Id not mapped",(dto.getHodId()), String.valueOf(updateCourse.getHodId()));
         assertEquals("Entry id is not mapped",dto.getEntryId(),updateCourse.getEntryId());
-        assertEquals("Entry date is not mapped",dto.getEntryDate(), DateHelper.toDateString(updateCourse.getEntryDate()));
         assertEquals("p Course id is not mapped",dto.getpCourseId(), String.valueOf(updateCourse.getpCourseId()));
     }
 }
