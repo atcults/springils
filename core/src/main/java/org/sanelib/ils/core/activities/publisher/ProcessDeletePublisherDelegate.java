@@ -16,15 +16,14 @@ public class ProcessDeletePublisherDelegate implements JavaDelegate {
     private static final Logger LOG = LoggerFactory.getLogger(ProcessDeletePublisherDelegate.class);
 
     @Autowired
-    PublisherRepository employeeRepository;
-
+    PublisherRepository publisherRepository;
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
         LOG.info("Process Publisher Delete called");
 
         DeletePublisher command = (DeletePublisher) execution.getVariable("command");
-        Publisher publisher = this.employeeRepository.load(command.getCode());
-        employeeRepository.remove(publisher);
+        Publisher publisher = this.publisherRepository.load(command.getCode());
+        publisherRepository.remove(publisher);
     }
 }

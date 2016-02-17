@@ -25,9 +25,8 @@ public class FiscalYearService extends ApiServiceBase {
 
         fiscalYearDTO.setLibraryId("101");
         fiscalYearDTO.setId("12345");
-        fiscalYearDTO.setStartDate("2015/04/01");
-        fiscalYearDTO.setEndDate("2016/03/31");
-        fiscalYearDTO.setEntryId("john");
+        fiscalYearDTO.setStartDate("2015-04-01");
+        fiscalYearDTO.setEndDate("2016-03-31");
 
         dtos.add(fiscalYearDTO);
 
