@@ -32,7 +32,6 @@ public class ProcessAddCourseDelegate implements JavaDelegate{
         entity.setName(command.getName());
         entity.setHodId(command.getHodId());
         entity.setEntryId(command.getEntryId());
-        entity.setEntryDate(command.getEntryDate());
         entity.setpCourseId(command.getpCourseId());
 
         courseRepository.save(entity);

@@ -1,9 +1,6 @@
 package org.sanelib.ils.core.domain.entity;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -28,7 +25,7 @@ public class Course implements DomainEntity {
     private Date entryDate;
 
     @Column(name = "p_course_id")
-    private int pCourseId;
+    private Integer pCourseId;
 
     public Course() {
     }
@@ -37,7 +34,14 @@ public class Course implements DomainEntity {
         return courseId;
     }
 
-    public void setCourseId(CourseId courseId) { this.courseId = courseId;    }
+    public void setCourseId(int id,int libraryId){
+        if(this.courseId==null){
+            this.courseId=new CourseId(libraryId,id);
+        }else{
+            this.courseId.setId(id);
+            this.courseId.setLibraryId(libraryId);
+        }
+    }
 
     public Double getHodId() {
         return hodId;
@@ -59,26 +63,14 @@ public class Course implements DomainEntity {
         return entryDate;
     }
 
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
-
-    public int getpCourseId() {
+    public Integer getpCourseId() {
         return pCourseId;
     }
 
-    public void setpCourseId(int pCourseId) {
+    public void setpCourseId(Integer pCourseId) {
         this.pCourseId = pCourseId;
     }
 
-    public void setCourseId(int id,int libraryId){
-        if(this.courseId==null){
-            this.courseId=new CourseId(libraryId,id);
-        }else{
-            this.courseId.setId(id);
-            this.courseId.setLibraryId(libraryId);
-        }
-    }
     public String getName() {
         return name;
     }
@@ -100,6 +92,12 @@ public class Course implements DomainEntity {
     @Override
     public int hashCode() {
         return courseId.hashCode();
+    }
+
+    @PrePersist
+    public void prePersist(){
+
+        entryDate = new Date();
     }
 
 

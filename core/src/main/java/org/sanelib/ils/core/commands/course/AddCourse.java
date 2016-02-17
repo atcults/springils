@@ -21,7 +21,7 @@ public class AddCourse extends ProcessCommandWithLibraryId {
     private Double hodId;
     private String entryId;
     private Date entryDate;
-    private int pCourseId;
+    private Integer pCourseId;
 
     public Double getHodId() {
         return hodId;
@@ -39,9 +39,9 @@ public class AddCourse extends ProcessCommandWithLibraryId {
 
     public void setEntryDate(Date entryDate) { this.entryDate = entryDate; }
 
-    public int getpCourseId() { return pCourseId; }
+    public Integer getpCourseId() { return pCourseId; }
 
-    public void setpCourseId(int pCourseId) { this.pCourseId = pCourseId;}
+    public void setpCourseId(Integer pCourseId) { this.pCourseId = pCourseId;}
 
     public String getName() { return name; }
 
