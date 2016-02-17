@@ -11,3 +11,6 @@ field:
   notExist: ~0 with ~1 ^0 does not exist.
   length: ~0 length should not more than ^0
   select: ~0 should be selected from list.
+
+date:
+  startDateAfterEndDate: ~0 should not be after end date.
