@@ -6,11 +6,15 @@ import org.sanelib.ils.core.commands.agency.AddAgency;
 import org.sanelib.ils.core.dao.AgencyRepository;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.Agency;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessAddAgencyDelegate implements JavaDelegate {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessAddAgencyDelegate.class);
 
     @Autowired
     HibernateHelper hibernateHelper;
@@ -20,7 +24,7 @@ public class ProcessAddAgencyDelegate implements JavaDelegate {
 
     @Override
 	public void execute(DelegateExecution execution) throws Exception {
-		System.out.println("Process Add Agency called");
+		LOG.info("Process Add Agency called");
 
         AddAgency command = (AddAgency) execution.getVariable("command");
 
