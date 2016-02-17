@@ -3,6 +3,7 @@ package org.sanelib.ils.core.dao.read.admin.mapper;
 import org.sanelib.ils.core.dao.read.DataResultSet;
 import org.sanelib.ils.core.dao.read.ViewMapper;
 import org.sanelib.ils.core.domain.view.admin.PatronView;
+import org.sanelib.ils.core.enums.PatronType;
 import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
@@ -16,15 +17,17 @@ public class PatronMapper implements ViewMapper<PatronView> {
         final String viewName = "patron";
 
         final PatronView view = new PatronView();
+
         view.setLibraryId(rs.getInt(viewName, "library_id"));
         view.setCode(rs.getString(viewName, "patron_id"));
         view.setPatronCategoryId(rs.getInt(viewName, "patron_category_id"));
-        view.setIsOnline(rs.getString(viewName, "is_online"));
+        view.setIsOnline(rs.getString(viewName, "isonline"));
         view.setOwns(rs.getString(viewName, "owns"));
         view.setCreatedOn(rs.getDate(viewName, "created_on"));
         view.setOtherLibraryPatronId(rs.getInt(viewName, "other_library_patron_id"));
         view.setLibraryPatronId(rs.getInt(viewName, "library_patron_id"));
-        view.setDeptId(rs.getInt(viewName, "dept_Id"));
+        view.setPatronType(PatronType.getByValue(rs.getString(viewName,"patron_type")));
+        view.setDeptId(rs.getInt(viewName, "dept_id"));
         view.setFirstName(rs.getString(viewName, "fname"));
         view.setMiddleName(rs.getString(viewName, "mname"));
         view.setLastName(rs.getString(viewName, "lname"));
@@ -66,6 +69,7 @@ public class PatronMapper implements ViewMapper<PatronView> {
         view.setSubLocationId(rs.getInt(viewName, "sub_location_id"));
         view.setLoginId(rs.getString(viewName, "login_id"));
         view.setAuthenticateLocalDatabase(rs.getString(viewName, "authenticate_localdatabase"));
+
         return view;
     }
 }

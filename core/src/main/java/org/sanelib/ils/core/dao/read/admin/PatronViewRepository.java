@@ -3,7 +3,7 @@ package org.sanelib.ils.core.dao.read.admin;
 import org.sanelib.ils.core.dao.read.ViewService;
 import org.sanelib.ils.core.dao.read.ViewServiceBase;
 import org.sanelib.ils.core.dao.read.admin.mapper.PatronMapper;
-import org.sanelib.ils.core.domain.view.admin.LibraryView;
+import org.sanelib.ils.core.domain.view.admin.PatronView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +25,7 @@ public class PatronViewRepository extends ViewServiceBase {
         return Collections.singletonList("select * from patron");
     }
 
-   public List<LibraryView> getAll() throws Throwable {
+   public List<PatronView> getAll() throws Throwable {
         return viewService.loadQuery(getStatements().get(0), mapper);
     }
 }
