@@ -24,7 +24,7 @@ import java.util.List;
 public class PatronService extends ApiServiceBase{
 
     @GET
-    public List getAllPatronCategories() throws Throwable {
+    public List getAllPatron() throws Throwable {
         return fetchAll(ViewNameConstants.Admin.PATRON);
     }
 
