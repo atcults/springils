@@ -9,7 +9,7 @@ import java.util.Date;
 public class CourseView implements DomainView, ViewWithId{
 
     private Integer libraryId;
-    private Integer courseId;
+    private Integer id;
     private String courseName;
     private Double hodId;
     private String entryId;
@@ -22,14 +22,6 @@ public class CourseView implements DomainView, ViewWithId{
 
     public void setLibraryId(Integer libraryId) {
         this.libraryId = libraryId;
-    }
-
-    public Integer getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(Integer courseId) {
-        this.courseId = courseId;
     }
 
     public String getCourseName() {
@@ -74,7 +66,11 @@ public class CourseView implements DomainView, ViewWithId{
 
     @Override
     public Integer getId() {
-        return courseId;
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
@@ -82,7 +78,7 @@ public class CourseView implements DomainView, ViewWithId{
 
         return "CourseView{" +
                 "libraryId=" +libraryId +
-                "courseId=" +courseId +
+                "id=" +id +
                 "courseName=" +courseName+
                 "hodId=" +hodId+
                 "entryId=" +entryId+
