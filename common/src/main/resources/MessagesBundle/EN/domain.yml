@@ -11,6 +11,7 @@ entity:
   patronCategory: PatronCategory
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
+  bindingType: Binding Type
 
 library:
   name: Name
@@ -44,3 +45,9 @@ accessionSeries:
 
 patronCategory:
   name: Name
+
+bindingType:
+  bindType: Binding Type
+  price: Price
+  entryId: Entry Id
+  entryDate: Entry Date
