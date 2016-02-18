@@ -56,6 +56,8 @@ public class AddBinderConverter implements DtoToCommandConverter<BinderDto> {
             command.setEmail(dto.getEmail());
         }
 
+        command.setEntryId(dto.getEntryId());
+
         return command;
     }
 }

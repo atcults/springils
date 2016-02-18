@@ -36,7 +36,6 @@ public class ProcessUpdateBinderDelegate implements JavaDelegate {
         entity.setFax(command.getFax());
         entity.setEmail(command.getEmail());
         entity.setEntryId(command.getEntryId());
-        entity.setEntryDate(command.getEntryDate());
 
         binderRepository.save(entity);
 	}
