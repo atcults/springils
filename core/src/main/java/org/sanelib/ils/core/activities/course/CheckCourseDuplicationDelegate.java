@@ -34,7 +34,7 @@ public class CheckCourseDuplicationDelegate implements JavaDelegate {
         Integer libraryId = ((AddCourse)command).getLibraryId();
         String courseName = ((AddCourse)command).getName();
 
-        List<Course> courses = courseRepository.findByColumnAndValue(new String[] {"courseId.libraryId","name"},new Object[]{libraryId , courseName});
+        List<Course> courses = courseRepository.findByColumnAndValue(new String[] {"courseId.libraryId", "name"}, new Object[]{libraryId , courseName});
 
         Course dbCourse = courses.isEmpty() ? null : courses.get(0);
 

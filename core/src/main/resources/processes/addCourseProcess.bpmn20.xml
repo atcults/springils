@@ -14,13 +14,15 @@
         <documentation>To process add course command</documentation>
         <startEvent id="startProcessID" name="start"/>
         <serviceTask id="checkLibraryExistID" name="checkLibraryExist" activiti:delegateExpression="${checkLibraryExistDelegate}"/>
-        <serviceTask id="checkCourseDuplicationId" name="checkCourseDuplication" activiti:delegateExpression="${checkCourseDuplicationDelegate}"/>
-        <serviceTask id="processAddCourseId" name="processAddCourseProcess" activiti:delegateExpression="${processAddCourseDelegate}"/>
+        <serviceTask id="checkCourseDuplicationID" name="checkCourseDuplication" activiti:delegateExpression="${checkCourseDuplicationDelegate}"/>
+        <serviceTask id="CheckPromotedCourseValidID" name="checkPromotedCourseValid" activiti:delegateExpression="${checkPromotedCourseValidDelegate}"/>
+        <serviceTask id="processAddCourseID" name="processAddCourseProcess" activiti:delegateExpression="${processAddCourseDelegate}"/>
         <endEvent id="endProcessID" name="end"/>
 
         <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E28" sourceRef="startProcessID" targetRef="checkLibraryExistID"/>
-        <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E58" sourceRef="checkLibraryExistID" targetRef="checkCourseDuplicationId"/>
-        <sequenceFlow id="sid-9B2E3492-26CA-40A3-A8CB-74E1302888A3" sourceRef="checkCourseDuplicationId" targetRef="processAddCourseId"/>
-        <sequenceFlow id="sid-78877653-D15F-47F3-91D3-921D9E76438B" sourceRef="processAddCourseId" targetRef="endProcessID"/>
+        <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E58" sourceRef="checkLibraryExistID" targetRef="checkCourseDuplicationID"/>
+        <sequenceFlow id="sid-9B2E3492-26CA-40A3-A8CB-74E1302888A3" sourceRef="checkCourseDuplicationID" targetRef="CheckPromotedCourseValidID"/>
+        <sequenceFlow id="sid-9B2E3492-26CA-40A3-A8CB-74E1302888A4" sourceRef="CheckPromotedCourseValidID" targetRef="processAddCourseID"/>
+        <sequenceFlow id="sid-78877653-D15F-47F3-91D3-921D9E76438B" sourceRef="processAddCourseID" targetRef="endProcessID"/>
     </process>
 </definitions>
