@@ -31,10 +31,10 @@ public class Holiday implements DomainEntity{
     private String note;
 
     @Column(name="entry_id")
-    private String entryId;
+    private String patronCode;
 
     @Column(name = "entry_library_id")
-    private int entryLibraryId;
+    private int patronLibraryId;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -83,20 +83,20 @@ public class Holiday implements DomainEntity{
         this.note = note;
     }
 
-    public String getEntryId() {
-        return this.entryId;
+    public String getPatronCode() {
+        return this.patronCode;
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
+    public void setPatronCode(String patronCode) {
+        this.patronCode = patronCode;
     }
 
-    public int getEntryLibraryId() {
-        return this.entryLibraryId;
+    public int getPatronLibraryId() {
+        return this.patronLibraryId;
     }
 
-    public void setEntryLibraryId(int entryLibraryId) {
-        this.entryLibraryId = entryLibraryId;
+    public void setPatronLibraryId(int patronLibraryId) {
+        this.patronLibraryId = patronLibraryId;
     }
 
     @PrePersist
