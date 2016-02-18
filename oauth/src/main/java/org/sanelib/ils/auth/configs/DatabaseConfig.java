@@ -13,7 +13,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 
 @Configuration
-@MapperScan("org.sanelib.ils.oauth.dao")
+@MapperScan("org.sanelib.ils.auth.dao")
 public class DatabaseConfig {
 
 	@Autowired
