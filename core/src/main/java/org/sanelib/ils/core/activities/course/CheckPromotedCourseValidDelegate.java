@@ -40,7 +40,7 @@ public class CheckPromotedCourseValidDelegate implements JavaDelegate {
         }
 
         Criteria criteria = unitOfWork.getCurrentSession().createCriteria(((ProcessCommand) command).getRootEntityClass());
-        criteria.add(Restrictions.eq("promotedCourseId", promotedCourseId));
+        criteria.add(Restrictions.eq("courseId.id", promotedCourseId));
 
         List list = criteria.list();
 

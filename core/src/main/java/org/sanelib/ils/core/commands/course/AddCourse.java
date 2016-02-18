@@ -19,16 +19,11 @@ public class AddCourse extends ProcessCommandWithLibraryId {
 
     private String name;
     private String entryId;
-    private Date entryDate;
     private Integer promotedCourseId;
 
     public String getEntryId() { return entryId; }
 
     public void setEntryId(String entryId) { this.entryId = entryId; }
-
-    public Date getEntryDate() { return entryDate; }
-
-    public void setEntryDate(Date entryDate) { this.entryDate = entryDate; }
 
     public Integer getPromotedCourseId() { return promotedCourseId; }
 

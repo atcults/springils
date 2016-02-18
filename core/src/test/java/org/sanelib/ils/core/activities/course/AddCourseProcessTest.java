@@ -27,35 +27,33 @@ public class AddCourseProcessTest extends EntityIntegrationTestBase {
 
     @Test
     public void testAddCourseProcess() throws Throwable{
-
-        Library library=new Library();
+        Library library = new Library();
         library.setId(hibernateHelper.getNextId(Library.class));
         library.setName("library");
 
-        Course course = new Course();
-        course.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"),library.getId());
-        course.setName("base");
+        Course advanceCourse = new Course();
+        advanceCourse.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"),library.getId());
+        advanceCourse.setName("advance");
 
-        persist(course);
+        persist(advanceCourse);
 
         persist(library);
 
-        AddCourse addCourse=new AddCourse();
+        AddCourse addCourse = new AddCourse();
 
         addCourse.setLibraryId(library.getId());
-        addCourse.setName("advance");
+        addCourse.setName("basic");
         addCourse.setEntryId("entryId");
-        addCourse.setEntryDate(DateHelper.constructDate(2016, 2, 10));
-        addCourse.setPromotedCourseId(course.getCourseId().getId());
+        addCourse.setPromotedCourseId(advanceCourse.getCourseId().getId());
 
         String result = execute(addCourse, ActivitiProcessConstants.Admin.ADD_COURSE);
         assertNotNull(result);
 
-        course = fetch(Course.class, new CourseId(library.getId(), Integer.parseInt(result)));
+        advanceCourse = fetch(Course.class, new CourseId(library.getId(), Integer.parseInt(result)));
 
-        assertNotNull(course);
+        assertNotNull(advanceCourse);
 
-        assertEquals(addCourse.getName(),course.getName());
+        assertEquals(addCourse.getName(),advanceCourse.getName());
     }
 
 
