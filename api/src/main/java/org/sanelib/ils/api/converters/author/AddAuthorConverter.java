@@ -31,7 +31,7 @@ public class AddAuthorConverter implements DtoToCommandConverter<AuthorDTO> {
 
         //Check phone number and convert
         if(!RegularExpressionHelper.checkPhoneFormat(dto.getPhone())) {
-            processError.addError("common.field.pattern", "phone", "domain.author.phone", RegularExpressionHelper.PHONE_FORMAT);
+            processError.addError("common.field.pattern", "phone", "domain.author.phone", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
         } else {
             command.setPhone(StringHelper.convertPhoneNumber(dto.getPhone()));
         }
