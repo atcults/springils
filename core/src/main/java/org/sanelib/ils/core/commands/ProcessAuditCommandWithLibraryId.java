@@ -2,14 +2,14 @@ package org.sanelib.ils.core.commands;
 
 public abstract class ProcessAuditCommandWithLibraryId extends ProcessCommandWithLibraryId {
 
-    private Integer entryId;
+    private String entryId;
     private Integer entryLibraryId;
 
-    public Integer getEntryId() {
+    public String getEntryId() {
         return entryId;
     }
 
-    public void setEntryId(Integer entryId) {
+    public void setEntryId(String entryId) {
         this.entryId = entryId;
     }
 

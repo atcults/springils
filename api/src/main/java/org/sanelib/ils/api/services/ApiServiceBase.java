@@ -55,7 +55,7 @@ public abstract class ApiServiceBase {
         //NOTE: This is to globally resolve entry patron and its library id.
         if(command instanceof ProcessAuditCommandWithLibraryId){
             ProcessAuditCommandWithLibraryId auditCommandWithLibraryId = (ProcessAuditCommandWithLibraryId) command;
-            auditCommandWithLibraryId.setEntryId(userSession.getUserId());
+            auditCommandWithLibraryId.setEntryId(userSession.getUserCode());
             auditCommandWithLibraryId.setEntryLibraryId(userSession.getLibraryId());
         }
 

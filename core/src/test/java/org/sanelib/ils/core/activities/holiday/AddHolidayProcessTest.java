@@ -63,7 +63,7 @@ public class AddHolidayProcessTest extends EntityIntegrationTestBase{
         addHoliday.setStartDate(DateHelper.constructDate(2016 , 2 , 6));
         addHoliday.setEndDate(DateHelper.constructDate(2016 , 2, 9));
         addHoliday.setNote("Test Holiday");
-        addHoliday.setEntryId(1);
+        addHoliday.setEntryId("1");
         addHoliday.setEntryLibraryId(1);
 
         String result = execute(addHoliday , ActivitiProcessConstants.Admin.ADD_HOLIDAY);

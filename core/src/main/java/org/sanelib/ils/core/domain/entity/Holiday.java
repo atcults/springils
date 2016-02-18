@@ -31,7 +31,7 @@ public class Holiday implements DomainEntity{
     private String note;
 
     @Column(name="entry_id")
-    private Integer entryId;
+    private String entryId;
 
     @Column(name = "entry_library_id")
     private int entryLibraryId;
@@ -83,11 +83,11 @@ public class Holiday implements DomainEntity{
         this.note = note;
     }
 
-    public Integer getEntryId() {
+    public String getEntryId() {
         return this.entryId;
     }
 
-    public void setEntryId(Integer entryId) {
+    public void setEntryId(String entryId) {
         this.entryId = entryId;
     }
 
