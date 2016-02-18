@@ -15,6 +15,10 @@ public class ActivitiProcessConstants {
         public static final String UPDATE_AGENCY = "updateAgency";
         public static final String DELETE_AGENCY = "deleteAgency";
 
+        public static final String ADD_COURSE = "addCourse";
+        public static final String UPDATE_COURSE = "updateCourse";
+        public static final String DELETE_COURSE = "deleteCourse";
+
 	    public static final String ADD_FISCALYEAR = "addFiscalYear";
         public static final String UPDATE_FISCALYEAR = "updateFiscalYear";
         public static final String DELETE_FISCALYEAR = "deleteFiscalYear";

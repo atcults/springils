@@ -10,6 +10,7 @@ entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  course: Course
   patronCategory: PatronCategory
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
@@ -29,6 +30,12 @@ publisher:
 
 agency:
   name: Name
+
+course:
+  name: Name
+  entryId: Entry Id
+  entryDate: Entry Date
+  promotedCourseId: Promoted Course Id
 
 fiscalYear:
   startDate: Start Date
