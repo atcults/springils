@@ -55,7 +55,7 @@ public class Patron implements DomainEntity {
     @Column(name = "patron_type")
     private PatronType patronType;
 
-    @Column(name = "dept_Id")
+    @Column(name = "dept_id")
     private Integer deptId;
 
     @Column(name = "fname")
