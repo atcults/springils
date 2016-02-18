@@ -32,8 +32,6 @@ public class AddAccessionSeriesConverter implements DtoToCommandConverter<Access
            command.setTypeName(accessionSeriesType);
        }
 
-       command.setEntryId(dto.getEntryId());
-
         return command;
     }
 }

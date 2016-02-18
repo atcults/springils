@@ -23,9 +23,6 @@ public class AddAccessionSeriesConverterTest {
         dto.setMaxZero("2");
         dto.setPrefix("AS");
         dto.setTypeName(AccessionSeriesType.Fixed);
-        dto.setEntryId("1");
-        dto.setEntryDate("2016/01/01");
-        dto.setEntryLibraryId("1a");
 
         ProcessError processError = new ProcessError();
 
@@ -42,8 +39,5 @@ public class AddAccessionSeriesConverterTest {
         assertEquals("Max Zero of series not mapped", Integer.valueOf(dto.getMaxZero()),  addAccessionSeries.getMaxZero());
         assertEquals("Prefix of series not mapped",dto.getPrefix(),  addAccessionSeries.getPrefix());
         assertEquals("Type of series not mapped",dto.getTypeName(),  addAccessionSeries.getTypeName());
-        assertEquals("EntryId of series not mapped",dto.getEntryId(),  addAccessionSeries.getEntryId());
-        assertEquals("EntryDate not mapped", DateHelper.fromDateString(dto.getEntryDate()),  addAccessionSeries.getEntryDate());
-        assertEquals("EntryLibraryId is not mapped", dto.getEntryLibraryId(), String.valueOf(addAccessionSeries.getEntryLibraryId()));
     }
 }

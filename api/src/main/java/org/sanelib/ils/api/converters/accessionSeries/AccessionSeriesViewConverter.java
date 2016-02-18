@@ -20,9 +20,6 @@ public class AccessionSeriesViewConverter implements ViewToDtoConverter<Accessio
         accessionSeriesDto.setMaxZero(String.valueOf(accessionSeriesView.getMaxZero()));
         accessionSeriesDto.setPrefix(accessionSeriesView.getPrefix());
         accessionSeriesDto.setTypeName(accessionSeriesView.getTypeName());
-        accessionSeriesDto.setEntryId(accessionSeriesView.getEntryId());
-        accessionSeriesDto.setEntryDate(DateHelper.toDateString(accessionSeriesView.getEntryDate()));
-        accessionSeriesDto.setEntryLibraryId(String.valueOf(accessionSeriesView.getEntryLibraryId()));
 
         return accessionSeriesDto;
     }
