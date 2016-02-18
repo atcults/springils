@@ -58,7 +58,6 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
     private boolean commonEmail;
     private boolean commonInstantMsg;
     private boolean commonPrint;
-    private Date entryDate;
     private String userPassword;
     private Integer courseId;
     private String status;
@@ -375,10 +374,6 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
 
     public void setCommonPrint(boolean commonPrint) {
         this.commonPrint = commonPrint;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
     }
 
     public String getUserPassword() {
