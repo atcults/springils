@@ -109,20 +109,12 @@ public class Author implements DomainEntity{
     }
 
     public boolean isContract() {
-        if(isContract == '1'){
-            return true;
-        }
-        else{
-            return false;
-        }
-
+        return isContract == '1';
     }
 
     public void setContract(boolean contract) {
         this.isContract = contract ? '1' : '0';
     }
-
-
 
     @Override
     public boolean equals(Object o) {
@@ -132,7 +124,6 @@ public class Author implements DomainEntity{
         Author author = (Author) o;
 
         return code.equals(author.code);
-
     }
 
     @Override
