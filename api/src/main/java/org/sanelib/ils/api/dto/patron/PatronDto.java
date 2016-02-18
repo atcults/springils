@@ -12,7 +12,6 @@ public class PatronDto implements DtoWithCode, DtoWithLibraryId {
     private String patronCategoryId;
     private String isOnline;
     private String owns;
-    private String createdOn;
     private String otherLibraryPatronId;
     private String libraryPatronId;
     private PatronType patronType;
@@ -97,14 +96,6 @@ public class PatronDto implements DtoWithCode, DtoWithLibraryId {
 
     public void setOwns(String owns) {
         this.owns = owns;
-    }
-
-    public String getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(String createdOn) {
-        this.createdOn = createdOn;
     }
 
     public String getOtherLibraryPatronId() {

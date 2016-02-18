@@ -18,7 +18,6 @@ public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDt
         dto.setPatronCategoryId(String.valueOf(patronView.getPatronCategoryId()));
         dto.setIsOnline(patronView.getIsOnline());
         dto.setOwns(patronView.getOwns());
-        dto.setCreatedOn(DateHelper.toDateString(patronView.getCreatedOn()));
         dto.setOtherLibraryPatronId(String.valueOf(patronView.getOtherLibraryPatronId()));
         dto.setLibraryPatronId(String.valueOf(patronView.getLibraryPatronId()));
         dto.setPatronType(patronView.getPatronType());

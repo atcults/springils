@@ -24,7 +24,6 @@ public class AddPatronConverterTest {
         dto.setPatronCategoryId("1");
         dto.setIsOnline("Is Online");
         dto.setOwns("Owns");
-        dto.setCreatedOn("2014-05-02");
         dto.setOtherLibraryPatronId("1");
         dto.setLibraryPatronId("1");
         dto.setPatronType(PatronType.Patron);
@@ -80,7 +79,6 @@ public class AddPatronConverterTest {
         assertEquals(dto.getPatronCategoryId() ,String.valueOf(addPatron.getOtherLibraryPatronId()));
         assertEquals(dto.getIsOnline() ,addPatron.getIsOnline());
         assertEquals(dto.getOwns() ,addPatron.getOwns());
-        assertEquals(dto.getCreatedOn() , DateHelper.toDateString(addPatron.getCreatedOn()));
         assertEquals(dto.getOtherLibraryPatronId() ,String.valueOf(addPatron.getOtherLibraryPatronId()));
         assertEquals(dto.getPatronType() ,addPatron.getPatronType());
         assertEquals(dto.getDeptId() ,String.valueOf(addPatron.getDeptId()));

@@ -26,12 +26,6 @@ public class AddPatronConverter implements DtoToCommandConverter<PatronDto> {
         command.setIsOnline(dto.getIsOnline());
         command.setOwns(dto.getOwns());
 
-        if(!RegularExpressionHelper.checkDateFormat(dto.getCreatedOn())) {
-            processError.addError("common.field.pattern", "createdOn", "domain.patron.createdOn", RegularExpressionHelper.DATE_FORMAT_EXAMPLE);
-        } else {
-            command.setCreatedOn(DateHelper.fromDateString(dto.getCreatedOn()));
-        }
-
         command.setOtherLibraryPatronId(Integer.parseInt(dto.getOtherLibraryPatronId()));
         command.setLibraryPatronId(Integer.parseInt(dto.getLibraryPatronId()));
         command.setDeptId(Integer.parseInt(dto.getDeptId()));
