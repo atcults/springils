@@ -9,31 +9,46 @@ public class CourseDto implements DtoWithId,DtoWithLibraryId {
     private String libraryId;
     private String name;
     private String hodId;
-    private String entryId;
-    private String pCourseId;
+    private String promotedCourseId;
 
-    public void setId(String id) {  this.id = id;    }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getId() {  return this.id;    }
+    public String getId() {
+        return this.id;
+    }
 
-    public void setLibraryId(String libraryId) {    this.libraryId = libraryId;    }
+    public void setLibraryId(String libraryId) {
+        this.libraryId = libraryId;
+    }
 
-    public String getLibraryId() {    return this.libraryId;    }
+    public String getLibraryId() {
+        return this.libraryId;
+    }
 
-    public String getName() {    return name;    }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) {    this.name = name;    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getHodId() {   return hodId;    }
+    public String getHodId() {
+        return hodId;
+    }
 
-    public void setHodId(String hodId) {    this.hodId = hodId;    }
+    public void setHodId(String hodId) {
+        this.hodId = hodId;
+    }
 
-    public String getEntryId() {   return entryId;    }
+    public String getPromotedCourseId() {
+        return promotedCourseId;
+    }
 
-    public void setEntryId(String entryId) {   this.entryId = entryId;    }
-
-    public String getpCourseId() {    return pCourseId;    }
-
-    public void setpCourseId(String pCourseId) {    this.pCourseId = pCourseId;    }
+    public void setPromotedCourseId(String promotedCourseId) {
+        this.promotedCourseId = promotedCourseId;
+    }
 
 }

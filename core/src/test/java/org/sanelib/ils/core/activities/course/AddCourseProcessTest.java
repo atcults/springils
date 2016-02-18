@@ -38,10 +38,10 @@ public class AddCourseProcessTest extends EntityIntegrationTestBase {
 
         addCourse.setLibraryId(library.getId());
         addCourse.setName("name");
-        addCourse.setHodId(0.90);
+        addCourse.setHodId(1);
         addCourse.setEntryId("entryId");
-        addCourse.setEntryDate(DateHelper.constructDate(1993,8,12));
-        addCourse.setpCourseId(1);
+        addCourse.setEntryDate(DateHelper.constructDate(2016, 2, 10));
+        addCourse.setPromotedCourseId(1);
 
         String result = execute(addCourse, ActivitiProcessConstants.Admin.ADD_COURSE);
         assertNotNull(result);

@@ -4,7 +4,6 @@ import com.google.common.base.Strings;
 import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.course.CourseDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.course.AddCourse;
 import org.sanelib.ils.core.exceptions.ProcessError;
@@ -18,15 +17,13 @@ public class AddCourseConverter implements DtoToCommandConverter<CourseDto> {
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
 
         if(Strings.isNullOrEmpty(dto.getName())){
-            processError.addError("common.field.required","CourseName","domain.course.name");
+            processError.addError("common.field.required", "CourseName", "domain.course.name");
         }else{
             command.setName(dto.getName());
         }
 
-        //NOTE: Default value set 0.99 in NGL.
-        command.setHodId(Double.valueOf(dto.getHodId()));
-        command.setEntryId(dto.getEntryId());
-        command.setpCourseId(Integer.parseInt(dto.getpCourseId()));
+        command.setHodId(Integer.valueOf(dto.getHodId()));
+        command.setPromotedCourseId(Integer.parseInt(dto.getPromotedCourseId()));
 
         return command;
     }

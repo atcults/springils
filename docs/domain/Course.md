@@ -120,7 +120,7 @@
 1. libraryId - string - **Required** - Logged in library id will be passed.
 2. courseId - string - **Required** - It will auto increment
 3. courseName - string - **Required** - It will update the course details
-4. pCourseId - string - **Optional** - Course Id will be passed. It will use the existing    course reference for promoted course details. It will allow only existing course data      to insert as promoted course.
+4. promotedCourseId - string - **Optional** - Course Id will be passed. It will use the existing    course reference for promoted course details. It will allow only existing course data      to insert as promoted course.
 
 #### *Response*
 

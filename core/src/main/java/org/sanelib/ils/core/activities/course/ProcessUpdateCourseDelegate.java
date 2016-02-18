@@ -26,7 +26,7 @@ public class ProcessUpdateCourseDelegate implements JavaDelegate{
         entity.setName(command.getName());
         entity.setHodId(command.getHodId());
         entity.setEntryId(command.getEntryId());
-        entity.setpCourseId(command.getpCourseId());
+        entity.setPromotedCourseId(command.getPromotedCourseId());
 
         courseRepository.save(entity);
     }

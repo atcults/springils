@@ -21,13 +21,13 @@ public class UpdateCourseProcessTest extends EntityIntegrationTestBase {
     @Test
     public void testUpdateCourseProcess() throws Throwable{
 
-        Library library=new Library();
+        Library library = new Library();
         library.setId(hibernateHelper.getNextId(Library.class));
         library.setName("library");
 
         persist(library);
 
-        Course course=new Course();
+        Course course = new Course();
         course.setCourseId(hibernateHelper.getNextId(Course.class,"courseId.id"),library.getId());
         course.setName("course");
 
@@ -37,18 +37,18 @@ public class UpdateCourseProcessTest extends EntityIntegrationTestBase {
         updateCourse.setId(course.getCourseId().getId());
         updateCourse.setLibraryId(library.getId());
         updateCourse.setName("updated course");
-        updateCourse.setHodId(0.99);
+        updateCourse.setHodId(1);
         updateCourse.setEntryId("update entryId");
-        updateCourse.setEntryDate(DateHelper.constructDate(1993,8,12));
-        updateCourse.setpCourseId(1);
+        updateCourse.setEntryDate(DateHelper.constructDate(2016, 1, 12));
+        updateCourse.setPromotedCourseId(1);
 
-        String result=execute(updateCourse, ActivitiProcessConstants.Admin.UPDATE_COURSE);
+        String result = execute(updateCourse, ActivitiProcessConstants.Admin.UPDATE_COURSE);
         assertNull(result);
 
-        Course dbCourse= fetch(Course.class, new CourseId(library.getId(),  course.getCourseId().getId()));
+        Course dbCourse = fetch(Course.class, new CourseId(library.getId(), course.getCourseId().getId()));
         assertNotNull(dbCourse);
 
-        assertEquals(updateCourse.getName(),dbCourse.getName());
+        assertEquals(updateCourse.getName(), dbCourse.getName());
 
     }
 }

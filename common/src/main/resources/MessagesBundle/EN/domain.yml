@@ -33,7 +33,7 @@ course:
   hodId: Hod Id
   entryId: Entry Id
   entryDate: Entry Date
-  pCourseId: Promoted Course Id
+  promotedCourseId: Promoted Course Id
 
 fiscalYear:
   startDate: Start Date

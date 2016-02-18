@@ -16,7 +16,7 @@ public class Course implements DomainEntity {
     private String name;
 
     @Column(name = "hod_id")
-    private Double hodId;
+    private Integer hodId;
 
     @Column(name = "entry_id")
     private String entryId;
@@ -25,7 +25,7 @@ public class Course implements DomainEntity {
     private Date entryDate;
 
     @Column(name = "p_course_id")
-    private Integer pCourseId;
+    private Integer promotedCourseId;
 
     public Course() {
     }
@@ -43,11 +43,11 @@ public class Course implements DomainEntity {
         }
     }
 
-    public Double getHodId() {
+    public Integer getHodId() {
         return hodId;
     }
 
-    public void setHodId(Double hodId) {
+    public void setHodId(Integer hodId) {
         this.hodId = hodId;
     }
 
@@ -63,12 +63,12 @@ public class Course implements DomainEntity {
         return entryDate;
     }
 
-    public Integer getpCourseId() {
-        return pCourseId;
+    public Integer getPromotedCourseId() {
+        return promotedCourseId;
     }
 
-    public void setpCourseId(Integer pCourseId) {
-        this.pCourseId = pCourseId;
+    public void setPromotedCourseId(Integer promotedCourseId) {
+        this.promotedCourseId = promotedCourseId;
     }
 
     public String getName() {
@@ -96,9 +96,6 @@ public class Course implements DomainEntity {
 
     @PrePersist
     public void prePersist(){
-
         entryDate = new Date();
     }
-
-
 }

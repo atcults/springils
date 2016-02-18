@@ -11,10 +11,10 @@ public class CourseView implements DomainView, ViewWithId{
     private Integer libraryId;
     private Integer id;
     private String courseName;
-    private Double hodId;
+    private Integer hodId;
     private String entryId;
     private Date entryDate;
-    private Integer pCourseId;
+    private Integer promotedCourseId;
 
     public Integer getLibraryId() {
         return libraryId;
@@ -32,11 +32,11 @@ public class CourseView implements DomainView, ViewWithId{
         this.courseName = courseName;
     }
 
-    public Double getHodId() {
+    public Integer getHodId() {
         return hodId;
     }
 
-    public void setHodId(Double hodId) {
+    public void setHodId(Integer hodId) {
         this.hodId = hodId;
     }
 
@@ -56,12 +56,12 @@ public class CourseView implements DomainView, ViewWithId{
         this.entryDate = entryDate;
     }
 
-    public Integer getpCourseId() {
-        return pCourseId;
+    public Integer getPromotedCourseId() {
+        return promotedCourseId;
     }
 
-    public void setpCourseId(Integer pCourseId) {
-        this.pCourseId = pCourseId;
+    public void setPromotedCourseId(Integer promotedCourseId) {
+        this.promotedCourseId = promotedCourseId;
     }
 
     @Override
@@ -77,13 +77,13 @@ public class CourseView implements DomainView, ViewWithId{
     public String toString(){
 
         return "CourseView{" +
-                "libraryId=" +libraryId +
-                "id=" +id +
-                "courseName=" +courseName+
-                "hodId=" +hodId+
-                "entryId=" +entryId+
-                "entryDate=" +entryDate+
-                "pCourseId=" +pCourseId+
+                "libraryId=" + libraryId +
+                "id=" + id +
+                "courseName=" + courseName+
+                "hodId=" + hodId +
+                "entryId=" + entryId +
+                "entryDate=" + entryDate +
+                "promotedCourseId=" + promotedCourseId +
                 '}';
     }
 }
