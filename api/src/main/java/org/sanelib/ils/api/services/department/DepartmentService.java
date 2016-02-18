@@ -1,10 +1,13 @@
 package org.sanelib.ils.api.services.department;
 
+import org.sanelib.ils.api.converters.department.DepartmentViewConverter;
 import org.sanelib.ils.api.dto.department.DepartmentDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
-import org.sanelib.ils.core.dao.read.ViewNameConstants;
+import org.sanelib.ils.core.dao.read.admin.DepartmentViewRepository;
+import org.sanelib.ils.core.domain.view.admin.DepartmentView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.DELETE;
@@ -15,16 +18,29 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @Path(ApiEndPointConstants.Admin.DEPARTMENT_END_POINT)
 @Produces(MediaType.APPLICATION_JSON)
 public class DepartmentService extends ApiServiceBase {
 
+    @Autowired
+    DepartmentViewRepository departmentViewRepository;
+
+    @Autowired
+    DepartmentViewConverter departmentViewConverter;
+
     @GET
-    public List getAllDepartments() throws Throwable {
-        return fetchAll(ViewNameConstants.Admin.DEPARTMENT);
+    @SuppressWarnings("unchecked")
+    public List getAllPatronCategories() throws Throwable {
+        List dtoList = new ArrayList<>();
+        List viewList = departmentViewRepository.getAll();
+        dtoList.addAll((Collection) viewList.stream().map(v -> departmentViewConverter.convert((DepartmentView) v)).collect(Collectors.toList()));
+        return dtoList;
     }
 
     @POST
