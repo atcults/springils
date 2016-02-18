@@ -28,7 +28,7 @@ public class UpdateCourseProcessTest extends EntityIntegrationTestBase {
         persist(library);
 
         Course course = new Course();
-        course.setCourseId(hibernateHelper.getNextId(Course.class,"courseId.id"),library.getId());
+        course.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"),library.getId());
         course.setName("course");
 
         persist(course);

@@ -22,10 +22,10 @@ public class AddCourseConverterTest {
         ProcessError processError = new ProcessError();
 
         AddCourseConverter addCourseConverter = new AddCourseConverter();
-        ProcessCommand command = addCourseConverter.convert(dto,processError);
+        ProcessCommand command = addCourseConverter.convert(dto, processError);
 
         assertTrue("Conversion error occurred", processError.isValid());
-        assertTrue("Wrong Output"+command, command instanceof AddCourse);
+        assertTrue("Wrong Output" + command, command instanceof AddCourse);
 
         AddCourse addCourse = (AddCourse) command;
 
