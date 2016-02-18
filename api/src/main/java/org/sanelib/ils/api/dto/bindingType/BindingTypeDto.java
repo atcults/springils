@@ -11,7 +11,6 @@ public class BindingTypeDto implements DtoWithId, DtoWithLibraryId {
     private String bindType;
     private String price;
     private String entryId;
-    private String entryDate;
 
     public String getBindType() {
         return bindType;
@@ -35,14 +34,6 @@ public class BindingTypeDto implements DtoWithId, DtoWithLibraryId {
 
     public void setEntryId(String entryId) {
         this.entryId = entryId;
-    }
-
-    public String getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(String entryDate) {
-        this.entryDate = entryDate;
     }
 
     public String getId() {
