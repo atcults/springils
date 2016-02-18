@@ -3,6 +3,8 @@ common:
   code: Code
   name: Name
   libraryId: Library Id
+  entryId: Patron Id
+  entryLibraryId: Patron Library Id
 
 entity:
   library: Library
@@ -12,6 +14,7 @@ entity:
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
   bindingType: Binding Type
+  holiday: Holiday
 
 library:
   name: Name
@@ -45,9 +48,3 @@ accessionSeries:
 
 patronCategory:
   name: Name
-
-bindingType:
-  bindType: Binding Type
-  price: Price
-  entryId: Entry Id
-  entryDate: Entry Date

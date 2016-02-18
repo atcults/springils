@@ -7,19 +7,16 @@ import org.activiti.engine.impl.persistence.entity.VariableInstanceEntity;
 import org.activiti.engine.impl.pvm.PvmException;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
-import org.sanelib.ils.api.converters.ViewToDtoConverter;
 import org.sanelib.ils.api.dto.Dto;
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.dao.UnitOfWork;
-import org.sanelib.ils.core.dao.read.ViewServiceBase;
-import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.exceptions.AppException;
 import org.sanelib.ils.core.exceptions.ProcessError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public abstract class ApiServiceBase {
 
@@ -31,6 +28,9 @@ public abstract class ApiServiceBase {
 
     @Autowired
     UnitOfWork unitOfWork;
+
+    @Autowired
+    UserSession userSession;
 
     @Autowired
     ApplicationContext ctx;
@@ -50,6 +50,13 @@ public abstract class ApiServiceBase {
 
         if(!processError.isValid()){
             throw new AppException(processError);
+        }
+
+        //NOTE: This is to globally resolve entry patron and its library id.
+        if(command instanceof ProcessAuditCommandWithLibraryId){
+            ProcessAuditCommandWithLibraryId auditCommandWithLibraryId = (ProcessAuditCommandWithLibraryId) command;
+            auditCommandWithLibraryId.setEntryId(userSession.getUserId());
+            auditCommandWithLibraryId.setEntryLibraryId(userSession.getLibraryId());
         }
 
         String processName = processKey + "Process";
@@ -73,20 +80,5 @@ public abstract class ApiServiceBase {
             throw exception;
         }
         return response;
-    }
-
-    @SuppressWarnings("unchecked")
-    protected List fetchAll(String viewName) throws Throwable {
-
-        String converterName = viewName + "Converter";
-        String serviceName = viewName + "Repository";
-
-        ViewToDtoConverter converter = (ViewToDtoConverter) ctx.getBean(converterName);
-        ViewServiceBase service = (ViewServiceBase) ctx.getBean(serviceName);
-
-        List dtoList = new ArrayList<>();
-        List viewList = service.getAll();
-        dtoList.addAll((Collection) viewList.stream().map(v -> converter.convert((DomainView) v)).collect(Collectors.toList()));
-        return dtoList;
     }
 }

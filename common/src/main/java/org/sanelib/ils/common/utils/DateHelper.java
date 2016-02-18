@@ -11,8 +11,8 @@ import java.util.Date;
 public class DateHelper {
 
     /** Pattern to use for String representation of Dates/Times. */
-    private static final String dateTimeFormatPattern = "yyyy/MM/dd HH:mm:ss z";
-    private static final String dateFormatPattern = "yyyy/MM/dd";
+    private static final String dateTimeFormatPattern = "yyyy-MM-dd HH:mm:ss z";
+    private static final String dateFormatPattern = "yyyy-MM-dd";
 
     public static Date fromDateTimeString(String dateTimeString) {
         final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(dateTimeFormatPattern);
