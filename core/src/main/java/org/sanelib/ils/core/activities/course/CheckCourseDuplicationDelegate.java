@@ -25,8 +25,8 @@ public class CheckCourseDuplicationDelegate implements JavaDelegate {
     public void execute(DelegateExecution execution) throws Exception {
         System.out.println("Checking course for duplication");
 
-        Object command=execution.getVariable("command");
-        ProcessError processError= (ProcessError) execution.getVariable("errors");
+        Object command = execution.getVariable("command");
+        ProcessError processError = (ProcessError) execution.getVariable("errors");
 
         boolean isUpdate=command instanceof UpdateCourse;
 
@@ -36,7 +36,7 @@ public class CheckCourseDuplicationDelegate implements JavaDelegate {
 
         List<Course> courses = courseRepository.findByColumnAndValue(new String[] {"courseId.libraryId","name"},new Object[]{libraryId , courseName});
 
-        Course dbCourse = courses.isEmpty()?null : courses.get(0);
+        Course dbCourse = courses.isEmpty() ? null : courses.get(0);
 
         if(dbCourse!=null && (!isUpdate || !Objects.equals(courseId,dbCourse.getCourseId().getId()))){
             processError.addError("common.field.duplicate", "name", Arrays.asList("domain.entity.library","domain.course.name"),courseName);
