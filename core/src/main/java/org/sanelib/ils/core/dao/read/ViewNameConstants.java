@@ -6,5 +6,6 @@ public class ViewNameConstants {
         public static final String LIBRARY = "libraryView";
         public static final String PATRON_CATEGORY = "patronCategoryView";
         public static final String DEPARTMENT = "departmentView";
+        public static final String PATRON = "patronView";
     }
 }
