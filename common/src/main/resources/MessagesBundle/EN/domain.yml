@@ -15,6 +15,7 @@ entity:
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
   holiday: Holiday
+  author: Author
 
 library:
   name: Name
@@ -31,6 +32,14 @@ publisher:
 agency:
   name: Name
 
+author:
+  lname: Last Name
+  fname: First Name
+  phone: Phone number
+  address: Address
+  city: City
+  state: State
+  zip: Zip Code
 course:
   name: Name
   entryId: Entry Id

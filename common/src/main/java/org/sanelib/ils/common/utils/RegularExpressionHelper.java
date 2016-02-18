@@ -15,6 +15,7 @@ public class RegularExpressionHelper {
     public static final String EMAIL_FORMAT_EXAMPLE = "megh@yahoo.com or megh.94@yahoo.com";
     public static final String DATE_FORMAT ="^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$";
     public static final String DATE_FORMAT_EXAMPLE ="1991-01-01";
+    public static final String ZIP_FORMAT="[0-9]{5}";
 
     public static boolean checkIdFormat(String id) {
 
@@ -70,6 +71,20 @@ public class RegularExpressionHelper {
 
         // Create matcher object.
         Matcher matcher = pattern.matcher(date);
+        return matcher.matches();
+    }
+
+    public static boolean checkZipCodeFormat(String zip) {
+
+        if(Strings.isNullOrEmpty(zip)){
+            return false;
+        }
+
+        // Create a Pattern object
+        Pattern pattern = Pattern.compile(ZIP_FORMAT);
+
+        // Create matcher object.
+        Matcher matcher = pattern.matcher(zip);
         return matcher.matches();
     }
 
