@@ -11,6 +11,8 @@ import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.HolidayRepository;
 import org.sanelib.ils.core.domain.entity.Holiday;
 import org.sanelib.ils.core.enums.HolidayType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +20,8 @@ import java.util.*;
 
 @Component
 public class ProcessAddHolidayDelegate implements JavaDelegate {
+
+	private static final Logger LOG = LoggerFactory.getLogger(ProcessAddHolidayDelegate.class);
 
     @Autowired
     HibernateHelper hibernateHelper;
@@ -31,7 +35,7 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
     @Override
     public void execute(DelegateExecution execution) throws Exception {
 
-        System.out.println("Process Add Holiday Called");
+        LOG.info("Process Add Holiday Called");
 
         AddHoliday command = (AddHoliday) execution.getVariable("command");
 

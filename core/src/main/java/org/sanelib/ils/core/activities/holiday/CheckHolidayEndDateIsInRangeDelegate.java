@@ -10,11 +10,15 @@ import org.sanelib.ils.core.domain.entity.FiscalYear;
 import org.sanelib.ils.core.domain.entity.FiscalYearId;
 import org.sanelib.ils.core.exceptions.AppException;
 import org.sanelib.ils.core.exceptions.ProcessError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CheckHolidayEndDateIsInRangeDelegate implements JavaDelegate {
+
+	private static final Logger LOG = LoggerFactory.getLogger(CheckHolidayEndDateIsInRangeDelegate.class);
 
     @Autowired
     FiscalYearRepository fiscalYearRepository;
@@ -24,7 +28,7 @@ public class CheckHolidayEndDateIsInRangeDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        System.out.println("Checking end date with fiscal year end date");
+        LOG.info("Checking end date with fiscal year end date");
 
         Object command = execution.getVariable("command");
 
