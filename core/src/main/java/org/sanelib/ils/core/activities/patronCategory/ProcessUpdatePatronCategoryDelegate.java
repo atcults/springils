@@ -6,18 +6,22 @@ import org.sanelib.ils.core.commands.patronCategory.UpdatePatronCategory;
 import org.sanelib.ils.core.dao.PatronCategoryRepository;
 import org.sanelib.ils.core.domain.entity.PatronCategory;
 import org.sanelib.ils.core.domain.entity.PatronCategoryId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessUpdatePatronCategoryDelegate implements JavaDelegate {
 
+	private static final Logger LOG = LoggerFactory.getLogger(ProcessUpdatePatronCategoryDelegate.class);
+
     @Autowired
     PatronCategoryRepository patronCategoryRepository;
 
     @Override
 	public void execute(DelegateExecution execution) throws Exception {
-		System.out.println("Process Update Patron Category called");
+		LOG.info("Process Update Patron Category called");
 
         UpdatePatronCategory command = (UpdatePatronCategory) execution.getVariable("command");
 

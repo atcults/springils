@@ -3,19 +3,21 @@ common:
   code: Code
   name: Name
   libraryId: Library Id
-  entryId: Patron Id
-  entryLibraryId: Patron Library Id
+  patronCode: Patron Code
+  patronLibraryId: Patron Library Id
 
 entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  course: Course
   patronCategory: PatronCategory
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
   holiday: Holiday
   department: Department
   patron: Patron
+  author: Author
 
 library:
   name: Name
@@ -31,6 +33,20 @@ publisher:
 
 agency:
   name: Name
+
+author:
+  lname: Last Name
+  fname: First Name
+  phone: Phone number
+  address: Address
+  city: City
+  state: State
+  zip: Zip Code
+course:
+  name: Name
+  entryId: Entry Id
+  entryDate: Entry Date
+  promotedCourseId: Promoted Course Id
 
 fiscalYear:
   startDate: Start Date
@@ -94,7 +110,7 @@ accessionSeries:
   maxZero: Max Zero
   prefix: Prefix
   typeName: Fixed Or Variable
-  entryId: Entry Id
+  patronCode: Entry Id
   entryDate: Entry Date
 
 holiday:
