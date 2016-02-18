@@ -36,6 +36,8 @@ public class AddPatronConverter implements DtoToCommandConverter<PatronDto> {
         command.setLibraryPatronId(Integer.parseInt(dto.getLibraryPatronId()));
         command.setDeptId(Integer.parseInt(dto.getDeptId()));
         command.setFirstName(dto.getFirstName());
+        command.setMiddleName(dto.getMiddleName());
+        command.setLastName(dto.getLastName());
         command.setAddress1(dto.getAddress1());
         command.setAddress2(dto.getAddress2());
         command.setCity(dto.getCity());

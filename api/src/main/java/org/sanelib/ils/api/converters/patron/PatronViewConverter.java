@@ -4,6 +4,7 @@ import org.sanelib.ils.api.converters.ViewToDtoConverter;
 import org.sanelib.ils.api.dto.patron.PatronDto;
 import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.domain.view.admin.PatronView;
+import org.sanelib.ils.core.enums.PatronType;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,9 +19,10 @@ public class PatronViewConverter implements ViewToDtoConverter<PatronDto, Patron
         dto.setPatronCategoryId(String.valueOf(patronView.getPatronCategoryId()));
         dto.setIsOnline(patronView.getIsOnline());
         dto.setOwns(patronView.getOwns());
-//        dto.setCreatedOn(DateHelper.toDateString(patronView.getCreatedOn()));
+        dto.setCreatedOn(DateHelper.toDateString(patronView.getCreatedOn()));
         dto.setOtherLibraryPatronId(String.valueOf(patronView.getOtherLibraryPatronId()));
         dto.setLibraryPatronId(String.valueOf(patronView.getLibraryPatronId()));
+        dto.setPatronType(patronView.getPatronType());
         dto.setDeptId(String.valueOf(patronView.getDeptId()));
         dto.setFirstName(patronView.getFirstName());
         dto.setMiddleName(patronView.getMiddleName());
@@ -51,6 +53,7 @@ public class PatronViewConverter implements ViewToDtoConverter<PatronDto, Patron
         dto.setCommonEmail(patronView.isCommonEmail());
         dto.setCommonInstantMsg(patronView.isCommonInstantMsg());
         dto.setCommonPrint(patronView.isCommonPrint());
+        dto.setEntryDate(DateHelper.toDateString(patronView.getEntryDate()));
         dto.setUserPassword(patronView.getUserPassword());
         dto.setCourseId(String.valueOf(patronView.getCourseId()));
         dto.setStatus(patronView.getStatus());
