@@ -1,14 +1,13 @@
 package org.sanelib.ils.api.converters.patron;
 
-import org.sanelib.ils.api.converters.ViewToDtoConverter;
+import org.sanelib.ils.api.converters.AbstractViewToDtoConverterImpl;
 import org.sanelib.ils.api.dto.patron.PatronDto;
 import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.domain.view.admin.PatronView;
-import org.sanelib.ils.core.enums.PatronType;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PatronViewConverter implements ViewToDtoConverter<PatronDto, PatronView> {
+public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDto, PatronView> {
 
     @Override
     public PatronDto convert(PatronView patronView) {

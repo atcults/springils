@@ -24,7 +24,7 @@ public class UpdatePatronConverterTest {
         dto.setPatronCategoryId("1");
         dto.setIsOnline("Is Online");
         dto.setOwns("Owns");
-        dto.setCreatedOn("2014/05/02");
+        dto.setCreatedOn("2014-05-02");
         dto.setOtherLibraryPatronId("1");
         dto.setLibraryPatronId("1");
         dto.setPatronType(PatronType.Patron);
@@ -50,8 +50,8 @@ public class UpdatePatronConverterTest {
         dto.setPermanentPhone2("+91-9876543210");
         dto.setPermanentFax("+91-9876543210");
         dto.setPermanentEmail("name@mail.com");
-        dto.setMembershipFrom("2014/04/01");
-        dto.setMembershipTo("2016/03/31");
+        dto.setMembershipFrom("2014-04-01");
+        dto.setMembershipTo("2016-03-31");
         dto.setDelinquencyReason("Reason");
         dto.setCommonEmail(true);
         dto.setCommonInstantMsg(true);
