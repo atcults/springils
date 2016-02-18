@@ -1,26 +1,31 @@
 package org.sanelib.ils.api.converters.bindingType;
 
-import org.sanelib.ils.api.converters.ViewToDtoConverter;
+import org.sanelib.ils.api.converters.AbstractViewToDtoConverterImpl;
 import org.sanelib.ils.api.dto.bindingType.BindingTypeDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.domain.view.admin.BindingTypeView;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
-public class BindingTypeViewConverter implements ViewToDtoConverter<BindingTypeDto, BindingTypeView> {
+public class BindingTypeViewConverter  extends AbstractViewToDtoConverterImpl<BindingTypeDto, BindingTypeView> {
+
 
     @Override
-    public BindingTypeDto convert(BindingTypeView bindingTypeView) {
-
+    public List<BindingTypeDto> convert(List<BindingTypeView> bindingTypeView) {
         BindingTypeDto dto = new BindingTypeDto();
+        List<BindingTypeDto> bindingTypeDtos = new ArrayList<>();
 
-        dto.setLibraryId(String.valueOf(bindingTypeView.getLibraryId()));
-        dto.setId(String.valueOf(bindingTypeView.getId()));
-        dto.setBindType(bindingTypeView.getBindType());
-        dto.setPrice(String.valueOf(bindingTypeView.getPrice()));
-        dto.setEntryId(bindingTypeView.getEntryId());
-        dto.setEntryDate(DateHelper.toDateString(bindingTypeView.getEntryDate()));
-
-        return dto;
+        for(BindingTypeView view : bindingTypeView) {
+            dto.setLibraryId(String.valueOf(view.getLibraryId()));
+            dto.setId(String.valueOf(view.getId()));
+            dto.setBindType(view.getBindType());
+            dto.setPrice(String.valueOf(view.getPrice()));
+            dto.setEntryId(view.getEntryId());
+            bindingTypeDtos.add(dto);
+        }
+        return bindingTypeDtos;
     }
+
 }
