@@ -8,6 +8,8 @@ import org.sanelib.ils.core.dao.AccessionSeriesRepository;
 import org.sanelib.ils.core.domain.entity.AccessionSeries;
 import org.sanelib.ils.core.exceptions.AppException;
 import org.sanelib.ils.core.exceptions.ProcessError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,12 +20,14 @@ import java.util.Objects;
 @Component
 public class CheckAccessionSeriesDuplicationDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(CheckAccessionSeriesDuplicationDelegate.class);
+
     @Autowired
     AccessionSeriesRepository accessionSeriesRepository;
 
     @Override
 	public void execute(DelegateExecution execution) throws Exception {
-		System.out.println("Checking accessionSeries for duplication");
+		LOG.info("Checking accessionSeries for duplication");
 
         Object command = execution.getVariable("command");
         ProcessError processError = (ProcessError) execution.getVariable("errors");
