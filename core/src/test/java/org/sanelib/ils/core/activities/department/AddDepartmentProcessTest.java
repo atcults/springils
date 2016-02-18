@@ -9,6 +9,8 @@ import org.sanelib.ils.core.dao.LibraryRepository;
 import org.sanelib.ils.core.domain.entity.Department;
 import org.sanelib.ils.core.domain.entity.DepartmentId;
 import org.sanelib.ils.core.domain.entity.Library;
+import org.sanelib.ils.core.domain.entity.Patron;
+import org.sanelib.ils.core.enums.PatronType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.assertEquals;
@@ -31,13 +33,18 @@ public class AddDepartmentProcessTest extends EntityIntegrationTestBase {
 
         persist(library);
 
-        //NOTE: persist patron as library for hodid and entryid and entry and date is remaining
+        Patron patron=new Patron();
+        patron.setPatronCode("Pat1", library.getId());
+        patron.setPatronType(PatronType.Patron);
+        patron.setFirstName("First Name");
+        persist(patron);
 
         AddDepartment addDepartment = new AddDepartment();
 
         addDepartment.setLibraryId(library.getId());
-        addDepartment.setDeptName("name");
-        addDepartment.setHodId("1");
+        addDepartment.setDeptName("COMPUTER");
+        addDepartment.setHodId(patron.getPatronCode().getCode());
+        addDepartment.setEntryId(patron.getPatronCode().getCode());
 
         String result = execute(addDepartment, ActivitiProcessConstants.Admin.ADD_DEPARTMENT);
 

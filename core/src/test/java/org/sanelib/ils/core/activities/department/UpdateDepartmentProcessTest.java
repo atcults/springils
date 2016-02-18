@@ -31,8 +31,8 @@ public class UpdateDepartmentProcessTest extends EntityIntegrationTestBase {
         Department department = new Department();
 
         department.setDepartmentId(hibernateHelper.getNextId(Department.class, "departmentId.id"), library.getId());
-        department.setDeptName("department");
-        department.setHodId("1");
+        department.setDeptName("Department");
+        department.setHodId("2");
 
         persist(department);
 
@@ -41,7 +41,7 @@ public class UpdateDepartmentProcessTest extends EntityIntegrationTestBase {
         updateDepartment.setId(department.getDepartmentId().getId());
         updateDepartment.setLibraryId(library.getId());
         updateDepartment.setDeptName("updated department");
-        updateDepartment.setHodId("2");
+        updateDepartment.setHodId(null);
 
         String result = execute(updateDepartment, ActivitiProcessConstants.Admin.UPDATE_DEPARTMENT);
 
