@@ -43,7 +43,7 @@ public class AddCourseProcessTest extends EntityIntegrationTestBase {
 
         addCourse.setLibraryId(library.getId());
         addCourse.setName("basic");
-        addCourse.setEntryId("entryId");
+        addCourse.setPatronCode("1");
         addCourse.setPromotedCourseId(advanceCourse.getCourseId().getId());
 
         String result = execute(addCourse, ActivitiProcessConstants.Admin.ADD_COURSE);

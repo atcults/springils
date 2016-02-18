@@ -1,11 +1,12 @@
 package org.sanelib.ils.core.commands.course;
 
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.Course;
 
 import java.util.Date;
 
-public class AddCourse extends ProcessCommandWithLibraryId {
+public class AddCourse extends ProcessAuditCommandWithLibraryId {
 
     @Override
     public Class getRootEntityClass() {
@@ -18,12 +19,7 @@ public class AddCourse extends ProcessCommandWithLibraryId {
     }
 
     private String name;
-    private String entryId;
     private Integer promotedCourseId;
-
-    public String getEntryId() { return entryId; }
-
-    public void setEntryId(String entryId) { this.entryId = entryId; }
 
     public Integer getPromotedCourseId() { return promotedCourseId; }
 

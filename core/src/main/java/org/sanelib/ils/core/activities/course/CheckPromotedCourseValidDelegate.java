@@ -26,7 +26,7 @@ public class CheckPromotedCourseValidDelegate implements JavaDelegate {
     public void execute(DelegateExecution execution) throws Exception {
         System.out.println("Checking promoted course exist and not same as request course");
 
-        Object command=execution.getVariable("command");
+        Object command = execution.getVariable("command");
         ProcessError processError= (ProcessError) execution.getVariable("errors");
 
         if(!(command instanceof ProcessCommandWithLibraryId)){
