@@ -14,7 +14,6 @@ public class CourseViewConverter implements ViewToDtoConverter<CourseDto, Course
         courseDto.setLibraryId(String.valueOf(courseView.getLibraryId()));
         courseDto.setId(String.valueOf(courseView.getId()));
         courseDto.setName(courseView.getCourseName());
-        courseDto.setHodId(String.valueOf(courseView.getHodId()));
         courseDto.setPromotedCourseId(String.valueOf(courseView.getPromotedCourseId()));
 
         return courseDto;

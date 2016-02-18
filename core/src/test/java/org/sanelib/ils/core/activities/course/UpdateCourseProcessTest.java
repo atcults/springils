@@ -27,25 +27,30 @@ public class UpdateCourseProcessTest extends EntityIntegrationTestBase {
 
         persist(library);
 
-        Course course = new Course();
-        course.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"),library.getId());
-        course.setName("course");
+        Course basicCourse = new Course();
+        basicCourse.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"),library.getId());
+        basicCourse.setName("basic");
 
-        persist(course);
+        persist(basicCourse);
 
-        UpdateCourse updateCourse=new UpdateCourse();
-        updateCourse.setId(course.getCourseId().getId());
+        Course advanceCourse = new Course();
+        advanceCourse.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"),library.getId());
+        advanceCourse.setName("advance");
+        advanceCourse.setPromotedCourseId(basicCourse.getCourseId().getId());
+
+        persist(advanceCourse);
+
+        UpdateCourse updateCourse = new UpdateCourse();
+        updateCourse.setId(advanceCourse.getCourseId().getId());
         updateCourse.setLibraryId(library.getId());
         updateCourse.setName("updated course");
-        updateCourse.setHodId(1);
-        updateCourse.setEntryId("update entryId");
         updateCourse.setEntryDate(DateHelper.constructDate(2016, 1, 12));
-        updateCourse.setPromotedCourseId(1);
+        updateCourse.setPromotedCourseId(null);
 
         String result = execute(updateCourse, ActivitiProcessConstants.Admin.UPDATE_COURSE);
         assertNull(result);
 
-        Course dbCourse = fetch(Course.class, new CourseId(library.getId(), course.getCourseId().getId()));
+        Course dbCourse = fetch(Course.class, new CourseId(library.getId(), advanceCourse.getCourseId().getId()));
         assertNotNull(dbCourse);
 
         assertEquals(updateCourse.getName(), dbCourse.getName());

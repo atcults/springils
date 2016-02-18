@@ -44,7 +44,6 @@ public class AddCourseProcessTest extends EntityIntegrationTestBase {
 
         addCourse.setLibraryId(library.getId());
         addCourse.setName("advance");
-        addCourse.setHodId(1);
         addCourse.setEntryId("entryId");
         addCourse.setEntryDate(DateHelper.constructDate(2016, 2, 10));
         addCourse.setPromotedCourseId(course.getCourseId().getId());

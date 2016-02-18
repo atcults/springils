@@ -19,7 +19,6 @@ public class UpdateCourseConverterTest {
         dto.setId("1");
         dto.setLibraryId("1");
         dto.setName("name");
-        dto.setHodId("1");
         dto.setPromotedCourseId("1");
 
         ProcessError processError=new ProcessError();
@@ -34,7 +33,6 @@ public class UpdateCourseConverterTest {
         assertEquals("Id is not mapped",dto.getId(),String.valueOf(updateCourse.getId()));
         assertEquals("Library id is not mapped",dto.getLibraryId(), String.valueOf(updateCourse.getLibraryId()));
         assertEquals("Name is not mapped",dto.getName(),updateCourse.getName());
-        assertEquals("Hod Id not mapped",(dto.getHodId()), String.valueOf(updateCourse.getHodId()));
         assertEquals("Promoted Course id is not mapped",dto.getPromotedCourseId(), String.valueOf(updateCourse.getPromotedCourseId()));
     }
 }

@@ -22,7 +22,6 @@ public class AddCourseConverter implements DtoToCommandConverter<CourseDto> {
             command.setName(dto.getName());
         }
 
-        command.setHodId(Integer.valueOf(dto.getHodId()));
         command.setPromotedCourseId(Integer.parseInt(dto.getPromotedCourseId()));
 
         return command;

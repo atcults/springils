@@ -19,9 +19,6 @@ public class Course implements DomainEntity {
     @Column(name = "course_name")
     private String name;
 
-    @Column(name = "hod_id")
-    private Integer hodId;
-
     @Column(name = "entry_id")
     private String entryId;
 
@@ -45,14 +42,6 @@ public class Course implements DomainEntity {
             this.courseId.setId(id);
             this.courseId.setLibraryId(libraryId);
         }
-    }
-
-    public Integer getHodId() {
-        return hodId;
-    }
-
-    public void setHodId(Integer hodId) {
-        this.hodId = hodId;
     }
 
     public String getEntryId() {

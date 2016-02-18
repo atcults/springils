@@ -4,11 +4,11 @@ package org.sanelib.ils.api.dto.course;
 import org.sanelib.ils.api.dto.DtoWithId;
 import org.sanelib.ils.api.dto.DtoWithLibraryId;
 
-public class CourseDto implements DtoWithId,DtoWithLibraryId {
+public class CourseDto implements DtoWithId, DtoWithLibraryId {
+
     private String id;
     private String libraryId;
     private String name;
-    private String hodId;
     private String promotedCourseId;
 
     public void setId(String id) {
@@ -33,14 +33,6 @@ public class CourseDto implements DtoWithId,DtoWithLibraryId {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getHodId() {
-        return hodId;
-    }
-
-    public void setHodId(String hodId) {
-        this.hodId = hodId;
     }
 
     public String getPromotedCourseId() {

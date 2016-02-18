@@ -18,18 +18,9 @@ public class AddCourse extends ProcessCommandWithLibraryId {
     }
 
     private String name;
-    private Integer hodId;
     private String entryId;
     private Date entryDate;
     private Integer promotedCourseId;
-
-    public Integer getHodId() {
-        return hodId;
-    }
-
-    public void setHodId(Integer hodId) {
-        this.hodId = hodId;
-    }
 
     public String getEntryId() { return entryId; }
 

@@ -30,7 +30,6 @@ agency:
 
 course:
   name: Name
-  hodId: Hod Id
   entryId: Entry Id
   entryDate: Entry Date
   promotedCourseId: Promoted Course Id

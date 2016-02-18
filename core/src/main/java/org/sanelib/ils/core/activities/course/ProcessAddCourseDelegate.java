@@ -30,7 +30,6 @@ public class ProcessAddCourseDelegate implements JavaDelegate{
         Integer nextId=hibernateHelper.getNextId(Course.class,"courseId.id");
         entity.setCourseId(nextId, command.getLibraryId());
         entity.setName(command.getName());
-        entity.setHodId(command.getHodId());
         entity.setEntryId(command.getEntryId());
         entity.setPromotedCourseId(command.getPromotedCourseId());
 
