@@ -20,16 +20,24 @@ public class ActivitiProcessConstants {
         public static final String DELETE_AUTHOR = "deleteAuthor";
 
         public static final String ADD_FISCALYEAR = "addFiscalYear";
+        public static final String ADD_COURSE = "addCourse";
+        public static final String UPDATE_COURSE = "updateCourse";
+        public static final String DELETE_COURSE = "deleteCourse";
+
+	    public static final String ADD_FISCALYEAR = "addFiscalYear";
         public static final String UPDATE_FISCALYEAR = "updateFiscalYear";
         public static final String DELETE_FISCALYEAR = "deleteFiscalYear";
-
-        public static final String ADD_PATRON_CATEGORY = "addPatronCategory";
-        public static final String UPDATE_PATRON_CATEGORY = "updatePatronCategory";
-        public static final String DELETE_PATRON_CATEGORY = "deletePatronCategory";
 
         public static final String ADD_ACCESSIONSERIES = "addAccessionSeries";
         public static final String UPDATE_ACCESSIONSERIES = "updateAccessionSeries";
         public static final String DELETE_ACCESSIONSERIES = "deleteAccessionSeries";
+
+        public static final String ADD_HOLIDAY = "addHoliday";
+        public static final String DELETE_HOLIDAY = "deleteHoliday";
+
+        public static final String ADD_PATRON_CATEGORY = "addPatronCategory";
+        public static final String UPDATE_PATRON_CATEGORY = "updatePatronCategory";
+        public static final String DELETE_PATRON_CATEGORY = "deletePatronCategory";
 
     }
 }

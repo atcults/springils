@@ -1,12 +1,12 @@
 package org.sanelib.ils.api.converters.patronCategory;
 
-import org.sanelib.ils.api.converters.ViewToDtoConverter;
+import org.sanelib.ils.api.converters.AbstractViewToDtoConverterImpl;
 import org.sanelib.ils.api.dto.patronCategory.PatronCategoryDto;
 import org.sanelib.ils.core.domain.view.admin.PatronCategoryView;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PatronCategoryViewConverter implements ViewToDtoConverter<PatronCategoryDto, PatronCategoryView> {
+public class PatronCategoryViewConverter extends AbstractViewToDtoConverterImpl<PatronCategoryDto, PatronCategoryView> {
 
     @Override
     public PatronCategoryDto convert(PatronCategoryView libraryView) {

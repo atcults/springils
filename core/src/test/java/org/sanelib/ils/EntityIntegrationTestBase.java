@@ -16,6 +16,8 @@ import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.dao.UnitOfWork;
 import org.sanelib.ils.core.domain.entity.DomainEntity;
 import org.sanelib.ils.core.exceptions.ProcessError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -29,6 +31,8 @@ import java.util.Map;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = CoreTestMain.class)
 public abstract class EntityIntegrationTestBase {
+
+    private static final Logger LOG = LoggerFactory.getLogger(EntityIntegrationTestBase.class);
 
     @Autowired
     private AppProperties appProperties;
@@ -67,12 +71,12 @@ public abstract class EntityIntegrationTestBase {
 
         String response = null;
 
-        System.out.println("Command:" + command);
-        System.out.println("Process Name:" + processName);
+        LOG.info("Command:" + command);
+        LOG.info("Process Name:" + processName);
 
         ProcessInstance instance = runtimeService.startProcessInstanceByKey(processName, variables);
 
-        System.out.println("instance:" + instance);
+        LOG.info("instance:" + instance);
 
         Map<String, VariableInstanceEntity> variableInstances = ((ExecutionEntity) instance).getVariableInstances();
         if(variableInstances.containsKey("result")){
