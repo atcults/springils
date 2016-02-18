@@ -9,9 +9,6 @@ import org.sanelib.ils.core.domain.entity.Department;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
 @Component
 public class ProcessAddDepartmentDelegate implements JavaDelegate {
 
