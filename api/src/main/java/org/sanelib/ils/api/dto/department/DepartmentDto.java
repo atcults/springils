@@ -3,8 +3,6 @@ package org.sanelib.ils.api.dto.department;
 import org.sanelib.ils.api.dto.DtoWithId;
 import org.sanelib.ils.api.dto.DtoWithLibraryId;
 
-import java.util.Date;
-
 public class DepartmentDto implements DtoWithId, DtoWithLibraryId {
 
     private String libraryId;

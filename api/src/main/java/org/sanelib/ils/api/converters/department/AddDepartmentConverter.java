@@ -28,6 +28,7 @@ public class AddDepartmentConverter implements DtoToCommandConverter<DepartmentD
 
         //NOTE: hodId fetch from patron
         command.setHodId(dto.getHodId());
+        command.setEntryId(dto.getEntryId());
 
         return command;
     }
