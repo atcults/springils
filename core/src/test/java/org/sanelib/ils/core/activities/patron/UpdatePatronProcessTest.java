@@ -76,7 +76,7 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         patron.setTwitterId("TId");
         patron.setFacebookId("FId");
         patron.setSubLocationId(1);
-        patron.setLoginId("L2Id");
+        patron.setLoginId("L21Id");
         patron.setAuthenticateLocalDatabase("A");
 
         persist(patron);
@@ -127,7 +127,7 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         updatePatron.setTwitterId("TId");
         updatePatron.setFacebookId("FId");
         updatePatron.setSubLocationId(1);
-        updatePatron.setLoginId("L2Id");
+        updatePatron.setLoginId("L21Id");
         updatePatron.setAuthenticateLocalDatabase("A");
 
         String result = execute(updatePatron, ActivitiProcessConstants.Admin.UPDATE_PATRON);
@@ -173,7 +173,6 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         assertEquals(updatePatron.commonEmail() ,patron.commonEmail());
         assertEquals(updatePatron.commonInstantMsg() ,patron.commonInstantMsg());
         assertEquals(updatePatron.commonPrint() ,patron.commonPrint());
-        assertEquals(updatePatron.getEntryDate() ,patron.getEntryDate());
         assertEquals(updatePatron.getUserPassword() ,patron.getUserPassword());
         assertEquals(updatePatron.getCourseId() ,patron.getCourseId());
         assertEquals(updatePatron.getCustom() ,patron.getCustom());

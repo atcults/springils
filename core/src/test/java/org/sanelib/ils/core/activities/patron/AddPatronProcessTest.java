@@ -80,7 +80,7 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
         addPatron.setTwitterId("TId");
         addPatron.setFacebookId("FId");
         addPatron.setSubLocationId(1);
-        addPatron.setLoginId("L1Id2");
+        addPatron.setLoginId("L12Id2");
         addPatron.setAuthenticateLocalDatabase("A");
 
         PatronType patronType = PatronType.getByName("Patron");
@@ -129,7 +129,6 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
         assertEquals(addPatron.commonEmail() ,patron.commonEmail());
         assertEquals(addPatron.commonInstantMsg() ,patron.commonInstantMsg());
         assertEquals(addPatron.commonPrint() ,patron.commonPrint());
-        assertEquals(addPatron.getEntryDate() ,patron.getEntryDate());
         assertEquals(addPatron.getUserPassword() ,patron.getUserPassword());
         assertEquals(addPatron.getCourseId() ,patron.getCourseId());
         assertEquals(addPatron.getCustom() ,patron.getCustom());
