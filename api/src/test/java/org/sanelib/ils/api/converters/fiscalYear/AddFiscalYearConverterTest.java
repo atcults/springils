@@ -17,9 +17,8 @@ public class AddFiscalYearConverterTest {
 
         FiscalYearDto dto = new FiscalYearDto();
         dto.setLibraryId("1");
-        dto.setStartDate("2015/04/01");
-        dto.setEndDate("2016/03/31");
-        dto.setEntryId("john");
+        dto.setStartDate("2015-04-01");
+        dto.setEndDate("2016-03-31");
 
         ProcessError processError = new ProcessError();
 
@@ -34,6 +33,5 @@ public class AddFiscalYearConverterTest {
         assertEquals("Library Id is not mapped ", Integer.valueOf(dto.getLibraryId()), addFiscalYear.getLibraryId());
         assertEquals("Start Date is not mapped ", dto.getStartDate(), DateHelper.toDateString(addFiscalYear.getStartDate()));
         assertEquals("End Date is not mapped ", dto.getEndDate(), DateHelper.toDateString(addFiscalYear.getEndDate()));
-        assertEquals("Entry Id is not mapped ", dto.getEntryId(), addFiscalYear.getEntryId());
     }
 }
