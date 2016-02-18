@@ -215,7 +215,7 @@ Course updated successfully. Please check database to verify record.
 #### *Request*
 
 - Request path -  http://localhost:8087/api/course/{library_id}/{course_id}
-- Request Method - post
+- Request Method - delete
 - Request parameter - integer
 
 1. libraryId - string - **Required** - Logged in library id will be passed.
