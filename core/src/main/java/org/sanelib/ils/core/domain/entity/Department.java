@@ -29,10 +29,6 @@ public class Department implements DomainEntity {
         return departmentId;
     }
 
-    public void setDepartmentId(DepartmentId departmentId) {
-        this.departmentId = departmentId;
-    }
-
     public void setDepartmentId(int id, int libraryId){
         if(this.departmentId == null){
             this.departmentId = new DepartmentId(libraryId, id);
@@ -61,6 +57,10 @@ public class Department implements DomainEntity {
 
     public void setEntryId(String entryId) {
         this.entryId = entryId;
+    }
+
+    public Date getEntryDate() {
+        return entryDate;
     }
 
     @PrePersist
