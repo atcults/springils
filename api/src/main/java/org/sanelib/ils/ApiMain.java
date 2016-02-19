@@ -48,7 +48,7 @@ public class ApiMain implements CommandLineRunner {
   //  @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
     public UserSession userSession(){
         UserSession userSession = new UserSessionImpl();
-        userSession.setUserId(1);
+        userSession.setUserCode("1");
         userSession.setLibraryId(1);
         return userSession;
     }
