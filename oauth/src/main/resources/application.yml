@@ -9,7 +9,7 @@ welcome:
 
 oauth:
   token.access.expired: 60
-  oauth.token.refresh.expired: 180
+  token.refresh.expired: 180
   db.url: jdbc:postgresql://localhost:5439/ils
   db.driver: org.postgresql.Driver
   db.username: postgres
