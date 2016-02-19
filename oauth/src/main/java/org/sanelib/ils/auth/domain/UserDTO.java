@@ -2,29 +2,89 @@ package org.sanelib.ils.auth.domain;
 
 public class UserDTO {
 
-	private String userID;
-	private String userName;
-	private String passWord;
-	
+	private Integer libraryId;
+	private String patronId;
+	private Integer patronCategoryId;
+	private Integer libraryPatronId;
+	private Character patronType;
+	private String firstName;
+	private String middleName;
+	private String lastName;
+	private String loginId;
+
+
 	public UserDTO(){}
-	
-	public String getUserID() {
-		return userID;
+
+	public Integer getLibraryId() {
+		return libraryId;
 	}
-	public void setUserID(String userID) {
-		this.userID = userID;
+
+	public void setLibraryId(Integer libraryId) {
+		this.libraryId = libraryId;
 	}
-	public String getUserName() {
-		return userName;
+
+	public String getPatronId() {
+		return patronId;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+
+	public void setPatronId(String patronId) {
+		this.patronId = patronId;
 	}
-	public String getPassWord() {
-		return passWord;
+
+	public Integer getPatronCategoryId() {
+		return patronCategoryId;
 	}
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+
+	public void setPatronCategoryId(Integer patronCategoryId) {
+		this.patronCategoryId = patronCategoryId;
 	}
-	
+
+	public Integer getLibraryPatronId() {
+		return libraryPatronId;
+	}
+
+	public void setLibraryPatronId(Integer libraryPatronId) {
+		this.libraryPatronId = libraryPatronId;
+	}
+
+	public Character getPatronType() {
+		return patronType;
+	}
+
+	public void setPatronType(Character patronType) {
+		this.patronType = patronType;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
 }
