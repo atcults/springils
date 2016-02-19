@@ -30,6 +30,11 @@ agency:
 
 serialBoundVolume:
   name: Name
+  color: Color
+  price: Price
+  entryId: Entry Id
+  entryDate: Entry Date
+
 fiscalYear:
   startDate: Start Date
   endDate: End Date

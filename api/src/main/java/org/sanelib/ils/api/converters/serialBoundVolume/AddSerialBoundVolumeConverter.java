@@ -1,9 +1,9 @@
 package org.sanelib.ils.api.converters.serialBoundVolume;
 
+import com.google.common.base.Strings;
 import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.serialBoundVolume.SerialBoundVolumeDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.serialBoundVolume.AddSerialBoundVolume;
 import org.sanelib.ils.core.exceptions.ProcessError;
@@ -18,11 +18,15 @@ public class AddSerialBoundVolumeConverter implements DtoToCommandConverter<Seri
 
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
 
-        command.setName(dto.getName());
+        if(Strings.isNullOrEmpty(dto.getName())){
+            processError.addError("common.field.required", "name", "domain.serialBoundVolume.name");
+        } else{
+            command.setName(dto.getName());
+        }
+
         command.setColor(dto.getColor());
         command.setPrice(Double.valueOf(dto.getPrice()));
         command.setEntryId(dto.getEntryId());
-        command.setEntryDate(DateHelper.fromDateString(dto.getEntryDate()));
 
         return command;
     }
