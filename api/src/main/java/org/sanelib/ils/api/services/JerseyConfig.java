@@ -6,7 +6,6 @@ import org.sanelib.ils.api.errorhandling.AppExceptionMapper;
 import org.sanelib.ils.api.errorhandling.GenericExceptionMapper;
 import org.sanelib.ils.api.errorhandling.NotFoundExceptionMapper;
 import org.sanelib.ils.api.filters.CORSResponseFilter;
-import org.sanelib.ils.api.filters.LoggingResponseFilter;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.sanelib.ils.api.filters.OAuthorizationFilter;
 import org.springframework.stereotype.Component;
