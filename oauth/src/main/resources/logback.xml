@@ -4,7 +4,7 @@
 
     <appender name="CONSOLE-LOG-APPENDER" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %-25.25c{1} - %m%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5level %logger{36}.%method [%line] - %m%n</pattern>
         </encoder>
     </appender>
 
@@ -19,7 +19,7 @@
         </rollingPolicy>
 
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %-25.25c{1} - %m%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5level %logger{36}.%method [%line] - %m%n</pattern>
         </encoder>
 
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -40,7 +40,7 @@
         </rollingPolicy>
 
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %-25.25c{1} - %m%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5level %logger{36}.%method [%line] - %m%n</pattern>
         </encoder>
 
         <filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -51,7 +51,7 @@
 
     </appender>
 
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="CONSOLE-LOG-APPENDER" />
         <appender-ref ref="GENERAL-LOG-APPENDER" />
         <appender-ref ref="ERROR-LOG-APPENDER" />
@@ -59,9 +59,9 @@
 
     <!-- To log queries , change level to DEBUG to following logger-->
     <logger name="org.sanelib.ils" level="INFO" />
-    <logger name="org.apache.ibatis" level="INFO"/>
-    <logger name="org.mybatis.spring" level="INFO"/>
-    <logger name="org.springframework" level="INFO"/>
+    <logger name="org.apache.ibatis" level="WARN"/>
+    <logger name="org.mybatis.spring" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
     <logger name="org.glassfish.jersey" level="INFO"/>
     <logger name="org.apache.oltu.oauth2" level="INFO"/>
 
