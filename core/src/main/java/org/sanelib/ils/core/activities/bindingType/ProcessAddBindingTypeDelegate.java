@@ -7,11 +7,15 @@ import org.sanelib.ils.core.commands.bindingType.AddBindingType;
 import org.sanelib.ils.core.dao.BindingTypeRepository;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.BindingType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessAddBindingTypeDelegate implements JavaDelegate {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessAddBindingTypeDelegate.class);
 
     @Autowired
     HibernateHelper hibernateHelper;
@@ -22,7 +26,7 @@ public class ProcessAddBindingTypeDelegate implements JavaDelegate {
     @Override
     public void execute(DelegateExecution execution) throws Exception {
 
-        System.out.println("Process Add Binding Type called");
+        LOG.info("Process Add Binding Type called");
 
         AddBindingType command = (AddBindingType) execution.getVariable("command");
 
@@ -32,7 +36,7 @@ public class ProcessAddBindingTypeDelegate implements JavaDelegate {
         entity.setBindingTypeId(nextId, command.getLibraryId());
         entity.setBindType(command.getBindType());
         entity.setPrice(command.getPrice());
-        entity.setEntryId(command.getEntryId());
+        entity.setPatronCode(command.getPatronCode());
 
         bindingTypeRepository.save(entity);
 
