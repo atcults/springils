@@ -47,10 +47,10 @@ public class MapDictionaryServiceImpl implements MapDictionaryService {
 					}
 				}
 			} else {
-				System.err.println("Directory/Locale Not Found");
+				LOG.error("Directory/Locale Not Found");
 			}
 		} catch (IOException e) {
-			System.err.println("Directory/Locale Not Found.");
+			LOG.error("Directory/Locale Not Found.");
 		}
 
 		LOG.info("Finished Generating MapDictionary...............");
