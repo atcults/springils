@@ -1,10 +1,12 @@
 package org.sanelib.ils.api.services.serialBoundVolume;
 
+import org.sanelib.ils.api.converters.serialBoundVolume.SerialBoundVolumeViewConverter;
 import org.sanelib.ils.api.dto.serialBoundVolume.SerialBoundVolumeDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
-import org.sanelib.ils.core.dao.read.ViewNameConstants;
+import org.sanelib.ils.core.dao.read.admin.SerialBoundVolumeViewRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.DELETE;
@@ -22,9 +24,17 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON)
 public class SerialBoundVolumeService extends ApiServiceBase {
 
+    @Autowired
+    SerialBoundVolumeViewRepository serialBoundVolumeViewRepository;
+
+    @Autowired
+    SerialBoundVolumeViewConverter serialBoundVolumeViewConverter;
+
     @GET
     public List getAllAgencies() throws Throwable {
-        return fetchAll(ViewNameConstants.Admin.SERIAL_BOUND_VOLUME);
+
+        List viewList = serialBoundVolumeViewRepository.getAll();
+        return serialBoundVolumeViewConverter.convert(viewList);
     }
 
     @POST
