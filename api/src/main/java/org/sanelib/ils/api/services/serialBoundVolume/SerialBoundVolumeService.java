@@ -31,6 +31,7 @@ public class SerialBoundVolumeService extends ApiServiceBase {
     SerialBoundVolumeViewConverter serialBoundVolumeViewConverter;
 
     @GET
+    @SuppressWarnings("unchecked")
     public List getAllAgencies() throws Throwable {
 
         List viewList = serialBoundVolumeViewRepository.getAll();

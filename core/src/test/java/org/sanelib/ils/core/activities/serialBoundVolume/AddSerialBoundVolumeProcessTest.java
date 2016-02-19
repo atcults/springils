@@ -37,7 +37,6 @@ public class AddSerialBoundVolumeProcessTest extends EntityIntegrationTestBase {
         addSerialBoundVolume.setName("name");
         addSerialBoundVolume.setColor("Color");
         addSerialBoundVolume.setPrice(10.10);
-        addSerialBoundVolume.setEntryId("EntryId");
 
         String result = execute(addSerialBoundVolume, ActivitiProcessConstants.Admin.ADD_SERIALBOUNDVOLUME);
 
@@ -50,6 +49,5 @@ public class AddSerialBoundVolumeProcessTest extends EntityIntegrationTestBase {
         assertEquals(addSerialBoundVolume.getName() ,serialBoundVolume.getName());
         assertEquals(addSerialBoundVolume.getColor() ,serialBoundVolume.getColor());
         assertEquals(addSerialBoundVolume.getPrice() ,serialBoundVolume.getPrice());
-        assertEquals(addSerialBoundVolume.getEntryId() ,serialBoundVolume.getEntryId());
     }
 }

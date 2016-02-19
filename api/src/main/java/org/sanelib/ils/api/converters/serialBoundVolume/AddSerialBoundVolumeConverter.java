@@ -26,7 +26,6 @@ public class AddSerialBoundVolumeConverter implements DtoToCommandConverter<Seri
 
         command.setColor(dto.getColor());
         command.setPrice(Double.valueOf(dto.getPrice()));
-        command.setEntryId(dto.getEntryId());
 
         return command;
     }

@@ -1,12 +1,10 @@
 package org.sanelib.ils.core.commands.serialBoundVolume;
 
 
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.SerialBoundVolume;
 
-import java.util.Date;
-
-public class AddSerialBoundVolume extends ProcessCommandWithLibraryId {
+public class AddSerialBoundVolume extends ProcessAuditCommandWithLibraryId {
     @Override
     public Class getRootEntityClass() {
         return SerialBoundVolume.class;
@@ -20,7 +18,6 @@ public class AddSerialBoundVolume extends ProcessCommandWithLibraryId {
     private String name;
     private String color;
     private Double price;
-    private String entryId;
 
     public String getName() {
         return name;
@@ -44,14 +41,6 @@ public class AddSerialBoundVolume extends ProcessCommandWithLibraryId {
 
     public void setPrice(Double price) {
         this.price = price;
-    }
-
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
     }
 
 }
