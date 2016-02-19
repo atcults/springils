@@ -6,9 +6,9 @@ import org.sanelib.ils.auth.endpoints.TokenEndPoint;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JerseyConfiguration extends ResourceConfig {
+public class JerseyConfig extends ResourceConfig {
 
-	public JerseyConfiguration(){
+	public JerseyConfig(){
 		register(OAuthServerEndpoint.class);
 		register(TokenEndPoint.class);
 	}
