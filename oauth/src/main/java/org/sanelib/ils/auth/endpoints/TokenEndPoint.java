@@ -253,7 +253,7 @@ public class TokenEndPoint {
 				Date currentTime = Calendar.getInstance().getTime();
 				UserDTO userDto = oAuthRepository.getUserById(accessTokenDto.getUserID());
 				if(!currentTime.before(accessTokenDto.getAccessTokenExpiredIn())){
-					OAuthResponse response = OAuth2Util.buildErrorOAuthResponse(HttpServletResponse.SC_OK, OAuthError.ResourceResponse.EXPIRED_TOKEN, "AccessToken is expired");
+					OAuthResponse response = OAuth2Util.buildErrorOAuthResponse(HttpServletResponse.SC_BAD_REQUEST, OAuthError.ResourceResponse.EXPIRED_TOKEN, "AccessToken is expired");
 					return Response.status(response.getResponseStatus()).entity(response.getBody()).build();
 				}
 				else{
@@ -261,7 +261,7 @@ public class TokenEndPoint {
 					OAuthResponse oAuthResponse = OAuthASResponse
 							.tokenResponse(HttpServletResponse.SC_OK)
 							.setParam("valid", "true")
-							.setParam("userID", userDto.getPatronId())
+							.setParam("userID", userDto.getPatronId().toString())
 							.setParam("libraryID", String.valueOf(userDto.getLibraryId()))
 							.buildJSONMessage();
 					
