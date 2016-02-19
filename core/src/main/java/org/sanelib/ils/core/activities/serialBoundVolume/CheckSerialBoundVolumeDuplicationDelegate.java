@@ -34,9 +34,9 @@ public class CheckSerialBoundVolumeDuplicationDelegate implements JavaDelegate {
         Integer libraryId = ((AddSerialBoundVolume) command).getLibraryId();
         String serialBoundVolumeName = ((AddSerialBoundVolume) command).getName();
 
-        List<SerialBoundVolume> agencies = serialBoundVolumeRepository.findByColumnAndValue(new String[]{"serialBoundVolumeId.libraryId", "name"}, new Object[] {libraryId, serialBoundVolumeName});
+        List<SerialBoundVolume> serialBoundVolumes = serialBoundVolumeRepository.findByColumnAndValue(new String[]{"serialBoundVolumeId.libraryId", "name"}, new Object[] {libraryId, serialBoundVolumeName});
 
-        SerialBoundVolume dbSerialBoundVolume = agencies.isEmpty() ? null : agencies.get(0);
+        SerialBoundVolume dbSerialBoundVolume = serialBoundVolumes.isEmpty() ? null : serialBoundVolumes.get(0);
 
         if(dbSerialBoundVolume != null && (!isUpdate || !Objects.equals(serialBoundVolumeId, dbSerialBoundVolume.getSerialBoundVolumeId().getId()))){
             processError.addError("common.field.duplicate", "name", Arrays.asList("domain.entity.library", "domain.serialBoundVolume.name"), serialBoundVolumeName);

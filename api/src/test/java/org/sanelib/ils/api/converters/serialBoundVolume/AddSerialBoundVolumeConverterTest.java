@@ -21,7 +21,6 @@ public class AddSerialBoundVolumeConverterTest {
         dto.setColor("Color");
         dto.setPrice("10.10");
         dto.setEntryId("EntryId");
-        dto.setEntryDate("2015/11/11");
 
         ProcessError processError = new ProcessError();
 

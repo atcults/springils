@@ -2,11 +2,12 @@ package org.sanelib.ils.core.activities.serialBoundVolume;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.serialBoundVolume.DeleteSerialBoundVolume;
 import org.sanelib.ils.core.dao.HibernateHelper;
-import org.sanelib.ils.core.domain.entity.*;
+import org.sanelib.ils.core.domain.entity.Library;
+import org.sanelib.ils.core.domain.entity.SerialBoundVolume;
+import org.sanelib.ils.core.domain.entity.SerialBoundVolumeId;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.assertNull;

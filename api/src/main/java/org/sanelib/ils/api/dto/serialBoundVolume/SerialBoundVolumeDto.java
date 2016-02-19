@@ -11,7 +11,6 @@ public class SerialBoundVolumeDto implements DtoWithId, DtoWithLibraryId {
     private String color;
     private String price;
     private String entryId;
-    private String entryDate;
 
     @Override
     public String getLibraryId() {
@@ -63,11 +62,4 @@ public class SerialBoundVolumeDto implements DtoWithId, DtoWithLibraryId {
         this.entryId = entryId;
     }
 
-    public String getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(String entryDate) {
-        this.entryDate = entryDate;
-    }
 }
