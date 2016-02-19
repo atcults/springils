@@ -47,7 +47,7 @@ public class AddAccessionSeriesProcessTest extends EntityIntegrationTestBase {
         addAccessionSeries.setEntryId("1");
         addAccessionSeries.setEntryDate(DateHelper.fromDateString("2016-01-01"));
 
-        String result = execute(addAccessionSeries, ActivitiProcessConstants.Admin.ADD_ACCESSIONSERIES);
+        String result = execute(addAccessionSeries, ActivitiProcessConstants.Admin.ADD_ACCESSION_SERIES);
 
         assertNotNull(result);
 
