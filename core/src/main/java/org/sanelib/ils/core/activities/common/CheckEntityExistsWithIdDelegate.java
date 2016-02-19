@@ -8,6 +8,8 @@ import org.sanelib.ils.core.commands.ProcessCommandWithId;
 import org.sanelib.ils.core.dao.UnitOfWork;
 import org.sanelib.ils.core.exceptions.AppException;
 import org.sanelib.ils.core.exceptions.ProcessError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,12 +18,14 @@ import java.util.Arrays;
 @Component
 public class CheckEntityExistsWithIdDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(CheckEntityExistsWithIdDelegate.class);
+
     @Autowired
     UnitOfWork unitOfWork;
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        System.out.println("Checking id for duplication");
+        LOG.info("Checking id for duplication");
 
         Object command = execution.getVariable("command");
         ProcessError processError = (ProcessError) execution.getVariable("errors");
