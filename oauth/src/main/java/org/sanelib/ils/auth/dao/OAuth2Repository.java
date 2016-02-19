@@ -8,8 +8,10 @@ import org.sanelib.ils.auth.domain.TokenLogDTO;
 import org.sanelib.ils.auth.domain.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
+@Transactional
 public class OAuth2Repository {
 
 	@Autowired
@@ -38,20 +40,13 @@ public class OAuth2Repository {
 		}
 	}
 	
-	
-	public boolean isUserValid(final String userName,final String password){
-		String userId = oAuth2Mapper.isUserValid(userName, password);
-		
-		if(StringUtils.isNotEmpty(userId)){
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-	
+
 	public UserDTO getValidUser(final String userName,final String password){
 		return oAuth2Mapper.getValidUser(userName, password);
+	}
+
+	public UserDTO getUserById(final String userId){
+		return oAuth2Mapper.getUserById(userId);
 	}
 	
 	public ClientDTO getValidClient(final String clientId,final String clientSecret){
