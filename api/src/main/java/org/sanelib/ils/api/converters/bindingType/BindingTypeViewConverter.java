@@ -14,10 +14,12 @@ public class BindingTypeViewConverter  extends AbstractViewToDtoConverterImpl<Bi
 
     @Override
     public List<BindingTypeDto> convert(List<BindingTypeView> bindingTypeView) {
-        BindingTypeDto dto = new BindingTypeDto();
         List<BindingTypeDto> bindingTypeDtos = new ArrayList<>();
 
         for(BindingTypeView view : bindingTypeView) {
+
+            BindingTypeDto dto = new BindingTypeDto();
+
             dto.setLibraryId(String.valueOf(view.getLibraryId()));
             dto.setId(String.valueOf(view.getId()));
             dto.setBindType(view.getBindType());
