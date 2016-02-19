@@ -50,6 +50,7 @@ public class CirculationMatrix implements DomainEntity , CirculationMatrixIdAndL
     private String otherDetails;
 
     // note : Loan periods
+    // all fields as per your want for loan period.
     private String loanInDays;
     private String loanInHours;
     private String loanInNextOccurrence;
