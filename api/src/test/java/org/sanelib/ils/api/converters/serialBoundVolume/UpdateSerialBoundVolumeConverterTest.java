@@ -41,7 +41,6 @@ public class UpdateSerialBoundVolumeConverterTest {
         assertEquals("Color is not mapped", dto.getColor(), updateSerialBoundVolume.getColor());
         assertEquals("Price is not mapped", Double.valueOf(dto.getPrice()), updateSerialBoundVolume.getPrice());
         assertEquals("Entry Id is not mapped", dto.getEntryId(), updateSerialBoundVolume.getEntryId());
-        assertEquals("Entry Date is not mapped", DateHelper.fromDateString(dto.getEntryDate()), updateSerialBoundVolume.getEntryDate());
     }
 
 }

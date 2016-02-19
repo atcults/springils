@@ -32,7 +32,6 @@ public class DeleteSerialBoundVolumeProcessTest extends EntityIntegrationTestBas
         serialBoundVolume.setColor("Color");
         serialBoundVolume.setPrice(10.10);
         serialBoundVolume.setEntryId("EntryId");
-        serialBoundVolume.setEntryDate(DateHelper.constructDate(2015 , 11 ,11));
 
         persist(serialBoundVolume);
 

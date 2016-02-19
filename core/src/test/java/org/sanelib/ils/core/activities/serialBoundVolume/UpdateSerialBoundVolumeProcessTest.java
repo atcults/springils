@@ -32,7 +32,6 @@ public class UpdateSerialBoundVolumeProcessTest extends EntityIntegrationTestBas
         serialBoundVolume.setColor("Color");
         serialBoundVolume.setPrice(10.10);
         serialBoundVolume.setEntryId("EntryId");
-        serialBoundVolume.setEntryDate(DateHelper.constructDate(2015 , 11 ,11));
 
         persist(serialBoundVolume);
 
@@ -44,7 +43,6 @@ public class UpdateSerialBoundVolumeProcessTest extends EntityIntegrationTestBas
         updateSerialBoundVolume.setColor("Updated Color");
         updateSerialBoundVolume.setPrice(10.10);
         updateSerialBoundVolume.setEntryId("Updated Entry Id");
-        updateSerialBoundVolume.setEntryDate(DateHelper.constructDate(2015 , 11 ,11));
 
 
         String result = execute(updateSerialBoundVolume, ActivitiProcessConstants.Admin.UPDATE_SERIALBOUNDVOLUME);
@@ -59,6 +57,5 @@ public class UpdateSerialBoundVolumeProcessTest extends EntityIntegrationTestBas
         assertEquals(updateSerialBoundVolume.getColor(), dbSerialBoundVolume.getColor());
         assertEquals(updateSerialBoundVolume.getPrice(), dbSerialBoundVolume.getPrice());
         assertEquals(updateSerialBoundVolume.getEntryId(), dbSerialBoundVolume.getEntryId());
-        assertEquals(updateSerialBoundVolume.getEntryDate(), dbSerialBoundVolume.getEntryDate());
     }
 }

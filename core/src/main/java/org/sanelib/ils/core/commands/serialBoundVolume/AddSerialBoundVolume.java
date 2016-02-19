@@ -21,7 +21,6 @@ public class AddSerialBoundVolume extends ProcessCommandWithLibraryId {
     private String color;
     private Double price;
     private String entryId;
-    private Date entryDate;
 
     public String getName() {
         return name;
@@ -55,11 +54,4 @@ public class AddSerialBoundVolume extends ProcessCommandWithLibraryId {
         this.entryId = entryId;
     }
 
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
 }

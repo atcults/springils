@@ -32,7 +32,6 @@ public class ProcessAddSerialBoundVolumeDelegate implements JavaDelegate {
         entity.setColor(command.getColor());
         entity.setPrice(command.getPrice());
         entity.setEntryId(command.getEntryId());
-        entity.setEntryDate(command.getEntryDate());
 
         serialBoundVolumeRepository.save(entity);
 

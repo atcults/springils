@@ -1,9 +1,6 @@
 package org.sanelib.ils.core.domain.entity;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -79,12 +76,10 @@ public class SerialBoundVolume implements DomainEntity{
         this.entryId = entryId;
     }
 
-    public Date getEntryDate() {
-        return entryDate;
-    }
+    @PrePersist
+    public void prePersist() {
 
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
+        entryDate = new Date();
     }
 
     @Override
