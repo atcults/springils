@@ -14,6 +14,7 @@ entity:
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
   holiday: Holiday
+  materialType: Material Type
 
 library:
   name: Name
@@ -54,3 +55,6 @@ holiday:
 
 patronCategory:
   name: Name
+
+materialType:
+  materialType: Material Type
