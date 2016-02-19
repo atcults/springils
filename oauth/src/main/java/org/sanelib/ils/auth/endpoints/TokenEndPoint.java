@@ -44,7 +44,7 @@ public class TokenEndPoint {
 	private static final Logger LOG = LoggerFactory.getLogger(TokenEndPoint.class);
 	
 	private final static String TOKEN_ACTION_UPDATE = "UPDATE";
-	
+
 	@Autowired OAuth2Repository oAuthRepository;
 	
 	@Autowired
@@ -54,16 +54,16 @@ public class TokenEndPoint {
 	@POST
 	public Response accessToken(@Context HttpServletRequest request){
 		
-		final String client_id = request.getParameter(OAuth.OAUTH_CLIENT_ID);
-		final String client_secret = request.getParameter(OAuth.OAUTH_CLIENT_SECRET);
-		final String username = request.getParameter(OAuth.OAUTH_USERNAME);
-		final String password = request.getParameter(OAuth.OAUTH_PASSWORD);
-		final String grant_type = request.getParameter(OAuth.OAUTH_GRANT_TYPE);
-		final String redirect_uri = request.getParameter(OAuth.OAUTH_REDIRECT_URI);
-		final String refresh_token = request.getParameter(OAuth.OAUTH_REFRESH_TOKEN);
+		final String reqClientId = request.getParameter(OAuth.OAUTH_CLIENT_ID);
+		final String reqClientSecret = request.getParameter(OAuth.OAUTH_CLIENT_SECRET);
+		final String reqUsername = request.getParameter(OAuth.OAUTH_USERNAME);
+		final String reqPassword = request.getParameter(OAuth.OAUTH_PASSWORD);
+		final String reqGrantType = request.getParameter(OAuth.OAUTH_GRANT_TYPE);
+		final String reqRedirectUri = request.getParameter(OAuth.OAUTH_REDIRECT_URI);
+		final String reqRefreshToken = request.getParameter(OAuth.OAUTH_REFRESH_TOKEN);
 		
-		final String access_token_expired = env.getProperty("oauth.token.access.expired");
-		final String refresh_token_expired = env.getProperty("oauth.token.refresh.expired");
+		final String reqAccessTokenExpired = env.getProperty("oauth.token.access.expired");
+		final String reqRefreshTokenExpired = env.getProperty("oauth.token.refresh.expired");
 		
 		ClientDTO clientDTO = null;
 		UserDTO userDTO = null;
@@ -71,9 +71,9 @@ public class TokenEndPoint {
 		
 		try{
 
-			if (StringUtils.equals(grant_type, GrantType.PASSWORD.name())) {
+			if (StringUtils.equals(reqGrantType, GrantType.PASSWORD.name())) {
 				
-				clientDTO = oAuthRepository.getValidClient(client_id, client_secret);
+				clientDTO = oAuthRepository.getValidClient(reqClientId, reqClientSecret);
 				
 				if(clientDTO == null){
 					OAuthResponse response = OAuthASResponse
@@ -84,7 +84,7 @@ public class TokenEndPoint {
 					return Response.status(response.getResponseStatus()).entity(response.getBody()).build();
 				}
 				
-				userDTO = oAuthRepository.getValidUser(username, password);
+				userDTO = oAuthRepository.getValidUser(reqUsername, reqPassword);
 				
 				if(userDTO != null){
 					
@@ -96,13 +96,13 @@ public class TokenEndPoint {
 					Calendar refreshTokenCreated = Calendar.getInstance();
 					
 					Calendar accessTokenExpired = Calendar.getInstance();
-					accessTokenExpired.add(Calendar.SECOND, new Integer(access_token_expired));
+					accessTokenExpired.add(Calendar.SECOND, new Integer(reqAccessTokenExpired));
 					
 					Calendar refreshTokenExpired = Calendar.getInstance();
-					refreshTokenExpired.add(Calendar.SECOND,  new Integer(refresh_token_expired));
+					refreshTokenExpired.add(Calendar.SECOND,  new Integer(reqRefreshTokenExpired));
 							
 					
-					TokenDTO newTokenDto = new TokenDTO(clientDTO.getClientID(), userDTO.getUserID(), accessToken,
+					TokenDTO newTokenDto = new TokenDTO(clientDTO.getClientID(), userDTO.getPatronId(), accessToken,
 							refreshToken, "Bearer", null,
 							null, null, null,
 							accessTokenCreated.getTime(), refreshTokenCreated.getTime(),
@@ -114,8 +114,8 @@ public class TokenEndPoint {
 					try{
 						oAuthRepository.generateToken(newTokenDto);
 						oAuthResponse = OAuth2Util
-								.buildAccessTokenResponseForPassWordGrantType(HttpServletResponse.SC_OK, redirect_uri, accessToken,
-								refreshToken, TokenType.BEARER.toString(), access_token_expired);
+								.buildAccessTokenResponseForPassWordGrantType(HttpServletResponse.SC_OK, reqRedirectUri, accessToken,
+								refreshToken, TokenType.BEARER.toString(), reqAccessTokenExpired);
 						
 					}
 					catch(Exception e){
@@ -138,27 +138,27 @@ public class TokenEndPoint {
 			
 				
 			}
-			else if(StringUtils.equals(grant_type, GrantType.CLIENT_CREDENTIALS.name())){
+			else if(StringUtils.equals(reqGrantType, GrantType.CLIENT_CREDENTIALS.name())){
 				OAuthResponse response = OAuth2Util.buildErrorOAuthResponse(HttpServletResponse.SC_BAD_REQUEST, OAuthError.TokenResponse.UNSUPPORTED_GRANT_TYPE, "UnSupported Grant Type");
 				return Response.status(response.getResponseStatus()).entity(response.getBody()).build();
 			}
-			else if(StringUtils.equals(grant_type, GrantType.AUTHORIZATION_CODE.name())){
+			else if(StringUtils.equals(reqGrantType, GrantType.AUTHORIZATION_CODE.name())){
 				OAuthResponse response = OAuth2Util.buildErrorOAuthResponse(HttpServletResponse.SC_BAD_REQUEST, OAuthError.TokenResponse.UNSUPPORTED_GRANT_TYPE, "UnSupported Grant Type");
 				return Response.status(response.getResponseStatus()).entity(response.getBody()).build();
 			}
-			else if(StringUtils.equals(grant_type, GrantType.IMPLICIT.name())){
+			else if(StringUtils.equals(reqGrantType, GrantType.IMPLICIT.name())){
 				OAuthResponse response = OAuth2Util.buildErrorOAuthResponse(HttpServletResponse.SC_BAD_REQUEST, OAuthError.TokenResponse.UNSUPPORTED_GRANT_TYPE, "UnSupported Grant Type");
 				return Response.status(response.getResponseStatus()).entity(response.getBody()).build();
 			}
-			else if(StringUtils.equals(grant_type, GrantType.REFRESH_TOKEN.name())){
+			else if(StringUtils.equals(reqGrantType, GrantType.REFRESH_TOKEN.name())){
 				
-				if(StringUtils.isEmpty(refresh_token)){
+				if(StringUtils.isEmpty(reqRefreshToken)){
 					OAuthResponse response = OAuth2Util.buildErrorOAuthResponse(HttpServletResponse.SC_BAD_REQUEST, OAuthError.TokenResponse.INVALID_REQUEST, "Refresh Token is required when Grant Type is Refresh Token");
 
 					return Response.status(response.getResponseStatus()).entity(response.getBody()).build();
 				}
 				else{
-					TokenDTO refreshToken = oAuthRepository.isRefreshTokenValid(refresh_token);
+					TokenDTO refreshToken = oAuthRepository.isRefreshTokenValid(reqRefreshToken);
 					
 					if(refreshToken != null){
 						
@@ -178,21 +178,21 @@ public class TokenEndPoint {
 							updatedToken.setRefreshToken(newRefreshToken);
 							
 							Calendar updatedAccessTokenExpired = Calendar.getInstance();
-							updatedAccessTokenExpired.add(Calendar.SECOND, new Integer(access_token_expired));
+							updatedAccessTokenExpired.add(Calendar.SECOND, new Integer(reqAccessTokenExpired));
 							updatedToken.setAccessTokenExpiredIn(updatedAccessTokenExpired.getTime());
 							
 							Calendar updatedRefreshTokenExpired = Calendar.getInstance();
-							updatedRefreshTokenExpired.add(Calendar.SECOND, new Integer(refresh_token_expired));
+							updatedRefreshTokenExpired.add(Calendar.SECOND, new Integer(reqRefreshTokenExpired));
 							updatedToken.setRefreshTokenExpiredIn(updatedRefreshTokenExpired.getTime());
 							OAuthResponse oAuthResponse = null;
 							try{
 								oAuthRepository.updateRefreshToken(updatedToken,refreshToken.getRefreshToken());
-								oAuthResponse = OAuth2Util.buildAccessTokenResponseForPassWordGrantType(HttpServletResponse.SC_OK, redirect_uri, newAccessToken,
-										newRefreshToken, TokenType.BEARER.toString(), access_token_expired);
+								oAuthResponse = OAuth2Util.buildAccessTokenResponseForPassWordGrantType(HttpServletResponse.SC_OK, reqRedirectUri, newAccessToken,
+										newRefreshToken, TokenType.BEARER.toString(), reqAccessTokenExpired);
 								
 							}
 							catch(Exception e){
-								LOG.error("Exception occured while Updating Refresh and Access Tokens :"+e.getMessage());
+								LOG.error("Exception occurred while Updating Refresh and Access Tokens :"+e.getMessage());
 								OAuthResponse response = OAuth2Util.buildErrorOAuthResponse(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, OAuthError.CodeResponse.SERVER_ERROR, "Exception occured while updating Refresh Token");
 								
 								return Response.status(response.getResponseStatus()).entity(response.getBody()).build();
@@ -203,7 +203,7 @@ public class TokenEndPoint {
 								oAuthRepository.generateTokenLog(tokenLog);
 							}
 							catch(Exception e){
-								LOG.error("Exception occured while generating token log event :"+e.getMessage());
+								LOG.error("Exception occurred while generating token log event :"+e.getMessage());
 							}
 							
 							return 	Response.status(oAuthResponse.getResponseStatus())
@@ -251,7 +251,7 @@ public class TokenEndPoint {
 			
 			if(accessTokenDto != null){
 				Date currentTime = Calendar.getInstance().getTime();
-				
+				UserDTO userDto = oAuthRepository.getUserById(accessTokenDto.getUserID());
 				if(!currentTime.before(accessTokenDto.getAccessTokenExpiredIn())){
 					OAuthResponse response = OAuth2Util.buildErrorOAuthResponse(HttpServletResponse.SC_OK, OAuthError.ResourceResponse.EXPIRED_TOKEN, "AccessToken is expired");
 					return Response.status(response.getResponseStatus()).entity(response.getBody()).build();
@@ -261,8 +261,8 @@ public class TokenEndPoint {
 					OAuthResponse oAuthResponse = OAuthASResponse
 							.tokenResponse(HttpServletResponse.SC_OK)
 							.setParam("valid", "true")
-							.setParam("userID", accessTokenDto.getUserID())
-							.setParam("scope", accessTokenDto.getScope())
+							.setParam("userID", userDto.getPatronId())
+							.setParam("libraryID", String.valueOf(userDto.getLibraryId()))
 							.buildJSONMessage();
 					
 					return 	Response.status(oAuthResponse.getResponseStatus())
