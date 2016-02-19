@@ -8,6 +8,7 @@ import org.sanelib.ils.api.errorhandling.NotFoundExceptionMapper;
 import org.sanelib.ils.api.filters.CORSResponseFilter;
 import org.sanelib.ils.api.filters.LoggingResponseFilter;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
+import org.sanelib.ils.api.filters.OAuthorizationFilter;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -23,8 +24,8 @@ public class JerseyConfig extends ResourceConfig {
         register(NotFoundExceptionMapper.class);
 
         //register filters
-        register(LoggingResponseFilter.class);
         register(CORSResponseFilter.class);
+		register(OAuthorizationFilter.class);
 
         //register features
         register(JacksonFeature.class);
