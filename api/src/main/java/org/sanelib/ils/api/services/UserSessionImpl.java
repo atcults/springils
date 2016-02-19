@@ -1,15 +1,16 @@
 package org.sanelib.ils.api.services;
 
 public class UserSessionImpl implements UserSession {
-    private Integer userId;
+
+    private String userCode;
     private Integer libraryId;
 
-    public Integer getUserId() {
-        return userId;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUserCode(String userId) {
+        this.userCode = userId;
     }
 
     public Integer getLibraryId() {

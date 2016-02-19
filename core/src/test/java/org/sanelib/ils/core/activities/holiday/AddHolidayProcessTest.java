@@ -10,8 +10,6 @@ import org.sanelib.ils.core.commands.holiday.AddHoliday;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.HolidayRepository;
 import org.sanelib.ils.core.domain.entity.FiscalYear;
-import org.sanelib.ils.core.domain.entity.Holiday;
-import org.sanelib.ils.core.domain.entity.HolidayId;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.sanelib.ils.core.enums.HolidayType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,8 +61,8 @@ public class AddHolidayProcessTest extends EntityIntegrationTestBase{
         addHoliday.setStartDate(DateHelper.constructDate(2016 , 2 , 6));
         addHoliday.setEndDate(DateHelper.constructDate(2016 , 2, 9));
         addHoliday.setNote("Test Holiday");
-        addHoliday.setEntryId(1);
-        addHoliday.setEntryLibraryId(1);
+        addHoliday.setPatronCode("1");
+        addHoliday.setPatronLibraryId(1);
 
         String result = execute(addHoliday , ActivitiProcessConstants.Admin.ADD_HOLIDAY);
 

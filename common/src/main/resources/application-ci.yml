@@ -16,6 +16,8 @@ db:
   url: jdbc:postgresql://localhost:5439/ils
   username: postgres
   password:
+  connection:
+   properties: stringtype=unspecified
 
 # Hibernate
 hibernate:
