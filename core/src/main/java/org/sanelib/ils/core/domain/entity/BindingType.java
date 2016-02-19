@@ -19,7 +19,7 @@ public class BindingType implements DomainEntity {
     private Double price;
 
     @Column(name = "entry_id")
-    private String entryId;
+    private String patronCode;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -57,12 +57,12 @@ public class BindingType implements DomainEntity {
         this.price = price;
     }
 
-    public String getEntryId() {
-        return entryId;
+    public String getPatronCode() {
+        return patronCode;
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
+    public void setPatronCode(String patronCode) {
+        this.patronCode = patronCode;
     }
 
     @PrePersist

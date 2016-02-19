@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.bindingType;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.bindingType.UpdateBindingType;
 import org.sanelib.ils.core.dao.HibernateHelper;
@@ -11,9 +10,7 @@ import org.sanelib.ils.core.domain.entity.BindingTypeId;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 
 public class UpdateBindingTypeProcessTest extends EntityIntegrationTestBase {
@@ -43,8 +40,6 @@ public class UpdateBindingTypeProcessTest extends EntityIntegrationTestBase {
         updateBindingType.setLibraryId(library.getId());
         updateBindingType.setBindType("updated bindingType");
         bindingType.setPrice(500.00);
-        bindingType.setEntryId("EntryId01");
-        bindingType.setEntryDate(DateHelper.fromDateString("2007/01/02"));
 
         String result = execute(updateBindingType, ActivitiProcessConstants.Admin.UPDATE_BINDING_TYPE);
 
@@ -56,8 +51,6 @@ public class UpdateBindingTypeProcessTest extends EntityIntegrationTestBase {
 
         assertEquals(updateBindingType.getBindType(), dbBindingType.getBindType());
         assertEquals(updateBindingType.getPrice(), dbBindingType.getPrice());
-        assertEquals(updateBindingType.getEntryId(), dbBindingType.getEntryId());
-        assertEquals(updateBindingType.getEntryDate(), dbBindingType.getEntryDate());
 
     }
 }

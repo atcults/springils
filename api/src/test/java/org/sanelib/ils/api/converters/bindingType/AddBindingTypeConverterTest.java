@@ -19,8 +19,6 @@ public class AddBindingTypeConverterTest {
         dto.setLibraryId("1");
         dto.setBindType("BindType");
         dto.setPrice("500.00");
-        dto.setEntryId("EntryId01");
-        dto.setEntryDate("2007/01/02");
 
         ProcessError processError = new ProcessError();
 
@@ -34,8 +32,6 @@ public class AddBindingTypeConverterTest {
         assertEquals("Library Id is not mapped", dto.getLibraryId(), String.valueOf(addBindingType.getLibraryId()));
         assertEquals("Bind type is not mapped", dto.getBindType(), addBindingType.getBindType());
         assertEquals("Price is not mapped", Double.valueOf(dto.getPrice()), addBindingType.getPrice());
-        assertEquals("Entry Id is not mapped", dto.getEntryId(), addBindingType.getEntryId());
-        assertEquals("Entry date is not mapped", dto.getEntryDate(), DateHelper.toDateString(addBindingType.getEntryDate()));
 
     }
 }

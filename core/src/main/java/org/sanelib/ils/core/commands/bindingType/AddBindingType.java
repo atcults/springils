@@ -1,12 +1,10 @@
 package org.sanelib.ils.core.commands.bindingType;
 
 
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.BindingType;
 
-import java.util.Date;
-
-public class AddBindingType extends ProcessCommandWithLibraryId {
+public class AddBindingType extends ProcessAuditCommandWithLibraryId {
     @Override
     public Class getRootEntityClass() {
         return BindingType.class;
@@ -14,13 +12,11 @@ public class AddBindingType extends ProcessCommandWithLibraryId {
 
     @Override
     public String getRootEntityName() {
-        return  "domain.entity.bindingType";
+        return "domain.entity.bindingType";
     }
 
     private String bindType;
     private Double price;
-    private String entryId;
-    private Date entryDate;
 
     public String getBindType() {
         return bindType;
@@ -38,19 +34,4 @@ public class AddBindingType extends ProcessCommandWithLibraryId {
         this.price = price;
     }
 
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
 }

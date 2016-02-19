@@ -27,7 +27,6 @@ public class AddBindingTypeConverter implements DtoToCommandConverter<BindingTyp
         }
 
         command.setPrice(Double.parseDouble(dto.getPrice()));
-        command.setEntryId(dto.getEntryId());
 
         return command;
     }

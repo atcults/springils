@@ -37,8 +37,6 @@ public class AddBindingTypeProcessTest extends EntityIntegrationTestBase {
         addBindingType.setLibraryId(library.getId());
         addBindingType.setBindType("BindType");
         addBindingType.setPrice(500.00);
-        addBindingType.setEntryId("EntryId01");
-        addBindingType.setEntryDate(DateHelper.fromDateString("2007/01/02"));
 
         String result = execute(addBindingType, ActivitiProcessConstants.Admin.ADD_BINDING_TYPE);
 
@@ -50,7 +48,5 @@ public class AddBindingTypeProcessTest extends EntityIntegrationTestBase {
 
         assertEquals(addBindingType.getBindType() ,bindingType.getBindType());
         assertEquals(addBindingType.getPrice() ,bindingType.getPrice());
-        assertEquals(addBindingType.getEntryId() ,bindingType.getEntryId());
-        assertEquals(addBindingType.getEntryDate() ,bindingType.getEntryDate());
     }
 }
