@@ -3,17 +3,21 @@ common:
   code: Code
   name: Name
   libraryId: Library Id
-  entryId: Patron Id
-  entryLibraryId: Patron Library Id
+  patronCode: Patron Code
+  patronLibraryId: Patron Library Id
 
 entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  course: Course
   patronCategory: PatronCategory
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
   holiday: Holiday
+  department: Department
+  patron: Patron
+  author: Author
 
 library:
   name: Name
@@ -30,23 +34,87 @@ publisher:
 agency:
   name: Name
 
+author:
+  lname: Last Name
+  fname: First Name
+  phone: Phone number
+  address: Address
+  city: City
+  state: State
+  zip: Zip Code
+course:
+  name: Name
+  entryId: Entry Id
+  entryDate: Entry Date
+  promotedCourseId: Promoted Course Id
+
 fiscalYear:
   startDate: Start Date
   endDate: End Date
   entryDate: Entry Date
 
+patron:
+  patronCategoryId: Patron Category Id
+  isOnline: Is Online
+  owns: Owns
+  createdOn: Created On
+  otherLibraryPatronId: Other Library Patron Id
+  libraryPatronId: Library Patron Id
+  patronType: Patron Type
+  deptId: Department Id
+  firstName: FirstName
+  middleName: MiddleName
+  lastName: LastName
+  address1: Address1
+  address2: Address2
+  city: City
+  state: State
+  country: Country
+  pin: Pin
+  phone1: Phone1
+  phone2: Phone2
+  fax: Fax
+  email: Email
+  permanentAddress1: Permanent Address1
+  permanentAddress2: Permanent Address2
+  permanentCity: Permanent City
+  permanentState: Permanent State
+  permanentCountry: Permanent Country
+  permanentPin: Permanent Pin
+  permanentPhone1: Permanent Phone1
+  permanentPhone2: Permanent Phone2
+  permanentFax: Permanent Fax
+  permanentEmail: Permanent Email
+  membershipFrom: Membership From
+  membershipTo: Membership To
+  delinquencyReason: Delinquency Reason
+  commonEmail: Common Email
+  commonInstantMsg: Common Instant Msg
+  commonPrint: Common Print
+  entryDate: Entry Date
+  userPassword: User Password
+  courseId: Course Id
+  status: Status
+  sendToAddress: Send to Address
+  custom: Custom
+  privilege: Privilege
+  twitterId: Twitter Id
+  facebookId: Facebook Id
+  subLocationId: Sub Location Id
+  loginId: Login Id
+  authenticateLocalDatabase: Authenticate Local Database
+
 accessionSeries:
   code: Series Name
-  entryDate: Entry Date
   maxNumber: Max Number
   maxZero: Max Zero
   prefix: Prefix
   typeName: Fixed Or Variable
-  entryId: Entry Id
+  patronCode: Entry Id
   entryDate: Entry Date
 
 holiday:
-  fiscalYearId: Fisal Year
+  fiscalYearId: Fiscal Year
   holidayType: Holiday Type
   note: Note
   startDate: Start Date
@@ -54,3 +122,9 @@ holiday:
 
 patronCategory:
   name: Name
+
+Department:
+  name: Department Name
+  hodId: HOD Id
+  entryDate: Entry Date
+  entryId: Entry Id

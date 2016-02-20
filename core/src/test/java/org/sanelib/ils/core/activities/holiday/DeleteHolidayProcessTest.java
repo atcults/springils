@@ -43,8 +43,8 @@ public class DeleteHolidayProcessTest extends EntityIntegrationTestBase{
         holiday.setHolidayDate(DateHelper.constructDate(2016 , 2 , 12));
         holiday.setHolidayType(HolidayType.Specific);
         holiday.setNote("Holiday");
-        holiday.setEntryId(1);
-        holiday.setEntryLibraryId(1);
+        holiday.setPatronCode("1");
+        holiday.setPatronLibraryId(1);
 
         persist(holiday);
 

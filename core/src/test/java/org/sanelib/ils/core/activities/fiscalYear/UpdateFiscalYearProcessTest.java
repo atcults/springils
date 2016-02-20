@@ -51,7 +51,7 @@ public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
         updateFiscalYear.setEndDate(endDate);
         updateFiscalYear.setEntryId("1");
 
-        String result = execute(updateFiscalYear, ActivitiProcessConstants.Admin.UPDATE_FISCALYEAR);
+        String result = execute(updateFiscalYear, ActivitiProcessConstants.Admin.UPDATE_FISCAL_YEAR);
 
         assertNull(result);
 
