@@ -46,6 +46,15 @@ public class CirculationMatrix implements DomainEntity {
     @Column(name = "renewal_through_opac")
     private String renewalThroughOpac;
 
+    @Column(name = "other_details")
+    private String otherDetails;
+
+    // note : Loan periods
+    // all fields as per your want for loan period.
+    private String loanInDays;
+    private String loanInHours;
+    private String loanInNextOccurrence;
+
     public Integer getLibraryId() {
         return libraryId;
     }
@@ -84,15 +93,6 @@ public class CirculationMatrix implements DomainEntity {
     public Integer getRenewalLimit() {
         return renewalLimit;
     }
-
-    @Column(name = "other_details")
-    private String otherDetails;
-
-    // note : Loan periods
-    // all fields as per your want for loan period.
-    private String loanInDays;
-    private String loanInHours;
-    private String loanInNextOccurrence;
 
     public String getLoanInDays() {
         return loanInDays;
