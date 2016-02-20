@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "cir_privilage_matrix")
-public class CirculationMatrix implements DomainEntity , CirculationMatrixIdAndLibraryId{
+public class CirculationMatrix implements DomainEntity {
 
     private static final long serialVersionUID = 1L;
 
@@ -46,6 +46,45 @@ public class CirculationMatrix implements DomainEntity , CirculationMatrixIdAndL
     @Column(name = "renewal_through_opac")
     private String renewalThroughOpac;
 
+    public Integer getLibraryId() {
+        return libraryId;
+    }
+
+    public void setLibraryId(Integer libraryId) {
+        this.libraryId = libraryId;
+    }
+
+    public Integer getPatronCategoryId() {
+        return patronCategoryId;
+    }
+
+    public void setPatronCategoryId(Integer patronCategoryId) {
+        this.patronCategoryId = patronCategoryId;
+    }
+
+    public Integer getMaterialTypeId() {
+        return materialTypeId;
+    }
+
+    public void setMaterialTypeId(Integer materialTypeId) {
+        this.materialTypeId = materialTypeId;
+    }
+
+    public Date getWithEffectFrom() {
+        return withEffectFrom;
+    }
+
+    public void setWithEffectFrom(Date withEffectFrom) {
+        if(Strings.isNullOrEmpty(String.valueOf(withEffectFrom)) && !this.withEffectFrom.equals(withEffectFrom)) {
+            throw new IllegalStateException("The WEF must not be empty");
+        }
+        this.withEffectFrom = withEffectFrom;
+    }
+
+    public Integer getRenewalLimit() {
+        return renewalLimit;
+    }
+
     @Column(name = "other_details")
     private String otherDetails;
 
@@ -77,53 +116,6 @@ public class CirculationMatrix implements DomainEntity , CirculationMatrixIdAndL
 
     public void setLoanInNextOccurrence(String loanInNextOccurrence) {
         this.loanInNextOccurrence = loanInNextOccurrence;
-    }
-
-    @Override
-    public int getLibraryId() {
-        return this.libraryId;
-    }
-
-    public void setLibraryId(Integer libraryId) {
-        this.libraryId = libraryId;
-    }
-
-    @Override
-    public void setLibraryId(int libraryId) {
-        this.libraryId = libraryId;
-    }
-
-    @Override
-    public int getPatronCategoryId() {
-        return this.patronCategoryId;
-    }
-
-    @Override
-    public void setPatronCategoryId(int patronCategoryId) {
-        this.patronCategoryId = patronCategoryId;
-    }
-
-    @Override
-    public int getMaterialTypeId() {
-        return this.materialTypeId;
-    }
-
-    @Override
-    public void setMaterialTypeId(int materialTypeId) {
-        this.materialTypeId = materialTypeId;
-    }
-
-    @Override
-    public Date getWithEffectFrom() {
-        return this.withEffectFrom;
-    }
-
-    @Override
-    public void setWithEffectFrom(Date withEffectFrom) {
-        if(Strings.isNullOrEmpty(String.valueOf(withEffectFrom)) && !this.withEffectFrom.equals(withEffectFrom)) {
-            throw new IllegalStateException("The WEF must not be empty");
-        }
-        this.withEffectFrom = withEffectFrom;
     }
 
     public Integer getLoanLimit() {
