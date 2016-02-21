@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.core.io.Resource;
@@ -16,6 +18,8 @@ import org.yaml.snakeyaml.Yaml;
 @Scope("singleton")
 public class MapDictionaryServiceImpl implements MapDictionaryService {
 
+    private static final Logger LOG = LoggerFactory.getLogger(MapDictionaryServiceImpl.class);
+
 	@Autowired
 	private AppProperties appProperties;
 
@@ -25,7 +29,7 @@ public class MapDictionaryServiceImpl implements MapDictionaryService {
 
 		String messageBundle = appProperties.getMessageBundle();
 
-		System.out.println("Generating MapDictionary.....................");
+		LOG.info("Generating MapDictionary.....................");
 
 		Map<String, String> keyValuePair = new HashMap<>();
 		String directoryPath = "classpath:MessagesBundle/" + locale + "/*." + messageBundle;
@@ -49,7 +53,7 @@ public class MapDictionaryServiceImpl implements MapDictionaryService {
 			System.err.println("Directory/Locale Not Found.");
 		}
 
-		System.out.println("Finished Generating MapDictionary...............");
+		LOG.info("Finished Generating MapDictionary...............");
 
 		return keyValuePair;
 	}

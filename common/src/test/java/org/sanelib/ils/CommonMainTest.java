@@ -4,11 +4,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.OutputCapture;
 
 import static org.junit.Assert.assertTrue;
 
 public class CommonMainTest {
+
+    private static final Logger LOG = LoggerFactory.getLogger(CommonMainTest.class);
 
 	@Rule
 	public OutputCapture outputCapture = new OutputCapture();
@@ -18,7 +22,7 @@ public class CommonMainTest {
 	@Before
 	public void init() {
 		this.activeProfile = System.getProperty("spring.profiles.active");
-		System.out.println("Profile init:" + this.activeProfile);
+		LOG.info("Profile init:" + this.activeProfile);
 	}
 
 	@After

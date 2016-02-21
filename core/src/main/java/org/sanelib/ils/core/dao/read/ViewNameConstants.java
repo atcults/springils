@@ -5,7 +5,6 @@ public class ViewNameConstants {
     public class Admin{
         public static final String LIBRARY = "libraryView";
         public static final String PATRON_CATEGORY = "patronCategoryView";
-        public static final String ACCESSION_SERIES = "accessionSeriesView";
     }
 
 }

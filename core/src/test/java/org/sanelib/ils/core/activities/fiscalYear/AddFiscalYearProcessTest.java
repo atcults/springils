@@ -44,7 +44,7 @@ public class AddFiscalYearProcessTest extends EntityIntegrationTestBase{
         addFiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
         addFiscalYear.setEntryId("john");
 
-        String result = execute(addFiscalYear, ActivitiProcessConstants.Admin.ADD_FISCALYEAR);
+        String result = execute(addFiscalYear, ActivitiProcessConstants.Admin.ADD_FISCAL_YEAR);
 
         assertNotNull(result);
 

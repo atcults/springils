@@ -38,7 +38,7 @@ public class DeleteAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         deleteAccessionSeries.setCode(accessionSeries.getAccessionSeriesCode().getCode());
         deleteAccessionSeries.setLibraryId(library.getId());
 
-        String result = execute(deleteAccessionSeries, ActivitiProcessConstants.Admin.DELETE_ACCESSIONSERIES);
+        String result = execute(deleteAccessionSeries, ActivitiProcessConstants.Admin.DELETE_ACCESSION_SERIES);
 
         assertNull(result);
 

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:activiti="http://activiti.org/bpmn"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/processdef"
+             xmlns:modeler="http://activiti.com/modeler"
+             modeler:version="1.0ev"
+             modeler:exportDateTime="20160105111356"
+             modeler:modelId="969940"
+             modeler:modelVersion="1"
+             modeler:modelLastUpdated="1451992423194">
+    <process id="addAuthorProcess" name="addAuthorProcess" isExecutable="true">
+        <documentation>To process add author command</documentation>
+
+        <startEvent id="startAddAuthorProcess" name="start"/>
+        <serviceTask id="checkAuthorDuplicationID" name="checkAuthorDuplication" activiti:delegateExpression="${checkAuthorDuplicationDelegate}"/>
+        <serviceTask id="processAddAuthorID" name="processAddAuthorProcess" activiti:delegateExpression="${processAddAuthorDelegate}"/>
+        <endEvent id="endProcessID" name="end"/>
+
+        <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E28" sourceRef="startAddAuthorProcess" targetRef="checkAuthorDuplicationID"/>
+        <sequenceFlow id="sid-9B2E3492-26CA-40A3-A8CB-74E1302888A3" sourceRef="checkAuthorDuplicationID" targetRef="processAddAuthorID"/>
+        <sequenceFlow id="sid-78877653-D15F-47F3-91D3-921D9E76438B" sourceRef="processAddAuthorID" targetRef="endProcessID"/>
+    </process>
+</definitions>

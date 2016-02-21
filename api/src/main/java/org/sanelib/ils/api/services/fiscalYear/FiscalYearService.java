@@ -25,9 +25,8 @@ public class FiscalYearService extends ApiServiceBase {
 
         fiscalYearDTO.setLibraryId("101");
         fiscalYearDTO.setId("12345");
-        fiscalYearDTO.setStartDate("2015/04/01");
-        fiscalYearDTO.setEndDate("2016/03/31");
-        fiscalYearDTO.setEntryId("john");
+        fiscalYearDTO.setStartDate("2015-04-01");
+        fiscalYearDTO.setEndDate("2016-03-31");
 
         dtos.add(fiscalYearDTO);
 
@@ -36,12 +35,12 @@ public class FiscalYearService extends ApiServiceBase {
 
     @POST
     public String addFiscalYear(FiscalYearDto fiscalYearDTO) throws Throwable {
-        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.ADD_FISCALYEAR);
+        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.ADD_FISCAL_YEAR);
     }
 
     @PUT
     public String updateFiscalYear(FiscalYearDto fiscalYearDTO) throws Throwable {
-        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.UPDATE_FISCALYEAR);
+        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.UPDATE_FISCAL_YEAR);
     }
 
     @DELETE
@@ -52,6 +51,6 @@ public class FiscalYearService extends ApiServiceBase {
         fiscalYearDto.setLibraryId(libraryId);
         fiscalYearDto.setId(id);
 
-        return execute(fiscalYearDto, ActivitiProcessConstants.Admin.DELETE_FISCALYEAR);
+        return execute(fiscalYearDto, ActivitiProcessConstants.Admin.DELETE_FISCAL_YEAR);
     }
 }

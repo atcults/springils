@@ -7,11 +7,15 @@ import org.sanelib.ils.core.dao.AccessionSeriesRepository;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.AccessionSeries;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessAddAccessionSeriesDelegate implements JavaDelegate {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessAddAccessionSeriesDelegate.class);
 
     @Autowired
     HibernateHelper hibernateHelper;
@@ -21,7 +25,7 @@ public class ProcessAddAccessionSeriesDelegate implements JavaDelegate {
 
     @Override
 	public void execute(DelegateExecution execution) throws Exception {
-		System.out.println("Process Add AccessionSeries called");
+		LOG.info("Process Add AccessionSeries called");
 
         AddAccessionSeries command = (AddAccessionSeries) execution.getVariable("command");
 

@@ -6,11 +6,15 @@ import org.sanelib.ils.core.commands.patronCategory.AddPatronCategory;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.PatronCategoryRepository;
 import org.sanelib.ils.core.domain.entity.PatronCategory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessAddPatronCategoryDelegate implements JavaDelegate {
+
+	private static final Logger LOG = LoggerFactory.getLogger(ProcessAddPatronCategoryDelegate.class);
 
     @Autowired
     HibernateHelper hibernateHelper;
@@ -20,7 +24,7 @@ public class ProcessAddPatronCategoryDelegate implements JavaDelegate {
 
     @Override
 	public void execute(DelegateExecution execution) throws Exception {
-		System.out.println("Process Add Patron Category called");
+		LOG.info("Process Add Patron Category called");
 
         AddPatronCategory command = (AddPatronCategory) execution.getVariable("command");
 
