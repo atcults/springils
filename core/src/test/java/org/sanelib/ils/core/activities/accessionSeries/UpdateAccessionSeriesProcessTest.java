@@ -47,8 +47,6 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         updateAccessionSeries.setMaxZero(2);
         updateAccessionSeries.setPrefix("AS");
         updateAccessionSeries.setTypeName(AccessionSeriesType.Fixed);
-        updateAccessionSeries.setEntryId("1");
-        updateAccessionSeries.setEntryDate(DateHelper.fromDateString("2016-01-01"));
 
         String result = execute(updateAccessionSeries, ActivitiProcessConstants.Admin.UPDATE_ACCESSION_SERIES);
 
@@ -63,7 +61,5 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         assertEquals(updateAccessionSeries.getMaxZero() ,accessionSeries.getMaxZero());
         assertEquals(updateAccessionSeries.getPrefix() ,accessionSeries.getPrefix());
         assertEquals(updateAccessionSeries.getTypeName() ,accessionSeries.getTypeName());
-        assertEquals(updateAccessionSeries.getEntryId() ,accessionSeries.getEntryId());
-        assertEquals(updateAccessionSeries.getEntryLibraryId(), accessionSeries.getEntryLibraryId());
     }
 }
