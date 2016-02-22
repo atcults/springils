@@ -31,10 +31,10 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 	private static final String AUTHORIZATION_HEADER = "Authorization";
 	private static final String BEARER = "Bearer";
 	private static final String TOKEN_ENDPOINT = "oauth.token.validate.endpoint";
-	private static final String AUTH_SERVER_ENDPOINT_NOT_CONFIGURED = "oauth.server.endpoint.not.configured";
-	private static final String AUTH_USER_REQUEST_NOT_VALID = "oauth.user.request.rejected";
+	private static final String AUTH_SERVER_ENDPOINT_NOT_CONFIGURED = "common.oauth.server.endpoint.not.configured";
+	private static final String AUTH_USER_REQUEST_NOT_VALID = "common.oauth.user.request.rejected";
 	private static final String INTERNAL_SERVER_ERROR = "common.server.error";
-	private static final String AUTH_HEADER_NOT_VALID = "oauth.authorization.header.not.valid";
+	private static final String AUTH_HEADER_NOT_VALID = "common.oauth.authorization.header.not.valid";
 
 	@Context HttpServletRequest request;
 
@@ -55,11 +55,12 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 					.entity(errorMessage)
 					.build();
 			containerRequestContext.abortWith(response);
+			return;
 		}
 
 		String authorizationHeaderValue = request.getHeader(AUTHORIZATION_HEADER);
 
-		if(!Strings.isNullOrEmpty(authorizationHeaderValue) && authorizationHeaderValue.startsWith(BEARER+" ")){
+		if(!Strings.isNullOrEmpty(authorizationHeaderValue) && authorizationHeaderValue.startsWith(BEARER)){
 			String[] authHeaderValues = authorizationHeaderValue.split(" ");
 			if(authHeaderValues.length == 2 && !Strings.isNullOrEmpty(authHeaderValues[1])){
 				String accessToken = authHeaderValues[1];
@@ -79,6 +80,7 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 							Response inValidResponse = Response.status(HttpServletResponse.SC_UNAUTHORIZED)
 									.build();
 							containerRequestContext.abortWith(inValidResponse);
+							return;
 						}
 						else{
 							LOG.info("BINGOOOOOO !! User is valid");
@@ -93,15 +95,17 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 								.entity(errorMessage)
 								.build();
 						containerRequestContext.abortWith(inValidResponse);
+						return;
 					}
 				}
 				catch(Exception e){
 					LOG.error("Exception occurred while Authenticating request :"+e);
-					String errorMessage = mapDictionaryService.generateMessage(INTERNAL_SERVER_ERROR, null, null);
+					String errorMessage = mapDictionaryService.generateMessage(INTERNAL_SERVER_ERROR, null ,Collections.singletonList(e.getMessage()));
 					Response response = Response.status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR)
 							.entity(errorMessage)
 							.build();
 					containerRequestContext.abortWith(response);
+					return;
 				}
 			}
 			else{
@@ -111,6 +115,7 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 						.entity(errorMessage)
 						.build();
 				containerRequestContext.abortWith(response);
+				return;
 			}
 		}
 		else{
@@ -120,6 +125,7 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 					.entity(errorMessage)
 					.build();
 			containerRequestContext.abortWith(response);
+			return;
 		}
 	}
 }
