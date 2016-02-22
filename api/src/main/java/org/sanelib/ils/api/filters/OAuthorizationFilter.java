@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.google.common.base.Strings;
+import org.sanelib.ils.api.services.UserSession;
 import org.sanelib.ils.common.properties.MapDictionaryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,6 +44,8 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 
 	@Autowired
 	private MapDictionaryService mapDictionaryService;
+
+	@Autowired UserSession userSession;
 
 	@Override
 	public void filter(ContainerRequestContext containerRequestContext) throws IOException {
@@ -84,8 +87,12 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 						}
 						else{
 							LOG.info("Access Token is valid.");
-							String userID = (String)responseJsonMap.get("userID");
-							String libraryID = (String)responseJsonMap.get("libraryID");
+							String userID = responseJsonMap.get("userID").toString();
+							String libraryID = responseJsonMap.get("libraryID").toString();
+							//New UserSession is created for every request and libraryId and userId is set in it.
+							userSession.setLibraryId(Integer.valueOf(libraryID));
+							userSession.setUserCode(userID);
+
 						}
 					}
 					else{
