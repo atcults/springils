@@ -3,8 +3,10 @@ package org.sanelib.ils.core.commands.circulationMatrix;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.CirculationMatrix;
+import org.sanelib.ils.core.enums.DurationType;
 
 import java.util.Date;
+import java.util.List;
 
 public class AddCirculationMatrix extends ProcessCommandWithLibraryId implements ProcessCommand{
 
@@ -19,15 +21,128 @@ public class AddCirculationMatrix extends ProcessCommandWithLibraryId implements
     }
 
     private Date withEffectFrom;
-    private String loanInDays;
-    private String loanInHours;
-    private String loanInNextOccurrence;
-    private Integer loanLimit;
+    private Integer overAllLoanLimit;
     private Integer renewalLimit;
     private Double finePerDay;
     private Double maxCeilOnFine;
-    private String renewalThroughOpac;
+    private String renewalThroughOPAC;
     private String otherDetails;
+    private String auditUserCode;
+    private DurationType loanDurationType;
+    private Integer loanDuration;
+    private Boolean includeHolidaysInDateDue;
+    private List fixedDateDues;
+    private DurationType chargeDurationType;
+    private Boolean includeHolidaysInCharges;
+    private Integer day;
+    private Integer month;
+    private Integer from;
+    private Integer to;
+    private Double amount;
+
+    public String getAuditUserCode() {
+        return auditUserCode;
+    }
+
+    public void setAuditUserCode(String auditUserCode) {
+        this.auditUserCode = auditUserCode;
+    }
+
+    public String getRenewalThroughOPAC() {
+        return renewalThroughOPAC;
+    }
+
+    public void setRenewalThroughOPAC(String renewalThroughOPAC) {
+        this.renewalThroughOPAC = renewalThroughOPAC;
+    }
+
+    public DurationType getLoanDurationType() {
+        return loanDurationType;
+    }
+
+    public void setLoanDurationType(DurationType durationType) {
+        this.loanDurationType = durationType;
+    }
+
+    public Integer getLoanDuration() {
+        return loanDuration;
+    }
+
+    public void setLoanDuration(Integer loanDuration) {
+        this.loanDuration = loanDuration;
+    }
+
+    public Boolean getIncludeHolidaysInDateDue() {
+        return includeHolidaysInDateDue;
+    }
+
+    public void setIncludeHolidaysInDateDue(Boolean includeHolidaysInDateDue) {
+        this.includeHolidaysInDateDue = includeHolidaysInDateDue;
+    }
+
+    public List getFixedDateDues() {
+        return fixedDateDues;
+    }
+
+    public void setFixedDateDues(List fixedDateDues) {
+        this.fixedDateDues = fixedDateDues;
+    }
+
+    public DurationType getChargeDurationType() {
+        return chargeDurationType;
+    }
+
+    public void setChargeDurationType(DurationType chargeDurationType) {
+        this.chargeDurationType = chargeDurationType;
+    }
+
+    public Boolean getIncludeHolidaysInCharges() {
+        return includeHolidaysInCharges;
+    }
+
+    public void setIncludeHolidaysInCharges(Boolean includeHolidaysInCharges) {
+        this.includeHolidaysInCharges = includeHolidaysInCharges;
+    }
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
+    }
+
+    public Integer getMonth() {
+        return month;
+    }
+
+    public void setMonth(Integer month) {
+        this.month = month;
+    }
+
+    public Integer getFrom() {
+        return from;
+    }
+
+    public void setFrom(Integer from) {
+        this.from = from;
+    }
+
+    public Integer getTo() {
+        return to;
+    }
+
+    public void setTo(Integer to) {
+        this.to = to;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
 
     public Date getWithEffectFrom() {
         return withEffectFrom;
@@ -37,36 +152,12 @@ public class AddCirculationMatrix extends ProcessCommandWithLibraryId implements
         this.withEffectFrom = withEffectFrom;
     }
 
-    public String getLoanInDays() {
-        return loanInDays;
+    public Integer getOverAllLoanLimit() {
+        return overAllLoanLimit;
     }
 
-    public void setLoanInDays(String loanInDays) {
-        this.loanInDays = loanInDays;
-    }
-
-    public String getLoanInHours() {
-        return loanInHours;
-    }
-
-    public void setLoanInHours(String loanInHours) {
-        this.loanInHours = loanInHours;
-    }
-
-    public String getLoanInNextOccurrence() {
-        return loanInNextOccurrence;
-    }
-
-    public void setLoanInNextOccurrence(String loanInNextOccurrence) {
-        this.loanInNextOccurrence = loanInNextOccurrence;
-    }
-
-    public Integer getLoanLimit() {
-        return loanLimit;
-    }
-
-    public void setLoanLimit(Integer loanLimit) {
-        this.loanLimit = loanLimit;
+    public void setOverAllLoanLimit(Integer loanLimit) {
+        this.overAllLoanLimit = loanLimit;
     }
 
     public Integer getRenewalLimit() {
@@ -91,14 +182,6 @@ public class AddCirculationMatrix extends ProcessCommandWithLibraryId implements
 
     public void setMaxCeilOnFine(Double maxCeilOnFine) {
         this.maxCeilOnFine = maxCeilOnFine;
-    }
-
-    public String getRenewalThroughOpac() {
-        return renewalThroughOpac;
-    }
-
-    public void setRenewalThroughOpac(String renewalThroughOpac) {
-        this.renewalThroughOpac = renewalThroughOpac;
     }
 
     public String getOtherDetails() {
