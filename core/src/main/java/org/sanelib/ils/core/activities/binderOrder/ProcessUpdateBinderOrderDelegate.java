@@ -6,18 +6,22 @@ import org.sanelib.ils.core.commands.binderOrder.UpdateBinderOrder;
 import org.sanelib.ils.core.dao.BinderOrderRepository;
 import org.sanelib.ils.core.domain.entity.BinderOrder;
 import org.sanelib.ils.core.domain.entity.BinderOrderId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessUpdateBinderOrderDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessUpdateBinderOrderDelegate.class);
+
     @Autowired
     BinderOrderRepository binderOrderRepository;
 
     @Override
 	public void execute(DelegateExecution execution) throws Exception {
-		System.out.println("Process Update BinderOrder called");
+		LOG.info("Process Update BinderOrder called");
 
         UpdateBinderOrder command = (UpdateBinderOrder) execution.getVariable("command");
 
@@ -33,7 +37,7 @@ public class ProcessUpdateBinderOrderDelegate implements JavaDelegate {
         entity.setMailStatus(command.isMailStatus());
         entity.setPrintStatus(command.isPrintStatus());
         entity.setStatus(command.getStatus());
-        entity.setEntryId(command.getEntryId());
+        entity.setEntryId(command.getPatronCode());
 
         binderOrderRepository.save(entity);
 	}
