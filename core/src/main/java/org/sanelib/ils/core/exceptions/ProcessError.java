@@ -3,13 +3,14 @@ package org.sanelib.ils.core.exceptions;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class ProcessError implements Serializable {
 
     private final List<ErrorLine> errors = new ArrayList<>();
 
-    public void addError(String template){
+    public void addError(String s, String template, List<String> strings, Date withEffectFrom){
         this.errors.add(new ErrorLine(template, new ArrayList<>(), new ArrayList<>(), new ArrayList<>()));
     }
 
