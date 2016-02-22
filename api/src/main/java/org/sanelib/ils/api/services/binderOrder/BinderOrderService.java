@@ -1,10 +1,13 @@
 package org.sanelib.ils.api.services.binderOrder;
 
+import org.sanelib.ils.api.converters.binderOrder.BinderOrderViewConverter;
 import org.sanelib.ils.api.dto.binderOrder.BinderOrderDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
-import org.sanelib.ils.core.dao.read.ViewNameConstants;
+import org.sanelib.ils.core.dao.read.admin.BinderOrderViewRepository;
+import org.sanelib.ils.core.domain.view.admin.BinderOrderView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.ws.rs.DELETE;
@@ -15,16 +18,31 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @Path(ApiEndPointConstants.Admin.BINDERORDER_END_POINT)
 @Produces(MediaType.APPLICATION_JSON)
 public class BinderOrderService extends ApiServiceBase {
 
+    @Autowired
+    BinderOrderViewRepository binderOrderViewRepository;
+
+    @Autowired
+    BinderOrderViewConverter binderOrderViewConverter;
+
     @GET
+    @SuppressWarnings("unchecked")
     public List getAllBinderOrder() throws Throwable {
-        return fetchAll(ViewNameConstants.Admin.BINDER_ORDER);
+        List dtoList = new ArrayList<>();
+        List viewList = binderOrderViewRepository.getAll();
+
+        dtoList.addAll((Collection) viewList.stream().map(v -> binderOrderViewConverter.convert((BinderOrderView) v)).collect(Collectors.toList()));
+
+        return dtoList;
     }
 
     @POST

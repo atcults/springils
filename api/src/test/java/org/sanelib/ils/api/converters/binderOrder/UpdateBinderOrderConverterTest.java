@@ -29,7 +29,6 @@ public class UpdateBinderOrderConverterTest {
         dto.setMailStatus(true);
         dto.setPrintStatus(true);
         dto.setStatus("SetStatus");
-        dto.setEntryId("EntryId");
 
         ProcessError processError = new ProcessError();
 
@@ -52,7 +51,6 @@ public class UpdateBinderOrderConverterTest {
         assertEquals("Mail Status is not mapped", dto.isMailStatus(), updateBinderOrder.isMailStatus());
         assertEquals("Print Status is not mapped", dto.isPrintStatus(), updateBinderOrder.isPrintStatus());
         assertEquals("Status is not mapped", dto.getStatus(), updateBinderOrder.getStatus());
-        assertEquals("Entry Id is not mapped", dto.getEntryId(), updateBinderOrder.getEntryId());
     }
 
 }

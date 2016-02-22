@@ -49,8 +49,6 @@ public class AddBinderOrderConverter implements DtoToCommandConverter<BinderOrde
         command.setMailStatus(dto.isMailStatus());
         command.setPrintStatus(dto.isPrintStatus());
         command.setStatus(dto.getStatus());
-        command.setEntryId(dto.getEntryId());
-
 
         return command;
     }

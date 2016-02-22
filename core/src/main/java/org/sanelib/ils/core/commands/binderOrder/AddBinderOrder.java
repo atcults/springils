@@ -1,11 +1,12 @@
 package org.sanelib.ils.core.commands.binderOrder;
 
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.BinderOrder;
 
 import java.util.Date;
 
-public class AddBinderOrder extends ProcessCommandWithLibraryId {
+public class AddBinderOrder extends ProcessAuditCommandWithLibraryId {
 
     @Override
     public Class getRootEntityClass() {
@@ -27,7 +28,6 @@ public class AddBinderOrder extends ProcessCommandWithLibraryId {
     private boolean mailStatus;
     private boolean printStatus;
     private String status;
-    private String entryId;
 
     public Integer getBinderId() {
         return binderId;
@@ -99,14 +99,6 @@ public class AddBinderOrder extends ProcessCommandWithLibraryId {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
     }
 
 }

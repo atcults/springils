@@ -17,7 +17,7 @@ public class BinderOrderMapper implements ViewMapper<BinderOrderView> {
 
         final BinderOrderView view = new BinderOrderView();
         view.setLibraryId(rs.getInt(viewName, "library_id"));
-        view.setId(rs.getInt(viewName, "patron_category_id"));
+        view.setId(rs.getInt(viewName, "order_no"));
         view.setBinderId(rs.getInt(viewName, "binder_id"));
         view.setOrderDate(rs.getDate(viewName, "order_date"));
         view.setDueDate(rs.getDate(viewName, "due_date"));

@@ -17,8 +17,6 @@ public class BinderOrderDto implements DtoWithId, DtoWithLibraryId {
     private boolean mailStatus;
     private boolean printStatus;
     private String status;
-    private String entryId;
-    private String entryDate;
 
     @Override
     public String getLibraryId() {
@@ -110,19 +108,4 @@ public class BinderOrderDto implements DtoWithId, DtoWithLibraryId {
         this.status = status;
     }
 
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public String getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(String entryDate) {
-        this.entryDate = entryDate;
-    }
 }

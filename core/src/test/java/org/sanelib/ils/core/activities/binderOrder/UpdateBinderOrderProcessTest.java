@@ -62,7 +62,6 @@ public class UpdateBinderOrderProcessTest extends EntityIntegrationTestBase {
         updateBinderOrder.setMailStatus(true);
         updateBinderOrder.setPrintStatus(true);
         updateBinderOrder.setStatus("Updated Status");
-        updateBinderOrder.setEntryId("EntryId");
 
         String result = execute(updateBinderOrder, ActivitiProcessConstants.Admin.UPDATE_BINDERORDER);
 
@@ -82,6 +81,5 @@ public class UpdateBinderOrderProcessTest extends EntityIntegrationTestBase {
         assertEquals(updateBinderOrder.isMailStatus(), dbBinderOrder.isMailStatus());
         assertEquals(updateBinderOrder.isPrintStatus(), dbBinderOrder.isPrintStatus());
         assertEquals(updateBinderOrder.getStatus(), dbBinderOrder.getStatus());
-        assertEquals(updateBinderOrder.getEntryId(), dbBinderOrder.getEntryId());
     }
 }
