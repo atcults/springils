@@ -1,5 +1,6 @@
 package org.sanelib.ils.core.commands.accessioSeries;
 
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.commands.ProcessCommandWithCode;
 import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.AccessionSeries;
@@ -7,7 +8,7 @@ import org.sanelib.ils.core.enums.AccessionSeriesType;
 
 import java.util.Date;
 
-public class AddAccessionSeries extends ProcessCommandWithLibraryId implements ProcessCommandWithCode {
+public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId implements ProcessCommandWithCode {
 
     @Override
     public Class getRootEntityClass() {
@@ -24,9 +25,6 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
     private Integer maxZero;
     private String prefix;
     private AccessionSeriesType typeName;
-    private Integer entryLibraryId;
-    private String entryId;
-    private Date entryDate;
 
     public String getCode(){
         return code;
@@ -62,28 +60,8 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
         return typeName;
     }
 
-    public Integer getEntryLibraryId() { return entryLibraryId;  }
-
-    public void setEntryLibraryId(Integer entryLibraryId) { this.entryLibraryId = entryLibraryId; }
-
     public void setTypeName(AccessionSeriesType typeName) {
         this.typeName = typeName;
-    }
-
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
     }
 
 

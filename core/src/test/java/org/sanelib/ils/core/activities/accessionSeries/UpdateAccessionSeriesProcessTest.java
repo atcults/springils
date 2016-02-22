@@ -36,7 +36,6 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         accessionSeries.setPrefix("AS");
         accessionSeries.setTypeName(AccessionSeriesType.Fixed);
         accessionSeries.setEntryId("1");
-        accessionSeries.setEntryDate(DateHelper.fromDateString("2016/01/01"));
 
         persist(accessionSeries);
 

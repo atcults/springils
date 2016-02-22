@@ -1,7 +1,7 @@
 package org.sanelib.ils.core.dao.read.admin;
 
 import org.sanelib.ils.core.dao.read.ViewService;
-import org.sanelib.ils.core.dao.read.ViewServiceBase;
+import org.sanelib.ils.core.dao.read.ViewServiceHelper;
 import org.sanelib.ils.core.dao.read.admin.mapper.AccessionSeriesMapper;
 import org.sanelib.ils.core.domain.view.admin.AccessionSeriesView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,21 +12,19 @@ import java.util.List;
 
 @SuppressWarnings("unchecked")
 @Component
-public class AccessionSeriesViewRepository extends ViewServiceBase {
+public class AccessionSeriesViewRepository implements ViewService {
 
     @Autowired
     AccessionSeriesMapper mapper;
 
     @Autowired
-    ViewService viewService;
+    ViewServiceHelper viewServiceHelper;
 
-    @Override
-    protected List<String> getStatements() {
-        return Collections.singletonList("select * from accession_series");
+    protected String getStatements() {
+        return "select * from accession_series";
     }
 
-    @Override
     public List<AccessionSeriesView> getAll() throws Throwable {
-        return viewService.loadQuery(getStatements().get(0), mapper);
+        return viewServiceHelper.loadQuery(getStatements(), mapper);
     }
 }
