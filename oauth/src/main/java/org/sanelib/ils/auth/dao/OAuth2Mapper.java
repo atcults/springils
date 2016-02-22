@@ -21,7 +21,7 @@ public interface OAuth2Mapper {
 	public String isClientSecretValid(@Param("client_secret") final String clientSecret);
 
 
-	@Select("select * from patron where patron_id=#{username} and user_password=#{password}")
+	@Select("select * from patron where login_id=#{username} and user_password=#{password}")
 	@Results({
 		@Result(column = "library_id", property = "libraryId", jdbcType = JdbcType.INTEGER),
 		@Result(column = "patron_id", property = "patronId", jdbcType = JdbcType.VARCHAR),
