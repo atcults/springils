@@ -69,8 +69,8 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 					WebTarget webTarget = client.target(oauthTokenValidationEndpoint + "?access_token="+accessToken);
 					Invocation.Builder invocationBuilder = webTarget.request(MediaType.APPLICATION_JSON);
 					Response response = invocationBuilder.get();
-
-					if(response.getStatus() != 200){
+					LOG.info("Access token["+accessToken+"] returned with status["+response.getStatus()+"]");
+					if(response.getStatus() == 200){
 						String jsonResponse = response.readEntity(String.class);
 						JsonParser jsonParser = new BasicJsonParser();
 						Map<String,Object> responseJsonMap = jsonParser.parseMap(jsonResponse);
@@ -83,9 +83,9 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 							return;
 						}
 						else{
-							LOG.info("BINGOOOOOO !! User is valid");
-							//String userID = (String)responseJsonMap.get("userID");
-							//String libraryID = (String)responseJsonMap.get("libraryID");
+							LOG.info("Access Token is valid.");
+							String userID = (String)responseJsonMap.get("userID");
+							String libraryID = (String)responseJsonMap.get("libraryID");
 						}
 					}
 					else{
