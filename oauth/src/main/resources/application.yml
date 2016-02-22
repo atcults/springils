@@ -8,8 +8,8 @@ welcome:
   message: Welcome to Spring Boot OAuth2 Server !!
 
 oauth:
-  token.access.expired: 60
-  token.refresh.expired: 180
+  token.access.expired: 3600
+  token.refresh.expired: 7200
   db.url: jdbc:postgresql://localhost:5439/ils
   db.driver: org.postgresql.Driver
   db.username: postgres
