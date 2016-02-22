@@ -18,5 +18,5 @@ holiday:
 
 oauth:
   server.endpoint.not.configured: Authorization server endpoint is not configured.
-  user.request.rejected: Access token is not valid.Please use refresh token to generate Access token and try again.
+  user.request.rejected: Access token is not valid.Please generate access token using valid refresh token or regenerate access token.
   authorization.header.not.valid: Authentication header value is not valid or present in the request.
