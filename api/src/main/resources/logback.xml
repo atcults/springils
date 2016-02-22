@@ -1,0 +1,84 @@
+<configuration>
+
+    <property name="log-dir" value="logs"/>
+
+    <appender name="CONSOLE-LOG-APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %-25.25c{1} - %m%n</pattern>
+        </encoder>
+    </appender>
+  
+    
+    <appender name="GENERAL-LOG-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        
+        <prudent>true</prudent>
+        <append>true</append>
+                
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log-dir}/NGL_general.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %-25.25c{1} - %m%n</pattern>
+        </encoder>
+        
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      		<level>ERROR</level>
+      		<onMatch>DENY</onMatch>
+      		<onMismatch>ACCEPT</onMismatch>
+    	</filter>
+    	
+    </appender>
+    
+    <appender name="ERROR-LOG-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        
+        <prudent>true</prudent>
+        <append>true</append>
+                
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log-dir}/NGL_error.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %-25.25c{1} - %m%n</pattern>
+        </encoder>
+        
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+      		<level>ERROR</level>
+      		<onMatch>ACCEPT</onMatch>
+      		<onMismatch>DENY</onMismatch>
+    	</filter>
+    
+    </appender>
+    
+    <appender name="SERVICE-LOG-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <prudent>true</prudent>
+        <append>true</append>
+                
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log-dir}/NGL_service_trace.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %-25.25c{1} - %m%n</pattern>
+        </encoder>
+    </appender>
+    
+    <root level="INFO">
+        <appender-ref ref="CONSOLE-LOG-APPENDER" />
+        <appender-ref ref="GENERAL-LOG-APPENDER" />
+        <appender-ref ref="ERROR-LOG-APPENDER" />
+    </root>
+    
+    <logger name="service_logger" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="SERVICE-LOG-APPENDER" />
+	</logger>
+	
+    <!-- Set the log levels -->
+    <logger name="org.sanelib.ils" level="DEBUG" />
+    <logger name="org.hibernate" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.activiti" level="WARN"/>
+
+</configuration>
