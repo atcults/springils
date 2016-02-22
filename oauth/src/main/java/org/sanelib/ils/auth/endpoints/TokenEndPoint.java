@@ -253,11 +253,12 @@ public class TokenEndPoint {
 				Date currentTime = Calendar.getInstance().getTime();
 				UserDTO userDto = oAuthRepository.getUserById(accessTokenDto.getUserID());
 				if(!currentTime.before(accessTokenDto.getAccessTokenExpiredIn())){
+					LOG.debug("It is expired token :"+access_token);
 					OAuthResponse response = OAuth2Util.buildErrorOAuthResponse(HttpServletResponse.SC_BAD_REQUEST, OAuthError.ResourceResponse.EXPIRED_TOKEN, "AccessToken is expired");
 					return Response.status(response.getResponseStatus()).entity(response.getBody()).build();
 				}
 				else{
-					
+					LOG.debug("It is valid token :"+access_token);
 					OAuthResponse oAuthResponse = OAuthASResponse
 							.tokenResponse(HttpServletResponse.SC_OK)
 							.setParam("valid", "true")
@@ -271,19 +272,14 @@ public class TokenEndPoint {
 				}
 			}
 			else{
-				OAuthResponse response = OAuth2Util.buildErrorOAuthResponse(HttpServletResponse.SC_OK, OAuthError.ResourceResponse.INVALID_TOKEN, "AccessToken is not valid");
-				
+				OAuthResponse response = OAuth2Util.buildErrorOAuthResponse(HttpServletResponse.SC_BAD_REQUEST, OAuthError.ResourceResponse.INVALID_TOKEN, "AccessToken is expired");
 				return Response.status(response.getResponseStatus()).entity(response.getBody()).build();
 			}
-			
-			
 		}
 		catch(Exception e){
-			LOG.error("Exception Occured while Validating Access Token :"+e.getMessage());
+			LOG.error("Exception Occurred while Validating Access Token :"+e.getMessage());
 			return Response.status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
-			
 		}
-		
 		//Un commenting below line should give compilation error which means you covered all if..else block.
 		//return null;
 	}
