@@ -19,36 +19,21 @@
  
 - **Table name** - adm_co_holiday
 
-  1. library_id - integer - **Required**
-  
+  1. library_id - integer - Required
   - This is Primary key. Library reference passed for entry holiday. 
-  
-  2. fiscal_year - integer - **Optional**
-  
+  2. fiscal_year - integer - Optional
   - Holiday will set under fiscal year
-  
-  3. holiday - date - **Required**
-  
+  3. holiday - date - Required
   - This is primary key. This field set date for that particular holiday.
-  
-  4. holi_type - string **length**: 1 - **Optional**
-  
+  4. holi_type - string - length: 1 - Optional
   - Holiday type stores 'R' or 'S' value. 
-    
-  5. note - string - **Optional**
-  
+  5. note - string - Optional
   - Description for holiday.
-  
-  6. entry_id - integer - **Optional**
-  
+  6. entry_id - integer - Optional
   - patron's id.
-  
-  7. entry_library_id - integer - **Optional**
-  
+  7. entry_library_id - integer - Optional
   - patron's library id.
-    
-  8. entry_date - date - **Optional**
-  
+  8. entry_date - date - Optional
   - record created date.
   
 ### **Add Holiday**
@@ -62,11 +47,11 @@
 - Request Parameter - HolidayDto
 
 
-1. libraryId - string - **Required** - Logged in library id will be passed. 
-2. fiscalYearId - string - **Required** -  fiscal year for declare holiday.
-3. startDate - string - **Required** - Fiscal year start date will be set or start date can be any of between fiscal year. **ValidationFormat** "^\\d{4}\\/(0[1-9]|1[012])\\/(0[1-9]|[12][0-9]|3[01])$" **Example** "1991/01/01"
-4. endDate - string - **Required** - Fiscal year end date will be set or end date can be any of between fiscal year **ValidationFormat** "^\\d{4}\\/(0[1-9]|1[012])\\/(0[1-9]|[12][0-9]|3[01])$" **Example** "1991/01/01"
-5. type - string - **length**: 1 - **Required** 
+1. libraryId - string - Required - Logged in library id will be passed. 
+2. fiscalYearId - string - Required -  fiscal year for declare holiday.
+3. startDate - string - Required - Fiscal year start date will be set or start date can be any of between fiscal year. DateFormatExample : "1991-01-01"
+4. endDate - string - Required - Fiscal year end date will be set or end date can be any of between fiscal year. DateFormatExample : "1991-01-01"
+5. type - string - length : 1 - Required 
  Holiday type is enum type. It has two value 'R' and 'S'. 
   - R: Repeated holiday. Used in specifying weekly off. "note" should be empty or null. Converter should set default note as Day name. For example setting all Sundays should set note as "Sunday". If user has passed any note then it should raise validation exception.
   - S: Specific holiday. Used in specifying dates as off. "note" should be present. In converter it should seek for note if type "S" is selected. 
@@ -75,7 +60,7 @@
   	-  Passing start date 8 Feb 2016 and end date 12 Feb 2016 with type 'S' and note as "Vacation" should add all days including 8 Feb 2016 till 12 Feb 2016. Total rows expected are 5. Dates should be 8, 9, 10, 11, 12.
   	- If holiday type is other than 'R' or 'S' then throw exception for unsupported holiday type.
 
-6. note - string - **Optional** - note will set null if holiday type is 'R', otherwise it will set specific holiday reason.
+6. note - string - Optional - note will set null if holiday type is 'R', otherwise it will set specific holiday reason.
 
  
  #### *Response*
@@ -92,7 +77,8 @@
   4. If requested holiday type is 'R' then repeated day of week will add and note = specific day name. and if holiday is exists and requested holiday type is "R" then it should skip all overlaping holidays.
  5. If requested holiday type is 'S' then holidayDate = specific date and note = reason of holiday is required and If holiday is exists and requested holiday or block having type is "S" then existing record's note field should overrite with reason of holiday.
     NOTE: This will provide higher priority to note field having type is "S"
- 6. If all validation checked then record will process for add in database.
+ 6. Check duplication of fiscal year.    
+ 7. If all validation checked then record will process for add in database.
  
 
 #### *Acceptance Criteria*
@@ -132,9 +118,9 @@ PatronId: 1
 	
 FiscalYearId: 20152016
 
-StartDate: 01/03/2015
+StartDate: 01-03-2015
 
-EndDate: 28/02/2016
+EndDate: 28-02-2016
 
 Passing start date 2 Feb 2016 and end date 29 Feb 2016 with type 'R' should respond with validation error. Check this validation in workflow.
 
@@ -143,8 +129,8 @@ Passing start date 2 Feb 2016 and end date 29 Feb 2016 with type 'R' should resp
 ```
 { 
 	"fiscalYearId": "20152016"
-	"startDate" : "2015/12/31",
-	"endDate": "2016/02/28",
+	"startDate" : "2015-12-31",
+	"endDate": "2016-02-28",
 	"type" : "R",
     "note" : "",
     "libraryId" : "1"
@@ -165,8 +151,8 @@ Passing start date 6 Feb 2016 and end date 3 March 2016 with type 'R' should res
 ```
 { 
 	"fiscalYearId": "20152016"
-	"startDate" : "2016/02/06",
-	"endDate": "2016/03/03",
+	"startDate" : "2016-02-06",
+	"endDate": "2016-03-03",
 	"type" : "R",
     "note" : "",
     "libraryId" : "1"
@@ -186,8 +172,8 @@ Passing start date 7 Feb 2016 and end date 29 Feb 2016 with type 'R' should add 
 ```
 { 
 	"fiscalYearId": "20152016"
-	"startDate" : "2016/02/07",
-	"endDate": "2016/02/28",
+	"startDate" : "2016-02-f07",
+	"endDate": "2016-02-28",
 	"type" : "R",
     "note" : "",
     "libraryId" : "1"
@@ -206,8 +192,8 @@ Request:
 ```
 { 
 	"fiscalYearId: "20152016"
-	"startDate" : "2016/02/08",
-	"endDate: "2016/02/12",
+	"startDate" : "2016-02-08",
+	"endDate: "2016-02-12",
 	"type" : "S",
     "note" : "",
     "libraryId" : "1"
@@ -226,8 +212,8 @@ Request:
 ```
 { 
 	"fiscalYearId": "20152016"
-	"startDate" : "2016/02/08",
-	"endDate": "2016/02/12",
+	"startDate" : "2016-02-08",
+	"endDate": "2016-02-12",
 	"type" : "S",
     "note" : "Vacation",
     "libraryId" : "1"
@@ -247,8 +233,8 @@ Passing start date 8 Feb 2016 and end date 8 Feb 2016 with type 'S' and note as 
 ```
 { 
 	"fiscalYearId": "20152016",
-	"startDate" : "2016/02/08",
-	"endDate: "2016/02/08",
+	"startDate" : "2016-02-08",
+	"endDate: "2016-02-08",
 	"type" : "S",
     "note" : "Holiday",
     "libraryId" : "1"
@@ -267,14 +253,13 @@ Record created successfully. Please check database for verify record.
 
 #### *Request*
 
-*path:*
-http://localhost:8087/api/holiday/{libraryId}/{fiscalYearId}/{startDate}/{endDate}/{type}
-
-1. libraryId - string - **Required** - Logged in library id will be passed. 
-2. fiscalYearId - string - **Required** -  fiscal year for declare holiday.
-3. startDate - string - **Required** - Fiscal year start date will be set or start date can be any of between fiscal year. **ValidationFormat** "^\\d{4}\\/(0[1-9]|1[012])\\/(0[1-9]|[12][0-9]|3[01])$" **Example** "1991/01/01"
-4. endDate - string - **Required** - Fiscal year end date will be set or end date can be any of between fiscal year **ValidationFormat** "^\\d{4}\\/(0[1-9]|1[012])\\/(0[1-9]|[12][0-9]|3[01])$" **Example** "1991/01/01"
-5. type - string - **length**: 1 - **Required** - Its value can be 'R' or 'S'. R means repeated holidays and S means specific holidays
+*Path:* http://localhost:8087/api/holiday/{libraryId}/{fiscalYearId}/{startDate}/{endDate}/{type}
+*Method:* Delete
+1. libraryId - string - Required - Logged in library id will be passed. 
+2. fiscalYearId - string - Required -  fiscal year for declare holiday.
+3. startDate - string - Required - Fiscal year start date will be set or start date can be any of between fiscal year. DateFormatExample : "1991-01-01"
+4. endDate - string - Required - Fiscal year end date will be set or end date can be any of between fiscal year. DateFormatExample : "1991-01-01"
+5. type - string - length : 1 - Required - Its value can be 'R' or 'S'. R means repeated holidays and S means specific holidays
 
 #### *Response*
 
@@ -298,7 +283,7 @@ delete any one day of weekly holiday start with specific day and ends at particu
 
 *Request:*
 ```
-http://localhost:8087/api/holiday/1/{2016/02/07}/{2016/02/29}/R
+http://localhost:8087/api/holiday/1/2016-02-07/2016-02-29/R
 ```
 Expected Response:
 ```
@@ -327,7 +312,7 @@ Passing start date 7 Feb 2016 and end date 29 Feb 2016 with type 'R' should dele
 
 *Request:*
 ```
-http://localhost:8087/api/holiday/1/20152016/{2016/02/01}/{2016/02/29}/R
+http://localhost:8087/api/holiday/1/20152016/2016-02-01/2016-02-29/R
 ```
 Expected Response:
 ```
@@ -342,7 +327,7 @@ Passing start date 8 Feb 2016 and end date 8 Feb 2016 with type 'S' should delet
 
 *Request:*
 ```
-http:localhost:8087/api/holiday/1/20152016/{2016/02/08}/{2016/02/08}/S
+http:localhost:8087/api/holiday/1/20152016/2016-02-08/2016-02-08/S
 ```
 Expected Response:
 ```
@@ -357,7 +342,7 @@ Passing start date 8 Feb 2016 and end date 12 Feb 2016 with type 'S' delete all 
 
 *Request:*
 ```
-http:localhost:8087/api/holiday/1/20152016/{2016/02/08}/{2016/02/12}/S
+http:localhost:8087/api/holiday/1/20152016/2016-02-08/2016-02-12/S
 ```
 Expected Response:
 ```
