@@ -30,6 +30,8 @@ public class ActivitiProcessConstants {
         public static final String UPDATE_PATRON_CATEGORY = "updatePatronCategory";
         public static final String DELETE_PATRON_CATEGORY = "deletePatronCategory";
 
-        public static final String ADD_MATERILTYPE = "addMaterialType";
+        public static final String ADD_MATERIALTYPE = "addMaterialType";
+        public static final String DELETE_MATERIALTYPE = "deleteMaterialType";
+        public static final String UPDATE_MATERIALTYPE = "updateMaterialType";
     }
 }

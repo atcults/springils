@@ -13,13 +13,13 @@ public class MaterialType implements DomainEntity{
 
     @Id
     @Column(name = "material_type_id")
-    private Integer id;
+    private int id;
 
     public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         if (this.id != 0 && this.id != id) {
             throw new IllegalStateException("The ID must not be changed after it is set.");
         }
