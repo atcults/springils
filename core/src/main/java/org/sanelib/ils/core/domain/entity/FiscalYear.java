@@ -65,14 +65,6 @@ public class FiscalYear implements DomainEntity{
         this.endDate = endDate;
     }
 
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,7 +73,6 @@ public class FiscalYear implements DomainEntity{
         FiscalYear fiscalYear = (FiscalYear) o;
 
         return fiscalYearId.equals(fiscalYear.fiscalYearId);
-
     }
 
     @Override
