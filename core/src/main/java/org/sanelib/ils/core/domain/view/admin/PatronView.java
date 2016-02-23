@@ -1,5 +1,7 @@
 package org.sanelib.ils.core.domain.view.admin;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithCode;
 import org.sanelib.ils.core.enums.PatronType;
@@ -11,9 +13,7 @@ public class PatronView implements DomainView, ViewWithCode {
     private Integer libraryId;
     private String code;
     private Integer patronCategoryId;
-    private String isOnline;
     private String owns;
-    private Date createdOn;
     private Integer otherLibraryPatronId;
     private Integer libraryPatronId;
     private PatronType patronType;
@@ -47,11 +47,8 @@ public class PatronView implements DomainView, ViewWithCode {
     private boolean commonEmail;
     private boolean commonInstantMsg;
     private boolean commonPrint;
-    private Date entryDate;
     private String userPassword;
     private Integer courseId;
-    private String status;
-    private String sendToAddress;
     private String custom;
     private String privilege;
     private String twitterId;
@@ -59,6 +56,9 @@ public class PatronView implements DomainView, ViewWithCode {
     private Integer subLocationId;
     private String loginId;
     private String authenticateLocalDatabase;
+    private boolean sendToAddress;
+    private boolean isActive;
+    private Date createdOn;
 
     public Integer getLibraryId() {
         return libraryId;
@@ -85,28 +85,12 @@ public class PatronView implements DomainView, ViewWithCode {
         this.patronCategoryId = patronCategoryId;
     }
 
-    public String getIsOnline() {
-        return isOnline;
-    }
-
-    public void setIsOnline(String isOnline) {
-        this.isOnline = isOnline;
-    }
-
     public String getOwns() {
         return owns;
     }
 
     public void setOwns(String owns) {
         this.owns = owns;
-    }
-
-    public Date getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
     }
 
     public Integer getOtherLibraryPatronId() {
@@ -373,14 +357,6 @@ public class PatronView implements DomainView, ViewWithCode {
         this.commonPrint = commonPrint;
     }
 
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
-
     public String getUserPassword() {
         return userPassword;
     }
@@ -395,22 +371,6 @@ public class PatronView implements DomainView, ViewWithCode {
 
     public void setCourseId(Integer courseId) {
         this.courseId = courseId;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getSendToAddress() {
-        return sendToAddress;
-    }
-
-    public void setSendToAddress(String sendToAddress) {
-        this.sendToAddress = sendToAddress;
     }
 
     public String getCustom() {
@@ -469,59 +429,32 @@ public class PatronView implements DomainView, ViewWithCode {
         this.authenticateLocalDatabase = authenticateLocalDatabase;
     }
 
+    public boolean isSendToAddress() {
+        return sendToAddress;
+    }
+
+    public void setSendToAddress(boolean sendToAddress) {
+        this.sendToAddress = sendToAddress;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public Date getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
+
     @Override
     public String toString() {
-        return "PatronView{" +
-                "code='" + code + '\'' +
-                ", patronCategoryId=" + patronCategoryId +
-                ", isOnline='" + isOnline + '\'' +
-                ", owns='" + owns + '\'' +
-                ", createdOn=" + createdOn +
-                ", otherLibraryPatronId=" + otherLibraryPatronId +
-                ", libraryPatronId=" + libraryPatronId +
-                ", patronType=" + patronType +
-                ", deptId=" + deptId +
-                ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address1='" + address1 + '\'' +
-                ", address2='" + address2 + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", country='" + country + '\'' +
-                ", pin='" + pin + '\'' +
-                ", phone1='" + phone1 + '\'' +
-                ", phone2='" + phone2 + '\'' +
-                ", fax='" + fax + '\'' +
-                ", email='" + email + '\'' +
-                ", permanentAddress1='" + permanentAddress1 + '\'' +
-                ", permanentAddress2='" + permanentAddress2 + '\'' +
-                ", permanentCity='" + permanentCity + '\'' +
-                ", permanentState='" + permanentState + '\'' +
-                ", permanentCountry='" + permanentCountry + '\'' +
-                ", permanentPin='" + permanentPin + '\'' +
-                ", permanentPhone1='" + permanentPhone1 + '\'' +
-                ", permanentPhone2='" + permanentPhone2 + '\'' +
-                ", permanentFax='" + permanentFax + '\'' +
-                ", permanentEmail='" + permanentEmail + '\'' +
-                ", membershipFrom=" + membershipFrom +
-                ", membershipTo=" + membershipTo +
-                ", delinquencyReason='" + delinquencyReason + '\'' +
-                ", commonEmail=" + commonEmail +
-                ", commonInstantMsg=" + commonInstantMsg +
-                ", commonPrint=" + commonPrint +
-                ", entryDate=" + entryDate +
-                ", userPassword='" + userPassword + '\'' +
-                ", courseId=" + courseId +
-                ", status='" + status + '\'' +
-                ", sendToAddress='" + sendToAddress + '\'' +
-                ", custom='" + custom + '\'' +
-                ", privilege='" + privilege + '\'' +
-                ", twitterId='" + twitterId + '\'' +
-                ", facebookId='" + facebookId + '\'' +
-                ", subLocationId=" + subLocationId +
-                ", loginId='" + loginId + '\'' +
-                ", authenticateLocalDatabase='" + authenticateLocalDatabase + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

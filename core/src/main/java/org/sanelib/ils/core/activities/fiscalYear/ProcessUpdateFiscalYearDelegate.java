@@ -28,7 +28,6 @@ public class ProcessUpdateFiscalYearDelegate implements JavaDelegate {
         FiscalYear entity = fiscalYearRepository.get(new FiscalYearId(command.getLibraryId(), command.getId()));
         entity.setStartDate(command.getStartDate());
         entity.setEndDate(command.getEndDate());
-        entity.setEntryId(command.getEntryId());
 
         fiscalYearRepository.save(entity);
 	}

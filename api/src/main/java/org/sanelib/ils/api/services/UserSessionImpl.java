@@ -9,8 +9,8 @@ public class UserSessionImpl implements UserSession {
         return userCode;
     }
 
-    public void setUserCode(String userId) {
-        this.userCode = userId;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     public Integer getLibraryId() {

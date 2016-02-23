@@ -20,11 +20,10 @@ public class AddAccessionSeriesConverter implements DtoToCommandConverter<Access
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
         ConverterHelper.checkCodeRequired(dto, command, processError);
 
-
        //Check maxNumber should not less than 0
        Integer maxNumber = Integer.valueOf(dto.getMaxNumber());
        if(maxNumber < 0) {
-           processError.addError("common.field.value", "StartFromNumber", "domain.accessionSeries.maxNumber");
+           processError.addError("common.field.value", "startFromNumber", "domain.accessionSeries.maxNumber");
        }else {
            command.setMaxNumber(Integer.valueOf(dto.getMaxNumber()));
        }
@@ -32,7 +31,7 @@ public class AddAccessionSeriesConverter implements DtoToCommandConverter<Access
        //Check maxZero should not less than 0
        Integer maxZero = Integer.valueOf(dto.getMaxZero());
        if(maxZero < 0 ){
-           processError.addError("common.field.value", "MaxZero", "domain.accessionSeries.maxZero");
+           processError.addError("common.field.value", "maxZero", "domain.accessionSeries.maxZero");
        }else{
            command.setMaxZero(Integer.valueOf(dto.getMaxZero()));
        }
@@ -42,7 +41,7 @@ public class AddAccessionSeriesConverter implements DtoToCommandConverter<Access
        AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByName(dto.getTypeName());
 
        if(accessionSeriesType == null){
-           processError.addError("common.field.select", "TypeName", "domain.accessionSeries.typeName");
+           processError.addError("common.field.select", "typeName", "domain.accessionSeries.typeName");
        }else {
            command.setTypeName(accessionSeriesType);
        }

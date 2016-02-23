@@ -51,10 +51,10 @@ public class AddAccessionSeriesProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(accessionSeries);
 
-        assertEquals(addAccessionSeries.getCode() , accessionSeries.getAccessionSeriesCode().getCode());
-        assertEquals(addAccessionSeries.getMaxNumber() ,accessionSeries.getMaxNumber());
-        assertEquals(addAccessionSeries.getMaxZero() ,accessionSeries.getMaxZero());
-        assertEquals(addAccessionSeries.getPrefix() ,accessionSeries.getPrefix());
-        assertEquals(addAccessionSeries.getTypeName() ,accessionSeries.getTypeName());
+        assertEquals(addAccessionSeries.getCode(), accessionSeries.getAccessionSeriesCode().getCode());
+        assertEquals(addAccessionSeries.getMaxNumber(), accessionSeries.getMaxNumber());
+        assertEquals(addAccessionSeries.getMaxZero(), accessionSeries.getMaxZero());
+        assertEquals(addAccessionSeries.getPrefix(), accessionSeries.getPrefix());
+        assertEquals(addAccessionSeries.getTypeName(), accessionSeries.getTypeName());
     }
 }

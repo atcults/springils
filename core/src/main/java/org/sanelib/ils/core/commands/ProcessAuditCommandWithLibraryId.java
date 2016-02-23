@@ -2,30 +2,30 @@ package org.sanelib.ils.core.commands;
 
 public abstract class ProcessAuditCommandWithLibraryId extends ProcessCommandWithLibraryId {
 
-    private String patronCode;
-    private Integer patronLibraryId;
+    private String userCode;
+    private Integer userLibraryId;
 
-    public String getPatronCode() {
-        return patronCode;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setPatronCode(String patronCode) {
-        this.patronCode = patronCode;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
-    public Integer getPatronLibraryId() {
-        return patronLibraryId;
+    public Integer getUserLibraryId() {
+        return userLibraryId;
     }
 
-    public void setPatronLibraryId(Integer patronLibraryId) {
-        this.patronLibraryId = patronLibraryId;
+    public void setUserLibraryId(Integer userLibraryId) {
+        this.userLibraryId = userLibraryId;
     }
 
     @Override
     public String toString() {
         return "ProcessAuditCommandWithLibraryId{" +
-                "patronCode=" + patronCode +
-                ", patronLibraryId=" + patronLibraryId +
+                "userCode=" + userCode +
+                ", userLibraryId=" + userLibraryId +
                 "} " + super.toString();
     }
 }

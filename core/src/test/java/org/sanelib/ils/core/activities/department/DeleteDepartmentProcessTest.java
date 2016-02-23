@@ -29,7 +29,7 @@ public class DeleteDepartmentProcessTest extends EntityIntegrationTestBase {
         Department department = new Department();
 
         department.setDepartmentId(hibernateHelper.getNextId(Department.class, "departmentId.id"), library.getId());
-        department.setDeptName("department");
+        department.setName("department");
 
         persist(department);
 

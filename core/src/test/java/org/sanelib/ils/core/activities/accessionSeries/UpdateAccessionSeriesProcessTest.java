@@ -34,7 +34,7 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         accessionSeries.setMaxZero(2);
         accessionSeries.setPrefix("AS");
         accessionSeries.setTypeName(AccessionSeriesType.Fixed);
-        accessionSeries.setEntryId("1");
+        accessionSeries.setUserCode("1");
 
         persist(accessionSeries);
 
@@ -46,6 +46,7 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         updateAccessionSeries.setMaxZero(2);
         updateAccessionSeries.setPrefix("AS");
         updateAccessionSeries.setTypeName(AccessionSeriesType.Fixed);
+        updateAccessionSeries.setUserCode("1");
 
         String result = execute(updateAccessionSeries, ActivitiProcessConstants.Admin.UPDATE_ACCESSION_SERIES);
 
@@ -55,10 +56,11 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
 
         assertNotNull(dbAccessionSeries);
 
-        assertEquals(updateAccessionSeries.getCode() , accessionSeries.getAccessionSeriesCode().getCode());
-        assertEquals(updateAccessionSeries.getMaxNumber() ,accessionSeries.getMaxNumber());
-        assertEquals(updateAccessionSeries.getMaxZero() ,accessionSeries.getMaxZero());
-        assertEquals(updateAccessionSeries.getPrefix() ,accessionSeries.getPrefix());
-        assertEquals(updateAccessionSeries.getTypeName() ,accessionSeries.getTypeName());
+        assertEquals(updateAccessionSeries.getCode(), accessionSeries.getAccessionSeriesCode().getCode());
+        assertEquals(updateAccessionSeries.getMaxNumber(), accessionSeries.getMaxNumber());
+        assertEquals(updateAccessionSeries.getMaxZero(), accessionSeries.getMaxZero());
+        assertEquals(updateAccessionSeries.getPrefix(), accessionSeries.getPrefix());
+        assertEquals(updateAccessionSeries.getTypeName(), accessionSeries.getTypeName());
+        assertEquals(updateAccessionSeries.getUserCode(), accessionSeries.getUserCode());
     }
 }

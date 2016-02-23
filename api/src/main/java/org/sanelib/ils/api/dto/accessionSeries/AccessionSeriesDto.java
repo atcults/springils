@@ -4,6 +4,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.api.dto.DtoWithCode;
 import org.sanelib.ils.api.dto.DtoWithLibraryId;
+import org.sanelib.ils.core.enums.AccessionSeriesType;
 
 public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
 
@@ -54,7 +55,7 @@ public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
         this.prefix = prefix;
     }
 
-    public String getTypeName() {
+    public AccessionSeriesType getTypeName() {
         return typeName;
     }
 

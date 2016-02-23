@@ -32,12 +32,12 @@ public class CheckDepartmentDuplicationDelegate implements JavaDelegate {
 
         Integer departmentId = isUpdate ? ((UpdateDepartment) command).getId() : null;
         Integer libraryId = ((AddDepartment) command).getLibraryId();
-        String deptName = ((AddDepartment)command).getDeptName();
-        List<Department> departments = departmentRepository.findByColumnAndValue(new String[]{"departmentId.libraryId", "deptName"}, new Object[] {libraryId, deptName});
+        String deptName = ((AddDepartment)command).getName();
+        List<Department> departments = departmentRepository.findByColumnAndValue(new String[]{"departmentId.libraryId", "name"}, new Object[] {libraryId, deptName});
         Department dbDept = departments.isEmpty() ? null : departments.get(0);
 
         if(dbDept != null && (!isUpdate || !Objects.equals(departmentId, dbDept.getDepartmentId().getId()))){
-            processError.addError("common.field.duplicate", "deptName", Arrays.asList("domain.entity.library", "domain.department.name"), deptName);
+            processError.addError("common.field.duplicate", "name", Arrays.asList("domain.entity.library", "domain.department.name"), deptName);
         }
 
         if(!processError.isValid()){

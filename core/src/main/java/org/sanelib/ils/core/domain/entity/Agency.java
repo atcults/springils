@@ -18,10 +18,6 @@ public class Agency implements DomainEntity {
         return agencyId;
     }
 
-    public void setAgencyId(AgencyId agencyId) {
-        this.agencyId = agencyId;
-    }
-
     public void setAgencyId(int id, int libraryId){
         if(this.agencyId == null){
             this.agencyId = new AgencyId(libraryId, id);

@@ -27,9 +27,9 @@ public class ProcessAddDepartmentDelegate implements JavaDelegate {
 
         Integer nextId = hibernateHelper.getNextId(Department.class, "departmentId.id");
         entity.setDepartmentId(nextId, command.getLibraryId());
-        entity.setDeptName(command.getDeptName());
+        entity.setName(command.getName());
         entity.setHodId(command.getHodId());
-        entity.setEntryId(command.getEntryId());
+        entity.setUserCode(command.getUserCode());
 
         departmentRepository.save(entity);
 
