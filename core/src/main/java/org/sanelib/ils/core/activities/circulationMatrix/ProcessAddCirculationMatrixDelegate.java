@@ -10,9 +10,11 @@ import org.sanelib.ils.core.enums.DurationType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+@Component
 public class ProcessAddCirculationMatrixDelegate implements JavaDelegate {
 
     private static final Logger LOG = LoggerFactory.getLogger(ProcessAddCirculationMatrixDelegate.class);
