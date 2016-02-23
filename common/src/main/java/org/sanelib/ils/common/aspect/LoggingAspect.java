@@ -17,7 +17,8 @@ public class LoggingAspect {
 
     private static final String METHOD_EXECUTION_SERVICE = "method[{}], exec_time = {}ms, input = {}; output = {}";
 
-    @Around("within(org.sanelib.ils.api.services..*) and !execution(* org.sanelib.ils.api.services.UserSessionImpl.*(..))")
+    @Around("within(org.sanelib.ils.api.services..*) and !execution(* org.sanelib.ils.api.services.UserSessionImpl.*(..)) "
+			+ " and !@annotation(org.sanelib.ils.common.aspect.DisableLogging)")
     public Object logForService(ProceedingJoinPoint jointPoint) throws Throwable {
         Object point = null;
         LoggingStopWatch stopwatch = new LoggingStopWatch();
