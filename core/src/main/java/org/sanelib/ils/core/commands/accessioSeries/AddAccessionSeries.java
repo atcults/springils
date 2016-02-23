@@ -24,8 +24,7 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
     private Integer maxZero;
     private String prefix;
     private AccessionSeriesType typeName;
-    private String entryId;
-    private Date entryDate;
+    private String userId;
 
     public String getCode(){
         return code;
@@ -65,20 +64,12 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
         this.typeName = typeName;
     }
 
-    public String getEntryId() {
-        return entryId;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
 

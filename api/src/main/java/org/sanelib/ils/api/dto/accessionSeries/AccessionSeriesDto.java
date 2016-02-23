@@ -14,8 +14,6 @@ public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
     private String maxZero;
     private String prefix;
     private AccessionSeriesType typeName;
-    private String entryId;
-    private String entryDate;
 
     public String getCode() {
         return this.code;
@@ -55,22 +53,6 @@ public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
 
     public void setPrefix(String prefix) {
         this.prefix = prefix;
-    }
-
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public String getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(String entryDate) {
-        this.entryDate = entryDate;
     }
 
     public AccessionSeriesType getTypeName() {
