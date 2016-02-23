@@ -36,7 +36,7 @@ public class ProcessAddAccessionSeriesDelegate implements JavaDelegate {
         entity.setMaxZero(command.getMaxZero());
         entity.setPrefix(command.getPrefix());
         entity.setTypeName(AccessionSeriesType.Fixed);
-        entity.setUserId(command.getUserId());
+        entity.setUserCode(command.getUserCode());
 
         accessionSeriesRepository.save(entity);
 

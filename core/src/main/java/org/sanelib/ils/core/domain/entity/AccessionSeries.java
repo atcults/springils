@@ -47,7 +47,7 @@ public class AccessionSeries implements DomainEntity {
     private AccessionSeriesType typeName;
 
     @Column(name="entry_id")
-    private String userId;
+    private String userCode;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -82,12 +82,12 @@ public class AccessionSeries implements DomainEntity {
         this.typeName = typeName;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     @PrePersist

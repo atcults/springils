@@ -5,8 +5,6 @@ import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.AccessionSeries;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
 
-import java.util.Date;
-
 public class AddAccessionSeries extends ProcessCommandWithLibraryId implements ProcessCommandWithCode {
 
     @Override
@@ -24,7 +22,7 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
     private Integer maxZero;
     private String prefix;
     private AccessionSeriesType typeName;
-    private String userId;
+    private String userCode;
 
     public String getCode(){
         return code;
@@ -64,12 +62,12 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
         this.typeName = typeName;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 }
 

@@ -31,7 +31,7 @@ public class ProcessUpdateAccessionSeriesDelegate implements JavaDelegate {
         entity.setMaxZero(command.getMaxZero());
         entity.setPrefix(command.getPrefix());
         entity.setTypeName(command.getTypeName());
-        entity.setUserId(command.getUserId());
+        entity.setUserCode(command.getUserCode());
 
         accessionSeriesRepository.save(entity);
 	}
