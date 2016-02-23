@@ -24,7 +24,9 @@ public class JerseyConfig extends ResourceConfig {
 
         //register filters
         register(CORSResponseFilter.class);
-		register(OAuthorizationFilter.class);
+
+		//TODO : will register it once libraryId is completely removed.
+		//register(OAuthorizationFilter.class);
 
         //register features
         register(JacksonFeature.class);

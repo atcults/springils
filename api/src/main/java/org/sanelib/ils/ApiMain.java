@@ -51,6 +51,9 @@ public class ApiMain implements CommandLineRunner {
   	@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
     public UserSession userSession(){
         UserSession userSession = new UserSessionImpl();
+		//TODO : Remove it once they are set in OAuthorizationFilter and it is register with JerseyConfig
+		userSession.setLibraryId(1);
+		userSession.setUserCode("1");
         return userSession;
     }
 
