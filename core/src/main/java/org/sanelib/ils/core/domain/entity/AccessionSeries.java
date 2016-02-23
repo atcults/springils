@@ -45,13 +45,13 @@ public class AccessionSeries implements DomainEntity {
     //NOTE: Fixed_variable stores 1 character. Series type is fixed or variable.
     @Convert( converter = AccessionSeriesTypeConverter.class )
     @Column(name = "fixed_variable")
-    private AccessionSeriesType typeName;
-
-    @Column(name="entry_library_id")
-    private Integer entryLibraryId;
+    private AccessionSeriesType accessionSeriesType;
 
     @Column(name="entry_id")
     private String userCode;
+
+    @Column(name="entry_library_id")
+    private Integer userLibraryId;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -78,12 +78,12 @@ public class AccessionSeries implements DomainEntity {
         this.prefix = prefix;
     }
 
-    public AccessionSeriesType getTypeName() {
-        return typeName;
+    public AccessionSeriesType getAccessionSeriesType() {
+        return accessionSeriesType;
     }
 
-    public void setTypeName(AccessionSeriesType typeName) {
-        this.typeName = typeName;
+    public void setAccessionSeriesType(AccessionSeriesType accessionSeriesType) {
+        this.accessionSeriesType = accessionSeriesType;
     }
 
     public String getUserCode() {
@@ -92,6 +92,14 @@ public class AccessionSeries implements DomainEntity {
 
     public void setUserCode(String userCode) {
         this.userCode = userCode;
+    }
+
+    public Integer getUserLibraryId() {
+        return userLibraryId;
+    }
+
+    public void setUserLibraryId(Integer userLibraryId) {
+        this.userLibraryId = userLibraryId;
     }
 
     @PrePersist

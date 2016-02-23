@@ -38,12 +38,12 @@ public class AddAccessionSeriesConverter implements DtoToCommandConverter<Access
 
        command.setPrefix(dto.getPrefix());
 
-       AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByName(dto.getTypeName());
+       AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByName(dto.getAccessionSeriesTypeName());
 
        if(accessionSeriesType == null){
            processError.addError("common.field.select", "typeName", "domain.accessionSeries.typeName");
        }else {
-           command.setTypeName(accessionSeriesType);
+           command.setAccessionSeriesType(accessionSeriesType);
        }
 
         return command;

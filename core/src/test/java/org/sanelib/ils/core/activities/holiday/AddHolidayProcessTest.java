@@ -43,8 +43,8 @@ public class AddHolidayProcessTest extends EntityIntegrationTestBase{
 
         FiscalYear fiscalYear = new FiscalYear();
         fiscalYear.setLibraryId(library.getId());
-        fiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
-        fiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
+        fiscalYear.setStartDate(DateHelper.constructDate(2015, 4, 1));
+        fiscalYear.setEndDate(DateHelper.constructDate(2016, 3, 31));
 
         persist(fiscalYear);
 
@@ -61,7 +61,7 @@ public class AddHolidayProcessTest extends EntityIntegrationTestBase{
         addHoliday.setEndDate(DateHelper.constructDate(2016 , 2, 9));
         addHoliday.setNote("Test Holiday");
         addHoliday.setUserCode("1");
-        addHoliday.setUserLibraryId(1);
+        addHoliday.setUserLibraryId(library.getId());
 
         String result = execute(addHoliday , ActivitiProcessConstants.Admin.ADD_HOLIDAY);
 

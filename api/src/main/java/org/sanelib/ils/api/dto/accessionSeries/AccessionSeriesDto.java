@@ -13,7 +13,7 @@ public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
     private String maxNumber;
     private String maxZero;
     private String prefix;
-    private String typeName;
+    private String accessionSeriesTypeName;
 
     public String getCode() {
         return this.code;
@@ -55,12 +55,12 @@ public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
         this.prefix = prefix;
     }
 
-    public AccessionSeriesType getTypeName() {
-        return typeName;
+    public String getAccessionSeriesTypeName() {
+        return accessionSeriesTypeName;
     }
 
-    public void setTypeName(String  typeName) {
-        this.typeName = typeName;
+    public void setAccessionSeriesTypeName(String accessionSeriesTypeName) {
+        this.accessionSeriesTypeName = accessionSeriesTypeName;
     }
 
     @Override

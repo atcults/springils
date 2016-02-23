@@ -22,7 +22,7 @@ public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId impleme
     private Integer maxNumber;
     private Integer maxZero;
     private String prefix;
-    private AccessionSeriesType typeName;
+    private AccessionSeriesType accessionSeriesType;
 
     public String getCode(){
         return code;
@@ -54,12 +54,12 @@ public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId impleme
         this.prefix = prefix;
     }
 
-    public AccessionSeriesType getTypeName() {
-        return typeName;
+    public AccessionSeriesType getAccessionSeriesType() {
+        return accessionSeriesType;
     }
 
-    public void setTypeName(AccessionSeriesType typeName) {
-        this.typeName = typeName;
+    public void setAccessionSeriesType(AccessionSeriesType accessionSeriesType) {
+        this.accessionSeriesType = accessionSeriesType;
     }
 }
 

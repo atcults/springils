@@ -21,7 +21,7 @@ public class UpdateAccessionSeriesConverterTest {
         dto.setMaxNumber("100");
         dto.setMaxZero("2");
         dto.setPrefix("AS");
-        dto.setTypeName("Variable");
+        dto.setAccessionSeriesTypeName("Variable");
 
         ProcessError processError = new ProcessError();
 
@@ -38,6 +38,6 @@ public class UpdateAccessionSeriesConverterTest {
         assertEquals("Max Number of series not mapped",dto.getMaxNumber(), String.valueOf(updateAccessionSeries.getMaxNumber()));
         assertEquals("Max Zero of series not mapped",dto.getMaxZero(), String.valueOf(updateAccessionSeries.getMaxZero()));
         assertEquals("Prefix of series not mapped",dto.getPrefix(), updateAccessionSeries.getPrefix());
-        assertEquals("Series Type not mapped", dto.getTypeName(), updateAccessionSeries.getTypeName().name());
+        assertEquals("Series Type not mapped", dto.getAccessionSeriesTypeName(), updateAccessionSeries.getAccessionSeriesType().name());
     }
 }
