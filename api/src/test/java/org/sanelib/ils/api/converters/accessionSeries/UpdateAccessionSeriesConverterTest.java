@@ -2,10 +2,8 @@ package org.sanelib.ils.api.converters.accessionSeries;
 
 import org.junit.Test;
 import org.sanelib.ils.api.dto.accessionSeries.AccessionSeriesDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.accessioSeries.UpdateAccessionSeries;
-import org.sanelib.ils.core.enums.AccessionSeriesType;
 import org.sanelib.ils.core.exceptions.ProcessError;
 
 import static org.junit.Assert.assertEquals;
@@ -18,12 +16,12 @@ public class UpdateAccessionSeriesConverterTest {
 
         AccessionSeriesDto dto = new AccessionSeriesDto();
 
-        dto.setCode("AS2");
+        dto.setCode("AS1");
         dto.setLibraryId("1");
         dto.setMaxNumber("100");
         dto.setMaxZero("2");
         dto.setPrefix("AS");
-        dto.setTypeName(AccessionSeriesType.Fixed);
+        dto.setTypeName("Variable");
 
         ProcessError processError = new ProcessError();
 
@@ -40,6 +38,6 @@ public class UpdateAccessionSeriesConverterTest {
         assertEquals("Max Number of series not mapped",dto.getMaxNumber(),  String.valueOf(updateAccessionSeries.getMaxNumber()));
         assertEquals("Max Zero of series not mapped",dto.getMaxZero(),  String.valueOf(updateAccessionSeries.getMaxZero()));
         assertEquals("Prefix of series not mapped",dto.getPrefix(),  updateAccessionSeries.getPrefix());
-        assertEquals("Series Type not mapped",dto.getTypeName(),  updateAccessionSeries.getTypeName());
+        assertEquals("Series Type not mapped",dto.getTypeName(),  updateAccessionSeries.getTypeName().name());
     }
 }

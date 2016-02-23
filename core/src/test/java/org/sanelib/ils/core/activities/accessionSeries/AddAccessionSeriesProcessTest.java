@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.accessionSeries;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.accessioSeries.AddAccessionSeries;
 import org.sanelib.ils.core.dao.AccessionSeriesRepository;
@@ -43,7 +42,6 @@ public class AddAccessionSeriesProcessTest extends EntityIntegrationTestBase {
 
         AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByName("Fixed");
         addAccessionSeries.setTypeName(accessionSeriesType);
-
 
         String result = execute(addAccessionSeries, ActivitiProcessConstants.Admin.ADD_ACCESSION_SERIES);
 

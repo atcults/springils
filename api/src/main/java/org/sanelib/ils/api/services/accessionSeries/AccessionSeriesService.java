@@ -5,19 +5,12 @@ import org.sanelib.ils.api.dto.accessionSeries.AccessionSeriesDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
-import org.sanelib.ils.core.dao.read.ViewNameConstants;
 import org.sanelib.ils.core.dao.read.admin.AccessionSeriesViewRepository;
 import org.sanelib.ils.core.domain.view.admin.AccessionSeriesView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -43,7 +36,8 @@ public class AccessionSeriesService extends ApiServiceBase {
         List dtoList = new ArrayList<>();
         List viewList = accessionSeriesViewRepository.getAll();
 
-        dtoList.addAll((Collection) viewList.stream().map(v -> accessionSeriesViewConverter.convert((AccessionSeriesView) v)).collect(Collectors.toList()));
+        dtoList.addAll((Collection) viewList.stream().map(v -> accessionSeriesViewConverter.convert(
+                (AccessionSeriesView) v)).collect(Collectors.toList()));
 
         return dtoList;
     }

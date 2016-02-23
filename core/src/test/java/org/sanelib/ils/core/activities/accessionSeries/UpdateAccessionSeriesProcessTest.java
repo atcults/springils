@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.accessionSeries;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.accessioSeries.UpdateAccessionSeries;
 import org.sanelib.ils.core.dao.HibernateHelper;

@@ -24,10 +24,6 @@ public class AccessionSeries implements DomainEntity {
         return accessionSeriesCode;
     }
 
-    public void setAccessionSeriesCode(AccessionSeriesCode accessionSeriesCode) {
-        this.accessionSeriesCode = accessionSeriesCode;
-    }
-
     public void setAccessionSeriesCode(String code, int libraryId){
         if(this.accessionSeriesCode == null){
             this.accessionSeriesCode = new AccessionSeriesCode(libraryId, code);
