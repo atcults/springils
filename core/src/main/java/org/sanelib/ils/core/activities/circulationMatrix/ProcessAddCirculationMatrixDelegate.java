@@ -6,9 +6,12 @@ import org.sanelib.ils.core.commands.circulationMatrix.AddCirculationMatrix;
 import org.sanelib.ils.core.dao.CirculationMatrixRepository;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.CirculationMatrix;
+import org.sanelib.ils.core.enums.DurationType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.Objects;
 
 public class ProcessAddCirculationMatrixDelegate implements JavaDelegate {
 
@@ -29,23 +32,32 @@ public class ProcessAddCirculationMatrixDelegate implements JavaDelegate {
 
         CirculationMatrix entity = new CirculationMatrix();
 
+        entity.setAuditUserCode(command.getAuditUserCode());
+        entity.setRenewalThroughOPAC(command.getRenewalThroughOPAC());
         entity.setOverAllLoanLimit(command.getOverAllLoanLimit());
         entity.setRenewalLimit(command.getRenewalLimit());
         entity.setFinePerDay(command.getFinePerDay());
         entity.setMaxCeilOnFine(command.getMaxCeilOnFine());
-        entity.setRenewalThroughOPAC(Boolean.parseBoolean(command.getRenewalThroughOPAC()));
         entity.setOtherDetails(command.getOtherDetails());
-        entity.setAuditUserCode(command.getAuditUserCode());
         entity.setLoanDurationType(command.getLoanDurationType());
-        entity.setLoanDuration(command.getLoanDuration());
-        entity.setIncludeHolidaysInDateDue(command.getIncludeHolidaysInDateDue());
+        entity.setIncludeHolidaysInDateDue(command.isIncludeHolidaysInDateDue());
         entity.setChargeDurationType(command.getChargeDurationType());
-        entity.setIncludeHolidaysInCharges(command.getIncludeHolidaysInCharges());
-        entity.addChargeDetail(command.getFrom(), command.getTo() , command.getAmount());
-        entity.addFixedDateDue(command.getDay(), command.getMonth());
+        entity.setIncludeHolidaysInCharges(command.isIncludeHolidaysInCharges());
+
+        if(Objects.equals(command.getLoanDurationType(), DurationType.Days)) {
+            entity.setAuditUserCode(command.getAuditUserCode());
+            entity.setLoanDuration(command.getLoanDuration());
+        }
+
+        if(Objects.equals(command.getLoanDurationType(), DurationType.Fixed)) {
+            entity.addFixedDateDue(command.getDay(), command.getMonth());
+
+        }
+
+        if(Objects.equals(command.getChargeDurationType(), DurationType.Hours)) {
+            entity.addChargeDetail(command.getFrom(), command.getTo() , command.getAmount());
+        }
 
         circulationMatrixRepository.save(entity);
-
-
     }
 }
