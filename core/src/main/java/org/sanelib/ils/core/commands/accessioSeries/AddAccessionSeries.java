@@ -73,7 +73,6 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
         this.entryId = entryId;
     }
 
-
     public Date getEntryDate() {
         return entryDate;
     }
