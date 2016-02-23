@@ -2,7 +2,6 @@ package org.sanelib.ils.api.converters.department;
 
 import org.sanelib.ils.api.converters.AbstractViewToDtoConverterImpl;
 import org.sanelib.ils.api.dto.department.DepartmentDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.domain.view.admin.DepartmentView;
 import org.springframework.stereotype.Component;
 
@@ -15,10 +14,8 @@ public class DepartmentViewConverter extends AbstractViewToDtoConverterImpl<Depa
 
         dto.setLibraryId(String.valueOf(departmentView.getLibraryId()));
         dto.setId(String.valueOf(departmentView.getId()));
-        dto.setDeptName(departmentView.getDeptName());
+        dto.setName(departmentView.getDeptName());
         dto.setHodId(departmentView.getHodId());
-        dto.setEntryId(departmentView.getEntryId());
-        dto.setEntryDate(DateHelper.toDateString(departmentView.getEntryDate()));
 
         return dto;
     }

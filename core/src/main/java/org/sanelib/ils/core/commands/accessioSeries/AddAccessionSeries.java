@@ -1,11 +1,12 @@
 package org.sanelib.ils.core.commands.accessioSeries;
 
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.commands.ProcessCommandWithCode;
 import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.AccessionSeries;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
 
-public class AddAccessionSeries extends ProcessCommandWithLibraryId implements ProcessCommandWithCode {
+public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId implements ProcessCommandWithCode {
 
     @Override
     public Class getRootEntityClass() {
@@ -22,7 +23,6 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
     private Integer maxZero;
     private String prefix;
     private AccessionSeriesType typeName;
-    private String userCode;
 
     public String getCode(){
         return code;
@@ -62,12 +62,5 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
         this.typeName = typeName;
     }
 
-    public String getUserCode() {
-        return userCode;
-    }
-
-    public void setUserCode(String userCode) {
-        this.userCode = userCode;
-    }
 }
 

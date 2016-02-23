@@ -3,7 +3,6 @@ package org.sanelib.ils.core.activities.course;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.course.AddCourse;
 import org.sanelib.ils.core.dao.HibernateHelper;
@@ -43,7 +42,7 @@ public class AddCourseProcessTest extends EntityIntegrationTestBase {
 
         addCourse.setLibraryId(library.getId());
         addCourse.setName("basic");
-        addCourse.setPatronCode("1");
+        addCourse.setUserCode("1");
         addCourse.setPromotedCourseId(advanceCourse.getCourseId().getId());
 
         String result = execute(addCourse, ActivitiProcessConstants.Admin.ADD_COURSE);

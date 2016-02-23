@@ -55,8 +55,8 @@ public abstract class ApiServiceBase {
         //NOTE: This is to globally resolve entry patron and its library id.
         if(command instanceof ProcessAuditCommandWithLibraryId){
             ProcessAuditCommandWithLibraryId auditCommandWithLibraryId = (ProcessAuditCommandWithLibraryId) command;
-            auditCommandWithLibraryId.setPatronCode(userSession.getUserCode());
-            auditCommandWithLibraryId.setPatronLibraryId(userSession.getLibraryId());
+            auditCommandWithLibraryId.setUserCode(userSession.getUserCode());
+            auditCommandWithLibraryId.setUserLibraryId(userSession.getLibraryId());
         }
 
         String processName = processKey + "Process";
