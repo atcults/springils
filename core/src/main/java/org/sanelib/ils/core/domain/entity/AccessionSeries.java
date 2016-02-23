@@ -88,7 +88,7 @@ public class AccessionSeries implements DomainEntity {
 
     public Integer getEntryLibraryId() { return entryLibraryId; }
 
-    public void setEntrylibraryId(Integer entryLibraryId) { this.entryLibraryId = entryLibraryId; }
+    public void setEntryLibraryId(Integer entryLibraryId) { this.entryLibraryId = entryLibraryId; }
 
     public String getEntryId() {
         return entryId;
