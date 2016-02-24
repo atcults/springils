@@ -2,9 +2,12 @@ package org.sanelib.ils.api.dto.circulationMatrix;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.hibernate.mapping.List;
 import org.sanelib.ils.api.dto.DtoWithLibraryId;
 import org.sanelib.ils.core.enums.DurationType;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class CirculationMatrixDto implements DtoWithLibraryId {
 
@@ -12,25 +15,78 @@ public class CirculationMatrixDto implements DtoWithLibraryId {
     private String patronCategoryId;
     private String materialTypeId;
     private String withEffectFrom;
+
     private String overAllLoanLimit;
     private String renewalLimit;
     private String finePerDay;
     private String maxCeilOnFine;
     private String renewalThroughOPAC;
     private String otherDetails;
-    private String auditUserCode;
-    private DurationType loanDurationType;
-    private String loanDuration;
-    private boolean includeHolidaysInDateDue;
-    private List fixedDateDues;
-    private DurationType chargeDurationType;
-    private boolean includeHolidaysInCharges;
-    private String day;
-    private String month;
-    private String from;
-    private String to;
-    private String amount;
 
+    private DurationType loanDurationType;
+
+    private String loanDuration;
+
+    private boolean includeHolidaysInDateDue;
+
+    private List<FixedDate> fixedDateDues;
+
+    private DurationType chargeDurationType;
+
+    private boolean includeHolidaysInCharges;
+
+    private List<ChargeDetail> chargeDetails;
+
+    public class FixedDate{
+        private String day;
+        private String month;
+
+        public String getDay() {
+            return day;
+        }
+
+        public void setDay(String day) {
+            this.day = day;
+        }
+
+        public String getMonth() {
+            return month;
+        }
+
+        public void setMonth(String month) {
+            this.month = month;
+        }
+    }
+
+    public class ChargeDetail{
+        private String from;
+        private String to;
+        private String amount;
+
+        public String getFrom() {
+            return from;
+        }
+
+        public void setFrom(String from) {
+            this.from = from;
+        }
+
+        public String getTo() {
+            return to;
+        }
+
+        public void setTo(String to) {
+            this.to = to;
+        }
+
+        public String getAmount() {
+            return amount;
+        }
+
+        public void setAmount(String amount) {
+            this.amount = amount;
+        }
+    }
 
     public void setLibraryId(String libraryId) {
         this.libraryId = libraryId;
@@ -92,12 +148,12 @@ public class CirculationMatrixDto implements DtoWithLibraryId {
         this.maxCeilOnFine = maxCeilOnFine;
     }
 
-    public String getRenewalThroughOPAC() {
-        return renewalThroughOPAC;
+    public boolean getRenewalThroughOPAC() {
+        return Objects.equals(renewalThroughOPAC, "Y");
     }
 
-    public void setRenewalThroughOPAC(String renewalThroughOPAC) {
-        this.renewalThroughOPAC = renewalThroughOPAC;
+    public void setRenewalThroughOPAC(boolean renewalThroughOPAC) {
+        this.renewalThroughOPAC = renewalThroughOPAC ? "Y" : "N";
     }
 
     public String getOtherDetails() {
@@ -106,14 +162,6 @@ public class CirculationMatrixDto implements DtoWithLibraryId {
 
     public void setOtherDetails(String otherDetails) {
         this.otherDetails = otherDetails;
-    }
-
-    public String getAuditUserCode() {
-        return auditUserCode;
-    }
-
-    public void setAuditUserCode(String auditUserCode) {
-        this.auditUserCode = auditUserCode;
     }
 
     public DurationType getLoanDurationType() {
@@ -132,7 +180,7 @@ public class CirculationMatrixDto implements DtoWithLibraryId {
         this.loanDuration = loanDuration;
     }
 
-    public Boolean getIncludeHolidaysInDateDue() {
+    public boolean isIncludeHolidaysInDateDue() {
         return includeHolidaysInDateDue;
     }
 
@@ -140,12 +188,19 @@ public class CirculationMatrixDto implements DtoWithLibraryId {
         this.includeHolidaysInDateDue = includeHolidaysInDateDue;
     }
 
-    public List getFixedDateDues() {
+    public List<FixedDate> getFixedDateDues() {
         return fixedDateDues;
     }
 
-    public void setFixedDateDues(List fixedDateDues) {
-        this.fixedDateDues = fixedDateDues;
+    public void addFixedDateDue(String day, String month) {
+        if(fixedDateDues == null){
+            fixedDateDues = new ArrayList<>();
+        }
+
+        FixedDate fixedDateDue = new FixedDate();
+        fixedDateDue.setDay(day);
+        fixedDateDue.setMonth(month);
+        fixedDateDues.add(fixedDateDue);
     }
 
     public DurationType getChargeDurationType() {
@@ -156,7 +211,7 @@ public class CirculationMatrixDto implements DtoWithLibraryId {
         this.chargeDurationType = chargeDurationType;
     }
 
-    public Boolean getIncludeHolidaysInCharges() {
+    public boolean isIncludeHolidaysInCharges() {
         return includeHolidaysInCharges;
     }
 
@@ -164,44 +219,20 @@ public class CirculationMatrixDto implements DtoWithLibraryId {
         this.includeHolidaysInCharges = includeHolidaysInCharges;
     }
 
-    public String getDay() {
-        return day;
+    public List<ChargeDetail> getChargeDetails() {
+        return chargeDetails;
     }
 
-    public void setDay(String day) {
-        this.day = day;
-    }
+    public void addChargeDetail(String from, String to, String amount) {
+        if(chargeDetails == null){
+            chargeDetails = new ArrayList<>();
+        }
 
-    public String getMonth() {
-        return month;
-    }
-
-    public void setMonth(String month) {
-        this.month = month;
-    }
-
-    public String getFrom() {
-        return from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public String getTo() {
-        return to;
-    }
-
-    public void setTo(String to) {
-        this.to = to;
-    }
-
-    public String getAmount() {
-        return amount;
-    }
-
-    public void setAmount(String amount) {
-        this.amount = amount;
+        ChargeDetail chargeDetail = new ChargeDetail();
+        chargeDetail.setFrom(from);
+        chargeDetail.setTo(to);
+        chargeDetail.setAmount(amount);
+        chargeDetails.add(chargeDetail);
     }
 
     @Override
