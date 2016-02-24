@@ -18,8 +18,8 @@ public class CirculationMatrixPersistTest extends EntityIntegrationTestBase {
         inputRule.setCirculationMatrixId(3, 1, 1, new Date());
         inputRule.setOverAllLoanLimit(10);
         inputRule.setFinePerDay(1.0);
-        inputRule.setMaxCeilOnFine(200.0);
-        inputRule.setAuditUserCode("1");
+        inputRule.setMaxFine(200.0);
+        inputRule.setUserCode("1");
         inputRule.setRenewalLimit(2);
         inputRule.setRenewalThroughOPAC(true);
         inputRule.setLoanDurationType(DurationType.Fixed);
