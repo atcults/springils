@@ -19,8 +19,6 @@ public class DepartmentMapper implements ViewMapper<DepartmentView> {
         view.setId(rs.getInt(department, "dept_id"));
         view.setLibraryId(rs.getInt(department, "library_id"));
         view.setDeptName(rs.getString(department, "dept_name"));
-        view.setEntryId(rs.getString(department, "entry_id"));
-        view.setEntryDate(rs.getDate(department, "entry_date"));
         view.setHodId(rs.getString(department, "hod_id"));
 
         return view;

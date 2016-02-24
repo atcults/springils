@@ -42,7 +42,6 @@ public class ProcessUpdatePublisherDelegateTest {
         updatePublisher.setState("new state");
         updatePublisher.setCountry("new country");
 
-
         DelegateExecution execution = Mockito.mock(DelegateExecution.class);
         Mockito.when(execution.getVariable("command")).thenReturn(updatePublisher);
 

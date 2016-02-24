@@ -8,6 +8,8 @@ import org.sanelib.ils.core.dao.CourseRepository;
 import org.sanelib.ils.core.domain.entity.Course;
 import org.sanelib.ils.core.exceptions.AppException;
 import org.sanelib.ils.core.exceptions.ProcessError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,17 +20,19 @@ import java.util.Objects;
 @Component
 public class CheckCourseDuplicationDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(CheckCourseDuplicationDelegate.class);
+
     @Autowired
     CourseRepository courseRepository;
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        System.out.println("Checking course for duplication");
+        LOG.info("Checking course for duplication");
 
         Object command = execution.getVariable("command");
         ProcessError processError = (ProcessError) execution.getVariable("errors");
 
-        boolean isUpdate=command instanceof UpdateCourse;
+        boolean isUpdate = command instanceof UpdateCourse;
 
         Integer courseId = isUpdate ? ((UpdateCourse)command).getId() : null;
         Integer libraryId = ((AddCourse)command).getLibraryId();

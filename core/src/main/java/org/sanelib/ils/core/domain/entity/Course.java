@@ -20,7 +20,7 @@ public class Course implements DomainEntity {
     private String name;
 
     @Column(name = "entry_id")
-    private String entryId;
+    private String userCode;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -44,12 +44,12 @@ public class Course implements DomainEntity {
         }
     }
 
-    public String getEntryId() {
-        return entryId;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     public Date getEntryDate() {

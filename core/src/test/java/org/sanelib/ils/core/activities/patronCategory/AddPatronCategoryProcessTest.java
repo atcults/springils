@@ -21,7 +21,7 @@ public class AddPatronCategoryProcessTest extends EntityIntegrationTestBase {
     LibraryRepository libraryRepository;
 
     @Test
-    public void testAddPatronCategroyProcess() throws Throwable {
+    public void testAddPatronCategoryProcess() throws Throwable {
 
         Library library = new Library();
         library.setId(hibernateHelper.getNextId(Library.class));
@@ -52,6 +52,6 @@ public class AddPatronCategoryProcessTest extends EntityIntegrationTestBase {
         assertEquals(addPatronCategory.isAllowRenewalFromNet(), patronCategory.isAllowRenewalFromNet());
         assertEquals(addPatronCategory.getOverallLoanLimit(), patronCategory.getOverallLoanLimit());
         assertEquals(addPatronCategory.isAllowMultipleCopies(), patronCategory.isAllowMultipleCopies());
-        assertEquals(addPatronCategory.getAcqWorkflow(),patronCategory.getAcqWorkflow());
+        assertEquals(addPatronCategory.getAcqWorkflow(), patronCategory.getAcqWorkflow());
     }
 }

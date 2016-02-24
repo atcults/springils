@@ -48,14 +48,5 @@ public class ActivitiProcessConstants {
         public static final String ADD_DEPARTMENT = "addDepartment";
         public static final String UPDATE_DEPARTMENT = "updateDepartment";
         public static final String DELETE_DEPARTMENT = "deleteDepartment";
-
-        public static final String ADD_ACCESSIONSERIES = "addAccessionSeries";
-        public static final String UPDATE_ACCESSIONSERIES = "updateAccessionSeries";
-        public static final String DELETE_ACCESSIONSERIES = "deleteAccessionSeries";
-
-        public static final String ADD_FISCALYEAR = "addFiscalYear";
-        public static final String UPDATE_FISCALYEAR = "updateFiscalYear";
-        public static final String DELETE_FISCALYEAR = "deleteFiscalYear";
-
     }
 }

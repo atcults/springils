@@ -55,6 +55,5 @@ public class DeleteHoliday extends ProcessCommandWithLibraryId implements Proces
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
-
 }
 

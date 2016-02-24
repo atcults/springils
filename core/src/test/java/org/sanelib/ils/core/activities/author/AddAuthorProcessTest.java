@@ -31,9 +31,8 @@ public class AddAuthorProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(result);
 
-        String authorId = result;
-
-         Author author = fetch(Author.class, authorId);
+        Author author;
+        author = fetch(Author.class, result);
 
         assertNotNull(author);
 

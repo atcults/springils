@@ -16,7 +16,6 @@ public class HolidayId  implements Serializable , LibraryIdAndEntityDate {
     public HolidayId(int libraryId, Date holidayDayDate){
         this.libraryId = libraryId;
         this.holidayDate = holidayDayDate;
-
     }
 
     @Column(name = "library_id")
@@ -54,7 +53,6 @@ public class HolidayId  implements Serializable , LibraryIdAndEntityDate {
         HolidayId holidayId = (HolidayId) o;
 
         return libraryId == holidayId.libraryId && holidayDate.equals(holidayId.holidayDate);
-
     }
 
     @Override

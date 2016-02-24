@@ -2,7 +2,6 @@ package org.sanelib.ils.core.commands.accessioSeries;
 
 import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.commands.ProcessCommandWithCode;
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.AccessionSeries;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
 
@@ -61,6 +60,5 @@ public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId impleme
     public void setTypeName(AccessionSeriesType typeName) {
         this.typeName = typeName;
     }
-
 }
 

@@ -1,6 +1,9 @@
 package org.sanelib.ils.core.domain.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "agency")
@@ -43,7 +46,6 @@ public class Agency implements DomainEntity {
         Agency agency = (Agency) o;
 
         return agencyId.equals(agency.agencyId);
-
     }
 
     @Override

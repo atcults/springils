@@ -3,7 +3,12 @@ package org.sanelib.ils.core.domain.entity;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
 import org.sanelib.ils.core.enums.AccessionSeriesTypeConverter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity

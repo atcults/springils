@@ -13,12 +13,15 @@ public class LibraryMapper implements ViewMapper<LibraryView> {
     public LibraryView map(final DataResultSet rs) throws SQLException {
 
         final String library = "library";
+
         final LibraryView libraryView = new LibraryView();
+
         libraryView.setId(rs.getInt(library, "library_id"));
         libraryView.setName(rs.getString(library, "library_name"));
         libraryView.setCity(rs.getString(library, "city"));
         libraryView.setState(rs.getString(library, "state"));
         libraryView.setCountry(rs.getString(library, "country"));
+
         return libraryView;
     }
 }
