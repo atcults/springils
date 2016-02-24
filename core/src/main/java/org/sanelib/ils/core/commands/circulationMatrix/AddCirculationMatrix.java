@@ -5,8 +5,10 @@ import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.CirculationMatrix;
 import org.sanelib.ils.core.enums.DurationType;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class AddCirculationMatrix extends ProcessCommandWithLibraryId implements ProcessCommand{
 
@@ -20,25 +22,96 @@ public class AddCirculationMatrix extends ProcessCommandWithLibraryId implements
         return "domain.entity.circulationMatrix";
     }
 
+    private Integer patronCategoryId;
+    private Integer materialTypeId;
     private Date withEffectFrom;
+
     private Integer overAllLoanLimit;
     private Integer renewalLimit;
     private Double finePerDay;
-    private Double maxCeilOnFine;
+    private Double maxFine;
     private String renewalThroughOPAC;
-    private String otherDetails;
-    private String auditUserCode;
+
     private DurationType loanDurationType;
+
     private Integer loanDuration;
+
     private boolean includeHolidaysInDateDue;
-    private List fixedDateDues;
+
+    private List<FixedDate> fixedDateDues;
+
     private DurationType chargeDurationType;
+
     private boolean includeHolidaysInCharges;
-    private Integer day;
-    private Integer month;
-    private Integer from;
-    private Integer to;
-    private Double amount;
+
+    private List<ChargeDetail> chargeDetails;
+
+    public class FixedDate{
+        private Integer day;
+        private Integer month;
+
+        public Integer getDay() {
+            return day;
+        }
+
+        public void setDay(Integer day) {
+            this.day = day;
+        }
+
+        public Integer getMonth() {
+            return month;
+        }
+
+        public void setMonth(Integer month) {
+            this.month = month;
+        }
+    }
+
+    public class ChargeDetail{
+        private Integer from;
+        private Integer to;
+        private Double amount;
+
+        public Integer getFrom() {
+            return from;
+        }
+
+        public void setFrom(Integer from) {
+            this.from = from;
+        }
+
+        public Integer getTo() {
+            return to;
+        }
+
+        public void setTo(Integer to) {
+            this.to = to;
+        }
+
+        public Double getAmount() {
+            return amount;
+        }
+
+        public void setAmount(Double amount) {
+            this.amount = amount;
+        }
+    }
+
+    public Integer getPatronCategoryId() {
+        return patronCategoryId;
+    }
+
+    public void setPatronCategoryId(Integer patronCategoryId) {
+        this.patronCategoryId = patronCategoryId;
+    }
+
+    public Integer getMaterialTypeId() {
+        return materialTypeId;
+    }
+
+    public void setMaterialTypeId(Integer materialTypeId) {
+        this.materialTypeId = materialTypeId;
+    }
 
     public Date getWithEffectFrom() {
         return withEffectFrom;
@@ -72,36 +145,20 @@ public class AddCirculationMatrix extends ProcessCommandWithLibraryId implements
         this.finePerDay = finePerDay;
     }
 
-    public Double getMaxCeilOnFine() {
-        return maxCeilOnFine;
+    public Double getMaxFine() {
+        return maxFine;
     }
 
-    public void setMaxCeilOnFine(Double maxCeilOnFine) {
-        this.maxCeilOnFine = maxCeilOnFine;
+    public void setMaxFine(Double maxFine) {
+        this.maxFine = maxFine;
     }
 
     public boolean getRenewalThroughOPAC() {
-        return Boolean.parseBoolean(renewalThroughOPAC);
+        return Objects.equals(renewalThroughOPAC, "Y");
     }
 
-    public void setRenewalThroughOPAC(boolean renewalThroughOPAC) {
-        this.renewalThroughOPAC = String.valueOf(renewalThroughOPAC);
-    }
-
-    public String getOtherDetails() {
-        return otherDetails;
-    }
-
-    public void setOtherDetails(String otherDetails) {
-        this.otherDetails = otherDetails;
-    }
-
-    public String getAuditUserCode() {
-        return auditUserCode;
-    }
-
-    public void setAuditUserCode(String auditUserCode) {
-        this.auditUserCode = auditUserCode;
+    public void setRenewalThroughOPAC(Boolean renewalThroughOPAC) {
+        this.renewalThroughOPAC = renewalThroughOPAC ? "Y" : "N";
     }
 
     public DurationType getLoanDurationType() {
@@ -128,12 +185,19 @@ public class AddCirculationMatrix extends ProcessCommandWithLibraryId implements
         this.includeHolidaysInDateDue = includeHolidaysInDateDue;
     }
 
-    public List getFixedDateDues() {
+    public List<FixedDate> getFixedDateDues() {
         return fixedDateDues;
     }
 
-    public void setFixedDateDues(List fixedDateDues) {
-        this.fixedDateDues = fixedDateDues;
+    public void addFixedDateDue(int day, int month) {
+        if(fixedDateDues == null){
+            fixedDateDues = new ArrayList<>();
+        }
+
+        FixedDate fixedDateDue = new FixedDate();
+        fixedDateDue.setDay(day);
+        fixedDateDue.setMonth(month);
+        fixedDateDues.add(fixedDateDue);
     }
 
     public DurationType getChargeDurationType() {
@@ -152,43 +216,19 @@ public class AddCirculationMatrix extends ProcessCommandWithLibraryId implements
         this.includeHolidaysInCharges = includeHolidaysInCharges;
     }
 
-    public Integer getDay() {
-        return day;
+    public List<ChargeDetail> getChargeDetails() {
+        return chargeDetails;
     }
 
-    public void setDay(Integer day) {
-        this.day = day;
-    }
+    public void addChargeDetail(int from, int to, Double amount) {
+        if(chargeDetails == null){
+            chargeDetails = new ArrayList<>();
+        }
 
-    public Integer getMonth() {
-        return month;
-    }
-
-    public void setMonth(Integer month) {
-        this.month = month;
-    }
-
-    public Integer getFrom() {
-        return from;
-    }
-
-    public void setFrom(Integer from) {
-        this.from = from;
-    }
-
-    public Integer getTo() {
-        return to;
-    }
-
-    public void setTo(Integer to) {
-        this.to = to;
-    }
-
-    public Double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Double amount) {
-        this.amount = amount;
+        ChargeDetail chargeDetail = new ChargeDetail();
+        chargeDetail.setFrom(from);
+        chargeDetail.setTo(to);
+        chargeDetail.setAmount(amount);
+        chargeDetails.add(chargeDetail);
     }
 }
