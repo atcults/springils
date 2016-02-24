@@ -11,7 +11,13 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.PostLoad;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -47,7 +53,7 @@ public class CirculationMatrix implements DomainEntity {
     private Double finePerDay;
 
     @Column(name = "max_ceil_on_fine")
-    private Double maxCeilOnFine;
+    private Double maxFine;
 
     @Column(name = "renewal_through_opac")
     private String renewalThroughOPAC;
@@ -56,7 +62,7 @@ public class CirculationMatrix implements DomainEntity {
     private String otherDetails;
 
     @Column(name = "entry_id")
-    private String auditUserCode;
+    private String userCode;
 
     @Column(name = "patron_category_library_id")
     private Integer patronCategoryLibraryId;
@@ -176,12 +182,12 @@ public class CirculationMatrix implements DomainEntity {
         this.finePerDay = finePerDay;
     }
 
-    public Double getMaxCeilOnFine() {
-        return maxCeilOnFine;
+    public Double getMaxFine() {
+        return maxFine;
     }
 
-    public void setMaxCeilOnFine(Double maxCeilOnFine) {
-        this.maxCeilOnFine = maxCeilOnFine;
+    public void setMaxFine(Double maxFine) {
+        this.maxFine = maxFine;
     }
 
     public boolean getRenewalThroughOPAC() {
@@ -200,12 +206,12 @@ public class CirculationMatrix implements DomainEntity {
         this.otherDetails = otherDetails;
     }
 
-    public String getAuditUserCode() {
-        return auditUserCode;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setAuditUserCode(String auditUserCode) {
-        this.auditUserCode = auditUserCode;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     public DurationType getLoanDurationType() {
