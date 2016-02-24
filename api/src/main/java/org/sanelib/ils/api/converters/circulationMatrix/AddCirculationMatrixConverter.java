@@ -12,8 +12,6 @@ import org.sanelib.ils.core.enums.DurationType;
 import org.sanelib.ils.core.exceptions.ProcessError;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class AddCirculationMatrixConverter implements DtoToCommandConverter<CirculationMatrixDto> {
 
@@ -22,49 +20,46 @@ public class AddCirculationMatrixConverter implements DtoToCommandConverter<Circ
 
         AddCirculationMatrix command = new AddCirculationMatrix();
 
-        command.setAuditUserCode(dto.getAuditUserCode());
-
         if(!RegularExpressionHelper.checkDateFormat(dto.getWithEffectFrom())) {
-            processError.addError("common.field.pattern", "withEffectFrom" ,"domain.circulationMatrix.withEffectFrom", RegularExpressionHelper.DATE_FORMAT_EXAMPLE);
+            processError.addError("common.field.pattern", "withEffectFrom", "domain.circulationMatrix.withEffectFrom", RegularExpressionHelper.DATE_FORMAT_EXAMPLE);
         }
         else {
             command.setWithEffectFrom(DateHelper.fromDateString(dto.getWithEffectFrom()));
         }
 
-        if(ConverterHelper.checkRequiredLength(dto.getRenewalThroughOPAC(), 1, "renewalThroughOPAC", "domain.circulationMatrix.renewalThroughOPAC", processError)){
-            command.setRenewalThroughOPAC(Boolean.parseBoolean(dto.getRenewalThroughOPAC()));
+        if(ConverterHelper.checkRequiredLength(String.valueOf(dto.getRenewalThroughOPAC()), 1, "renewalThroughOPAC", "domain.circulationMatrix.renewalThroughOPAC", processError)){
+            command.setRenewalThroughOPAC(Boolean.parseBoolean(String.valueOf(dto.getRenewalThroughOPAC())));
         }
 
         DurationType durationType = DurationType.getByName(dto.getLoanDuration());
 
         if(!durationType.toString().equals("Day") && !durationType.toString().equals("Hour")) {
-            processError.addError("common.field.select", "loanDurationType","domain.circulationMatrix.loanDurationType");
+            processError.addError("common.field.select", "loanDurationType", "domain.circulationMatrix.loanDurationType");
         }
         else {
             command.setLoanDurationType(durationType);
         }
 
         if (Strings.isNullOrEmpty(dto.getLoanDuration())) {
-            processError.addError("common.field.required" , "loanDuration" , "domain.circulationMatrix.loanDuration");
+            processError.addError("common.field.required", "loanDuration", "domain.circulationMatrix.loanDuration");
         }
         else {
             command.setLoanDuration(Integer.valueOf(dto.getLoanDuration()));
         }
 
-        command.setFixedDateDues((List) dto.getFixedDateDues());
-
         if(!durationType.toString().equals("NextOccurring")) {
-            processError.addError("common.field.select", "loanDurationType","domain.circulationMatrix.loanDurationType");
+            processError.addError("common.field.select", "loanDurationType", "domain.circulationMatrix.loanDurationType");
         }
         else {
-            command.setDay(Integer.valueOf(dto.getDay()));
-            command.setMonth(Integer.valueOf(dto.getMonth()));
+           for(CirculationMatrixDto.FixedDate fixedDate : dto.getFixedDateDues()) {
+               command.addFixedDateDue(Integer.valueOf(fixedDate.getDay()), Integer.valueOf(fixedDate.getMonth()));
+           }
         }
 
-        command.setIncludeHolidaysInDateDue(dto.getIncludeHolidaysInDateDue());
+        command.setIncludeHolidaysInDateDue(dto.isIncludeHolidaysInDateDue());
 
         if(Strings.isNullOrEmpty(dto.getOverAllLoanLimit())) {
-            processError.addError("common.field.required" , "overAllLoanLimit" , "domain.circulationMatrix.overAllLoanLimit");
+            processError.addError("common.field.required", "overAllLoanLimit", "domain.circulationMatrix.overAllLoanLimit");
         }
         else {
             command.setOverAllLoanLimit(Integer.valueOf(dto.getOverAllLoanLimit()));
@@ -72,21 +67,20 @@ public class AddCirculationMatrixConverter implements DtoToCommandConverter<Circ
 
         command.setRenewalLimit(Integer.valueOf(dto.getRenewalLimit()));
         command.setFinePerDay(Double.valueOf(dto.getFinePerDay()));
-        command.setMaxCeilOnFine(Double.valueOf(dto.getMaxCeilOnFine()));
-        command.setOtherDetails(dto.getOtherDetails());
+        command.setMaxFine(Double.valueOf(dto.getMaxCeilOnFine()));
 
         command.setChargeDurationType(dto.getChargeDurationType());
 
         if(!durationType.toString().equals("Day") && !durationType.toString().equals("Hour")) {
-            processError.addError("common.field.select", "chargeDurationType","domain.circulationMatrix.chargeDurationType");
+            processError.addError("common.field.select", "chargeDurationType", "domain.circulationMatrix.chargeDurationType");
         }
         else {
-            command.setFrom(Integer.valueOf(dto.getFrom()));
-            command.setTo(Integer.valueOf(dto.getTo()));
-            command.setAmount(Double.valueOf(dto.getAmount()));
+            for(CirculationMatrixDto.ChargeDetail chargeDetail : dto.getChargeDetails()) {
+                command.addChargeDetail(Integer.valueOf(chargeDetail.getFrom()), Integer.valueOf(chargeDetail.getTo()), Double.valueOf(chargeDetail.getAmount()));
+            }
         }
 
-        command.setIncludeHolidaysInCharges(dto.getIncludeHolidaysInCharges());
+        command.setIncludeHolidaysInCharges(dto.isIncludeHolidaysInCharges());
 
         return command;
     }
