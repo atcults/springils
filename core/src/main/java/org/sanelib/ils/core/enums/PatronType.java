@@ -48,6 +48,4 @@ public enum PatronType {
     public static PatronType getByValue(String value) {
         return PatronType.byValue.get(value);
     }
-
-
 }

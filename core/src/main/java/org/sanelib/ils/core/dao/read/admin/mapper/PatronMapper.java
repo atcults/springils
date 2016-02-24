@@ -21,9 +21,7 @@ public class PatronMapper implements ViewMapper<PatronView> {
         view.setLibraryId(rs.getInt(viewName, "library_id"));
         view.setCode(rs.getString(viewName, "patron_id"));
         view.setPatronCategoryId(rs.getInt(viewName, "patron_category_id"));
-        view.setIsOnline(rs.getString(viewName, "isonline"));
         view.setOwns(rs.getString(viewName, "owns"));
-        view.setCreatedOn(rs.getDate(viewName, "created_on"));
         view.setOtherLibraryPatronId(rs.getInt(viewName, "other_library_patron_id"));
         view.setLibraryPatronId(rs.getInt(viewName, "library_patron_id"));
         view.setPatronType(PatronType.getByValue(rs.getString(viewName,"patron_type")));
@@ -57,11 +55,8 @@ public class PatronMapper implements ViewMapper<PatronView> {
         view.setCommonEmail(Objects.equals(rs.getString(viewName, "common_email"), "Y"));
         view.setCommonInstantMsg(Objects.equals(rs.getString(viewName, "common_instant_msg"), "Y"));
         view.setCommonPrint(Objects.equals(rs.getString(viewName, "common_print"), "Y"));
-        view.setEntryDate(rs.getDate(viewName, "entry_date"));
         view.setUserPassword(rs.getString(viewName, "user_password"));
         view.setCourseId(rs.getInt(viewName, "course_id"));
-        view.setStatus(rs.getString(viewName, "status"));
-        view.setSendToAddress(rs.getString(viewName, "send_to_address"));
         view.setCustom(rs.getString(viewName, "custom"));
         view.setPrivilege(rs.getString(viewName, "privilege"));
         view.setTwitterId(rs.getString(viewName, "twitter_id"));
@@ -69,6 +64,9 @@ public class PatronMapper implements ViewMapper<PatronView> {
         view.setSubLocationId(rs.getInt(viewName, "sub_location_id"));
         view.setLoginId(rs.getString(viewName, "login_id"));
         view.setAuthenticateLocalDatabase(rs.getString(viewName, "authenticate_localdatabase"));
+        view.setSendToAddress(Objects.equals(rs.getString(viewName, "send_to_address"), "A"));
+        view.setActive(Objects.equals(rs.getString(viewName, "status"), "A"));
+        view.setCreatedOn(rs.getDate(viewName, "created_on"));
 
         return view;
     }

@@ -16,7 +16,7 @@ public class AddDepartmentConverterTest {
         DepartmentDto dto = new DepartmentDto();
 
         dto.setLibraryId("1");
-        dto.setDeptName("Department");
+        dto.setName("Department");
         dto.setHodId("1");
         ProcessError processError = new ProcessError();
 
@@ -28,7 +28,7 @@ public class AddDepartmentConverterTest {
 
         AddDepartment addDepartment = (AddDepartment) command;
         assertEquals("Library Id is not mapped", dto.getLibraryId(), String.valueOf(addDepartment.getLibraryId()));
-        assertEquals("Name is not mapped", dto.getDeptName(), addDepartment.getDeptName());
+        assertEquals("Name is not mapped", dto.getName(), addDepartment.getName());
         assertEquals("HOD Id is not mapped", dto.getHodId(), addDepartment.getHodId());
     }
 }

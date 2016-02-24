@@ -23,7 +23,6 @@ public class AddPatronConverter implements DtoToCommandConverter<PatronDto> {
         ConverterHelper.checkCodeRequired(dto,command , processError);
 
         command.setPatronCategoryId(Integer.parseInt(dto.getPatronCategoryId()));
-        command.setIsOnline(dto.getIsOnline());
         command.setOwns(dto.getOwns());
 
         command.setOtherLibraryPatronId(Integer.parseInt(dto.getOtherLibraryPatronId()));
@@ -113,20 +112,22 @@ public class AddPatronConverter implements DtoToCommandConverter<PatronDto> {
         command.setCommonPrint(dto.commonPrint());
         command.setUserPassword(dto.getUserPassword());
         command.setCourseId(Integer.parseInt(dto.getCourseId()));
-        command.setSendToAddress(dto.getSendToAddress());
         command.setCustom(dto.getCustom());
         command.setPrivilege(dto.getPrivilege());
         command.setTwitterId(dto.getTwitterId());
         command.setFacebookId(dto.getFacebookId());
         command.setSubLocationId(Integer.parseInt(dto.getSubLocationId()));
         command.setLoginId(dto.getLoginId());
+        command.setSendToAddress(dto.isSendToAddress());
+        command.setActive(dto.isActive());
 
         if(ConverterHelper.checkRequiredLength(dto.getAuthenticateLocalDatabase(), 1, "authenticateLocalDatabase", "domain.patron.authenticateLocalDatabase", processError)){
            command.setAuthenticateLocalDatabase(dto.getAuthenticateLocalDatabase());
-       }
+        }
+
         PatronType patronType = PatronType.getByValue(String.valueOf(dto.getPatronType()));
 
-        if(!patronType.toString().equals("A") && !patronType.toString().equals("B")){
+        if(patronType == null){
             processError.addError("common.field.select", "patronType", "domain.patron.patronType");
         }else {
             command.setPatronType(patronType);
