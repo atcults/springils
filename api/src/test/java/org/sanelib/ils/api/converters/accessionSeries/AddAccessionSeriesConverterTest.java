@@ -17,10 +17,10 @@ public class AddAccessionSeriesConverterTest {
 
         dto.setLibraryId("1");
         dto.setCode("AC1");
+        dto.setTypeName("Fixed");
+        dto.setPrefix("AS");
         dto.setMaxNumber("100");
         dto.setMaxZero("2");
-        dto.setPrefix("AS");
-        dto.setAccessionSeriesTypeName("Fixed");
 
         ProcessError processError = new ProcessError();
 
@@ -33,9 +33,10 @@ public class AddAccessionSeriesConverterTest {
         AddAccessionSeries addAccessionSeries = (AddAccessionSeries) command;
 
         assertEquals("Library Id is not mapped", dto.getLibraryId(), String.valueOf(addAccessionSeries.getLibraryId()));
+        assertEquals("Code is not mapped", dto.getCode(), addAccessionSeries.getCode());
+        assertEquals("Prefix of series not mapped",dto.getPrefix(), addAccessionSeries.getPrefix());
+        assertEquals("Type of series not mapped", dto.getTypeName(), addAccessionSeries.getAccessionSeriesType().name());
         assertEquals("Max Number of series not mapped", Integer.valueOf(dto.getMaxNumber()), addAccessionSeries.getMaxNumber());
-        assertEquals("Max Zero of series not mapped", Integer.valueOf(dto.getMaxZero()),  addAccessionSeries.getMaxZero());
-        assertEquals("Prefix of series not mapped",dto.getPrefix(),  addAccessionSeries.getPrefix());
-        assertEquals("Type of series not mapped", dto.getAccessionSeriesTypeName(), addAccessionSeries.getAccessionSeriesType().name());
+        assertEquals("Max Zero of series not mapped", Integer.valueOf(dto.getMaxZero()), addAccessionSeries.getMaxZero());
     }
 }

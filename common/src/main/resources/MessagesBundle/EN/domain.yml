@@ -104,10 +104,10 @@ patron:
 
 accessionSeries:
   code: Series Name
+  typeName: Type Name
+  prefix: Prefix
   maxNumber: Max Number
   maxZero: Max Zero
-  prefix: Prefix
-  typeName: Fixed Or Variable
 
 holiday:
   fiscalYearId: Fiscal Year

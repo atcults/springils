@@ -12,39 +12,31 @@ import org.springframework.stereotype.Component;
 @Component
 public class AddAccessionSeriesConverter implements DtoToCommandConverter<AccessionSeriesDto> {
 
-   @Override
+    @Override
     public ProcessCommand convert(AccessionSeriesDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
 
-       AddAccessionSeries command = new AddAccessionSeries();
+        AddAccessionSeries command = new AddAccessionSeries();
 
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
         ConverterHelper.checkCodeRequired(dto, command, processError);
 
-       //Check maxNumber should not less than 0
-       Integer maxNumber = Integer.valueOf(dto.getMaxNumber());
-       if(maxNumber < 0) {
-           processError.addError("common.field.value", "startFromNumber", "domain.accessionSeries.maxNumber");
-       }else {
-           command.setMaxNumber(Integer.valueOf(dto.getMaxNumber()));
-       }
+        AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByValue(String.valueOf(dto.getTypeName()));
 
-       //Check maxZero should not less than 0
-       Integer maxZero = Integer.valueOf(dto.getMaxZero());
-       if(maxZero < 0 ){
-           processError.addError("common.field.value", "maxZero", "domain.accessionSeries.maxZero");
-       }else{
-           command.setMaxZero(Integer.valueOf(dto.getMaxZero()));
-       }
+        //Required Series Type Value
+        if (accessionSeriesType == null) {
+            processError.addError("common.field.select", "typeName", "domain.accessionSeries.typeName");
+        } else {
+            command.setAccessionSeriesType(accessionSeriesType);
+        }
 
-       command.setPrefix(dto.getPrefix());
+        //Optional prefix value
+        command.setPrefix(dto.getPrefix());
 
-       AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByName(dto.getAccessionSeriesTypeName());
+        //Optional positive number
+        command.setMaxNumber(ConverterHelper.checkOptionalPositiveInteger("maxNumber", dto.getMaxNumber(), "domain.accessionSeries.maxNumber", processError));
 
-       if(accessionSeriesType == null){
-           processError.addError("common.field.select", "typeName", "domain.accessionSeries.typeName");
-       }else {
-           command.setAccessionSeriesType(accessionSeriesType);
-       }
+        //Optional positive number
+        command.setMaxZero(ConverterHelper.checkOptionalPositiveInteger("maxZero", dto.getMaxNumber(), "domain.accessionSeries.maxZero", processError));
 
         return command;
     }

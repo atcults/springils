@@ -10,6 +10,8 @@ import org.sanelib.ils.core.commands.ProcessCommandWithId;
 import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.exceptions.ProcessError;
 
+import java.util.Objects;
+
 public class ConverterHelper {
 
     public static void checkIdRequired(DtoWithId dto, ProcessCommandWithId command, ProcessError processError){
@@ -48,5 +50,30 @@ public class ConverterHelper {
             return false;
         }
         return true;
+    }
+
+    public static Integer checkOptionalInteger(String fieldName, String value, String labelName, ProcessError processError){
+
+        Integer intValue = null;
+
+        if ((Objects.equals(value, "")) || (!Strings.isNullOrEmpty(value) && !RegularExpressionHelper.checkNumber(value))) {
+            processError.addError("common.field.invalidInteger", fieldName, labelName);
+        } else if (value != null) {
+            intValue = Integer.parseInt(value);
+        }
+
+        return intValue;
+    }
+
+    public static Integer checkOptionalPositiveInteger(String fieldName, String value, String labelName, ProcessError processError){
+
+        Integer intValue = checkOptionalInteger(fieldName, value, labelName, processError);
+
+        if(intValue != null && intValue < 0){
+            intValue = null;
+            processError.addError("common.field.shouldBeGraterOrEqualThan", fieldName, labelName, String.valueOf(0));
+        }
+
+        return intValue;
     }
 }

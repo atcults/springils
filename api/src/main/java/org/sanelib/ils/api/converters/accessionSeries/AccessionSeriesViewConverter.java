@@ -15,7 +15,7 @@ public class AccessionSeriesViewConverter extends AbstractViewToDtoConverterImpl
 
         accessionSeriesDto.setLibraryId(String.valueOf(accessionSeriesView.getLibraryId()));
         accessionSeriesDto.setCode(accessionSeriesView.getCode());
-        accessionSeriesDto.setAccessionSeriesTypeName(accessionSeriesView.getAccessionSeriesType().toString());
+        accessionSeriesDto.setTypeName(accessionSeriesView.getAccessionSeriesType().toString());
         accessionSeriesDto.setPrefix(accessionSeriesView.getPrefix());
         accessionSeriesDto.setMaxNumber(String.valueOf(accessionSeriesView.getMaxNumber()));
         accessionSeriesDto.setMaxZero(String.valueOf(accessionSeriesView.getMaxZero()));
