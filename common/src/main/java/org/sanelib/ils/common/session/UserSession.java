@@ -1,4 +1,4 @@
-package org.sanelib.ils.api.services;
+package org.sanelib.ils.common.session;
 
 public interface UserSession {
     String getUserCode();
