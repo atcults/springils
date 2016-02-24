@@ -20,7 +20,7 @@ public class AddAccessionSeriesConverter implements DtoToCommandConverter<Access
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
         ConverterHelper.checkCodeRequired(dto, command, processError);
 
-        AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByValue(String.valueOf(dto.getTypeName()));
+        AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByName(dto.getTypeName());
 
         //Required Series Type Value
         if (accessionSeriesType == null) {
@@ -36,7 +36,7 @@ public class AddAccessionSeriesConverter implements DtoToCommandConverter<Access
         command.setMaxNumber(ConverterHelper.checkOptionalPositiveInteger("maxNumber", dto.getMaxNumber(), "domain.accessionSeries.maxNumber", processError));
 
         //Optional positive number
-        command.setMaxZero(ConverterHelper.checkOptionalPositiveInteger("maxZero", dto.getMaxNumber(), "domain.accessionSeries.maxZero", processError));
+        command.setMaxZero(ConverterHelper.checkOptionalPositiveInteger("maxZero", dto.getMaxZero(), "domain.accessionSeries.maxZero", processError));
 
         return command;
     }

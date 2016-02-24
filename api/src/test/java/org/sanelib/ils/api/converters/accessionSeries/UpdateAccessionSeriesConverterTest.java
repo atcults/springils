@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 public class UpdateAccessionSeriesConverterTest {
 
     @Test
-    public void testUpdateAgencySuccessExecute() throws Exception{
+    public void validDataShouldConvertDtoToCommand() throws Exception{
 
         AccessionSeriesDto dto = new AccessionSeriesDto();
 

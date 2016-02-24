@@ -12,7 +12,8 @@ import static org.junit.Assert.assertTrue;
 public class AddAccessionSeriesConverterTest {
 
     @Test
-    public void testAddAccessionSeriesSuccessExecute() throws Exception{
+    public void validDataShouldConvertDtoToCommand() throws Exception{
+
         AccessionSeriesDto dto = new AccessionSeriesDto();
 
         dto.setLibraryId("1");
@@ -36,7 +37,7 @@ public class AddAccessionSeriesConverterTest {
         assertEquals("Code is not mapped", dto.getCode(), addAccessionSeries.getCode());
         assertEquals("Prefix of series not mapped",dto.getPrefix(), addAccessionSeries.getPrefix());
         assertEquals("Type of series not mapped", dto.getTypeName(), addAccessionSeries.getAccessionSeriesType().name());
-        assertEquals("Max Number of series not mapped", Integer.valueOf(dto.getMaxNumber()), addAccessionSeries.getMaxNumber());
-        assertEquals("Max Zero of series not mapped", Integer.valueOf(dto.getMaxZero()), addAccessionSeries.getMaxZero());
+        assertEquals("Max Number of series not mapped", dto.getMaxNumber(), String.valueOf(addAccessionSeries.getMaxNumber()));
+        assertEquals("Max Zero of series not mapped", dto.getMaxZero(), String.valueOf(addAccessionSeries.getMaxZero()));
     }
 }
