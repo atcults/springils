@@ -36,7 +36,7 @@ public class BindingTypeService extends ApiServiceBase {
 
     @GET
     @SuppressWarnings("unchecked")
-    public List<BindingTypeDto> getAllBindingTypes() throws Throwable {
+    public List getAllBindingTypes() throws Throwable {
         List dtoList = new ArrayList<>();
         List viewList = bindingTypeViewRepository.getAll();
         dtoList.addAll((Collection) viewList.stream().map(v -> bindingTypeViewConverter.convert((BindingTypeView) v)).collect(Collectors.toList()));

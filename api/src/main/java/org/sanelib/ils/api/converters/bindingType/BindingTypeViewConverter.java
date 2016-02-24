@@ -5,29 +5,17 @@ import org.sanelib.ils.api.dto.bindingType.BindingTypeDto;
 import org.sanelib.ils.core.domain.view.admin.BindingTypeView;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Component
 public class BindingTypeViewConverter  extends AbstractViewToDtoConverterImpl<BindingTypeDto, BindingTypeView> {
 
-
     @Override
-    public List<BindingTypeDto> convert(List<BindingTypeView> bindingTypeView) {
-        List<BindingTypeDto> bindingTypeDtos = new ArrayList<>();
+    public BindingTypeDto convert(BindingTypeView bindingTypeView) {
+        BindingTypeDto dto = new BindingTypeDto();
 
-        for(BindingTypeView view : bindingTypeView) {
-
-            BindingTypeDto dto = new BindingTypeDto();
-
-            dto.setLibraryId(String.valueOf(view.getLibraryId()));
-            dto.setId(String.valueOf(view.getId()));
-            dto.setBindType(view.getBindType());
-            dto.setPrice(String.valueOf(view.getPrice()));
-
-            bindingTypeDtos.add(dto);
-        }
-        return bindingTypeDtos;
+        dto.setLibraryId(String.valueOf(bindingTypeView.getLibraryId()));
+        dto.setId(String.valueOf(bindingTypeView.getId()));
+        dto.setBindType(bindingTypeView.getBindType());
+        dto.setPrice(String.valueOf(bindingTypeView.getPrice()));
+        return dto;
     }
-
 }
