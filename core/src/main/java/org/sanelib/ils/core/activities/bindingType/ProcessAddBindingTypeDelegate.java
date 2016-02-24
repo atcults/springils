@@ -36,7 +36,7 @@ public class ProcessAddBindingTypeDelegate implements JavaDelegate {
         entity.setBindingTypeId(nextId, command.getLibraryId());
         entity.setBindType(command.getBindType());
         entity.setPrice(command.getPrice());
-        entity.setEntryId(command.getPatronCode());
+        entity.setUserCode(command.getUserCode());
 
         bindingTypeRepository.save(entity);
 

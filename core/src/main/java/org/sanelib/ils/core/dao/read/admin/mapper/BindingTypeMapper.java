@@ -19,8 +19,6 @@ public class BindingTypeMapper implements ViewMapper<BindingTypeView> {
         view.setId(rs.getInt(viewName, "bind_type_id"));
         view.setBindType(rs.getString(viewName, "bind_type"));
         view.setPrice(rs.getDouble(viewName, "price"));
-        view.setEntryId(rs.getString(viewName, "entry_id"));
-        view.setEntryDate(rs.getDate(viewName, "entry_date"));
 
         return view;
     }

@@ -23,17 +23,13 @@ public class BindingType implements DomainEntity {
     private Double price;
 
     @Column(name = "entry_id")
-    private String entryId;
+    private String userCode;
 
     @Column(name = "entry_date")
     private Date entryDate;
 
     public BindingTypeId getBindingTypeId() {
         return bindingTypeId;
-    }
-
-    public void setBindingTypeId(BindingTypeId bindingTypeId) {
-        this.bindingTypeId = bindingTypeId;
     }
 
     public void setBindingTypeId(int id, int libraryId){
@@ -61,12 +57,12 @@ public class BindingType implements DomainEntity {
         this.price = price;
     }
 
-    public String getEntryId() {
-        return entryId;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     @PrePersist
