@@ -16,6 +16,7 @@ entity:
   patronCategory: PatronCategory
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
+  bindingType: Binding Type
   holiday: Holiday
   department: Department
   patron: Patron
@@ -121,3 +122,7 @@ patronCategory:
 Department:
   name: Department Name
   hodId: HOD Id
+
+bindingType:
+  bindType: Binding Type
+  price: Price

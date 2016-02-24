@@ -15,5 +15,6 @@ public class ApiEndPointConstants {
         public static final String DEPARTMENT_END_POINT = "/department";
         public static final String AUTHOR_END_POINT = "/author";
 
+        public static final String BINDING_TYPE_END_POINT = "/bindingType";
     }
 }

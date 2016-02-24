@@ -8,6 +8,7 @@ import org.activiti.engine.impl.pvm.PvmException;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.Dto;
+import org.sanelib.ils.common.session.UserSession;
 import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.dao.UnitOfWork;

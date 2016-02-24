@@ -1,4 +1,6 @@
-package org.sanelib.ils.api.services;
+package org.sanelib.ils.common.session.impl;
+
+import org.sanelib.ils.common.session.UserSession;
 
 public class UserSessionImpl implements UserSession {
 
