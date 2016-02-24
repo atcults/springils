@@ -10,5 +10,6 @@ public class ApiEndPointConstants {
         public static final String ACCESSION_SERIES_END_POINT = "/accessionSeries";
         public static final String HOLIDAY_END_POINT = "/holiday";
         public static final String PATRON_CATEGORY_END_POINT = "/patronCategory";
+        public static final String MATERIAL_TYPE_END_POINT = "/materialType";
     }
 }
