@@ -7,7 +7,6 @@ import org.sanelib.ils.core.domain.view.admin.AccessionSeriesView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Collections;
 import java.util.List;
 
 @SuppressWarnings("unchecked")

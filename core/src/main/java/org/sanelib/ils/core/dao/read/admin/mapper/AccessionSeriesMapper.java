@@ -19,15 +19,12 @@ public class AccessionSeriesMapper implements ViewMapper<AccessionSeriesView> {
 
         final AccessionSeriesView accessionSeriesView = new AccessionSeriesView();
 
+        accessionSeriesView.setLibraryId(rs.getInt(accession_series, "library_id"));
         accessionSeriesView.setSeriesName(rs.getString(accession_series, "series_name"));
-        accessionSeriesView.setLibraryId(rs.getInt(accession_series,"library_id"));
-        accessionSeriesView.setMaxNumber(rs.getInt(accession_series,"max_number"));
-        accessionSeriesView.setMaxZero(rs.getInt(accession_series,"max_zero"));
-        accessionSeriesView.setTypeName(AccessionSeriesType.getByValue(rs.getString(accession_series , "fixed_variable")));
-        accessionSeriesView.setEntryDate(rs.getDate(accession_series,"entry_date"));
-        accessionSeriesView.setPrefix(rs.getString(accession_series,"prefix"));
-        accessionSeriesView.setEntryId(rs.getString(accession_series,"entry_id"));
-        accessionSeriesView.setEntryLibraryId(rs.getInt(accession_series, "entry_library_id"));
+        accessionSeriesView.setAccessionSeriesType(AccessionSeriesType.getByValue(rs.getString(accession_series , "fixed_variable")));
+        accessionSeriesView.setPrefix(rs.getString(accession_series, "prefix"));
+        accessionSeriesView.setMaxNumber(rs.getInt(accession_series, "max_number"));
+        accessionSeriesView.setMaxZero(rs.getInt(accession_series, "max_zero"));
 
         return accessionSeriesView;
     }

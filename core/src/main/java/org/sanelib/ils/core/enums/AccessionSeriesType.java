@@ -15,10 +15,6 @@ public enum AccessionSeriesType {
         this.value = value;
     }
 
-    public boolean equalsName(String otherLabel) {
-        return otherLabel != null && this.name.equals(otherLabel);
-    }
-
     public String toString() {
         return this.value;
     }

@@ -36,8 +36,7 @@ public class AccessionSeriesService extends ApiServiceBase {
         List dtoList = new ArrayList<>();
         List viewList = accessionSeriesViewRepository.getAll();
 
-        dtoList.addAll((Collection) viewList.stream().map(v -> accessionSeriesViewConverter.convert(
-                (AccessionSeriesView) v)).collect(Collectors.toList()));
+        dtoList.addAll((Collection) viewList.stream().map(v -> accessionSeriesViewConverter.convert((AccessionSeriesView) v)).collect(Collectors.toList()));
 
         return dtoList;
     }
