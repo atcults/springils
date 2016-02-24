@@ -17,7 +17,7 @@ public class UpdateDepartmentConverterTest {
 
         dto.setId("1");
         dto.setLibraryId("1");
-        dto.setDeptName("Department Changed.");
+        dto.setName("Department Changed.");
 
         ProcessError processError = new ProcessError();
 
@@ -31,6 +31,6 @@ public class UpdateDepartmentConverterTest {
 
         assertEquals("Id is not mapped", dto.getId(), String.valueOf(updateDepartment.getId()));
         assertEquals("Library Id is not mapped", dto.getLibraryId(), String.valueOf(updateDepartment.getLibraryId()));
-        assertEquals("Name is not mapped", dto.getDeptName(), updateDepartment.getDeptName());
+        assertEquals("Name is not mapped", dto.getName(), updateDepartment.getName());
     }
 }

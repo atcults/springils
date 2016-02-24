@@ -16,7 +16,6 @@ public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDt
         dto.setLibraryId(String.valueOf(patronView.getLibraryId()));
         dto.setCode(patronView.getCode());
         dto.setPatronCategoryId(String.valueOf(patronView.getPatronCategoryId()));
-        dto.setIsOnline(patronView.getIsOnline());
         dto.setOwns(patronView.getOwns());
         dto.setOtherLibraryPatronId(String.valueOf(patronView.getOtherLibraryPatronId()));
         dto.setLibraryPatronId(String.valueOf(patronView.getLibraryPatronId()));
@@ -51,11 +50,8 @@ public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDt
         dto.setCommonEmail(patronView.isCommonEmail());
         dto.setCommonInstantMsg(patronView.isCommonInstantMsg());
         dto.setCommonPrint(patronView.isCommonPrint());
-        dto.setEntryDate(DateHelper.toDateString(patronView.getEntryDate()));
         dto.setUserPassword(patronView.getUserPassword());
         dto.setCourseId(String.valueOf(patronView.getCourseId()));
-        dto.setStatus(patronView.getStatus());
-        dto.setSendToAddress(patronView.getSendToAddress());
         dto.setCustom(patronView.getCustom());
         dto.setPrivilege(patronView.getPrivilege());
         dto.setTwitterId(patronView.getTwitterId());
@@ -63,6 +59,8 @@ public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDt
         dto.setSubLocationId(String.valueOf(patronView.getSubLocationId()));
         dto.setLoginId(patronView.getLoginId());
         dto.setAuthenticateLocalDatabase(patronView.getAuthenticateLocalDatabase());
+        dto.setSendToAddress(patronView.isSendToAddress());
+        dto.setActive(patronView.isActive());
 
         return dto;
     }

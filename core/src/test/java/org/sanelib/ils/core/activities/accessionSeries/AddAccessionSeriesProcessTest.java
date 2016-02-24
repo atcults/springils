@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.accessionSeries;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.accessioSeries.AddAccessionSeries;
 import org.sanelib.ils.core.dao.AccessionSeriesRepository;
@@ -44,8 +43,7 @@ public class AddAccessionSeriesProcessTest extends EntityIntegrationTestBase {
         AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByName("Fixed");
         addAccessionSeries.setTypeName(accessionSeriesType);
 
-        addAccessionSeries.setEntryId("1");
-        addAccessionSeries.setEntryDate(DateHelper.fromDateString("2016-01-01"));
+        addAccessionSeries.setUserCode("1");
 
         String result = execute(addAccessionSeries, ActivitiProcessConstants.Admin.ADD_ACCESSION_SERIES);
 
@@ -60,8 +58,6 @@ public class AddAccessionSeriesProcessTest extends EntityIntegrationTestBase {
         assertEquals(addAccessionSeries.getMaxZero() ,accessionSeries.getMaxZero());
         assertEquals(addAccessionSeries.getPrefix() ,accessionSeries.getPrefix());
         assertEquals(addAccessionSeries.getTypeName() ,accessionSeries.getTypeName());
-        assertEquals(addAccessionSeries.getEntryId() ,accessionSeries.getEntryId());
-        assertEquals(addAccessionSeries.getEntryDate() ,accessionSeries.getEntryDate());
-
+        assertEquals(addAccessionSeries.getUserCode() ,accessionSeries.getUserCode());
     }
 }
