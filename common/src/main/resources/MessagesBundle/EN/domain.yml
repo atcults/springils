@@ -7,12 +7,18 @@ common:
   userLibraryId: User Library Id
   createdOn: Created On
   updatedOn: Updated On
+  day: Day
+  month: Month
+  from: From
+  to: To
+  amount: Amount
 
 entity:
   library: Library
   publisher: Publisher
   agency: Agency
   course: Course
+  circulationMatrix : CirculationMatrix
   patronCategory: PatronCategory
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
@@ -48,6 +54,21 @@ author:
 course:
   name: Name
   promotedCourseId: Promoted Course Id
+
+circulationMatrix:
+  wef: With Effect From
+  overAllLoanLimit: Overall Loan Limit
+  renewalLimit: Renewal Limit
+  finePerDay: Fine Per Day
+  maxFine: Max Ceil On Fine
+  renewalThroughOPAC: Renewal Through OPAC
+  otherDetails: Other Details
+  loanDurationType: Loan Duration Type
+  loanDuration: Loan Duration
+  includeHolidaysInDateDue: Include Holidays In Date Due
+  fixedDateDues: Fixed Date Dues
+  chargeDurationType: Charge Duration Type
+  includeHolidaysInCharges: Include Holidays In Charges
 
 fiscalYear:
   startDate: Start Date
