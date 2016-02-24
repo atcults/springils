@@ -43,6 +43,7 @@ author:
   city: City
   state: State
   zip: Zip Code
+
 course:
   name: Name
   entryId: Entry Id
@@ -130,3 +131,7 @@ Department:
   hodId: HOD Id
   entryDate: Entry Date
   entryId: Entry Id
+
+bindingType:
+  bindType: Binding Type
+  price: Price
