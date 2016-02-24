@@ -53,5 +53,8 @@ public class ActivitiProcessConstants {
         public static final String UPDATE_FISCALYEAR = "updateFiscalYear";
         public static final String DELETE_FISCALYEAR = "deleteFiscalYear";
 
+        public static final String ADD_CIRCULATION_MATRIX = "addCirculationMatrix";
+        public static final String UPDATE_CIRCULATION_MATRIX = "updateCirculationMatrix";
+        public static final String DELETE_CIRCULATION_MATRIX = "deleteCirculationMatrix";
     }
 }
