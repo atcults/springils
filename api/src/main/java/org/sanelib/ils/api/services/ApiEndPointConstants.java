@@ -14,6 +14,7 @@ public class ApiEndPointConstants {
         public static final String HOLIDAY_END_POINT = "/holiday";
         public static final String DEPARTMENT_END_POINT = "/department";
         public static final String AUTHOR_END_POINT = "/author";
+        public static final String CIRCULATION_MATRIX_END_POINT = "/circulationMatrix";
 
     }
 }
