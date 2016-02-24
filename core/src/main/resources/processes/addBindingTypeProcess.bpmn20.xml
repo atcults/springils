@@ -1,14 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef" xmlns:modeler="http://activiti.com/modeler" modeler:version="1.0ev" modeler:exportDateTime="20160118100430" modeler:modelId="971198" modeler:modelVersion="1" modeler:modelLastUpdated="1453111461983">
-  <process id="addBindingTypeProcess" name="addBindingTypeProcess" isExecutable="true">
-    <documentation>To process Add binding Type</documentation>
-    <startEvent id="startAddBindingTypeProcessID" name="Start"/>
-    <serviceTask id="checkLibraryExistID" name="checkLibraryExist" activiti:delegateExpression="${checkLibraryExistDelegate}"/>
-    <serviceTask id="processAddBindingTypeID" name="processAddBindingTypeProcess" activiti:delegateExpression="${processAddBindingTypeDelegate}"/>
-    <endEvent id="sid-4528F314-CFEB-459A-96F4-3ED6A1E59C8F"/>
-    <sequenceFlow id="sid-0C1B1177-CCE0-4D28-BB6C-D3822EC11DA7" sourceRef="startAddBindingTypeProcessID" targetRef="checkLibraryExistID"/>
-    <sequenceFlow id="sid-B49D9A0C-439B-4EC1-9986-F9DF5A3B79D3" sourceRef="checkLibraryExistID" targetRef="processAddBindingTypeID"/>
-    <sequenceFlow id="sid-C3E6D4F4-FD16-4E9A-85D2-28A801C10122" sourceRef="processAddBindingTypeID" targetRef="sid-4528F314-CFEB-459A-96F4-3ED6A1E59C8F"/>
-  </process>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:activiti="http://activiti.org/bpmn"
+             typeLanguage="http://www.w3.org/2001/XMLSchema"
+             expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/processdef"
+             xmlns:modeler="http://activiti.com/modeler"
+             modeler:version="1.0ev"
+             modeler:exportDateTime="20160119111356"
+             modeler:modelId="969940"
+             modeler:modelVersion="1"
+             modeler:modelLastUpdated="1451992423194">
+    <process id="addBindingTypeProcess" name="addBindingTypeProcess" isExecutable="true">
+        <documentation>To process add binding Type</documentation>
 
+        <startEvent id="startProcessId" name="start"/>
+        <serviceTask id="checkLibraryExistId" name="checkLibraryExist" activiti:delegateExpression="${checkLibraryExistDelegate}"/>
+        <serviceTask id="checkBindingTypeDuplicationId" name="checkBindingTypeDuplication" activiti:delegateExpression="${checkBindingTypeDuplicationDelegate}"/>
+        <serviceTask id="processAddBindingTypeId" name="processAddBindingTypeProcess" activiti:delegateExpression="${processAddBindingTypeDelegate}"/>
+        <endEvent id="endProcessId" name="end"/>
+
+        <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E28" sourceRef="startProcessId" targetRef="checkLibraryExistId"/>
+        <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E58" sourceRef="checkLibraryExistId" targetRef="checkBindingTypeDuplicationId"/>
+        <sequenceFlow id="sid-9B2E3492-26CA-40A3-A8CB-74E1302888A3" sourceRef="checkBindingTypeDuplicationId" targetRef="processAddBindingTypeId"/>
+        <sequenceFlow id="sid-78877653-D15F-47F3-91D3-921D9E76438B" sourceRef="processAddBindingTypeId" targetRef="endProcessId"/>
+    </process>
 </definitions>

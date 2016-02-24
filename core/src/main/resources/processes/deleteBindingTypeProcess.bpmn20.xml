@@ -11,16 +11,17 @@
              modeler:modelVersion="1"
              modeler:modelLastUpdated="1451992423194">
     <process id="deleteBindingTypeProcess" name="deleteBindingTypeProcess" isExecutable="true">
-        <documentation>This is activiti  for Deleting BindingType.</documentation>
-        <startEvent id="startDelete" name="Start"/>
-        <serviceTask id="checkLibraryExistID" name="checkLibraryExist" activiti:delegateExpression="${checkLibraryExistDelegate}"/>
-        <serviceTask id="checkBindingTypeExistID" name="checkBindingTypeExist" activiti:delegateExpression="${checkBindingTypeExistDelegate}"/>
-        <serviceTask id="serviceDeleteProcess" name="Delete BindingType" activiti:delegateExpression="${processDeleteBindingTypeDelegate}"/>
-        <endEvent id="serviceBindingTypeDeleteEnd" name="End"/>
+        <documentation>To process Delete BindingType</documentation>
 
-        <sequenceFlow id="sid-2A9BDFD7-4BD2-423B-BBFA-4D0A9E0921A3" sourceRef="startDelete" targetRef="checkLibraryExistID"/>
-        <sequenceFlow id="sid-77077173-6F9E-44C0-A83D-384F0D4AEE82" sourceRef="checkLibraryExistID" targetRef="checkBindingTypeExistID"/>
-        <sequenceFlow id="sid-77077173-6F9E-44C0-A83D-384F0D4AEE83" sourceRef="checkBindingTypeExistID" targetRef="serviceDeleteProcess"/>
-        <sequenceFlow id="sid-E10ED343-DE5F-442A-9B41-D2B6B6535762" sourceRef="serviceDeleteProcess" targetRef="serviceBindingTypeDeleteEnd"/>
+        <startEvent id="startProcessId" name="Start"/>
+        <serviceTask id="checkLibraryExistId" name="checkLibraryExist" activiti:delegateExpression="${checkLibraryExistDelegate}"/>
+        <serviceTask id="checkBindingTypeExistId" name="checkBindingTypeExist" activiti:delegateExpression="${checkBindingTypeExistDelegate}"/>
+        <serviceTask id="processDeleteProcess" name="DeleteBindingType" activiti:delegateExpression="${processDeleteBindingTypeDelegate}"/>
+        <endEvent id="endProcessId" name="End"/>
+
+        <sequenceFlow id="sid-2A9BDFD7-4BD2-423B-BBFA-4D0A9E0921A3" sourceRef="startProcessId" targetRef="checkLibraryExistId"/>
+        <sequenceFlow id="sid-77077173-6F9E-44C0-A83D-384F0D4AEE82" sourceRef="checkLibraryExistId" targetRef="checkBindingTypeExistId"/>
+        <sequenceFlow id="sid-77077173-6F9E-44C0-A83D-384F0D4AEE83" sourceRef="checkBindingTypeExistId" targetRef="processDeleteProcess"/>
+        <sequenceFlow id="sid-E10ED343-DE5F-442A-9B41-D2B6B6535762" sourceRef="processDeleteProcess" targetRef="endProcessId"/>
     </process>
 </definitions>

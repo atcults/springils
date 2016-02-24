@@ -12,15 +12,18 @@
              modeler:modelLastUpdated="1451992423194">
     <process id="updateBindingTypeProcess" name="updateBindingTypeProcess" isExecutable="true">
         <documentation>To process update agency command</documentation>
-        <startEvent id="startProcessID" name="start"/>
-        <serviceTask id="checkLibraryExistID" name="checkLibraryExist" activiti:delegateExpression="${checkLibraryExistDelegate}"/>
-        <serviceTask id="checkBindingTypeExistID" name="checkBindingTypeExist" activiti:delegateExpression="${checkBindingTypeExistDelegate}"/>
-        <serviceTask id="processUpdateBindingTypeID" name="processUpdateBindingTypeProcess" activiti:delegateExpression="${processUpdateBindingTypeDelegate}"/>
-        <endEvent id="endProcessID" name="end"/>
 
-        <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E28" sourceRef="startProcessID" targetRef="checkLibraryExistID"/>
-        <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E59" sourceRef="checkLibraryExistID" targetRef="checkBindingTypeExistID"/>
-        <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E58" sourceRef="checkBindingTypeExistID" targetRef="processUpdateBindingTypeID"/>
-        <sequenceFlow id="sid-78877653-D15F-47F3-91D3-921D9E76438B" sourceRef="processUpdateBindingTypeID" targetRef="endProcessID"/>
+        <startEvent id="startProcessId" name="start"/>
+        <serviceTask id="checkLibraryExistId" name="checkLibraryExist" activiti:delegateExpression="${checkLibraryExistDelegate}"/>
+        <serviceTask id="checkBindingTypeExistId" name="checkBindingTypeExist" activiti:delegateExpression="${checkBindingTypeExistDelegate}"/>
+        <serviceTask id="checkBindingTypeDuplicationId" name="checkBindingTypeDuplication" activiti:delegateExpression="${checkBindingTypeDuplicationDelegate}"/>
+        <serviceTask id="processUpdateBindingTypeId" name="processUpdateBindingTypeProcess" activiti:delegateExpression="${processUpdateBindingTypeDelegate}"/>
+        <endEvent id="endProcessId" name="end"/>
+
+        <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E28" sourceRef="startProcessId" targetRef="checkLibraryExistId"/>
+        <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E59" sourceRef="checkLibraryExistId" targetRef="checkBindingTypeExistId"/>
+        <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E58" sourceRef="checkBindingTypeExistId" targetRef="checkBindingTypeDuplicationId"/>
+        <sequenceFlow id="sid-9B2E3492-26CA-40A3-A8CB-74E1302888A3" sourceRef="checkBindingTypeDuplicationId" targetRef="processUpdateBindingTypeId"/>
+        <sequenceFlow id="sid-78877653-D15F-47F3-91D3-921D9E76438B" sourceRef="processUpdateBindingTypeId" targetRef="endProcessId"/>
     </process>
 </definitions>
