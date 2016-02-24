@@ -2,8 +2,8 @@ package org.sanelib.ils;
 
 import java.util.Locale;
 
-import org.sanelib.ils.api.services.UserSession;
-import org.sanelib.ils.api.services.UserSessionImpl;
+import org.sanelib.ils.common.session.UserSession;
+import org.sanelib.ils.common.session.impl.UserSessionImpl;
 import org.sanelib.ils.common.properties.AppProperties;
 import org.sanelib.ils.common.utils.Clock;
 import org.sanelib.ils.common.utils.SystemClock;
