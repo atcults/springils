@@ -34,32 +34,36 @@ public class ProcessAddCirculationMatrixDelegate implements JavaDelegate {
 
         CirculationMatrix entity = new CirculationMatrix();
 
-        entity.setAuditUserCode(command.getAuditUserCode());
         entity.setRenewalThroughOPAC(command.getRenewalThroughOPAC());
+
+        entity.setLoanDurationType(command.getLoanDurationType());
+        entity.setLoanDurationType(DurationType.Days);
+
+        if(Objects.equals(command.getLoanDurationType(), DurationType.Fixed)) {
+            for(AddCirculationMatrix.FixedDate fixDate : command.getFixedDateDues()){
+                entity.addFixedDateDue(fixDate.getDay(), fixDate.getMonth());
+            }
+        }
+
+        entity.setIncludeHolidaysInDateDue(command.isIncludeHolidaysInDateDue());
         entity.setOverAllLoanLimit(command.getOverAllLoanLimit());
         entity.setRenewalLimit(command.getRenewalLimit());
         entity.setFinePerDay(command.getFinePerDay());
-        entity.setMaxCeilOnFine(command.getMaxCeilOnFine());
-        entity.setOtherDetails(command.getOtherDetails());
-        entity.setLoanDurationType(command.getLoanDurationType());
-        entity.setIncludeHolidaysInDateDue(command.isIncludeHolidaysInDateDue());
+        entity.setMaxFine(command.getMaxFine());
+
         entity.setChargeDurationType(command.getChargeDurationType());
-        entity.setIncludeHolidaysInCharges(command.isIncludeHolidaysInCharges());
-
-        if(Objects.equals(command.getLoanDurationType(), DurationType.Days)) {
-            entity.setAuditUserCode(command.getAuditUserCode());
-            entity.setLoanDuration(command.getLoanDuration());
-        }
-
-        if(Objects.equals(command.getLoanDurationType(), DurationType.Fixed)) {
-            entity.addFixedDateDue(command.getDay(), command.getMonth());
-
-        }
 
         if(Objects.equals(command.getChargeDurationType(), DurationType.Hours)) {
-            entity.addChargeDetail(command.getFrom(), command.getTo() , command.getAmount());
+            for(AddCirculationMatrix.ChargeDetail chargeDetail : command.getChargeDetails()) {
+                entity.addChargeDetail(chargeDetail.getFrom(), chargeDetail.getTo(), chargeDetail.getAmount());
+            }
         }
 
+        entity.setIncludeHolidaysInCharges(command.isIncludeHolidaysInCharges());
+
+
         circulationMatrixRepository.save(entity);
+
+        execution.setVariable("result" , entity.getUserCode());
     }
 }
