@@ -37,7 +37,6 @@ public class ProcessAddCirculationMatrixDelegate implements JavaDelegate {
         entity.setRenewalThroughOPAC(command.getRenewalThroughOPAC());
 
         entity.setLoanDurationType(command.getLoanDurationType());
-        entity.setLoanDurationType(DurationType.Days);
 
         if(Objects.equals(command.getLoanDurationType(), DurationType.Fixed)) {
             for(AddCirculationMatrix.FixedDate fixDate : command.getFixedDateDues()){
@@ -60,7 +59,6 @@ public class ProcessAddCirculationMatrixDelegate implements JavaDelegate {
         }
 
         entity.setIncludeHolidaysInCharges(command.isIncludeHolidaysInCharges());
-
 
         circulationMatrixRepository.save(entity);
 
