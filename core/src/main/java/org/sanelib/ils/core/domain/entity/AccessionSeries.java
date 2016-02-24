@@ -24,7 +24,7 @@ public class AccessionSeries implements DomainEntity {
         return accessionSeriesCode;
     }
 
-    public void setAccessionSeriesCode(String code, int libraryId){
+    public void setAccessionSeriesCode(String code, int libraryId) {
         if(this.accessionSeriesCode == null){
             this.accessionSeriesCode = new AccessionSeriesCode(libraryId, code);
         } else {
@@ -33,19 +33,19 @@ public class AccessionSeries implements DomainEntity {
         }
     }
 
+    //NOTE: Series type is fixed or variable. Stores 1 character.
+    @Convert( converter = AccessionSeriesTypeConverter.class )
+    @Column(name = "fixed_variable")
+    private AccessionSeriesType accessionSeriesType;
+
+    @Column(name = "prefix")
+    private String prefix;
+
     @Column(name = "max_number")
     private Integer maxNumber;
 
     @Column(name = "max_zero")
     private Integer maxZero;
-
-    @Column(name = "prefix")
-    private String prefix;
-
-    //NOTE: Fixed_variable stores 1 character. Series type is fixed or variable.
-    @Convert( converter = AccessionSeriesTypeConverter.class )
-    @Column(name = "fixed_variable")
-    private AccessionSeriesType accessionSeriesType;
 
     @Column(name="entry_id")
     private String userCode;
