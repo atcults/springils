@@ -6,13 +6,13 @@ import org.sanelib.ils.core.domain.view.ViewWithId;
 import java.util.Date;
 
 public class BindingTypeView implements DomainView, ViewWithId {
+
     private Integer libraryId;
     private Integer id;
     private String bindType;
     private Double price;
     private String entryId;
     private Date entryDate;
-
 
     public Integer getLibraryId() {
         return libraryId;

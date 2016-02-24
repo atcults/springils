@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.bindingType;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.bindingType.AddBindingType;
 import org.sanelib.ils.core.dao.HibernateHelper;
@@ -46,7 +45,7 @@ public class AddBindingTypeProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(bindingType);
 
-        assertEquals(addBindingType.getBindType() ,bindingType.getBindType());
-        assertEquals(addBindingType.getPrice() ,bindingType.getPrice());
+        assertEquals(addBindingType.getBindType(), bindingType.getBindType());
+        assertEquals(addBindingType.getPrice(), bindingType.getPrice());
     }
 }

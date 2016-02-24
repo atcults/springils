@@ -60,5 +60,4 @@ public class BindingTypeId implements Serializable, LibraryIdAndEntityId {
         result = 31 * result + id;
         return result;
     }
-
 }

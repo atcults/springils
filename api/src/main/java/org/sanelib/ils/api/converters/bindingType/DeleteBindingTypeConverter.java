@@ -12,8 +12,10 @@ import org.springframework.stereotype.Component;
 public class DeleteBindingTypeConverter implements DtoToCommandConverter<BindingTypeDto> {
     public ProcessCommand convert(BindingTypeDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
         DeleteBindingType command = new DeleteBindingType();
+
         ConverterHelper.checkIdRequired(dto, command, processError);
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
+
        return command;
     }
 }

@@ -5,9 +5,8 @@ import org.sanelib.ils.api.dto.bindingType.BindingTypeDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
-import org.sanelib.ils.core.dao.read.ViewNameConstants;
 import org.sanelib.ils.core.dao.read.admin.BindingTypeViewRepository;
-import org.sanelib.ils.core.domain.entity.BindingType;
+import org.sanelib.ils.core.domain.view.admin.BindingTypeView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +18,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @Path(ApiEndPointConstants.Admin.BINDING_TYPE_END_POINT)
@@ -34,10 +36,11 @@ public class BindingTypeService extends ApiServiceBase {
 
     @GET
     @SuppressWarnings("unchecked")
-    public List<BindingTypeDto> getAllBindingType() throws Throwable {
-
-        List bindingTypeList =  bindingTypeViewRepository.getAll();
-        return bindingTypeViewConverter.convert(bindingTypeList);
+    public List<BindingTypeDto> getAllBindingTypes() throws Throwable {
+        List dtoList = new ArrayList<>();
+        List viewList = bindingTypeViewRepository.getAll();
+        dtoList.addAll((Collection) viewList.stream().map(v -> bindingTypeViewConverter.convert((BindingTypeView) v)).collect(Collectors.toList()));
+        return dtoList;
     }
 
     @POST

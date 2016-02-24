@@ -15,9 +15,12 @@ public class UpdateBindingTypeConverter extends AddBindingTypeConverter {
     @Override
     public ProcessCommand convert(BindingTypeDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
         AddBindingType addBindingType = (AddBindingType) super.convert(dto, processError);
+
         UpdateBindingType updateBindingType = new UpdateBindingType();
+
         ReflectionHelper.copy(addBindingType, updateBindingType);
         ConverterHelper.checkIdRequired(dto, updateBindingType, processError);
+
         return updateBindingType;
     }
 }

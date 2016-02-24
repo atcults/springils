@@ -1,6 +1,10 @@
 package org.sanelib.ils.core.domain.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -19,7 +23,7 @@ public class BindingType implements DomainEntity {
     private Double price;
 
     @Column(name = "entry_id")
-    private String patronCode;
+    private String entryId;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -57,17 +61,16 @@ public class BindingType implements DomainEntity {
         this.price = price;
     }
 
-    public String getPatronCode() {
-        return patronCode;
+    public String getEntryId() {
+        return entryId;
     }
 
-    public void setPatronCode(String patronCode) {
-        this.patronCode = patronCode;
+    public void setEntryId(String entryId) {
+        this.entryId = entryId;
     }
 
     @PrePersist
     public void prePersist() {
-
         entryDate = new Date();
     }
 
@@ -78,7 +81,6 @@ public class BindingType implements DomainEntity {
 
         BindingType bindingType = (BindingType) o;
         return bindingTypeId.equals(bindingType.bindingTypeId);
-
     }
 
     @Override

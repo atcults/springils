@@ -29,7 +29,7 @@ public class ProcessUpdateBindingTypeDelegate implements JavaDelegate {
 
         entity.setBindType(command.getBindType());
         entity.setPrice(command.getPrice());
-        entity.setPatronCode(command.getPatronCode());
+        entity.setEntryId(command.getPatronCode());
 
         bindingTypeRepository.save(entity);
 	}

@@ -9,9 +9,7 @@ import org.sanelib.ils.core.domain.entity.BindingType;
 import org.sanelib.ils.core.domain.entity.BindingTypeId;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import static org.junit.Assert.*;
-
 
 public class UpdateBindingTypeProcessTest extends EntityIntegrationTestBase {
 
@@ -51,6 +49,5 @@ public class UpdateBindingTypeProcessTest extends EntityIntegrationTestBase {
 
         assertEquals(updateBindingType.getBindType(), dbBindingType.getBindType());
         assertEquals(updateBindingType.getPrice(), dbBindingType.getPrice());
-
     }
 }

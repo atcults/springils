@@ -2,7 +2,6 @@ package org.sanelib.ils.api.converters.bindingType;
 
 import org.junit.Test;
 import org.sanelib.ils.api.dto.bindingType.BindingTypeDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.bindingType.AddBindingType;
 import org.sanelib.ils.core.exceptions.ProcessError;
@@ -32,6 +31,5 @@ public class AddBindingTypeConverterTest {
         assertEquals("Library Id is not mapped", dto.getLibraryId(), String.valueOf(addBindingType.getLibraryId()));
         assertEquals("Bind type is not mapped", dto.getBindType(), addBindingType.getBindType());
         assertEquals("Price is not mapped", Double.valueOf(dto.getPrice()), addBindingType.getPrice());
-
     }
 }

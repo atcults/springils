@@ -3,7 +3,6 @@ package org.sanelib.ils.api.converters.bindingType;
 
 import org.junit.Test;
 import org.sanelib.ils.api.dto.bindingType.BindingTypeDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.bindingType.UpdateBindingType;
 import org.sanelib.ils.core.exceptions.ProcessError;
@@ -16,6 +15,7 @@ public class UpdateBindingTypeConverterTest {
     @Test
     public void testUpdateUpdateBindingTypeSuccessExecute() throws Exception{
         BindingTypeDto dto = new BindingTypeDto();
+
         dto.setId("1");
         dto.setLibraryId("1");
         dto.setBindType("BindType");
@@ -28,11 +28,12 @@ public class UpdateBindingTypeConverterTest {
 
         assertTrue("Conversion error occurred", processError.isValid());
         assertTrue("Wrong output " + command, command instanceof UpdateBindingType);
+
         UpdateBindingType updateBindingType = (UpdateBindingType) command;
+
         assertEquals("Id is not mapped", dto.getId(), String.valueOf(updateBindingType.getId()));
         assertEquals("Library Id is not mapped", dto.getLibraryId(), String.valueOf(updateBindingType.getLibraryId()));
         assertEquals("Bind type is not mapped", dto.getBindType(), updateBindingType.getBindType());
         assertEquals("Price is not mapped", Double.valueOf(dto.getPrice()), updateBindingType.getPrice());
     }
-
 }
