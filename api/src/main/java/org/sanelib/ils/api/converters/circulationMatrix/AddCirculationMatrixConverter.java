@@ -67,7 +67,7 @@ public class AddCirculationMatrixConverter implements DtoToCommandConverter<Circ
 
         command.setRenewalLimit(Integer.valueOf(dto.getRenewalLimit()));
         command.setFinePerDay(Double.valueOf(dto.getFinePerDay()));
-        command.setMaxFine(Double.valueOf(dto.getMaxCeilOnFine()));
+        command.setMaxFine(Double.valueOf(dto.getMaxFine()));
 
         command.setChargeDurationType(dto.getChargeDurationType());
 
