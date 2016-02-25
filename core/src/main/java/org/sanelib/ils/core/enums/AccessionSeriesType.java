@@ -4,24 +4,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum AccessionSeriesType {
-    Fixed ("A", "Fixed"),
-    Variable ("B", "Variable");
+    Fixed ("Fixed", "A"),
+    Variable ("Variable", "B");
 
-    private final String value;
-    private final String name;
+	private final String name;
+	private final String value;
 
-    AccessionSeriesType(String value, String name) {
+    AccessionSeriesType(String name, String value) {
         this.name = name;
         this.value = value;
     }
 
-    public boolean equalsName(String otherLabel) {
-        return otherLabel != null && this.name.equals(otherLabel);
+    public String getName() {
+        return this.name;
     }
 
-    public String toString() {
-        return this.value;
-    }
+	public String getValue() {
+		return this.value;
+	}
+
+	public String toString() {
+		return this.name;
+	}
 
     private static final Map<String, AccessionSeriesType> byName = new HashMap<>();
     private static final Map<String, AccessionSeriesType> byValue = new HashMap<>();

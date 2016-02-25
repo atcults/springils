@@ -4,16 +4,15 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.api.dto.DtoWithCode;
 import org.sanelib.ils.api.dto.DtoWithLibraryId;
-import org.sanelib.ils.core.enums.AccessionSeriesType;
 
 public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
 
     private String libraryId;
     private String code;
+    private String accessionSeriesType;
+    private String prefix;
     private String maxNumber;
     private String maxZero;
-    private String prefix;
-    private AccessionSeriesType typeName;
 
     public String getCode() {
         return this.code;
@@ -31,6 +30,22 @@ public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
         this.libraryId = libraryId;
     }
 
+    public String getAccessionSeriesType() {
+        return accessionSeriesType;
+    }
+
+    public void setAccessionSeriesType(String accessionSeriesType) {
+        this.accessionSeriesType = accessionSeriesType;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
     public String getMaxNumber() {
         return maxNumber;
     }
@@ -45,22 +60,6 @@ public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
 
     public void setMaxZero(String maxZero) {
         this.maxZero = maxZero;
-    }
-
-    public String getPrefix() {
-        return prefix;
-    }
-
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
-    }
-
-    public AccessionSeriesType getTypeName() {
-        return typeName;
-    }
-
-    public void setTypeName(AccessionSeriesType  typeName) {
-        this.typeName = typeName;
     }
 
     @Override

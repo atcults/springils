@@ -1,24 +1,15 @@
-package org.sanelib.ils.core.commands.accessioSeries;
+package org.sanelib.ils.core.domain.view.admin;
 
-import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
-import org.sanelib.ils.core.commands.ProcessCommandWithCode;
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
-import org.sanelib.ils.core.domain.entity.AccessionSeries;
+import org.sanelib.ils.core.domain.view.DomainView;
+import org.sanelib.ils.core.domain.view.ViewWithCode;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
 
-public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId implements ProcessCommandWithCode {
+import java.util.Date;
 
-    @Override
-    public Class getRootEntityClass() {
-        return AccessionSeries.class;
-    }
+public class AccessionSeriesView implements DomainView, ViewWithCode {
 
-    @Override
-    public String getRootEntityName() {
-        return "domain.entity.accessionSeries";
-    }
-
-    private String code;
+    private Integer libraryId;
+    private String seriesName;
     private AccessionSeriesType accessionSeriesType;
     private String prefix;
     private Integer maxNumber;
@@ -26,12 +17,23 @@ public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId impleme
 
     @Override
     public String getCode() {
-        return code;
+        return seriesName;
     }
 
-    @Override
-    public void setCode(String code) {
-        this.code = code;
+    public Integer getLibraryId() {
+        return libraryId;
+    }
+
+    public void setLibraryId(Integer libraryId) {
+        this.libraryId = libraryId;
+    }
+
+    public String getSeriesName() {
+        return seriesName;
+    }
+
+    public void setSeriesName(String seriesName) {
+        this.seriesName = seriesName;
     }
 
     public AccessionSeriesType getAccessionSeriesType() {
@@ -66,4 +68,3 @@ public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId impleme
         this.maxZero = maxZero;
     }
 }
-
