@@ -29,8 +29,6 @@ public class BinderMapper implements ViewMapper<BinderView>{
         binderView.setSecondaryPhoneNumber(rs.getString(binder , "phone2"));
         binderView.setFax(rs.getString(binder , "fax"));
         binderView.setEmail(rs.getString(binder , "email"));
-        binderView.setEntryId(rs.getString(binder , "enrty_id"));
-        binderView.setEntryDate(rs.getDate(binder , "entry_date"));
 
         return binderView;
     }

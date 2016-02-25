@@ -50,7 +50,7 @@ public class Binder implements DomainEntity {
     private String email;
 
     @Column(name = "entry_id")
-    private String entryId;
+    private String userCode;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -160,12 +160,12 @@ public class Binder implements DomainEntity {
         this.email = email;
     }
 
-    public String getEntryId() {
-        return entryId;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     @PrePersist

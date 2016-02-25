@@ -3,7 +3,6 @@ package org.sanelib.ils.core.activities.binder;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.binder.AddBinder;
 import org.sanelib.ils.core.dao.HibernateHelper;
@@ -47,8 +46,7 @@ public class AddBinderProcessTest extends EntityIntegrationTestBase{
         addBinder.setSecondaryPhoneNumber("+91-879654321");
         addBinder.setFax("87654321");
         addBinder.setEmail("user@emailprovider.com");
-        addBinder.setEntryId("user");
-        addBinder.setEntryDate(DateHelper.constructDate(2015 , 4 , 1));
+
 
         String result = execute(addBinder, ActivitiProcessConstants.Admin.ADD_BINDER);
 
@@ -69,7 +67,5 @@ public class AddBinderProcessTest extends EntityIntegrationTestBase{
         assertEquals(addBinder.getSecondaryPhoneNumber() , binder.getSecondaryPhoneNumber());
         assertEquals(addBinder.getFax() , binder.getFax());
         assertEquals(addBinder.getEmail() , binder.getEmail());
-        assertEquals(addBinder.getEntryId() , binder.getEntryId());
-
     }
 }

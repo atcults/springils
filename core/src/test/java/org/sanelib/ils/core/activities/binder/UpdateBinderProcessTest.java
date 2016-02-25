@@ -43,7 +43,6 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
         binder.setSecondaryPhoneNumber("+91-879654321");
         binder.setFax("87654321");
         binder.setEmail("user@emailprovider.com");
-        binder.setEntryId("user");
 
         persist(binder);
 
@@ -62,7 +61,6 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
         updateBinder.setSecondaryPhoneNumber("+91-879654321");
         updateBinder.setFax("87654321");
         updateBinder.setEmail("user@emailprovider.com");
-        updateBinder.setEntryId("user");
 
         String result = execute(updateBinder, ActivitiProcessConstants.Admin.UPDATE_BINDER);
 
@@ -83,6 +81,5 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
         assertEquals(updateBinder.getSecondaryPhoneNumber(),dbBinder.getSecondaryPhoneNumber());
         assertEquals(updateBinder.getFax(),dbBinder.getFax());
         assertEquals(updateBinder.getEmail(),dbBinder.getEmail());
-        assertEquals(updateBinder.getEntryId(),dbBinder.getEntryId());
     }
 }

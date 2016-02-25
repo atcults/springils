@@ -44,7 +44,7 @@ public class ProcessAddBinderDelegate implements JavaDelegate{
         entity.setSecondaryPhoneNumber(command.getSecondaryPhoneNumber());
         entity.setFax(command.getFax());
         entity.setEmail(command.getEmail());
-        entity.setEntryId(command.getEntryId());
+        entity.setUserCode(command.getUserCode());
 
         binderRepository.save(entity);
 

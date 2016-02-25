@@ -1,11 +1,9 @@
 package org.sanelib.ils.core.commands.binder;
 
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.Binder;
 
-import java.util.Date;
-
-public class AddBinder extends ProcessCommandWithLibraryId{
+public class AddBinder extends ProcessAuditCommandWithLibraryId{
     @Override
     public Class getRootEntityClass() {
         return Binder.class;
@@ -27,8 +25,6 @@ public class AddBinder extends ProcessCommandWithLibraryId{
     private String secondaryPhoneNumber;
     private String fax;
     private String email;
-    private String entryId;
-    private Date entryDate;
 
     public String getBinderName() {
         return binderName;
@@ -118,19 +114,4 @@ public class AddBinder extends ProcessCommandWithLibraryId{
         this.email = email;
     }
 
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
 }

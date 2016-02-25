@@ -40,7 +40,6 @@ public class DeleteBinderProcessTest extends EntityIntegrationTestBase {
         binder.setSecondaryPhoneNumber("+91-879654321");
         binder.setFax("87654321");
         binder.setEmail("user@emailprovider.com");
-        binder.setEntryId("user");
 
         persist(binder);
 

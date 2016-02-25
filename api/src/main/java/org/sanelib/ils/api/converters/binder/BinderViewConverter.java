@@ -26,7 +26,6 @@ public class BinderViewConverter extends AbstractViewToDtoConverterImpl<BinderDt
         binderDto.setSecondaryPhoneNumber(binderView.getSecondaryPhoneNumber());
         binderDto.setFax(binderView.getFax());
         binderDto.setEmail(binderView.getEmail());
-        binderDto.setEntryId(binderView.getEntryId());
 
         return binderDto;
     }

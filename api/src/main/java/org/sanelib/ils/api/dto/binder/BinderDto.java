@@ -18,7 +18,6 @@ public class BinderDto implements DtoWithId, DtoWithLibraryId {
     private String secondaryPhoneNumber;
     private String fax;
     private String email;
-    private String entryId;
 
     @Override
     public String getLibraryId() {
@@ -124,14 +123,6 @@ public class BinderDto implements DtoWithId, DtoWithLibraryId {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
     }
 
 }

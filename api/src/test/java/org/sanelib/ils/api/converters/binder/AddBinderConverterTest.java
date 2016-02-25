@@ -27,7 +27,6 @@ public class AddBinderConverterTest {
         dto.setSecondaryPhoneNumber("+91-879654321");
         dto.setFax("87654321");
         dto.setEmail("user@emailprovider.com");
-        dto.setEntryId("user");
 
         ProcessError processError = new ProcessError();
 
@@ -51,6 +50,5 @@ public class AddBinderConverterTest {
         assertEquals("Secondary Phone Number is not mapped", dto.getSecondaryPhoneNumber(), addBinder.getSecondaryPhoneNumber());
         assertEquals("Fax is not mapped", dto.getFax(), addBinder.getFax());
         assertEquals("Email is not mapped", dto.getEmail(), addBinder.getEmail());
-        assertEquals("Entry Id is not mapped", dto.getEntryId(), addBinder.getEntryId());
     }
 }
