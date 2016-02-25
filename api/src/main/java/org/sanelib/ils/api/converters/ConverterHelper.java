@@ -65,13 +65,13 @@ public class ConverterHelper {
         return intValue;
     }
 
-    public static Integer checkOptionalPositiveInteger(String fieldName, String value, String labelName, ProcessError processError){
+    public static Integer checkOptionalPositiveInteger(String fieldName, String value, String labelName, int minValue, ProcessError processError){
 
         Integer intValue = checkOptionalInteger(fieldName, value, labelName, processError);
 
-        if(intValue != null && intValue < 0){
+        if(intValue != null && intValue < minValue){
             intValue = null;
-            processError.addError("common.field.shouldBeGraterOrEqualThan", fieldName, labelName, String.valueOf(0));
+            processError.addError("common.field.shouldBeGraterOrEqualThan", fieldName, labelName, String.valueOf(minValue));
         }
 
         return intValue;
