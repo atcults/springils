@@ -1,6 +1,5 @@
 package org.sanelib.ils.core.commands.circulationMatrix;
 
-import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.CirculationMatrix;
 import org.sanelib.ils.core.enums.DurationType;
@@ -10,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-public class AddCirculationMatrix extends ProcessCommandWithLibraryId implements ProcessCommand{
+public class AddCirculationMatrix extends ProcessCommandWithLibraryId {
 
     @Override
     public Class getRootEntityClass() {
