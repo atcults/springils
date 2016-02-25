@@ -12,7 +12,7 @@ field:
   length: ~0 length should not more than ^0
   select: ~0 should be selected from list
   invalidInteger: ~0 is invalid integer
-  invalidDouble: ~0 is invalid decimal
+  invalidDecimal: ~0 is invalid decimal
   shouldBeGraterOrEqualThan: ~0 should be grater or equal than ^0
   shouldBeLesserOrEqualThan: ~0 should be lesser or equal than ^0
   shouldBeInBetween: ~0 should be in between ^0 and ^1
