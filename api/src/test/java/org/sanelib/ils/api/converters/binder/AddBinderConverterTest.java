@@ -29,7 +29,6 @@ public class AddBinderConverterTest {
         dto.setFax("87654321");
         dto.setEmail("user@emailprovider.com");
         dto.setEntryId("user");
-        dto.setEntryDate("2015/04/01");
 
         ProcessError processError = new ProcessError();
 
@@ -54,6 +53,5 @@ public class AddBinderConverterTest {
         assertEquals("Fax is not mapped", dto.getFax(), addBinder.getFax());
         assertEquals("Email is not mapped", dto.getEmail(), addBinder.getEmail());
         assertEquals("Entry Id is not mapped", dto.getEntryId(), addBinder.getEntryId());
-        assertEquals("Entry Date is not mapped", dto.getEntryDate(), DateHelper.toDateString(addBinder.getEntryDate()));
     }
 }
