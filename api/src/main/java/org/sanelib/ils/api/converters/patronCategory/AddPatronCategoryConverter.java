@@ -4,7 +4,6 @@ import com.google.common.base.Strings;
 import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.patronCategory.PatronCategoryDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.patronCategory.AddPatronCategory;
 import org.sanelib.ils.core.exceptions.ProcessError;

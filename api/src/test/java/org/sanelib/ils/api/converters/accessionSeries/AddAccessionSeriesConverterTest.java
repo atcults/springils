@@ -2,7 +2,6 @@ package org.sanelib.ils.api.converters.accessionSeries;
 
 import org.junit.Test;
 import org.sanelib.ils.api.dto.accessionSeries.AccessionSeriesDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.accessioSeries.AddAccessionSeries;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
