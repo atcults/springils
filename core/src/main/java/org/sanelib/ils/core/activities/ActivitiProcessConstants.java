@@ -18,6 +18,7 @@ public class ActivitiProcessConstants {
         public static final String ADD_PATRON = "addPatron";
         public static final String UPDATE_PATRON = "updatePatron";
         public static final String DELETE_PATRON = "deletePatron";
+
         public static final String ADD_AUTHOR = "addAuthor";
         public static final String UPDATE_AUTHOR = "updateAuthor";
         public static final String DELETE_AUTHOR = "deleteAuthor";
@@ -48,5 +49,6 @@ public class ActivitiProcessConstants {
         public static final String ADD_DEPARTMENT = "addDepartment";
         public static final String UPDATE_DEPARTMENT = "updateDepartment";
         public static final String DELETE_DEPARTMENT = "deleteDepartment";
+
     }
 }

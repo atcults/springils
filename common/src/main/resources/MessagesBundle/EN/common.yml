@@ -17,6 +17,9 @@ field:
   shouldBeLesserOrEqualThan: ~0 should be lesser or equal than ^0
   shouldBeInBetween: ~0 should be in between ^0 and ^1
 
+date:
+  startDateAfterEndDate: ~0 should not be after end date.
+
 holiday:
   startDateOutOfRange: ~0 should not be in past date. Today is ^0
   endDateOutOfRange: ~0 should not after fiscal year end date ^0
