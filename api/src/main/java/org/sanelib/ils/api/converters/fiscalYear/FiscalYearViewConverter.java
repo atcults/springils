@@ -7,7 +7,7 @@ import org.sanelib.ils.core.domain.view.admin.FiscalYearView;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FiscalYearViewConverter extends AbstractViewToDtoConverterImpl<FiscalYearDto , FiscalYearView> {
+public class FiscalYearViewConverter extends AbstractViewToDtoConverterImpl<FiscalYearDto, FiscalYearView> {
 
     @Override
     public FiscalYearDto convert(FiscalYearView fiscalYearView) {

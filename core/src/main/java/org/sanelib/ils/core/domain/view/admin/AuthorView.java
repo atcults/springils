@@ -5,7 +5,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithCode;
 
-public class AuthorView implements DomainView , ViewWithCode{
+public class AuthorView implements DomainView, ViewWithCode{
 
     private String code;
     private String lastName;

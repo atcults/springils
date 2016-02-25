@@ -1,6 +1,5 @@
 package org.sanelib.ils.api.converters.library;
 
-
 import org.junit.Test;
 import org.sanelib.ils.api.dto.library.LibraryDto;
 import org.sanelib.ils.core.commands.ProcessCommand;
@@ -22,7 +21,7 @@ public class DeleteLibraryConverterTest {
         ProcessError processError= new ProcessError();
 
         DeleteLibraryConverter deletePublisherConverter = new DeleteLibraryConverter();
-        ProcessCommand command = deletePublisherConverter.convert(dto , processError);
+        ProcessCommand command = deletePublisherConverter.convert(dto, processError);
 
         assertTrue("Conversion error occurred", processError.isValid());
         assertTrue("Wrong output " + command, command instanceof DeleteLibrary);

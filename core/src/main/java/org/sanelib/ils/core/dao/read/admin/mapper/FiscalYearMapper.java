@@ -13,15 +13,15 @@ public class FiscalYearMapper implements ViewMapper<FiscalYearView> {
     @Override
     public FiscalYearView map(DataResultSet rs) throws SQLException {
 
-        final String fiscalYear="acc_fiscal_year";
+        final String viewName="acc_fiscal_year";
 
         final FiscalYearView fiscalYearView = new FiscalYearView();
 
-        fiscalYearView.setId(rs.getInt(fiscalYear , "fiscal_year"));
-        fiscalYearView.setStartYear(rs.getInt(fiscalYear , "year1"));
-        fiscalYearView.setEndYear(rs.getInt(fiscalYear , "year2"));
-        fiscalYearView.setStartDate(rs.getDate(fiscalYear , "start_date"));
-        fiscalYearView.setEndDate(rs.getDate(fiscalYear , "end_date"));
+        fiscalYearView.setId(rs.getInt(viewName, "fiscal_year"));
+        fiscalYearView.setStartYear(rs.getInt(viewName, "year1"));
+        fiscalYearView.setEndYear(rs.getInt(viewName, "year2"));
+        fiscalYearView.setStartDate(rs.getDate(viewName, "start_date"));
+        fiscalYearView.setEndDate(rs.getDate(viewName, "end_date"));
 
         return fiscalYearView;
     }

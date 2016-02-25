@@ -64,21 +64,5 @@ public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId impleme
     public void setMaxZero(Integer maxZero) {
         this.maxZero = maxZero;
     }
-
-    public String getPrefix() {
-        return prefix;
-    }
-
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
-    }
-
-    public AccessionSeriesType getTypeName() {
-        return typeName;
-    }
-
-    public void setTypeName(AccessionSeriesType typeName) {
-        this.typeName = typeName;
-    }
 }
 

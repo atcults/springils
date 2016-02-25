@@ -34,16 +34,12 @@ public class AccessionSeriesService extends ApiServiceBase {
     @Autowired
     AccessionSeriesViewConverter accessionSeriesViewConverter;
 
-
     @GET
     @SuppressWarnings("unchecked")
     public List getAllAccessionSeries() throws Throwable {
-
         List dtoList = new ArrayList<>();
         List viewList = accessionSeriesViewRepository.getAll();
-
         dtoList.addAll((Collection) viewList.stream().map(v -> accessionSeriesViewConverter.convert((AccessionSeriesView) v)).collect(Collectors.toList()));
-
         return dtoList;
     }
 
@@ -60,11 +56,9 @@ public class AccessionSeriesService extends ApiServiceBase {
     @DELETE
     @Path("/{libraryId}/{code}")
     public String deleteAgency(@PathParam("libraryId") String libraryId, @PathParam("code") String code) throws Throwable {
-
         AccessionSeriesDto accessionSeriesDto = new AccessionSeriesDto();
         accessionSeriesDto.setCode(code);
         accessionSeriesDto.setLibraryId(libraryId);
-
         return execute(accessionSeriesDto, ActivitiProcessConstants.Admin.DELETE_ACCESSION_SERIES);
     }
 }

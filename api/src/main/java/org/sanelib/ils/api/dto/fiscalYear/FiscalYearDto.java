@@ -1,5 +1,7 @@
 package org.sanelib.ils.api.dto.fiscalYear;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.api.dto.DtoWithId;
 import org.sanelib.ils.api.dto.DtoWithLibraryId;
 
@@ -58,6 +60,10 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
+    }
+
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
 }

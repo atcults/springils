@@ -62,7 +62,7 @@ public class AddHolidayProcessTest extends EntityIntegrationTestBase{
         addHoliday.setUserCode("1");
         addHoliday.setUserLibraryId(library.getId());
 
-        String result = execute(addHoliday , ActivitiProcessConstants.Admin.ADD_HOLIDAY);
+        String result = execute(addHoliday, ActivitiProcessConstants.Admin.ADD_HOLIDAY);
 
         //4 Records should be added
         assertEquals("4", result);

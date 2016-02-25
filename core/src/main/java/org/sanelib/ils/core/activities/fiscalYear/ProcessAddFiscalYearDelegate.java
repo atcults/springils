@@ -36,8 +36,8 @@ public class ProcessAddFiscalYearDelegate implements JavaDelegate{
         entity.setEndDate(command.getEndDate());
         entity.setUserCode(command.getUserCode());
 
-        execution.setVariable("startDate" , command.getStartDate());
-        execution.setVariable("endDate" , command.getEndDate());
+        execution.setVariable("startDate", command.getStartDate());
+        execution.setVariable("endDate", command.getEndDate());
 
         fiscalYearRepository.save(entity);
 

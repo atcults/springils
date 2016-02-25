@@ -37,13 +37,13 @@ public class AddAuthorProcessTest extends EntityIntegrationTestBase {
         assertNotNull(author);
 
         assertEquals(addAuthor.getCode(), author.getCode());
-        assertEquals(addAuthor.getLastName() , author.getLastName());
-        assertEquals(addAuthor.getFirstName() , author.getFirstName());
-        assertEquals(addAuthor.getPhone() , author.getPhone());
-        assertEquals(addAuthor.getAddress() , author.getAddress());
-        assertEquals(addAuthor.getCity() , author.getCity());
-        assertEquals(addAuthor.getState() , author.getState());
-        assertEquals(addAuthor.getZipCode() , author.getZipCode());
-        assertEquals(addAuthor.isContract() , author.isContract());
+        assertEquals(addAuthor.getLastName(), author.getLastName());
+        assertEquals(addAuthor.getFirstName(), author.getFirstName());
+        assertEquals(addAuthor.getPhone(), author.getPhone());
+        assertEquals(addAuthor.getAddress(), author.getAddress());
+        assertEquals(addAuthor.getCity(), author.getCity());
+        assertEquals(addAuthor.getState(), author.getState());
+        assertEquals(addAuthor.getZipCode(), author.getZipCode());
+        assertEquals(addAuthor.isContract(), author.isContract());
     }
 }

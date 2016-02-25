@@ -14,14 +14,14 @@ public class CourseMapper implements ViewMapper<CourseView> {
     @Override
     public CourseView map(DataResultSet rs) throws SQLException {
 
-        final String course = "course";
+        final String viewName = "course";
 
         final CourseView courseView = new CourseView();
 
-        courseView.setLibraryId(rs.getInt(course, "library_id"));
-        courseView.setId(rs.getInt(course, "course_id"));
-        courseView.setCourseName(rs.getString(course, "course_name"));
-        courseView.setPromotedCourseId(rs.getInt(course, "p_course_id"));
+        courseView.setLibraryId(rs.getInt(viewName, "library_id"));
+        courseView.setId(rs.getInt(viewName, "course_id"));
+        courseView.setCourseName(rs.getString(viewName, "course_name"));
+        courseView.setPromotedCourseId(rs.getInt(viewName, "p_course_id"));
 
         return courseView;
     }

@@ -1,6 +1,5 @@
 package org.sanelib.ils.api.services.patron;
 
-
 import org.sanelib.ils.api.converters.patron.PatronViewConverter;
 import org.sanelib.ils.api.dto.patron.PatronDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;

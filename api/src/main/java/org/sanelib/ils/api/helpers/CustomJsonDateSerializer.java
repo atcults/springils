@@ -17,5 +17,4 @@ public class CustomJsonDateSerializer extends JsonSerializer<Date> {
         String dateString = dateFormat.format(value);
         jsonGenerator.writeString(dateString);
 	}
-
 }

@@ -8,7 +8,6 @@ import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.domain.view.admin.HolidayView;
 import org.sanelib.ils.core.enums.HolidayType;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;

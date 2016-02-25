@@ -27,7 +27,9 @@ public class AddPatronCategoryConverter implements DtoToCommandConverter<PatronC
 
         command.setAllowILLFromNet(dto.isAllowILLFromNet());
         command.setAllowRenewalFromNet(dto.isAllowRenewalFromNet());
-        command.setOverallLoanLimit(Integer.parseInt(dto.getOverallLoanLimit()));
+
+        command.setOverallLoanLimit(ConverterHelper.checkOptionalPositiveInteger("overallLoanLimit", dto.getOverallLoanLimit(), "domain.patronCategory.overallLoanLimit", 0, processError));
+
         command.setAllowMultipleCopies(dto.isAllowMultipleCopies());
         command.setAcqWorkflow(dto.getAcqWorkflow());
 

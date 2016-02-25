@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Embeddable
-public class HolidayId  implements Serializable , LibraryIdAndEntityDate {
+public class HolidayId  implements Serializable, LibraryIdAndEntityDate {
 
     public HolidayId() {
     }

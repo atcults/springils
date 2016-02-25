@@ -39,9 +39,7 @@ public class FiscalYearService extends ApiServiceBase {
     public List getAllFiscalYears() throws Throwable {
         List dtoList = new ArrayList<>();
         List viewList = fiscalYearViewRepository.getAllFiscalYears();
-
         dtoList.addAll((Collection) viewList.stream().map(v -> fiscalYearViewConverter.convert((FiscalYearView) v)).collect(Collectors.toList()));
-
         return dtoList;
     }
 
@@ -59,10 +57,8 @@ public class FiscalYearService extends ApiServiceBase {
     @Path("/{libraryId}/{id}")
     public String deleteFiscalYear(@PathParam("libraryId") String libraryId, @PathParam("id") String id) throws Throwable {
         FiscalYearDto fiscalYearDto = new FiscalYearDto();
-
         fiscalYearDto.setLibraryId(libraryId);
         fiscalYearDto.setId(id);
-
         return execute(fiscalYearDto, ActivitiProcessConstants.Admin.DELETE_FISCAL_YEAR);
     }
 }
