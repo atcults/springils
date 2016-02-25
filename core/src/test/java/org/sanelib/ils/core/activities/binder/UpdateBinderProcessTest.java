@@ -3,7 +3,6 @@ package org.sanelib.ils.core.activities.binder;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.binder.UpdateBinder;
 import org.sanelib.ils.core.dao.HibernateHelper;
@@ -11,8 +10,6 @@ import org.sanelib.ils.core.domain.entity.Binder;
 import org.sanelib.ils.core.domain.entity.BinderId;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

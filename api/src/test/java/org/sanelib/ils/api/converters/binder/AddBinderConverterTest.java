@@ -2,7 +2,6 @@ package org.sanelib.ils.api.converters.binder;
 
 import org.junit.Test;
 import org.sanelib.ils.api.dto.binder.BinderDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.binder.AddBinder;
 import org.sanelib.ils.core.exceptions.ProcessError;

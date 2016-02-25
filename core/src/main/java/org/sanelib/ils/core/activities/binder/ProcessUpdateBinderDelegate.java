@@ -4,7 +4,6 @@ import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.JavaDelegate;
 import org.sanelib.ils.core.commands.binder.UpdateBinder;
 import org.sanelib.ils.core.dao.BinderRepository;
-import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.Binder;
 import org.sanelib.ils.core.domain.entity.BinderId;
 import org.slf4j.Logger;
