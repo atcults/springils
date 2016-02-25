@@ -1,13 +1,13 @@
 package org.sanelib.ils.api.converters.binder;
 
-import org.sanelib.ils.api.converters.ViewToDtoConverter;
+import org.sanelib.ils.api.converters.AbstractViewToDtoConverterImpl;
 import org.sanelib.ils.api.dto.binder.BinderDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.domain.view.admin.BinderView;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BinderViewConverter implements ViewToDtoConverter<BinderDto , BinderView>{
+public class BinderViewConverter extends AbstractViewToDtoConverterImpl<BinderDto , BinderView> {
+
     @Override
     public BinderDto convert(BinderView binderView) {
 
@@ -27,7 +27,6 @@ public class BinderViewConverter implements ViewToDtoConverter<BinderDto , Binde
         binderDto.setFax(binderView.getFax());
         binderDto.setEmail(binderView.getEmail());
         binderDto.setEntryId(binderView.getEntryId());
-        binderDto.setEntryDate(DateHelper.toDateString(binderView.getEntryDate()));
 
         return binderDto;
     }
