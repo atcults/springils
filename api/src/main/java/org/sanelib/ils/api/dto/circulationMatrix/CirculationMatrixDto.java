@@ -19,7 +19,7 @@ public class CirculationMatrixDto implements DtoWithLibraryId {
     private String overAllLoanLimit;
     private String renewalLimit;
     private String finePerDay;
-    private String maxCeilOnFine;
+    private String maxFine;
     private String renewalThroughOPAC;
     private String otherDetails;
 
@@ -140,12 +140,12 @@ public class CirculationMatrixDto implements DtoWithLibraryId {
         this.finePerDay = finePerDay;
     }
 
-    public String getMaxCeilOnFine() {
-        return maxCeilOnFine;
+    public String getMaxFine() {
+        return maxFine;
     }
 
-    public void setMaxCeilOnFine(String maxCeilOnFine) {
-        this.maxCeilOnFine = maxCeilOnFine;
+    public void setMaxFine(String maxFine) {
+        this.maxFine = maxFine;
     }
 
     public boolean getRenewalThroughOPAC() {
