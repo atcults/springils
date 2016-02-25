@@ -70,7 +70,6 @@ public class AddBinderProcessTest extends EntityIntegrationTestBase{
         assertEquals(addBinder.getFax() , binder.getFax());
         assertEquals(addBinder.getEmail() , binder.getEmail());
         assertEquals(addBinder.getEntryId() , binder.getEntryId());
-        assertEquals(addBinder.getEntryDate() , binder.getEntryDate());
 
     }
 }

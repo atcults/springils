@@ -47,11 +47,8 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
         binder.setFax("87654321");
         binder.setEmail("user@emailprovider.com");
         binder.setEntryId("user");
-        binder.setEntryDate(DateHelper.constructDate(2015 , 4 , 1));
 
         persist(binder);
-
-        Date entryDate = DateHelper.constructDate(2015, 2, 2);
 
         UpdateBinder updateBinder = new UpdateBinder();
 
@@ -69,7 +66,6 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
         updateBinder.setFax("87654321");
         updateBinder.setEmail("user@emailprovider.com");
         updateBinder.setEntryId("user");
-        updateBinder.setEntryDate(entryDate);
 
         String result = execute(updateBinder, ActivitiProcessConstants.Admin.UPDATE_BINDER);
 
@@ -91,9 +87,5 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
         assertEquals(updateBinder.getFax(),dbBinder.getFax());
         assertEquals(updateBinder.getEmail(),dbBinder.getEmail());
         assertEquals(updateBinder.getEntryId(),dbBinder.getEntryId());
-        assertEquals(entryDate,dbBinder.getEntryDate());
-
-
-
     }
 }

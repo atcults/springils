@@ -42,7 +42,6 @@ public class DeleteBinderProcessTest extends EntityIntegrationTestBase {
         binder.setFax("87654321");
         binder.setEmail("user@emailprovider.com");
         binder.setEntryId("user");
-        binder.setEntryDate(DateHelper.constructDate(2015 , 4 , 1));
 
         persist(binder);
 
