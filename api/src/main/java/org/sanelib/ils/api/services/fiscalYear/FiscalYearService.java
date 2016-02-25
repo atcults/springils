@@ -47,12 +47,12 @@ public class FiscalYearService extends ApiServiceBase {
 
     @POST
     public String addFiscalYear(FiscalYearDto fiscalYearDTO) throws Throwable {
-        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.ADD_FISCALYEAR);
+        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.ADD_FISCAL_YEAR);
     }
 
     @PUT
     public String updateFiscalYear(FiscalYearDto fiscalYearDTO) throws Throwable {
-        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.UPDATE_FISCALYEAR);
+        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.UPDATE_FISCAL_YEAR);
     }
 
     @DELETE
@@ -63,6 +63,6 @@ public class FiscalYearService extends ApiServiceBase {
         fiscalYearDto.setLibraryId(libraryId);
         fiscalYearDto.setId(id);
 
-        return execute(fiscalYearDto, ActivitiProcessConstants.Admin.DELETE_FISCALYEAR);
+        return execute(fiscalYearDto, ActivitiProcessConstants.Admin.DELETE_FISCAL_YEAR);
     }
 }
