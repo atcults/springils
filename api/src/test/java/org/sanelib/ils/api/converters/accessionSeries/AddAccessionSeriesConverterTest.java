@@ -24,7 +24,7 @@ public class AddAccessionSeriesConverterTest {
         dto.setPrefix("AS");
         dto.setTypeName(AccessionSeriesType.Fixed);
         dto.setEntryId("1");
-        dto.setEntryDate("2016/01/01");
+        dto.setEntryDate("2016-01-01");
 
         ProcessError processError = new ProcessError();
 

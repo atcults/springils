@@ -36,7 +36,7 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         accessionSeries.setPrefix("AS");
         accessionSeries.setTypeName(AccessionSeriesType.Fixed);
         accessionSeries.setEntryId("1");
-        accessionSeries.setEntryDate(DateHelper.fromDateString("2016/01/01"));
+        accessionSeries.setEntryDate(DateHelper.fromDateString("2016-01-01"));
 
         persist(accessionSeries);
 
@@ -49,9 +49,9 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         updateAccessionSeries.setPrefix("AS");
         updateAccessionSeries.setTypeName(AccessionSeriesType.Fixed);
         updateAccessionSeries.setEntryId("1");
-        updateAccessionSeries.setEntryDate(DateHelper.fromDateString("2016/01/01"));
+        updateAccessionSeries.setEntryDate(DateHelper.fromDateString("2016-01-01"));
 
-        String result = execute(updateAccessionSeries, ActivitiProcessConstants.Admin.UPDATE_ACCESSIONSERIES);
+        String result = execute(updateAccessionSeries, ActivitiProcessConstants.Admin.UPDATE_ACCESSION_SERIES);
 
         assertNull(result);
 

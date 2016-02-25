@@ -36,7 +36,7 @@ public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
         fiscalYear.setLibraryId(library.getId());
         fiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
         fiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
-        fiscalYear.setEntryId("john");
+        fiscalYear.setEntryId("1");
 
         persist(fiscalYear);
 
@@ -49,9 +49,9 @@ public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
         updateFiscalYear.setLibraryId(library.getId());
         updateFiscalYear.setStartDate(startDate);
         updateFiscalYear.setEndDate(endDate);
-        updateFiscalYear.setEntryId("johny");
+        updateFiscalYear.setEntryId("1");
 
-        String result = execute(updateFiscalYear, ActivitiProcessConstants.Admin.UPDATE_FISCALYEAR);
+        String result = execute(updateFiscalYear, ActivitiProcessConstants.Admin.UPDATE_FISCAL_YEAR);
 
         assertNull(result);
 
@@ -60,7 +60,7 @@ public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
         assertNotNull(dbFiscalYear);
 
         assertEquals(startDate, fiscalYear.getStartDate());
-        assertEquals(endDate,fiscalYear.getEndDate());
-        assertEquals("johny",updateFiscalYear.getEntryId());
+        assertEquals(endDate, fiscalYear.getEndDate());
+        assertEquals("1", updateFiscalYear.getEntryId());
     }
 }

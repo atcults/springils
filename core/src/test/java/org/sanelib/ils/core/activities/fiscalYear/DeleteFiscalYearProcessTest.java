@@ -40,7 +40,7 @@ public class DeleteFiscalYearProcessTest extends EntityIntegrationTestBase {
         deleteFiscalYear.setId(fiscalYear.getFiscalYearId().getId());
         deleteFiscalYear.setLibraryId(library.getId());
 
-        String result = execute(deleteFiscalYear, ActivitiProcessConstants.Admin.DELETE_FISCALYEAR);
+        String result = execute(deleteFiscalYear, ActivitiProcessConstants.Admin.DELETE_FISCAL_YEAR);
 
         assertNull(result);
 
