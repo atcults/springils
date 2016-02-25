@@ -6,11 +6,15 @@ import org.sanelib.ils.core.commands.binder.AddBinder;
 import org.sanelib.ils.core.dao.BinderRepository;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.Binder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessAddBinderDelegate implements JavaDelegate{
+
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessAddBinderDelegate.class);
 
     @Autowired
     HibernateHelper hibernateHelper;
@@ -21,7 +25,7 @@ public class ProcessAddBinderDelegate implements JavaDelegate{
     @Override
     public void execute(DelegateExecution execution) throws Exception {
 
-        System.out.println("Process Add Binder called");
+        LOG.info("Process Add Binder called");
 
         AddBinder command = (AddBinder) execution.getVariable("command");
 
