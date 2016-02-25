@@ -15,16 +15,16 @@ public class AccessionSeriesMapper implements ViewMapper<AccessionSeriesView> {
     @Override
     public AccessionSeriesView map(DataResultSet rs) throws SQLException {
 
-        final String accession_series = "accession_series";
+        final String accessionSeries = "accession_series";
 
         final AccessionSeriesView accessionSeriesView = new AccessionSeriesView();
 
-        accessionSeriesView.setLibraryId(rs.getInt(accession_series, "library_id"));
-        accessionSeriesView.setSeriesName(rs.getString(accession_series, "series_name"));
-        accessionSeriesView.setAccessionSeriesType(AccessionSeriesType.getByValue(rs.getString(accession_series , "fixed_variable")));
-        accessionSeriesView.setPrefix(rs.getString(accession_series, "prefix"));
-        accessionSeriesView.setMaxNumber(rs.getInt(accession_series, "max_number"));
-        accessionSeriesView.setMaxZero(rs.getInt(accession_series, "max_zero"));
+        accessionSeriesView.setLibraryId(rs.getInt(accessionSeries, "library_id"));
+        accessionSeriesView.setSeriesName(rs.getString(accessionSeries, "series_name"));
+        accessionSeriesView.setAccessionSeriesType(AccessionSeriesType.getByValue(rs.getString(accessionSeries , "fixed_variable")));
+        accessionSeriesView.setPrefix(rs.getString(accessionSeries, "prefix"));
+        accessionSeriesView.setMaxNumber(rs.getInt(accessionSeries, "max_number"));
+        accessionSeriesView.setMaxZero(rs.getInt(accessionSeries, "max_zero"));
 
         return accessionSeriesView;
     }
