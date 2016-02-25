@@ -9,7 +9,7 @@ public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
 
     private String libraryId;
     private String code;
-    private String typeName;
+    private String accessionSeriesType;
     private String prefix;
     private String maxNumber;
     private String maxZero;
@@ -30,12 +30,12 @@ public class AccessionSeriesDto implements DtoWithCode, DtoWithLibraryId {
         this.libraryId = libraryId;
     }
 
-    public String getTypeName() {
-        return typeName;
+    public String getAccessionSeriesType() {
+        return accessionSeriesType;
     }
 
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
+    public void setAccessionSeriesType(String accessionSeriesType) {
+        this.accessionSeriesType = accessionSeriesType;
     }
 
     public String getPrefix() {

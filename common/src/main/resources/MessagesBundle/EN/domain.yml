@@ -104,7 +104,7 @@ patron:
 
 accessionSeries:
   code: Series Name
-  typeName: Type Name
+  accessionSeriesType: Accession Series Type
   prefix: Prefix
   maxNumber: Max Number
   maxZero: Max Zero
