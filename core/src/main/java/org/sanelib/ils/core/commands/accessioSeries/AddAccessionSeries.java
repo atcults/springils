@@ -18,16 +18,36 @@ public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId impleme
     }
 
     private String code;
+    private AccessionSeriesType accessionSeriesType;
+    private String prefix;
     private Integer maxNumber;
     private Integer maxZero;
-    private String prefix;
-    private AccessionSeriesType typeName;
 
-    public String getCode(){
+    @Override
+    public String getCode() {
         return code;
     }
 
-    public void setCode(String code){ this.code = code; }
+    @Override
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public AccessionSeriesType getAccessionSeriesType() {
+        return accessionSeriesType;
+    }
+
+    public void setAccessionSeriesType(AccessionSeriesType accessionSeriesType) {
+        this.accessionSeriesType = accessionSeriesType;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
 
     public Integer getMaxNumber() {
         return maxNumber;

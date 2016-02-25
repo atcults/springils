@@ -44,6 +44,7 @@ public class AccessionSeriesCode implements Serializable, LibraryIdAndEntityCode
         }
         this.code = code.trim();
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
