@@ -8,8 +8,7 @@ import java.util.Date;
 @Embeddable
 public class CirculationMatrixId implements Serializable {
 
-    public CirculationMatrixId(){
-
+    public CirculationMatrixId() {
     }
 
     public CirculationMatrixId(Integer libraryId, Integer patronCategoryId, Integer materialTypeId, Date withEffectFrom) {

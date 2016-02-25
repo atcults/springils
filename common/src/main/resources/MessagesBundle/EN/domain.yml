@@ -23,6 +23,7 @@ entity:
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
   holiday: Holiday
+  materialType: Material Type
   department: Department
   patron: Patron
   author: Author
@@ -142,3 +143,7 @@ patronCategory:
 Department:
   name: Department Name
   hodId: HOD Id
+
+
+materialType:
+  materialType: Material Type

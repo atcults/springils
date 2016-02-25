@@ -15,6 +15,6 @@ public class ApiEndPointConstants {
         public static final String DEPARTMENT_END_POINT = "/department";
         public static final String AUTHOR_END_POINT = "/author";
         public static final String CIRCULATION_MATRIX_END_POINT = "/circulationMatrix";
-
+        public static final String MATERIAL_TYPE_END_POINT = "/materialType";
     }
 }

@@ -56,5 +56,9 @@ public class ActivitiProcessConstants {
         public static final String ADD_CIRCULATION_MATRIX = "addCirculationMatrix";
         public static final String UPDATE_CIRCULATION_MATRIX = "updateCirculationMatrix";
         public static final String DELETE_CIRCULATION_MATRIX = "deleteCirculationMatrix";
+
+        public static final String ADD_MATERIALTYPE = "addMaterialType";
+        public static final String DELETE_MATERIALTYPE = "deleteMaterialType";
+        public static final String UPDATE_MATERIALTYPE = "updateMaterialType";
     }
 }
