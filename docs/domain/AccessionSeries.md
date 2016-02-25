@@ -7,9 +7,9 @@
 2. library_id - integer - Required
   - This is Primary key. Library reference is passed to enter series.
 3. max_number - integer - Optional
-  - Stores series start from number value.
+  - Max Number is the accession number from which the series begins. It should be numeric.
 4. max_zero - integer - Optional
-  - Stores maximum number of leading zero in series.
+  - how many leading zero in series will be passed. It should be numeric. i.e - Some libraries like to use a fixed length accession number by padding the front with leading zeros, e.g., 00001, 00002 ... 01000, 01001, etc. In such a case the library expects that the maximum accession number will not exceed 99999. In such a case, the maximum number of leading zeros will be 4. This text box is not required to be filled if the accession number is a variable length number.
 5. entry_library_id - integer - Optional
   - Entry library id is passed which is referenced by referenced patron's Library id.
 6. entry_id - string- Optional
