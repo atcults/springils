@@ -2,12 +2,16 @@ package org.sanelib.ils.common.properties;
 
 import javax.annotation.PostConstruct;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ConfigurationProperties
 public class AppProperties {
+
+    private static final Logger LOG = LoggerFactory.getLogger(AppProperties.class);
 
 	private String name;
 	private String version;
@@ -68,6 +72,6 @@ public class AppProperties {
 
 	@PostConstruct
 	public void logProperties() {
-		System.out.println(this.toString());
+		LOG.info(this.toString());
 	}
 }

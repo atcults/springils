@@ -29,8 +29,6 @@ public class AccessionSeriesService extends ApiServiceBase {
         accessionSeriesDto.setMaxZero("2");
         accessionSeriesDto.setPrefix("AS");
         accessionSeriesDto.setTypeName(AccessionSeriesType.Fixed);
-        accessionSeriesDto.setEntryId("1");
-        accessionSeriesDto.setEntryDate("2016/01/01");
 
         list.add(accessionSeriesDto);
         return list;
@@ -38,12 +36,12 @@ public class AccessionSeriesService extends ApiServiceBase {
 
     @POST
     public String addAccessionSeries(AccessionSeriesDto dto) throws Throwable{
-        return execute(dto, ActivitiProcessConstants.Admin.ADD_ACCESSIONSERIES);
+        return execute(dto, ActivitiProcessConstants.Admin.ADD_ACCESSION_SERIES);
     }
 
     @PUT
     public String updateAccessionSeries(AccessionSeriesDto dto) throws Throwable {
-        return execute(dto, ActivitiProcessConstants.Admin.UPDATE_ACCESSIONSERIES);
+        return execute(dto, ActivitiProcessConstants.Admin.UPDATE_ACCESSION_SERIES);
     }
 
     @DELETE
@@ -54,6 +52,6 @@ public class AccessionSeriesService extends ApiServiceBase {
         accessionSeriesDto.setCode(code);
         accessionSeriesDto.setLibraryId(libraryId);
 
-        return execute(accessionSeriesDto, ActivitiProcessConstants.Admin.DELETE_ACCESSIONSERIES);
+        return execute(accessionSeriesDto, ActivitiProcessConstants.Admin.DELETE_ACCESSION_SERIES);
     }
 }

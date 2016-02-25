@@ -34,7 +34,7 @@ public interface EntityRepository<T extends DomainEntity> {
 
 	List<T> executeQueryObject(final String queryString, Class clazz);
 
-	List<T> executeQueryObject(final DetachedCriteria detachedCriteria, Class clazz);
+    List<T> executeQueryObject(final DetachedCriteria detachedCriteria);
 
 	int executeUpdate(final String queryString, final String[] paramValues);
 

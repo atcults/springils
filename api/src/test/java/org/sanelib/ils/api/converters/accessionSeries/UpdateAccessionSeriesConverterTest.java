@@ -24,8 +24,6 @@ public class UpdateAccessionSeriesConverterTest {
         dto.setMaxZero("2");
         dto.setPrefix("AS");
         dto.setTypeName(AccessionSeriesType.Fixed);
-        dto.setEntryId("1");
-        dto.setEntryDate("2016/01/01");
 
         ProcessError processError = new ProcessError();
 
@@ -39,11 +37,9 @@ public class UpdateAccessionSeriesConverterTest {
 
         assertEquals("Code is not mapped", dto.getCode(), updateAccessionSeries.getCode());
         assertEquals("Library Id is not mapped", dto.getLibraryId(), String.valueOf(updateAccessionSeries.getLibraryId()));
-        assertEquals("Max Number of series not mapped",dto.getMaxNumber(),  String.valueOf(updateAccessionSeries.getMaxNumber()));
-        assertEquals("Max Zero of series not mapped",dto.getMaxZero(),  String.valueOf(updateAccessionSeries.getMaxZero()));
-        assertEquals("Prefix of series not mapped",dto.getPrefix(),  updateAccessionSeries.getPrefix());
-        assertEquals("Series Type not mapped",dto.getTypeName(),  updateAccessionSeries.getTypeName());
-        assertEquals("EntryId of series not mapped",dto.getEntryId(),  updateAccessionSeries.getEntryId());
-        assertEquals("EntryDate not mapped",dto.getEntryDate(),  DateHelper.toDateString(updateAccessionSeries.getEntryDate()));
+        assertEquals("Max Number of series not mapped", dto.getMaxNumber(),  String.valueOf(updateAccessionSeries.getMaxNumber()));
+        assertEquals("Max Zero of series not mapped", dto.getMaxZero(),  String.valueOf(updateAccessionSeries.getMaxZero()));
+        assertEquals("Prefix of series not mapped", dto.getPrefix(),  updateAccessionSeries.getPrefix());
+        assertEquals("Series Type not mapped", dto.getTypeName(),  updateAccessionSeries.getTypeName());
     }
 }

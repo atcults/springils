@@ -31,7 +31,6 @@ public class DeleteFiscalYearProcessTest extends EntityIntegrationTestBase {
         fiscalYear.setLibraryId(library.getId());
         fiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
         fiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
-        fiscalYear.setEntryId("john");
 
         persist(fiscalYear);
 
@@ -40,7 +39,7 @@ public class DeleteFiscalYearProcessTest extends EntityIntegrationTestBase {
         deleteFiscalYear.setId(fiscalYear.getFiscalYearId().getId());
         deleteFiscalYear.setLibraryId(library.getId());
 
-        String result = execute(deleteFiscalYear, ActivitiProcessConstants.Admin.DELETE_FISCALYEAR);
+        String result = execute(deleteFiscalYear, ActivitiProcessConstants.Admin.DELETE_FISCAL_YEAR);
 
         assertNull(result);
 

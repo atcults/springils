@@ -11,4 +11,13 @@ public abstract class ProcessCommandWithLibraryId implements ProcessCommand {
     public void setLibraryId(Integer libraryId) {
         this.libraryId = libraryId;
     }
+
+    @Override
+    public String toString() {
+        return "ProcessCommandWithLibraryId{" +
+                "libraryId=" + libraryId +
+                '}';
+    }
 }
+
+
