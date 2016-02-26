@@ -13,8 +13,6 @@ public class SerialBoundVolumeView implements DomainView, ViewWithId {
     private String name;
     private String color;
     private Double price;
-    private String entryId;
-    private Date entryDate;
 
     public Integer getLibraryId() {  return libraryId;  }
 
@@ -36,30 +34,19 @@ public class SerialBoundVolumeView implements DomainView, ViewWithId {
 
     public void setPrice(Double price) { this.price = price; }
 
-    public String getEntryId() { return entryId; }
-
-    public void setEntryId(String entryId) { this.entryId = entryId; }
-
-    public Date getEntryDate() { return entryDate; }
-
-    public void setEntryDate(Date entryDate) { this.entryDate = entryDate; }
-
     @Override
     public Integer getId() {
         return bindTypeId;
     }
 
     @Override
-    public String toString(){
-
+    public String toString() {
         return "SerialBoundVolumeView{" +
-                "libraryId" +libraryId+
-                "bindTypeId" +bindTypeId+
-                "name" +name+
-                "color" +color+
-                "price" +price+
-                "entryId" +entryId+
-                "entryDate" +entryDate+
+                "libraryId=" + libraryId +
+                ", bindTypeId=" + bindTypeId +
+                ", name='" + name + '\'' +
+                ", color='" + color + '\'' +
+                ", price=" + price +
                 '}';
     }
 }

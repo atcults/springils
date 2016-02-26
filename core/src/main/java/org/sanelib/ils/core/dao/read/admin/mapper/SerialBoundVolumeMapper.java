@@ -21,8 +21,6 @@ public class SerialBoundVolumeMapper implements ViewMapper<SerialBoundVolumeView
         serialBoundVolumeView.setName(rs.getString(sm_co_bind_specification,"name"));
         serialBoundVolumeView.setColor(rs.getString(sm_co_bind_specification,"color"));
         serialBoundVolumeView.setPrice(rs.getDouble(sm_co_bind_specification,"price"));
-        serialBoundVolumeView.setEntryId(rs.getString(sm_co_bind_specification,"entry_id"));
-        serialBoundVolumeView.setEntryDate(rs.getDate(sm_co_bind_specification,"entry_date"));
 
         return serialBoundVolumeView;
     }

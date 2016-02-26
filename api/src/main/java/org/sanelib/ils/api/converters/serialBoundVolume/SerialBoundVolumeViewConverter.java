@@ -21,7 +21,6 @@ public class SerialBoundVolumeViewConverter extends AbstractViewToDtoConverterIm
             serialBoundVolumeDto.setLibraryId(String.valueOf(view.getLibraryId()));
             serialBoundVolumeDto.setId(String.valueOf(view.getId()));
             serialBoundVolumeDto.setColor(view.getColor());
-            serialBoundVolumeDto.setEntryId(view.getEntryId());
             serialBoundVolumeDto.setName(view.getName());
             serialBoundVolumeDto.setPrice(String.valueOf(view.getPrice()));
 
