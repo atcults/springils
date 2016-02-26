@@ -36,6 +36,7 @@ public class ProcessAddAuthorDelegateTest {
         addAuthor.setCity("City");
         addAuthor.setState("State");
         addAuthor.setZipCode("5432");
+        addAuthor.setContract(true);
 
         DelegateExecution execution = Mockito.mock(DelegateExecution.class);
         Mockito.when(execution.getVariable("command")).thenReturn(addAuthor);

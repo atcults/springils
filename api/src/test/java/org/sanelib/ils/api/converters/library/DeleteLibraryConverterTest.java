@@ -1,6 +1,5 @@
 package org.sanelib.ils.api.converters.library;
 
-
 import org.junit.Test;
 import org.sanelib.ils.api.dto.library.LibraryDto;
 import org.sanelib.ils.core.commands.ProcessCommand;

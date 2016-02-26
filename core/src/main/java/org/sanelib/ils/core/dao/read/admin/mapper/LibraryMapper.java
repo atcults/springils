@@ -10,17 +10,17 @@ import java.sql.SQLException;
 @Component
 public class LibraryMapper implements ViewMapper<LibraryView> {
 
-
     public LibraryView map(final DataResultSet rs) throws SQLException {
 
-        final String library = "library";
+        final String viewName = "library";
 
         final LibraryView libraryView = new LibraryView();
 
-        libraryView.setId(rs.getInt(library, "library_id"));
-        libraryView.setName(rs.getString(library, "library_name"));
-        libraryView.setSerialMaster(rs.getString(library , "serialmaster"));
-        libraryView.setCatalogueMaster(rs.getString(library , "cataloguemaster"));
+        libraryView.setId(rs.getInt(viewName, "library_id"));
+        libraryView.setName(rs.getString(viewName, "library_name"));
+        libraryView.setCity(rs.getString(viewName, "city"));
+        libraryView.setState(rs.getString(viewName, "state"));
+        libraryView.setCountry(rs.getString(viewName, "country"));libraryView.setSerialMaster(rs.getString(library , "serialmaster"));libraryView.setCatalogueMaster(rs.getString(library , "cataloguemaster"));
         libraryView.setAcquisitionsMaster(rs.getString(library , "acquisitionsmaster"));
         libraryView.setCreatedOn(rs.getDate(library , "created_on"));
         libraryView.setAcquisitionStatus(rs.getString(library , "acquisition_status"));
@@ -29,14 +29,11 @@ public class LibraryMapper implements ViewMapper<LibraryView> {
         libraryView.setHostLibraryId(rs.getInt(library , "hostlibraryid"));
         libraryView.setFirstAddress(rs.getString(library , "address1"));
         libraryView.setSecondAddress(rs.getString(library , "address2"));
-        libraryView.setCity(rs.getString(library , "city"));
-        libraryView.setState(rs.getString(library , "state"));
         libraryView.setPin(rs.getString(library, "pin"));
         libraryView.setFirstPhoneNumber(rs.getString(library , "phone_number1"));
         libraryView.setEmail(rs.getString(library , "email"));
         libraryView.setSecondPhoneNumber(rs.getString(library , "phone_number2"));
         libraryView.setFax(rs.getString(library , "fax"));
-        libraryView.setCountry(rs.getString(library , "country"));
         libraryView.setNetworkName(rs.getString(library , "network_name"));
         libraryView.setSearchForms(rs.getString(library , "search_forms"));
         libraryView.setFacebookWidget(rs.getString(library , "facebook_widget"));

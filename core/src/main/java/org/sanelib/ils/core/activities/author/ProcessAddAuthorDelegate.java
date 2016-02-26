@@ -6,11 +6,15 @@ import org.sanelib.ils.core.commands.author.AddAuthor;
 import org.sanelib.ils.core.dao.AuthorRepository;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.Author;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessAddAuthorDelegate implements JavaDelegate {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessAddAuthorDelegate.class);
 
     @Autowired
     HibernateHelper hibernateHelper;
@@ -20,7 +24,7 @@ public class ProcessAddAuthorDelegate implements JavaDelegate {
 
     @Override
 	public void execute(DelegateExecution execution) throws Exception {
-		System.out.println("Process Add Author called");
+		LOG.info("Process Add Author called");
 
         AddAuthor command = (AddAuthor) execution.getVariable("command");
 
@@ -34,6 +38,7 @@ public class ProcessAddAuthorDelegate implements JavaDelegate {
         entity.setCity(command.getCity());
         entity.setState(command.getState());
         entity.setZipCode(command.getZipCode());
+        entity.setContract(command.isContract());
 
         authorRepository.save(entity);
 

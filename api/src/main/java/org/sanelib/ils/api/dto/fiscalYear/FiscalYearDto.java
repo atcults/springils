@@ -1,5 +1,7 @@
 package org.sanelib.ils.api.dto.fiscalYear;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.api.dto.DtoWithId;
 import org.sanelib.ils.api.dto.DtoWithLibraryId;
 
@@ -7,9 +9,10 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
 
     private String libraryId;
     private String id;
+    private String startYear;
+    private String endYear;
     private String startDate;
     private String endDate;
-    private String entryId;
 
     public String getId() {
         return this.id;
@@ -25,6 +28,22 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
 
     public void setLibraryId(String libraryId){
         this.libraryId = libraryId;
+    }
+
+    public String getStartYear() {
+        return startYear;
+    }
+
+    public void setStartYear(String startYear) {
+        this.startYear = startYear;
+    }
+
+    public String getEndYear() {
+        return endYear;
+    }
+
+    public void setEndYear(String endYear) {
+        this.endYear = endYear;
     }
 
     public String getStartDate() {
@@ -43,13 +62,8 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
         this.endDate = endDate;
     }
 
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
 }
-

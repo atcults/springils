@@ -1,57 +1,64 @@
 package org.sanelib.ils.api.services.fiscalYear;
 
+import org.sanelib.ils.api.converters.fiscalYear.FiscalYearViewConverter;
 import org.sanelib.ils.api.dto.fiscalYear.FiscalYearDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
+import org.sanelib.ils.core.dao.read.admin.FiscalYearViewRepository;
+import org.sanelib.ils.core.domain.view.admin.FiscalYearView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.*;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @Path(ApiEndPointConstants.Admin.FISCAL_YEAR_END_POINT)
 @Produces(MediaType.APPLICATION_JSON)
 public class FiscalYearService extends ApiServiceBase {
 
+    @Autowired
+    FiscalYearViewRepository fiscalYearViewRepository;
+
+    @Autowired
+    FiscalYearViewConverter fiscalYearViewConverter;
+
     @GET
-    public List<FiscalYearDto> getAllFiscalYearDTOs() throws Exception {
-
-        List<FiscalYearDto> dtos = new ArrayList<>();
-
-        FiscalYearDto fiscalYearDTO = new FiscalYearDto();
-
-        fiscalYearDTO.setLibraryId("101");
-        fiscalYearDTO.setId("12345");
-        fiscalYearDTO.setStartDate("2015/04/01");
-        fiscalYearDTO.setEndDate("2016/03/31");
-        fiscalYearDTO.setEntryId("john");
-
-        dtos.add(fiscalYearDTO);
-
-        return dtos;
+    @SuppressWarnings("unchecked")
+    public List getAllFiscalYears() throws Throwable {
+        List dtoList = new ArrayList<>();
+        List viewList = fiscalYearViewRepository.getAllFiscalYears();
+        dtoList.addAll((Collection) viewList.stream().map(v -> fiscalYearViewConverter.convert((FiscalYearView) v)).collect(Collectors.toList()));
+        return dtoList;
     }
 
     @POST
     public String addFiscalYear(FiscalYearDto fiscalYearDTO) throws Throwable {
-        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.ADD_FISCALYEAR);
+        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.ADD_FISCAL_YEAR);
     }
 
     @PUT
     public String updateFiscalYear(FiscalYearDto fiscalYearDTO) throws Throwable {
-        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.UPDATE_FISCALYEAR);
+        return execute(fiscalYearDTO, ActivitiProcessConstants.Admin.UPDATE_FISCAL_YEAR);
     }
 
     @DELETE
     @Path("/{libraryId}/{id}")
     public String deleteFiscalYear(@PathParam("libraryId") String libraryId, @PathParam("id") String id) throws Throwable {
         FiscalYearDto fiscalYearDto = new FiscalYearDto();
-
         fiscalYearDto.setLibraryId(libraryId);
         fiscalYearDto.setId(id);
-
-        return execute(fiscalYearDto, ActivitiProcessConstants.Admin.DELETE_FISCALYEAR);
+        return execute(fiscalYearDto, ActivitiProcessConstants.Admin.DELETE_FISCAL_YEAR);
     }
 }

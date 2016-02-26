@@ -1,5 +1,7 @@
 package org.sanelib.ils.core.commands.author;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.commands.ProcessCommandWithCode;
 import org.sanelib.ils.core.domain.entity.Author;
 
@@ -13,6 +15,7 @@ public class AddAuthor implements ProcessCommandWithCode {
     private String city;
     private String state;
     private String zipCode;
+    private boolean isContract;
 
     @Override
     public Class getRootEntityClass() {
@@ -90,18 +93,17 @@ public class AddAuthor implements ProcessCommandWithCode {
         this.zipCode = zipCode;
     }
 
+    public boolean isContract() {
+        return isContract;
+    }
+
+    public void setContract(boolean contract) {
+        isContract = contract;
+    }
+
     @Override
     public String toString() {
-        return "AddAuthor{" +
-                "code='" + code + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
 

@@ -49,6 +49,8 @@ public class Author implements DomainEntity{
     @Column(name = "zip")
     private String zipCode;
 
+    @Column(name = "contract")
+    private char isContract;
 
     public String getLastName() {
         return lastName;
@@ -106,7 +108,13 @@ public class Author implements DomainEntity{
         this.zipCode = zipCode;
     }
 
+    public boolean isContract() {
+        return isContract == '1';
+    }
 
+    public void setContract(boolean contract) {
+        this.isContract = contract ? '1' : '0';
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -116,7 +124,6 @@ public class Author implements DomainEntity{
         Author author = (Author) o;
 
         return code.equals(author.code);
-
     }
 
     @Override

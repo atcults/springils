@@ -1,11 +1,12 @@
 package org.sanelib.ils.core.commands.fiscalYear;
 
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.FiscalYear;
 
 import java.util.Date;
 
-public class AddFiscalYear extends ProcessCommandWithLibraryId {
+public class AddFiscalYear extends ProcessAuditCommandWithLibraryId {
+
     @Override
     public Class getRootEntityClass() {
         return FiscalYear.class;
@@ -18,7 +19,6 @@ public class AddFiscalYear extends ProcessCommandWithLibraryId {
 
     private Date startDate;
     private Date endDate;
-    private String entryId;
 
     public Date getStartDate() {
         return startDate;
@@ -34,14 +34,6 @@ public class AddFiscalYear extends ProcessCommandWithLibraryId {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
-    }
-
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
     }
 
 }

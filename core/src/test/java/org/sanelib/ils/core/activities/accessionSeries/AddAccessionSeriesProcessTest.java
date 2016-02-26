@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.accessionSeries;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.accessioSeries.AddAccessionSeries;
 import org.sanelib.ils.core.dao.AccessionSeriesRepository;
@@ -40,14 +39,13 @@ public class AddAccessionSeriesProcessTest extends EntityIntegrationTestBase {
         addAccessionSeries.setMaxNumber(100);
         addAccessionSeries.setMaxZero(2);
         addAccessionSeries.setPrefix("AS");
+        addAccessionSeries.setUserCode("1");
+        addAccessionSeries.setLibraryId(library.getId());
 
         AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByName("Fixed");
-        addAccessionSeries.setTypeName(accessionSeriesType);
+        addAccessionSeries.setAccessionSeriesType(accessionSeriesType);
 
-        addAccessionSeries.setEntryId("1");
-        addAccessionSeries.setEntryDate(DateHelper.fromDateString("2016/01/01"));
-
-        String result = execute(addAccessionSeries, ActivitiProcessConstants.Admin.ADD_ACCESSIONSERIES);
+        String result = execute(addAccessionSeries, ActivitiProcessConstants.Admin.ADD_ACCESSION_SERIES);
 
         assertNotNull(result);
 
@@ -55,13 +53,12 @@ public class AddAccessionSeriesProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(accessionSeries);
 
-        assertEquals(addAccessionSeries.getCode() , accessionSeries.getAccessionSeriesCode().getCode());
-        assertEquals(addAccessionSeries.getMaxNumber() ,accessionSeries.getMaxNumber());
-        assertEquals(addAccessionSeries.getMaxZero() ,accessionSeries.getMaxZero());
-        assertEquals(addAccessionSeries.getPrefix() ,accessionSeries.getPrefix());
-        assertEquals(addAccessionSeries.getTypeName() ,accessionSeries.getTypeName());
-        assertEquals(addAccessionSeries.getEntryId() ,accessionSeries.getEntryId());
-        assertEquals(addAccessionSeries.getEntryDate() ,accessionSeries.getEntryDate());
-
+        assertEquals(addAccessionSeries.getCode(), accessionSeries.getAccessionSeriesCode().getCode());
+        assertEquals(addAccessionSeries.getMaxNumber(), accessionSeries.getMaxNumber());
+        assertEquals(addAccessionSeries.getMaxZero(), accessionSeries.getMaxZero());
+        assertEquals(addAccessionSeries.getPrefix(), accessionSeries.getPrefix());
+        assertEquals(addAccessionSeries.getAccessionSeriesType(), accessionSeries.getAccessionSeriesType());
+        assertEquals(addAccessionSeries.getUserCode(), accessionSeries.getUserCode());
+        assertEquals(addAccessionSeries.getUserLibraryId(), accessionSeries.getUserLibraryId());
     }
 }

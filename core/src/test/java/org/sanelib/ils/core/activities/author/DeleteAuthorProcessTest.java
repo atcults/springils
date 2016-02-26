@@ -24,6 +24,7 @@ public class DeleteAuthorProcessTest extends EntityIntegrationTestBase {
         author.setCity("City");
         author.setState("GJ");
         author.setZipCode("5433");
+        author.setContract(true);
 
         persist(author);
 

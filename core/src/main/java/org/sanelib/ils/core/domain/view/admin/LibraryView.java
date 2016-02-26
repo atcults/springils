@@ -1,5 +1,7 @@
 package org.sanelib.ils.core.domain.view.admin;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithId;
 
@@ -290,39 +292,7 @@ public class LibraryView implements DomainView, ViewWithId {
 
     @Override
     public String toString() {
-        return "LibraryView{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", serialMaster='" + serialMaster + '\'' +
-                ", catalogueMaster='" + catalogueMaster + '\'' +
-                ", acquisitionsMaster='" + acquisitionsMaster + '\'' +
-                ", createdOn=" + createdOn +
-                ", acquisitionStatus='" + acquisitionStatus + '\'' +
-                ", cataloguingStatus='" + cataloguingStatus + '\'' +
-                ", smStatus='" + smStatus + '\'' +
-                ", hostLibraryId=" + hostLibraryId +
-                ", firstAddress='" + firstAddress + '\'' +
-                ", secondAddress='" + secondAddress + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", pin='" + pin + '\'' +
-                ", firstPhoneNumber='" + firstPhoneNumber + '\'' +
-                ", email='" + email + '\'' +
-                ", secondPhoneNumber='" + secondPhoneNumber + '\'' +
-                ", fax='" + fax + '\'' +
-                ", country='" + country + '\'' +
-                ", networkName='" + networkName + '\'' +
-                ", searchForms='" + searchForms + '\'' +
-                ", facebookWidget='" + facebookWidget + '\'' +
-                ", twitterWidget='" + twitterWidget + '\'' +
-                ", aboutLibrary='" + aboutLibrary + '\'' +
-                ", aboutOrganization='" + aboutOrganization + '\'' +
-                ", libraryTimings='" + libraryTimings + '\'' +
-                ", contactUs='" + contactUs + '\'' +
-                ", mapWidget='" + mapWidget + '\'' +
-                ", description='" + description + '\'' +
-                ", webStatistics='" + webStatistics + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
 

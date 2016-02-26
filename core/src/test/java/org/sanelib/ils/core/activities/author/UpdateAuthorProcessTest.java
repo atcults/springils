@@ -26,6 +26,7 @@ public class UpdateAuthorProcessTest extends EntityIntegrationTestBase {
         author.setCity("City");
         author.setState("GJ");
         author.setZipCode("5433");
+        author.setContract(true);
 
         persist(author);
 
@@ -39,6 +40,7 @@ public class UpdateAuthorProcessTest extends EntityIntegrationTestBase {
         updateAuthor.setCity("new city");
         updateAuthor.setState("MH");
         updateAuthor.setZipCode("5433");
+        updateAuthor.setContract(false);
 
         String result = execute(updateAuthor, ActivitiProcessConstants.Admin.UPDATE_AUTHOR);
 
@@ -53,8 +55,9 @@ public class UpdateAuthorProcessTest extends EntityIntegrationTestBase {
         assertEquals(updateAuthor.getFirstName(), updatedAuthor.getFirstName());
         assertEquals(updateAuthor.getPhone(), updatedAuthor.getPhone());
         assertEquals(updateAuthor.getAddress(), updatedAuthor.getAddress());
-        assertEquals(updateAuthor.getCity() , updatedAuthor.getCity());
-        assertEquals(updateAuthor.getState() ,updatedAuthor.getState());
-        assertEquals(updateAuthor.getZipCode() ,updatedAuthor.getZipCode());
+        assertEquals(updateAuthor.getCity(), updatedAuthor.getCity());
+        assertEquals(updateAuthor.getState(), updatedAuthor.getState());
+        assertEquals(updateAuthor.getZipCode(), updatedAuthor.getZipCode());
+        assertEquals(updateAuthor.isContract(), updatedAuthor.isContract());
     }
 }

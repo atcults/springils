@@ -1,8 +1,10 @@
 package org.sanelib.ils.api.dto.author;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.api.dto.DtoWithCode;
 
-public class AuthorDTO implements DtoWithCode {
+public class AuthorDto implements DtoWithCode {
 
     private String code;
     private String lastName;
@@ -12,6 +14,7 @@ public class AuthorDTO implements DtoWithCode {
     private String city;
     private String state;
     private String zipCode;
+    private String contract;
 
     @Override
     public String getCode() {
@@ -78,18 +81,17 @@ public class AuthorDTO implements DtoWithCode {
         this.zipCode = zipCode;
     }
 
+    public String getContract() {
+        return contract;
+    }
+
+    public void setContract(String contract) {
+        this.contract = contract;
+    }
+
     @Override
     public String toString() {
-        return "AuthorDTO{" +
-                "code='" + code + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
 

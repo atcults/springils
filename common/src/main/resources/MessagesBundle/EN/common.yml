@@ -6,8 +6,20 @@ server:
 
 field:
   required: ~0 is required
-  duplicate: ~0 with ~1 ^0 already exists.
+  duplicate: ~0 with ~1 ^0 already exists
   pattern: ~0 format is incorrect. Ex. ^0
   notExist: ~0 with ~1 ^0 does not exist.
   length: ~0 length should not more than ^0
-  select: ~0 should be selected from list.
+  select: ~0 should be selected from list
+  invalidInteger: ~0 is invalid integer
+  invalidDecimal: ~0 is invalid decimal
+  shouldBeGraterOrEqualThan: ~0 should be grater or equal than ^0
+  shouldBeLesserOrEqualThan: ~0 should be lesser or equal than ^0
+  shouldBeInBetween: ~0 should be in between ^0 and ^1
+
+date:
+  startDateAfterEndDate: ~0 should not be after end date.
+
+holiday:
+  startDateOutOfRange: ~0 should not be in past date. Today is ^0
+  endDateOutOfRange: ~0 should not after fiscal year end date ^0

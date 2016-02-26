@@ -17,12 +17,15 @@
         <serviceTask id="checkFiscalYearExistID" name="checkFiscalYearExist" activiti:delegateExpression="${checkFiscalYearExistDelegate}"/>
         <serviceTask id="checkFiscalYearDuplicationID" name="checkFiscalYearDuplication" activiti:delegateExpression="${checkFiscalYearDuplicationDelegate}"/>
         <serviceTask id="processUpdateFiscalYearID" name="processUpdateFiscalYearProcess" activiti:delegateExpression="${processUpdateFiscalYearDelegate}"/>
+        <serviceTask id="checkStartDateEndDate" name="dateValidation" activiti:delegateExpression="${startDateEndDateValidationDelegate}"/>
+
         <endEvent id="endProcessID" name="end"/>
 
         <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E28" sourceRef="startProcessID" targetRef="checkLibraryExistID"/>
         <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E59" sourceRef="checkLibraryExistID" targetRef="checkFiscalYearExistID"/>
         <sequenceFlow id="sid-58CEA65D-CB0B-49CE-B48C-D1E99EDC6E58" sourceRef="checkFiscalYearExistID" targetRef="checkFiscalYearDuplicationID"/>
         <sequenceFlow id="sid-9B2E3492-26CA-40A3-A8CB-74E1302888A3" sourceRef="checkFiscalYearDuplicationID" targetRef="processUpdateFiscalYearID"/>
-        <sequenceFlow id="sid-78877653-D15F-47F3-91D3-921D9E76438B" sourceRef="processUpdateFiscalYearID" targetRef="endProcessID"/>
+        <sequenceFlow id="sid-78877653-D15F-47F3-91D3-921D9E76438B" sourceRef="processUpdateFiscalYearID" targetRef="checkStartDateEndDate"/>
+        <sequenceFlow id="sid-78877653-D15F-47F3-91D3-921D9E76438A" sourceRef="checkStartDateEndDate" targetRef="endProcessID"/>
     </process>
 </definitions>

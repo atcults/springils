@@ -1,25 +1,46 @@
 package org.sanelib.ils.api.services.library;
 
+import org.sanelib.ils.api.converters.library.LibraryViewConverter;
 import org.sanelib.ils.api.dto.library.LibraryDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
-import org.sanelib.ils.core.dao.read.ViewNameConstants;
+import org.sanelib.ils.core.dao.read.admin.LibraryViewRepository;
+import org.sanelib.ils.core.domain.view.admin.LibraryView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.*;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @Path(ApiEndPointConstants.Admin.LIBRARY_END_POINT)
 @Produces(MediaType.APPLICATION_JSON)
 public class LibraryService extends ApiServiceBase {
 
+    @Autowired
+    LibraryViewRepository libraryViewRepository;
+
+    @Autowired
+    LibraryViewConverter libraryViewConverter;
+
     @GET
+    @SuppressWarnings("unchecked")
     public List getAllLibraries() throws Throwable {
-        return fetchAll(ViewNameConstants.Admin.LIBRARY);
+        List dtoList = new ArrayList<>();
+        List viewList = libraryViewRepository.getAll();
+        dtoList.addAll((Collection) viewList.stream().map(v -> libraryViewConverter.convert((LibraryView) v)).collect(Collectors.toList()));
+        return dtoList;
     }
 
     @POST

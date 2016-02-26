@@ -9,4 +9,8 @@ jar {
 dependencies {
     compile 'org.yaml:snakeyaml:1.16'
     compile 'org.springframework.boot:spring-boot-starter'
+
+    compile 'org.aspectj:aspectjrt:1.8.8'
+    compile 'org.aspectj:aspectjweaver:1.8.8'
+    compile 'org.aspectj:aspectjtools:1.8.8'
 }
