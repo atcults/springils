@@ -8,7 +8,8 @@ import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.materialType.DeleteMaterialType;
 import org.sanelib.ils.core.dao.CirculationMatrixRepository;
 import org.sanelib.ils.core.dao.UnitOfWork;
-import org.sanelib.ils.core.domain.entity.*;
+import org.sanelib.ils.core.domain.entity.CirculationMatrix;
+import org.sanelib.ils.core.domain.entity.MaterialType;
 import org.sanelib.ils.core.exceptions.AppException;
 import org.sanelib.ils.core.exceptions.ProcessError;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import java.util.List;
 
 @SuppressWarnings("ALL")
 @Component
-public class CheckIdReferenceDelegate implements JavaDelegate{
+public class CheckMaterialTypeIdReferenceDelegate implements JavaDelegate{
 
     @Autowired
     CirculationMatrixRepository circulationMatrixRepository;
