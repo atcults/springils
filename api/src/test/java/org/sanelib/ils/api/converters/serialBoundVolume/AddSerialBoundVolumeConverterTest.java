@@ -20,7 +20,6 @@ public class AddSerialBoundVolumeConverterTest {
         dto.setName("SerialBoundVolume");
         dto.setColor("Color");
         dto.setPrice("10.10");
-        dto.setEntryId("EntryId");
 
         ProcessError processError = new ProcessError();
 

@@ -1,5 +1,7 @@
 package org.sanelib.ils.api.dto.serialBoundVolume;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.api.dto.DtoWithId;
 import org.sanelib.ils.api.dto.DtoWithLibraryId;
 
@@ -10,7 +12,6 @@ public class SerialBoundVolumeDto implements DtoWithId, DtoWithLibraryId {
     private String name;
     private String color;
     private String price;
-    private String entryId;
 
     @Override
     public String getLibraryId() {
@@ -54,12 +55,11 @@ public class SerialBoundVolumeDto implements DtoWithId, DtoWithLibraryId {
         this.price = price;
     }
 
-    public String getEntryId() {
-        return entryId;
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
 
 }
