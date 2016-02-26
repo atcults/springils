@@ -6,18 +6,22 @@ import org.sanelib.ils.core.commands.serialBoundVolume.UpdateSerialBoundVolume;
 import org.sanelib.ils.core.dao.SerialBoundVolumeRepository;
 import org.sanelib.ils.core.domain.entity.SerialBoundVolume;
 import org.sanelib.ils.core.domain.entity.SerialBoundVolumeId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessUpdateSerialBoundVolumeDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessUpdateSerialBoundVolumeDelegate.class);
+
     @Autowired
     SerialBoundVolumeRepository serialBoundVolumeRepository;
 
     @Override
 	public void execute(DelegateExecution execution) throws Exception {
-		System.out.println("Process Update SerialBoundVolume called");
+		LOG.info("Process Update SerialBoundVolume called");
 
         UpdateSerialBoundVolume command = (UpdateSerialBoundVolume) execution.getVariable("command");
 
