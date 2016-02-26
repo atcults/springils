@@ -1,6 +1,5 @@
 package org.sanelib.ils.api.converters.library;
 
-
 import org.junit.Test;
 import org.sanelib.ils.api.dto.library.LibraryDto;
 import org.sanelib.ils.common.utils.DateHelper;
@@ -23,7 +22,7 @@ public class UpdateLibraryConverterTest {
         dto.setSerialMaster("SerialMaster");
         dto.setCatalogueMaster("CatalogueMaster");
         dto.setAcquisitionsMaster("AcquisitionMaster");
-        dto.setCreatedOn("2015/12/12");
+        dto.setCreatedOn("2015-12-12");
         dto.setAcquisitionStatus("AcqStatus");
         dto.setCataloguingStatus("CatStatus");
         dto.setSmStatus("SmStatus");
@@ -90,8 +89,5 @@ public class UpdateLibraryConverterTest {
         assertEquals("Map widget is not mapped", dto.getMapWidget(), updateLibrary.getMapWidget());
         assertEquals("Description is not mapped", dto.getDescription(), updateLibrary.getDescription());
         assertEquals("Web statistics is not mapped", dto.getWebStatistics(), updateLibrary.getWebStatistics());
-
-
     }
-
 }

@@ -30,5 +30,4 @@ public class DeleteLibraryConverterTest {
 
         assertEquals("Id is not mapped", dto.getId(), String.valueOf(deleteLibrary.getId()));
     }
-
 }

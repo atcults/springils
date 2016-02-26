@@ -22,7 +22,7 @@ public class AddLibraryConverterTest {
         dto.setSerialMaster("SerialMaster");
         dto.setCatalogueMaster("CatalogueMaster");
         dto.setAcquisitionsMaster("AcquisitionMaster");
-        dto.setCreatedOn("2015/12/12");
+        dto.setCreatedOn("2015-12-12");
         dto.setAcquisitionStatus("AcqStatus");
         dto.setCataloguingStatus("CatStatus");
         dto.setSmStatus("SmStatus");
