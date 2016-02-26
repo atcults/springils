@@ -12,6 +12,7 @@ entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  serialBoundVolume: SerialBoundVolume
   course: Course
   patronCategory: PatronCategory
   fiscalYear: Fiscal Year
@@ -36,6 +37,13 @@ publisher:
 
 agency:
   name: Name
+
+serialBoundVolume:
+  name: Name
+  color: Color
+  price: Price
+  entryId: Entry Id
+  entryDate: Entry Date
 
 author:
   lname: Last Name
@@ -118,6 +126,7 @@ holiday:
 
 patronCategory:
   name: Name
+  overallLoanLimit: Overall Loan Limit
 
 Department:
   name: Department Name
@@ -126,3 +135,7 @@ Department:
 bindingType:
   bindType: Binding Type
   price: Price
+
+
+date:
+  startDate: Start Date

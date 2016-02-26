@@ -1,19 +1,16 @@
 package org.sanelib.ils.core.domain.view.admin;
 
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithId;
-
-import java.util.Date;
 
 public class CourseView implements DomainView, ViewWithId{
 
     private Integer libraryId;
     private Integer id;
     private String courseName;
-    private Integer hodId;
-    private String entryId;
-    private Date entryDate;
     private Integer promotedCourseId;
 
     public Integer getLibraryId() {
@@ -30,30 +27,6 @@ public class CourseView implements DomainView, ViewWithId{
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
-    }
-
-    public Integer getHodId() {
-        return hodId;
-    }
-
-    public void setHodId(Integer hodId) {
-        this.hodId = hodId;
-    }
-
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
     }
 
     public Integer getPromotedCourseId() {
@@ -75,15 +48,6 @@ public class CourseView implements DomainView, ViewWithId{
 
     @Override
     public String toString(){
-
-        return "CourseView{" +
-                "libraryId=" + libraryId +
-                "id=" + id +
-                "courseName=" + courseName+
-                "hodId=" + hodId +
-                "entryId=" + entryId +
-                "entryDate=" + entryDate +
-                "promotedCourseId=" + promotedCourseId +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

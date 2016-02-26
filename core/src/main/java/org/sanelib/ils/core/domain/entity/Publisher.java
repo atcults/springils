@@ -2,7 +2,10 @@ package org.sanelib.ils.core.domain.entity;
 
 import com.google.common.base.Strings;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "publishers")
@@ -73,5 +76,4 @@ public class Publisher implements DomainEntity {
     public int hashCode() {
         return Strings.isNullOrEmpty(code) ? 0 : code.hashCode();
     }
-
 }

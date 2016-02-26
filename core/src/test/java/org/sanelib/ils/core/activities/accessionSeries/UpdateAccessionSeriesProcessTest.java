@@ -33,7 +33,7 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         accessionSeries.setMaxNumber(100);
         accessionSeries.setMaxZero(2);
         accessionSeries.setPrefix("AS");
-        accessionSeries.setAccessionSeriesType(AccessionSeriesType.Fixed);
+        accessionSeries.setAccessionSeriesType(AccessionSeriesType.Variable);
         accessionSeries.setUserCode("1");
         accessionSeries.setUserLibraryId(library.getId());
 
@@ -48,7 +48,7 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         updateAccessionSeries.setPrefix("AS");
         updateAccessionSeries.setAccessionSeriesType(AccessionSeriesType.Variable);
         updateAccessionSeries.setUserCode("1");
-        updateAccessionSeries.setLibraryId(1);
+        updateAccessionSeries.setUserLibraryId(library.getId());
 
         String result = execute(updateAccessionSeries, ActivitiProcessConstants.Admin.UPDATE_ACCESSION_SERIES);
 

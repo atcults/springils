@@ -1,6 +1,5 @@
 package org.sanelib.ils.api.converters.publisher;
 
-
 import org.junit.Test;
 import org.sanelib.ils.api.dto.publisher.PublisherDto;
 import org.sanelib.ils.core.commands.ProcessCommand;
@@ -19,10 +18,10 @@ public class DeletePublisherConverterTest {
 
         publisherDto.setCode("1");
 
-        ProcessError processError= new ProcessError();
+        ProcessError processError = new ProcessError();
 
         DeletePublisherConverter deletePublisherConverter = new DeletePublisherConverter();
-        ProcessCommand command = deletePublisherConverter.convert(publisherDto , processError);
+        ProcessCommand command = deletePublisherConverter.convert(publisherDto, processError);
 
         assertTrue("Conversion error occurred", processError.isValid());
         assertTrue("Wrong output " + command, command instanceof DeletePublisher);

@@ -15,8 +15,8 @@ public class PatronCode implements Serializable, LibraryIdAndEntityCode {
    }
 
     public PatronCode(Integer libraryId, String code){
-        this.libraryId=libraryId;
-        this.code=code;
+        this.libraryId = libraryId;
+        this.code = code;
     }
 
     @Column(name = "library_id")
@@ -32,7 +32,7 @@ public class PatronCode implements Serializable, LibraryIdAndEntityCode {
 
     @Override
     public void setLibraryId(int libraryId) {
-        this.libraryId=libraryId;
+        this.libraryId = libraryId;
     }
 
     public String getCode() {
@@ -62,5 +62,4 @@ public class PatronCode implements Serializable, LibraryIdAndEntityCode {
         result = 31 * result + code.hashCode();
         return result;
     }
-
 }

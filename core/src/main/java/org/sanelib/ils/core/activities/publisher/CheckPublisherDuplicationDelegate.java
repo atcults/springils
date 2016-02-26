@@ -44,7 +44,6 @@ public class CheckPublisherDuplicationDelegate implements JavaDelegate {
             }
         }
 
-
         if(!processError.isValid()){
             throw new AppException(processError);
         }

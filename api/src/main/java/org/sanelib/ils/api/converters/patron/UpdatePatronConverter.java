@@ -1,7 +1,5 @@
 package org.sanelib.ils.api.converters.patron;
 
-
-import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.dto.patron.PatronDto;
 import org.sanelib.ils.common.utils.ReflectionHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
@@ -18,8 +16,9 @@ public class UpdatePatronConverter extends AddPatronConverter {
 
         AddPatron addPatron = (AddPatron) super.convert(dto, processError);
         UpdatePatron updatePatron = new UpdatePatron();
+
         ReflectionHelper.copy(addPatron, updatePatron);
-        ConverterHelper.checkCodeRequired(dto, updatePatron, processError);
+
         return updatePatron;
     }
 }

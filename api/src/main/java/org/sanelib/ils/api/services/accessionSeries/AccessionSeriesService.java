@@ -10,7 +10,13 @@ import org.sanelib.ils.core.domain.view.admin.AccessionSeriesView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.*;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -28,16 +34,12 @@ public class AccessionSeriesService extends ApiServiceBase {
     @Autowired
     AccessionSeriesViewConverter accessionSeriesViewConverter;
 
-
     @GET
     @SuppressWarnings("unchecked")
     public List getAllAccessionSeries() throws Throwable {
-
         List dtoList = new ArrayList<>();
         List viewList = accessionSeriesViewRepository.getAll();
-
         dtoList.addAll((Collection) viewList.stream().map(v -> accessionSeriesViewConverter.convert((AccessionSeriesView) v)).collect(Collectors.toList()));
-
         return dtoList;
     }
 
@@ -54,11 +56,9 @@ public class AccessionSeriesService extends ApiServiceBase {
     @DELETE
     @Path("/{libraryId}/{code}")
     public String deleteAgency(@PathParam("libraryId") String libraryId, @PathParam("code") String code) throws Throwable {
-
         AccessionSeriesDto accessionSeriesDto = new AccessionSeriesDto();
         accessionSeriesDto.setCode(code);
         accessionSeriesDto.setLibraryId(libraryId);
-
         return execute(accessionSeriesDto, ActivitiProcessConstants.Admin.DELETE_ACCESSION_SERIES);
     }
 }

@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.course;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.course.UpdateCourse;
 import org.sanelib.ils.core.dao.HibernateHelper;
@@ -28,13 +27,13 @@ public class UpdateCourseProcessTest extends EntityIntegrationTestBase {
         persist(library);
 
         Course advanceCourse = new Course();
-        advanceCourse.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"),library.getId());
+        advanceCourse.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"), library.getId());
         advanceCourse.setName("advance");
 
         persist(advanceCourse);
 
         Course basicCourse = new Course();
-        basicCourse.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"),library.getId());
+        basicCourse.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"), library.getId());
         basicCourse.setName("advance");
         basicCourse.setPromotedCourseId(advanceCourse.getCourseId().getId());
 
@@ -53,6 +52,5 @@ public class UpdateCourseProcessTest extends EntityIntegrationTestBase {
         assertNotNull(dbCourse);
 
         assertEquals(updateCourse.getName(), dbCourse.getName());
-
     }
 }

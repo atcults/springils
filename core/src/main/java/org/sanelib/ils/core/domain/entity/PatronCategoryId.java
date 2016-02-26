@@ -60,5 +60,4 @@ public class PatronCategoryId implements Serializable, LibraryIdAndEntityId {
         result = 31 * result + id;
         return result;
     }
-
 }

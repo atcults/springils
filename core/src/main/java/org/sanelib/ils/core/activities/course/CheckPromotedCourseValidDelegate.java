@@ -10,6 +10,8 @@ import org.sanelib.ils.core.commands.course.AddCourse;
 import org.sanelib.ils.core.dao.UnitOfWork;
 import org.sanelib.ils.core.exceptions.AppException;
 import org.sanelib.ils.core.exceptions.ProcessError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,15 +21,17 @@ import java.util.List;
 @Component
 public class CheckPromotedCourseValidDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(CheckPromotedCourseValidDelegate.class);
+
     @Autowired
     UnitOfWork unitOfWork;
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        System.out.println("Checking promoted course exist and not same as request course");
+        LOG.info("Checking promoted course exist and not same as request course");
 
         Object command = execution.getVariable("command");
-        ProcessError processError= (ProcessError) execution.getVariable("errors");
+        ProcessError processError = (ProcessError) execution.getVariable("errors");
 
         if(!(command instanceof ProcessCommandWithLibraryId)){
             throw new RuntimeException("Command is invalid. It should implement proper interface.");

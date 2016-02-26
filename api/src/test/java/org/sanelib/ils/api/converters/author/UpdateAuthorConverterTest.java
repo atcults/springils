@@ -2,7 +2,7 @@ package org.sanelib.ils.api.converters.author;
 
 
 import org.junit.Test;
-import org.sanelib.ils.api.dto.author.AuthorDTO;
+import org.sanelib.ils.api.dto.author.AuthorDto;
 import org.sanelib.ils.common.utils.StringHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.author.UpdateAuthor;
@@ -15,7 +15,7 @@ public class UpdateAuthorConverterTest {
 
     @Test
     public void testUpdateAuthorSuccessExecute() throws Exception{
-        AuthorDTO dto = new AuthorDTO();
+        AuthorDto dto = new AuthorDto();
 
         dto.setCode("1");
         dto.setLastName("Author Last Name");
@@ -44,8 +44,8 @@ public class UpdateAuthorConverterTest {
         assertEquals("Address is not mapped", dto.getAddress(), updateAuthor.getAddress());
         assertEquals("City is not mapped", dto.getCity(), updateAuthor.getCity());
         assertEquals("State is not mapped", dto.getState(), updateAuthor.getState());
-        assertEquals("Zip code is not mapped" ,dto.getZipCode() , updateAuthor.getZipCode());
-        assertEquals("Contract is not mapped" ,Boolean.parseBoolean(dto.getContract()) , updateAuthor.isContract());
+        assertEquals("Zip code is not mapped", dto.getZipCode(), updateAuthor.getZipCode());
+        assertEquals("Contract is not mapped", Boolean.parseBoolean(dto.getContract()), updateAuthor.isContract());
 
     }
 
