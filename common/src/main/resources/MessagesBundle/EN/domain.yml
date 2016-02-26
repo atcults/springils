@@ -3,8 +3,10 @@ common:
   code: Code
   name: Name
   libraryId: Library Id
-  patronCode: Patron Code
-  patronLibraryId: Patron Library Id
+  userCode: User Code
+  userLibraryId: User Library Id
+  createdOn: Created On
+  updatedOn: Updated On
 
 entity:
   library: Library
@@ -15,6 +17,7 @@ entity:
   patronCategory: PatronCategory
   fiscalYear: Fiscal Year
   accessionSeries: Accession Series
+  bindingType: Binding Type
   holiday: Holiday
   department: Department
   patron: Patron
@@ -50,22 +53,18 @@ author:
   city: City
   state: State
   zip: Zip Code
+
 course:
   name: Name
-  entryId: Entry Id
-  entryDate: Entry Date
   promotedCourseId: Promoted Course Id
 
 fiscalYear:
   startDate: Start Date
   endDate: End Date
-  entryDate: Entry Date
 
 patron:
   patronCategoryId: Patron Category Id
-  isOnline: Is Online
   owns: Owns
-  createdOn: Created On
   otherLibraryPatronId: Other Library Patron Id
   libraryPatronId: Library Patron Id
   patronType: Patron Type
@@ -99,11 +98,8 @@ patron:
   commonEmail: Common Email
   commonInstantMsg: Common Instant Msg
   commonPrint: Common Print
-  entryDate: Entry Date
   userPassword: User Password
   courseId: Course Id
-  status: Status
-  sendToAddress: Send to Address
   custom: Custom
   privilege: Privilege
   twitterId: Twitter Id
@@ -111,15 +107,15 @@ patron:
   subLocationId: Sub Location Id
   loginId: Login Id
   authenticateLocalDatabase: Authenticate Local Database
+  sendToAddress: Send to Address
+  isActive: Is Active
 
 accessionSeries:
   code: Series Name
+  accessionSeriesType: Accession Series Type
+  prefix: Prefix
   maxNumber: Max Number
   maxZero: Max Zero
-  prefix: Prefix
-  typeName: Fixed Or Variable
-  patronCode: Entry Id
-  entryDate: Entry Date
 
 holiday:
   fiscalYearId: Fiscal Year
@@ -134,5 +130,7 @@ patronCategory:
 Department:
   name: Department Name
   hodId: HOD Id
-  entryDate: Entry Date
-  entryId: Entry Id
+
+bindingType:
+  bindType: Binding Type
+  price: Price

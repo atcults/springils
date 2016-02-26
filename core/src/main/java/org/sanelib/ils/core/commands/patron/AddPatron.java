@@ -22,9 +22,7 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
 
     private String code;
     private Integer patronCategoryId;
-    private String isOnline;
     private String owns;
-    private Date createdOn;
     private Integer otherLibraryPatronId;
     private Integer libraryPatronId;
     private PatronType patronType;
@@ -60,8 +58,6 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
     private boolean commonPrint;
     private String userPassword;
     private Integer courseId;
-    private String status;
-    private String sendToAddress;
     private String custom;
     private String privilege;
     private String twitterId;
@@ -69,6 +65,9 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
     private Integer subLocationId;
     private String loginId;
     private String authenticateLocalDatabase;
+    private boolean sendToAddress;
+    private boolean isActive;
+
 
     @Override
     public String getCode() {
@@ -88,28 +87,12 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
         this.patronCategoryId = patronCategoryId;
     }
 
-    public String getIsOnline() {
-        return isOnline;
-    }
-
-    public void setIsOnline(String isOnline) {
-        this.isOnline = isOnline;
-    }
-
     public String getOwns() {
         return owns;
     }
 
     public void setOwns(String owns) {
         this.owns = owns;
-    }
-
-    public Date getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
     }
 
     public Integer getOtherLibraryPatronId() {
@@ -392,22 +375,6 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
         this.courseId = courseId;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getSendToAddress() {
-        return sendToAddress;
-    }
-
-    public void setSendToAddress(String sendToAddress) {
-        this.sendToAddress = sendToAddress;
-    }
-
     public String getCustom() {
         return custom;
     }
@@ -462,5 +429,21 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
 
     public void setAuthenticateLocalDatabase(String authenticateLocalDatabase) {
         this.authenticateLocalDatabase = authenticateLocalDatabase;
+    }
+
+    public boolean isSendToAddress() {
+        return sendToAddress;
+    }
+
+    public void setSendToAddress(boolean sendToAddress) {
+        this.sendToAddress = sendToAddress;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

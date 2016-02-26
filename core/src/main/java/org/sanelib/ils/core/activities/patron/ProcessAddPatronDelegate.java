@@ -31,9 +31,7 @@ public class ProcessAddPatronDelegate implements JavaDelegate {
 
         entity.setPatronCode(command.getCode(), command.getLibraryId());
         entity.setPatronCategoryId(command.getPatronCategoryId());
-        entity.setIsOnline(command.getIsOnline());
         entity.setOwns(command.getOwns());
-        entity.setCreatedOn(command.getCreatedOn());
         entity.setOtherLibraryPatronId(command.getOtherLibraryPatronId());
         entity.setLibraryPatronId(command.getLibraryPatronId());
         entity.setPatronType(PatronType.Patron);
@@ -69,7 +67,6 @@ public class ProcessAddPatronDelegate implements JavaDelegate {
         entity.setCommonPrint(command.commonPrint());
         entity.setUserPassword(command.getUserPassword());
         entity.setCourseId(command.getCourseId());
-        entity.setSendToAddress(command.getSendToAddress());
         entity.setCustom(command.getCustom());
         entity.setPrivilege(command.getPrivilege());
         entity.setTwitterId(command.getTwitterId());
@@ -77,6 +74,8 @@ public class ProcessAddPatronDelegate implements JavaDelegate {
         entity.setSubLocationId(command.getSubLocationId());
         entity.setLoginId(command.getLoginId());
         entity.setAuthenticateLocalDatabase(command.getAuthenticateLocalDatabase());
+        entity.setSendToAddress(command.isSendToAddress());
+        entity.setActive(command.isActive());
         patronRepository.save(entity);
         execution.setVariable("result", entity.getPatronCode().getCode());
     }

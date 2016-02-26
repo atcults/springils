@@ -34,18 +34,18 @@ public class CheckAccessionSeriesDuplicationDelegate implements JavaDelegate {
 
         boolean isUpdate = command instanceof UpdateAccessionSeries;
 
-        String code = isUpdate ? ((UpdateAccessionSeries) command).getCode() : ((AddAccessionSeries) command).getCode();
+        String existingAccessionSeriesCode = ((AddAccessionSeries) command).getCode();
         Integer LibraryId = ((AddAccessionSeries) command).getLibraryId();
 
         List<AccessionSeries> accessionSeries  = accessionSeriesRepository.findByColumnAndValue(
                 new String[]{"accessionSeriesCode.libraryId", "accessionSeriesCode.code"},
-                new Object[]{LibraryId, code}
+                new Object[]{LibraryId, existingAccessionSeriesCode}
         );
 
         if(!accessionSeries.isEmpty()) {
-            if(!isUpdate || !Objects.equals(code, accessionSeries.get(0).getAccessionSeriesCode().getCode())) {
+            if(!isUpdate || !Objects.equals(existingAccessionSeriesCode, accessionSeries.get(0).getAccessionSeriesCode().getCode())) {
                 processError.addError("common.field.duplicate", "accessionSeries.code",
-                        Arrays.asList("domain.entity.library", "domain.accessionSeries.code"), code);
+                        Arrays.asList("domain.entity.library", "domain.accessionSeries.code"), existingAccessionSeriesCode);
             }
         }
 
