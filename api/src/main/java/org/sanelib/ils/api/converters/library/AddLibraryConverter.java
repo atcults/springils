@@ -31,7 +31,7 @@ public class AddLibraryConverter implements DtoToCommandConverter<LibraryDto> {
         command.setAcquisitionsMaster(dto.getAcquisitionsMaster());
 
         if(!RegularExpressionHelper.checkDateFormat(dto.getCreatedOn())){
-            processError.addError("common.field.pattern" , "CreatedOn" , "domain.library.createdOn" ,RegularExpressionHelper.DATE_FORMAT);
+            processError.addError("common.field.pattern", "createdOn", "domain.library.createdOn",RegularExpressionHelper.DATE_FORMAT);
         }
         else {
             command.setCreatedOn(DateHelper.fromDateString(dto.getCreatedOn()));

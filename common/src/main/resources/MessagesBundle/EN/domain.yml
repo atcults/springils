@@ -27,6 +27,32 @@ library:
   city: City
   state: State
   country: Country
+  serialMaster: Serial Master
+  catalogueMaster: Catalogue Master
+  acquisitionsMaster: Acquisitions Master
+  createdOn: CreatedOn
+  acquisitionStatus: Acquisition Status
+  cataloguingStatus: Cataloguing Status
+  smStatus: Sm Status
+  hostLibraryId: Host Library Id
+  firstAddress: First Address
+  secondAddress: Second Address
+  pin: Pin
+  firstPhoneNumber: First PhoneNumber
+  email: Email
+  secondPhoneNumber: Second PhoneNumber
+  fax: Fax
+  networkName: Network Name
+  searchForms: Search Forms
+  facebookWidget: Facebook Widget
+  twitterWidget: Twitter Widget
+  aboutLibrary: About Library
+  aboutOrganization: About Organization
+  libraryTimings: Library Timings
+  contactUs: Contact Us
+  mapWidget: Map Widget
+  description: Description
+  webStatistics: Web Statistics
 
 publisher:
   name: Name
