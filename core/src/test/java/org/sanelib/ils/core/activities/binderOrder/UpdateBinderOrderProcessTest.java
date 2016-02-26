@@ -42,7 +42,6 @@ public class UpdateBinderOrderProcessTest extends EntityIntegrationTestBase {
         binderOrder.setMailStatus(true);
         binderOrder.setPrintStatus(true);
         binderOrder.setStatus("SetStatus");
-        binderOrder.setEntryId("EntryId");
 
         persist(binderOrder);
 

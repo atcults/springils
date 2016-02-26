@@ -20,8 +20,6 @@ public class BinderOrderView implements DomainView, ViewWithId {
     private boolean mailStatus;
     private boolean printStatus;
     private String status;
-    private String entryId;
-    private Date entryDate;
 
     public Integer getLibraryId() {
         return libraryId;
@@ -112,22 +110,6 @@ public class BinderOrderView implements DomainView, ViewWithId {
         this.status = status;
     }
 
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
-
     @Override
     public String toString() {
         return "BinderOrderView{" +
@@ -140,11 +122,9 @@ public class BinderOrderView implements DomainView, ViewWithId {
                 ", formLetterNo='" + formLetterNo + '\'' +
                 ", subject='" + subject + '\'' +
                 ", content='" + content + '\'' +
-                ", mailStatus='" + mailStatus + '\'' +
-                ", printStatus='" + printStatus + '\'' +
+                ", mailStatus=" + mailStatus +
+                ", printStatus=" + printStatus +
                 ", status='" + status + '\'' +
-                ", entryId='" + entryId + '\'' +
-                ", entryDate=" + entryDate +
                 '}';
     }
 }

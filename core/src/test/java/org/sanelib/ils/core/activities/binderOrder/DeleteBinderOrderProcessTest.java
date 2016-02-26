@@ -40,7 +40,6 @@ public class DeleteBinderOrderProcessTest extends EntityIntegrationTestBase {
         binderOrder.setMailStatus(true);
         binderOrder.setPrintStatus(true);
         binderOrder.setStatus("SetStatus");
-        binderOrder.setEntryId("EntryId");
 
         persist(binderOrder);
 

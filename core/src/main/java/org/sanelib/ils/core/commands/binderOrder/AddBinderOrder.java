@@ -1,7 +1,6 @@
 package org.sanelib.ils.core.commands.binderOrder;
 
 import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.BinderOrder;
 
 import java.util.Date;
