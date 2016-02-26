@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
 public class AddLibraryProcessTest extends EntityIntegrationTestBase {
 
     @Test
-    public void testAddPublisherProcess() throws Throwable {
+    public void testAddLibraryProcess() throws Throwable {
 
         AddLibrary addLibrary = new AddLibrary();
 
@@ -31,9 +31,9 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(library);
 
-        assertEquals(addLibrary.getName() ,library.getName());
-        assertEquals(addLibrary.getCity() , library.getCity());
-        assertEquals(addLibrary.getState() , library.getState());
-        assertEquals(addLibrary.getCountry() , library.getCountry());
+        assertEquals(addLibrary.getName(), library.getName());
+        assertEquals(addLibrary.getCity(), library.getCity());
+        assertEquals(addLibrary.getState(), library.getState());
+        assertEquals(addLibrary.getCountry(), library.getCountry());
     }
 }

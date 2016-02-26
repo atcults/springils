@@ -33,9 +33,7 @@ public class DeletePatronProcessTest extends EntityIntegrationTestBase {
 
         patron.setPatronCode("Pat1", library.getId());
         patron.setPatronCategoryId(1);
-        patron.setIsOnline("Is Online");
         patron.setOwns("Owns");
-        patron.setCreatedOn(DateHelper.constructDate(2014,5,2));
         patron.setOtherLibraryPatronId(1);
         patron.setLibraryPatronId(1);
         patron.setPatronType(PatronType.Patron);
@@ -76,6 +74,8 @@ public class DeletePatronProcessTest extends EntityIntegrationTestBase {
         patron.setSubLocationId(1);
         patron.setLoginId("L12Id");
         patron.setAuthenticateLocalDatabase("A");
+        patron.setSendToAddress(true);
+        patron.setActive(true);
 
         persist(patron);
 

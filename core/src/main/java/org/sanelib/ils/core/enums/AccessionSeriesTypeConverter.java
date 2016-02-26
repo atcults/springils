@@ -12,7 +12,7 @@ public class AccessionSeriesTypeConverter implements AttributeConverter<Accessio
             return null;
         }
 
-        return accessionSeriesType.toString();
+        return accessionSeriesType.getValue();
 
     }
 

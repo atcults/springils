@@ -42,9 +42,9 @@ public class AddDepartmentProcessTest extends EntityIntegrationTestBase {
         AddDepartment addDepartment = new AddDepartment();
 
         addDepartment.setLibraryId(library.getId());
-        addDepartment.setDeptName("COMPUTER");
+        addDepartment.setName("COMPUTER");
         addDepartment.setHodId(patron.getPatronCode().getCode());
-        addDepartment.setEntryId(patron.getPatronCode().getCode());
+        addDepartment.setUserCode(patron.getPatronCode().getCode());
 
         String result = execute(addDepartment, ActivitiProcessConstants.Admin.ADD_DEPARTMENT);
 
@@ -54,7 +54,7 @@ public class AddDepartmentProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(department);
 
-        assertEquals(addDepartment.getDeptName() ,department.getDeptName());
-        assertEquals(addDepartment.getHodId(),department.getHodId());
+        assertEquals(addDepartment.getName(), department.getName());
+        assertEquals(addDepartment.getHodId(), department.getHodId());
     }
 }

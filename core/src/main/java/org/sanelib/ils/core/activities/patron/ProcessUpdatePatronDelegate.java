@@ -27,9 +27,7 @@ public class ProcessUpdatePatronDelegate implements JavaDelegate {
         Patron entity = patronRepository.get(new PatronCode(command.getLibraryId(),command.getCode()));
 
         entity.setPatronCategoryId(command.getPatronCategoryId());
-        entity.setIsOnline(command.getIsOnline());
         entity.setOwns(command.getOwns());
-        entity.setCreatedOn(command.getCreatedOn());
         entity.setOtherLibraryPatronId(command.getOtherLibraryPatronId());
         entity.setLibraryPatronId(command.getLibraryPatronId());
         entity.setPatronType(PatronType.Patron);
@@ -65,7 +63,6 @@ public class ProcessUpdatePatronDelegate implements JavaDelegate {
         entity.setCommonPrint(command.commonPrint());
         entity.setUserPassword(command.getUserPassword());
         entity.setCourseId(command.getCourseId());
-        entity.setSendToAddress(command.getSendToAddress());
         entity.setCustom(command.getCustom());
         entity.setPrivilege(command.getPrivilege());
         entity.setTwitterId(command.getTwitterId());
@@ -73,6 +70,8 @@ public class ProcessUpdatePatronDelegate implements JavaDelegate {
         entity.setSubLocationId(command.getSubLocationId());
         entity.setLoginId(command.getLoginId());
         entity.setAuthenticateLocalDatabase(command.getAuthenticateLocalDatabase());
+        entity.setSendToAddress(command.isSendToAddress());
+        entity.setActive(command.isActive());
         patronRepository.save(entity);
     }
 }

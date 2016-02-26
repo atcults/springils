@@ -1,4 +1,6 @@
-package org.sanelib.ils.api.services;
+package org.sanelib.ils.common.session.impl;
+
+import org.sanelib.ils.common.session.UserSession;
 
 public class UserSessionImpl implements UserSession {
 
@@ -9,8 +11,8 @@ public class UserSessionImpl implements UserSession {
         return userCode;
     }
 
-    public void setUserCode(String userId) {
-        this.userCode = userId;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     public Integer getLibraryId() {
