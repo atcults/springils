@@ -3,8 +3,6 @@ package org.sanelib.ils.core.domain.view.admin;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithId;
 
-import java.util.Date;
-
 
 public class SerialBoundVolumeView implements DomainView, ViewWithId {
 

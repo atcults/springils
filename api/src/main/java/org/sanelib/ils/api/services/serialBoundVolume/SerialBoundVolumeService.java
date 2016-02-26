@@ -6,6 +6,7 @@ import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.dao.read.admin.SerialBoundVolumeViewRepository;
+import org.sanelib.ils.core.domain.view.admin.SerialBoundVolumeView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +18,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @Path(ApiEndPointConstants.Admin.SERIALBOUNDVOLUME_END_POINT)
@@ -34,8 +38,12 @@ public class SerialBoundVolumeService extends ApiServiceBase {
     @SuppressWarnings("unchecked")
     public List getAllAgencies() throws Throwable {
 
+        List dtoList = new ArrayList<>();
         List viewList = serialBoundVolumeViewRepository.getAll();
-        return serialBoundVolumeViewConverter.convert(viewList);
+
+        dtoList.addAll((Collection) viewList.stream().map(v -> serialBoundVolumeViewConverter.convert((SerialBoundVolumeView) v)).collect(Collectors.toList()));
+
+        return dtoList;
     }
 
     @POST

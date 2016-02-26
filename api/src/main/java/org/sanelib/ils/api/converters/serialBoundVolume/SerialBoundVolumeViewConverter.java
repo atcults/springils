@@ -5,27 +5,20 @@ import org.sanelib.ils.api.dto.serialBoundVolume.SerialBoundVolumeDto;
 import org.sanelib.ils.core.domain.view.admin.SerialBoundVolumeView;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Component
 public class SerialBoundVolumeViewConverter extends AbstractViewToDtoConverterImpl<SerialBoundVolumeDto, SerialBoundVolumeView> {
 
     @Override
-    public List<SerialBoundVolumeDto> convert(List<SerialBoundVolumeView> serialBoundVolumeView) {
-        List<SerialBoundVolumeDto> boundVolumeDtos = new ArrayList<>();
+    public SerialBoundVolumeDto convert(SerialBoundVolumeView serialBoundVolumeView) {
 
-        for(SerialBoundVolumeView view : serialBoundVolumeView) {
             SerialBoundVolumeDto serialBoundVolumeDto = new SerialBoundVolumeDto();
 
-            serialBoundVolumeDto.setLibraryId(String.valueOf(view.getLibraryId()));
-            serialBoundVolumeDto.setId(String.valueOf(view.getId()));
-            serialBoundVolumeDto.setColor(view.getColor());
-            serialBoundVolumeDto.setName(view.getName());
-            serialBoundVolumeDto.setPrice(String.valueOf(view.getPrice()));
+            serialBoundVolumeDto.setLibraryId(String.valueOf(serialBoundVolumeView.getLibraryId()));
+            serialBoundVolumeDto.setId(String.valueOf(serialBoundVolumeView.getId()));
+            serialBoundVolumeDto.setColor(serialBoundVolumeView.getColor());
+            serialBoundVolumeDto.setName(serialBoundVolumeView.getName());
+            serialBoundVolumeDto.setPrice(String.valueOf(serialBoundVolumeView.getPrice()));
 
-            boundVolumeDtos.add(serialBoundVolumeDto);
-        }
-        return boundVolumeDtos;
+            return serialBoundVolumeDto;
     }
 }
