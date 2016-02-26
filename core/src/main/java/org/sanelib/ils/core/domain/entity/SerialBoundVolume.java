@@ -1,6 +1,10 @@
 package org.sanelib.ils.core.domain.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -22,7 +26,7 @@ public class SerialBoundVolume implements DomainEntity{
     private Double price;
 
     @Column(name = "entry_id")
-    private String patronCode;
+    private String userCode;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -68,12 +72,12 @@ public class SerialBoundVolume implements DomainEntity{
         this.price = price;
     }
 
-    public String getPatronCode() {
-        return patronCode;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setPatronCode(String patronCode) {
-        this.patronCode = patronCode;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     @PrePersist
