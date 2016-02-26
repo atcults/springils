@@ -8,11 +8,15 @@ import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.PatronRepository;
 import org.sanelib.ils.core.domain.entity.Patron;
 import org.sanelib.ils.core.enums.PatronType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessAddPatronDelegate implements JavaDelegate {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessAddPatronDelegate.class);
 
     @Autowired
     HibernateHelper hibernateHelper;
@@ -20,10 +24,9 @@ public class ProcessAddPatronDelegate implements JavaDelegate {
     @Autowired
     PatronRepository patronRepository;
 
-
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        System.out.println("Process Add Patron called");
+        LOG.info("Process Add Patron called");
 
         AddPatron command = (AddPatron) execution.getVariable("command");
 

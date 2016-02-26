@@ -1,7 +1,6 @@
 package org.sanelib.ils.core.commands.department;
 
 import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.Department;
 
 public class AddDepartment extends ProcessAuditCommandWithLibraryId {

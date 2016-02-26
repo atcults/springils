@@ -1,13 +1,12 @@
 package org.sanelib.ils.api.services.author;
 
 import org.sanelib.ils.api.converters.author.AuthorViewConverter;
-import org.sanelib.ils.api.dto.author.AuthorDTO;
+import org.sanelib.ils.api.dto.author.AuthorDto;
 import org.sanelib.ils.api.services.ApiEndPointConstants;
 import org.sanelib.ils.api.services.ApiServiceBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.dao.read.admin.AuthorViewRepository;
 import org.sanelib.ils.core.domain.view.admin.AuthorView;
-import org.sanelib.ils.core.domain.view.admin.LibraryView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-
 
 @Component
 @Path(ApiEndPointConstants.Admin.AUTHOR_END_POINT)
@@ -46,19 +44,19 @@ public class AuthorService extends ApiServiceBase {
     }
 
     @POST
-    public String addAuthor(AuthorDTO authorDTO) throws Throwable {
+    public String addAuthor(AuthorDto authorDTO) throws Throwable {
         return execute(authorDTO, ActivitiProcessConstants.Admin.ADD_AUTHOR);
     }
 
     @PUT
-    public String updateAuthor(AuthorDTO authorDTO) throws Throwable {
+    public String updateAuthor(AuthorDto authorDTO) throws Throwable {
         return execute(authorDTO, ActivitiProcessConstants.Admin.UPDATE_AUTHOR);
     }
 
     @DELETE
     @Path("/{id}")
     public String deleteAuthor(@PathParam("id") String code) throws Throwable {
-        AuthorDTO authorDto = new AuthorDTO();
+        AuthorDto authorDto = new AuthorDto();
 
         authorDto.setCode(code);
 

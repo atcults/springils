@@ -23,5 +23,4 @@ public class CustomJsonDateDeserializer extends JsonDeserializer<Date> {
             throw new RuntimeException(e);
         }
 	}
-
 }

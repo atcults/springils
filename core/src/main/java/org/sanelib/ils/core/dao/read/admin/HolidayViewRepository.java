@@ -3,7 +3,6 @@ package org.sanelib.ils.core.dao.read.admin;
 import org.sanelib.ils.core.dao.read.ViewService;
 import org.sanelib.ils.core.dao.read.ViewServiceHelper;
 import org.sanelib.ils.core.dao.read.admin.mapper.HolidayMapper;
-import org.sanelib.ils.core.dao.read.admin.mapper.LibraryMapper;
 import org.sanelib.ils.core.domain.view.admin.HolidayView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

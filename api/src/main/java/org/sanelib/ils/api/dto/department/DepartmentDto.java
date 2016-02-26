@@ -43,5 +43,4 @@ public class DepartmentDto implements DtoWithId, DtoWithLibraryId {
     public void setHodId(String hodId) {
         this.hodId = hodId;
     }
-
 }

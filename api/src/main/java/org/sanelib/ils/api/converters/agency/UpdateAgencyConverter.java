@@ -16,8 +16,10 @@ public class UpdateAgencyConverter extends AddAgencyConverter {
     public ProcessCommand convert(AgencyDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
         AddAgency addAgency = (AddAgency) super.convert(dto, processError);
         UpdateAgency updateAgency = new UpdateAgency();
+
         ReflectionHelper.copy(addAgency, updateAgency);
         ConverterHelper.checkIdRequired(dto, updateAgency, processError);
+
         return updateAgency;
     }
 }

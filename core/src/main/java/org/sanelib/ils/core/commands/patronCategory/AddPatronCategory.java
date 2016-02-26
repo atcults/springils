@@ -4,8 +4,6 @@ package org.sanelib.ils.core.commands.patronCategory;
 import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.PatronCategory;
 
-import java.util.Date;
-
 public class AddPatronCategory extends ProcessCommandWithLibraryId {
     @Override
     public Class getRootEntityClass() {

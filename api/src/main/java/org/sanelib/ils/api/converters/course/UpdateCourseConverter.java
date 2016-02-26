@@ -16,8 +16,8 @@ public class UpdateCourseConverter extends AddCourseConverter {
     public ProcessCommand convert(CourseDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException{
 
         AddCourse addCourse = (AddCourse) super.convert(dto, processError);
-
         UpdateCourse command = new UpdateCourse();
+
         ReflectionHelper.copy(addCourse, command);
         ConverterHelper.checkIdRequired(dto, command, processError);
 

@@ -32,14 +32,14 @@ public class AddHolidayConverter implements DtoToCommandConverter<HolidayDto>{
         }
 
         if(!RegularExpressionHelper.checkDateFormat(dto.getStartDate())) {
-            processError.addError("common.field.pattern", "StartDate", "domain.holiday.startDate", RegularExpressionHelper.DATE_FORMAT_EXAMPLE);
+            processError.addError("common.field.pattern", "startDate", "domain.holiday.startDate", RegularExpressionHelper.DATE_FORMAT_EXAMPLE);
         }
         else{
             command.setStartDate(DateHelper.fromDateString(dto.getStartDate()));
         }
 
         if(!RegularExpressionHelper.checkDateFormat(dto.getEndDate())) {
-            processError.addError("common.field.pattern", "EndDate", "domain.holiday.endDate", RegularExpressionHelper.DATE_FORMAT_EXAMPLE);
+            processError.addError("common.field.pattern", "endDate", "domain.holiday.endDate", RegularExpressionHelper.DATE_FORMAT_EXAMPLE);
         }
         else{
             command.setEndDate(DateHelper.fromDateString(dto.getEndDate()));

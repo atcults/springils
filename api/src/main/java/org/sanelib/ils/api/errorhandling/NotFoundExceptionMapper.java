@@ -3,7 +3,6 @@ package org.sanelib.ils.api.errorhandling;
 import org.sanelib.ils.common.properties.MapDictionaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import javax.ws.rs.NotFoundException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -27,5 +26,4 @@ public class NotFoundExceptionMapper implements ExceptionMapper<NotFoundExceptio
                 .type(MediaType.APPLICATION_JSON)
                 .build();
     }
-
 }

@@ -14,8 +14,10 @@ public class DeleteDepartmentConverter implements DtoToCommandConverter<Departme
     @Override
     public ProcessCommand convert(DepartmentDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
         DeleteDepartment command = new DeleteDepartment();
+
         ConverterHelper.checkIdRequired(dto, command, processError);
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
+
         return command;
     }
 }

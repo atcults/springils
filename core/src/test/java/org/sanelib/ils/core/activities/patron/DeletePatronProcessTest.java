@@ -1,6 +1,5 @@
 package org.sanelib.ils.core.activities.patron;
 
-
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.common.utils.DateHelper;

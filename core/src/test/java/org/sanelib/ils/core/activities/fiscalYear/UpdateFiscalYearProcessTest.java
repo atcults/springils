@@ -10,13 +10,10 @@ import org.sanelib.ils.core.domain.entity.FiscalYear;
 import org.sanelib.ils.core.domain.entity.FiscalYearId;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.Date;
-
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertEquals;
-
 
 public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
 
@@ -34,13 +31,13 @@ public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
 
         FiscalYear fiscalYear = new FiscalYear();
         fiscalYear.setLibraryId(library.getId());
-        fiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
-        fiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
+        fiscalYear.setStartDate(DateHelper.constructDate(2015, 4, 1));
+        fiscalYear.setEndDate(DateHelper.constructDate(2016, 3, 31));
 
         persist(fiscalYear);
 
         Date startDate = DateHelper.constructDate(2015, 4, 1);
-        Date endDate = DateHelper.constructDate(2016, 3 ,31);
+        Date endDate = DateHelper.constructDate(2016, 3, 31);
 
         UpdateFiscalYear updateFiscalYear = new UpdateFiscalYear();
 

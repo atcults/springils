@@ -9,5 +9,4 @@ public class WebXml extends SpringBootServletInitializer {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(ApiMain.class);
 	}
-
 }
