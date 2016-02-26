@@ -37,7 +37,7 @@ public class ProcessUpdateBinderOrderDelegate implements JavaDelegate {
         entity.setMailStatus(command.isMailStatus());
         entity.setPrintStatus(command.isPrintStatus());
         entity.setStatus(command.getStatus());
-        entity.setEntryId(command.getPatronCode());
+        entity.setUserCode(command.getUserCode());
 
         binderOrderRepository.save(entity);
 	}

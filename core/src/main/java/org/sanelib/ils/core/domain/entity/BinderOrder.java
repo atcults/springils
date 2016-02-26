@@ -47,7 +47,7 @@ public class BinderOrder implements DomainEntity{
     private String status;
 
     @Column(name = "entry_id")
-    private String entryId;
+    private String userCode;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -149,16 +149,12 @@ public class BinderOrder implements DomainEntity{
         this.status = status;
     }
 
-    public String getEntryId() {
-        return entryId;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     @Override
