@@ -131,3 +131,12 @@ bindingType:
 
 binderOrder:
   binderId: Binder Id
+  orderDate: Order Date
+  dueDate: Due Date
+  returnedDate: Returned Date
+  formLetterNo: Form Letter Number
+  subject: Subject
+  content: Content
+  mailStatus: Mail Status
+  printStatus: Print Status
+  status: Status
