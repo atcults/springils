@@ -13,11 +13,4 @@ public class UpdateLibrary extends AddLibrary implements ProcessCommandWithId {
     public void setId(Integer id) {
         this.id = id;
     }
-
-    @Override
-    public String toString() {
-        return "UpdateLibrary{" +
-                "id=" + id +
-                "} " + super.toString();
-    }
 }

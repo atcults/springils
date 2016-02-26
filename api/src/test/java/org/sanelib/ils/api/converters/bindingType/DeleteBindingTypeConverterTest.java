@@ -22,7 +22,7 @@ public class DeleteBindingTypeConverterTest {
         ProcessError processError= new ProcessError();
 
         DeleteBindingTypeConverter converter = new DeleteBindingTypeConverter();
-        ProcessCommand command = converter.convert(dto , processError);
+        ProcessCommand command = converter.convert(dto, processError);
 
         assertTrue("Conversion error occurred", processError.isValid());
         assertTrue("Wrong output " + command, command instanceof DeleteBindingType);

@@ -27,7 +27,7 @@ public class DeleteHolidayConverterTest {
         ProcessError processError = new ProcessError();
 
         DeleteHolidayConverter converter = new DeleteHolidayConverter();
-        ProcessCommand command = converter.convert(dto , processError);
+        ProcessCommand command = converter.convert(dto, processError);
 
         assertTrue("Conversion error occurred", processError.isValid());
         assertTrue("Wrong output " + command, command instanceof DeleteHoliday);

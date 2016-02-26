@@ -5,18 +5,22 @@ import org.activiti.engine.delegate.JavaDelegate;
 import org.sanelib.ils.core.commands.author.UpdateAuthor;
 import org.sanelib.ils.core.dao.AuthorRepository;
 import org.sanelib.ils.core.domain.entity.Author;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessUpdateAuthorDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessUpdateAuthorDelegate.class);
+
     @Autowired
     AuthorRepository authorRepository;
 
     @Override
 	public void execute(DelegateExecution execution) throws Exception {
-		System.out.println("Process Update Author called");
+		LOG.info("Process Update Author called");
 
         UpdateAuthor command = (UpdateAuthor) execution.getVariable("command");
 

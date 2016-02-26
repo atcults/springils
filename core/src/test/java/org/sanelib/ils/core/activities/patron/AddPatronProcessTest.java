@@ -1,6 +1,5 @@
 package org.sanelib.ils.core.activities.patron;
 
-
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.common.utils.DateHelper;
@@ -34,7 +33,7 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
 
         persist(library);
 
-        AddPatron addPatron=new AddPatron();
+        AddPatron addPatron = new AddPatron();
 
         addPatron.setLibraryId(library.getId());
         addPatron.setCode("Pat1");

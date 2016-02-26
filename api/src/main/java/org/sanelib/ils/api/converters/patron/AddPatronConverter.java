@@ -20,7 +20,7 @@ public class AddPatronConverter implements DtoToCommandConverter<PatronDto> {
         AddPatron command = new AddPatron();
 
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
-        ConverterHelper.checkCodeRequired(dto,command , processError);
+        ConverterHelper.checkCodeRequired(dto,command, processError);
 
         command.setPatronCategoryId(Integer.parseInt(dto.getPatronCategoryId()));
         command.setOwns(dto.getOwns());

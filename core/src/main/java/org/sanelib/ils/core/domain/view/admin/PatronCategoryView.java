@@ -1,11 +1,12 @@
 package org.sanelib.ils.core.domain.view.admin;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithId;
 
-import java.util.Date;
-
 public class PatronCategoryView implements DomainView, ViewWithId {
+
     private Integer libraryId;
     private Integer id;
     private String name;
@@ -14,8 +15,6 @@ public class PatronCategoryView implements DomainView, ViewWithId {
     private Integer overallLoanLimit;
     private boolean allowMultipleCopies;
     private String acqWorkflow;
-    private Date entryDate;
-
 
     public Integer getLibraryId() {
         return libraryId;
@@ -82,27 +81,9 @@ public class PatronCategoryView implements DomainView, ViewWithId {
         this.acqWorkflow = acqWorkflow;
     }
 
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
-
     @Override
     public String toString() {
-        return "PatronCategoryView{" +
-                "libraryId=" + libraryId +
-                ", id=" + id +
-                ", name='" + name + '\'' +
-                ", allowILLFromNet=" + allowILLFromNet +
-                ", allowRenewalFromNet=" + allowRenewalFromNet +
-                ", overallLoanLimit=" + overallLoanLimit +
-                ", allowMultipleCopies=" + allowMultipleCopies +
-                ", acqWorkflow='" + acqWorkflow + '\'' +
-                ", entryDate=" + entryDate +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
 

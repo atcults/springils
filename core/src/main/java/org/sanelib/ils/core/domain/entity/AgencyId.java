@@ -53,7 +53,6 @@ public class AgencyId implements Serializable, LibraryIdAndEntityId {
         AgencyId agencyId = (AgencyId) o;
 
         return libraryId == agencyId.libraryId && id == agencyId.id;
-
     }
 
     @Override
