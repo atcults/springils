@@ -16,7 +16,7 @@ public class UpdateDepartmentConverter extends AddDepartmentConverter {
     public ProcessCommand convert(DepartmentDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
         AddDepartment addDept = (AddDepartment) super.convert(dto, processError);
 
-        UpdateDepartment updateDept= new UpdateDepartment();
+        UpdateDepartment updateDept = new UpdateDepartment();
         ReflectionHelper.copy(addDept, updateDept);
         ConverterHelper.checkIdRequired(dto, updateDept, processError);
 

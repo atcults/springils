@@ -31,7 +31,7 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
 
         persist(library);
 
-        Patron patron=new Patron();
+        Patron patron = new Patron();
 
         patron.setPatronCode("Pat1", library.getId());
         patron.setPatronCategoryId(1);
@@ -138,7 +138,7 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(patron);
 
-        assertEquals(updatePatron.getCode(),  patron.getPatronCode().getCode());
+        assertEquals(updatePatron.getCode(), patron.getPatronCode().getCode());
         assertEquals(updatePatron.getPatronCategoryId(), patron.getOtherLibraryPatronId());
         assertEquals(updatePatron.getOwns(), patron.getOwns());
         assertEquals(updatePatron.getOtherLibraryPatronId(), patron.getOtherLibraryPatronId());

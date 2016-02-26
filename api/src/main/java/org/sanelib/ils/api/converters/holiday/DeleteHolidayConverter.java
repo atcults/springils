@@ -50,7 +50,6 @@ public class DeleteHolidayConverter implements DtoToCommandConverter<HolidayDto>
             command.setHolidayType(holidayType);
         }
 
-
         return command;
     }
 }

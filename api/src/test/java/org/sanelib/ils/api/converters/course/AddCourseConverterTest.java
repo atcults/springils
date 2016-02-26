@@ -14,6 +14,7 @@ public class AddCourseConverterTest {
     @Test
     public void testAddCourseSuccessExecute() throws Exception{
         CourseDto dto = new CourseDto();
+
         dto.setLibraryId("1");
         dto.setName("Course");
         dto.setPromotedCourseId("1");

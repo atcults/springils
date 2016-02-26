@@ -119,6 +119,7 @@ holiday:
 
 patronCategory:
   name: Name
+  overallLoanLimit: Overall Loan Limit
 
 Department:
   name: Department Name

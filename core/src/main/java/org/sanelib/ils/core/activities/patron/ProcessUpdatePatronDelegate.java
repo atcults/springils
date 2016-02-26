@@ -8,19 +8,22 @@ import org.sanelib.ils.core.dao.PatronRepository;
 import org.sanelib.ils.core.domain.entity.Patron;
 import org.sanelib.ils.core.domain.entity.PatronCode;
 import org.sanelib.ils.core.enums.PatronType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessUpdatePatronDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessUpdatePatronDelegate.class);
+
     @Autowired
     PatronRepository patronRepository;
 
-
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        System.out.println("Process Update Patron called");
+        LOG.info("Process Update Patron called");
 
         UpdatePatron command = (UpdatePatron) execution.getVariable("command");
 

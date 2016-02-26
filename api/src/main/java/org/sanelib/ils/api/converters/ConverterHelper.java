@@ -9,7 +9,6 @@ import org.sanelib.ils.core.commands.ProcessCommandWithCode;
 import org.sanelib.ils.core.commands.ProcessCommandWithId;
 import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.exceptions.ProcessError;
-
 import java.util.Objects;
 
 public class ConverterHelper {
@@ -75,5 +74,30 @@ public class ConverterHelper {
         }
 
         return intValue;
+    }
+
+    public static Double checkOptionalDecimal(String fieldName, String value, String labelName, ProcessError processError){
+
+        Double doubleValue = null;
+
+        if ((Objects.equals(value, "")) || (!Strings.isNullOrEmpty(value) && !RegularExpressionHelper.checkDecimal(value))) {
+            processError.addError("common.field.invalidDecimal", fieldName, labelName);
+        } else if (value != null) {
+            doubleValue = Double.parseDouble(value);
+        }
+
+        return doubleValue;
+    }
+
+    public static Double checkOptionalPositiveDecimal(String fieldName, String value, String labelName, Double minValue, ProcessError processError){
+
+        Double doubleValue = checkOptionalDecimal(fieldName, value, labelName, processError);
+
+        if(doubleValue != null && doubleValue < minValue){
+            doubleValue = null;
+            processError.addError("common.field.shouldBeGraterOrEqualThan", fieldName, labelName, String.valueOf(minValue));
+        }
+
+        return doubleValue;
     }
 }

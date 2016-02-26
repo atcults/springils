@@ -10,7 +10,13 @@ import org.sanelib.ils.core.domain.view.admin.CourseView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.ws.rs.*;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,7 +33,6 @@ public class CourseService extends ApiServiceBase {
 
     @Autowired
     CourseViewConverter courseViewConverter;
-
 
     @GET
     @SuppressWarnings("unchecked")

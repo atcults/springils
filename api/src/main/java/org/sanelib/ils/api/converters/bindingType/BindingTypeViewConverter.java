@@ -16,6 +16,7 @@ public class BindingTypeViewConverter  extends AbstractViewToDtoConverterImpl<Bi
         dto.setId(String.valueOf(bindingTypeView.getId()));
         dto.setBindType(bindingTypeView.getBindType());
         dto.setPrice(String.valueOf(bindingTypeView.getPrice()));
+
         return dto;
     }
 }

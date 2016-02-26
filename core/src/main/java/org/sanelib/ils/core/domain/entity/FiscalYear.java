@@ -1,6 +1,10 @@
 package org.sanelib.ils.core.domain.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -16,11 +20,11 @@ public class FiscalYear implements DomainEntity{
     @Column(name = "start_date")
     private Date startDate;
 
+    @Column(name = "entry_id ")
+    private String userCode;
+
     @Column(name = "end_date")
     private Date endDate;
-
-    @Column(name = "entry_id ")
-    private String entryId;
 
     @Column(name = "year1")
     private Integer startYear;
@@ -47,6 +51,14 @@ public class FiscalYear implements DomainEntity{
     public void setLibraryId(int libraryId) {
         ensureFiscalIdNotNull();
         this.fiscalYearId.setLibraryId(libraryId);
+    }
+
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     public Date getStartDate() {
@@ -96,6 +108,7 @@ public class FiscalYear implements DomainEntity{
             endYear = cal.get(Calendar.YEAR);
         }
         getFiscalYearId().setId(startYear * 10000 + endYear);
+
         entryDate = new Date();
     }
 }

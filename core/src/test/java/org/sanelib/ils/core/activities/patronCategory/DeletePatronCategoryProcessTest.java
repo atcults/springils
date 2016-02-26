@@ -5,7 +5,9 @@ import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.patronCategory.DeletePatronCategory;
 import org.sanelib.ils.core.dao.HibernateHelper;
-import org.sanelib.ils.core.domain.entity.*;
+import org.sanelib.ils.core.domain.entity.Library;
+import org.sanelib.ils.core.domain.entity.PatronCategory;
+import org.sanelib.ils.core.domain.entity.PatronCategoryId;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.assertNull;

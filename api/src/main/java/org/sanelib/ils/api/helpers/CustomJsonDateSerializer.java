@@ -1,7 +1,6 @@
 package org.sanelib.ils.api.helpers;
 
 import org.codehaus.jackson.JsonGenerator;
-import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.JsonSerializer;
 import org.codehaus.jackson.map.SerializerProvider;
 
@@ -18,5 +17,4 @@ public class CustomJsonDateSerializer extends JsonSerializer<Date> {
         String dateString = dateFormat.format(value);
         jsonGenerator.writeString(dateString);
 	}
-
 }
