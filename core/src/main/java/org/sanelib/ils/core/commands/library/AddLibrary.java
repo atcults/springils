@@ -18,7 +18,7 @@ public class AddLibrary implements ProcessCommand {
     private String cataloguingStatus;
     private String smStatus;
     private int hostLibraryId;
-    private String  firstAddress;
+    private String firstAddress;
     private String secondAddress;
     private String city;
     private String state;

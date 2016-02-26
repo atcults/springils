@@ -16,7 +16,7 @@ public class LibraryDto implements DtoWithId {
     private String cataloguingStatus;
     private String smStatus;
     private String hostLibraryId;
-    private String  firstAddress;
+    private String firstAddress;
     private String secondAddress;
     private String city;
     private String state;

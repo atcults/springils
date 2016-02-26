@@ -25,7 +25,7 @@ public class DeleteLibraryProcessTest extends EntityIntegrationTestBase {
         library.setSerialMaster("SerialMaster");
         library.setCatalogueMaster("CatalogueMaster");
         library.setAcquisitionsMaster("AcquisitionMaster");
-        library.setCreatedOn(DateHelper.constructDate(2015 , 12 ,12));
+        library.setCreatedOn(DateHelper.constructDate(2015, 12, 12));
         library.setAcquisitionStatus("AcqStatus");
         library.setCataloguingStatus("CatStatus");
         library.setSmStatus("SmStatus");

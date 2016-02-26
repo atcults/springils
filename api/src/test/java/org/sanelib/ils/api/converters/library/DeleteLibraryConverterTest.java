@@ -21,7 +21,7 @@ public class DeleteLibraryConverterTest {
         ProcessError processError= new ProcessError();
 
         DeleteLibraryConverter deleteLibraryConverter = new DeleteLibraryConverter();
-        ProcessCommand command = deleteLibraryConverter.convert(dto , processError);
+        ProcessCommand command = deleteLibraryConverter.convert(dto, processError);
 
         assertTrue("Conversion error occurred", processError.isValid());
         assertTrue("Wrong output " + command, command instanceof DeleteLibrary);

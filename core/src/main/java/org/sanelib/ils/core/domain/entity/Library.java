@@ -30,25 +30,25 @@ public class Library implements DomainEntity {
     @Column(name = "library_name")
     private String name;
 
-    @Column(name = "serialmaster" , length = 18)
+    @Column(name = "serialmaster", length = 18)
     private String serialMaster;
 
-    @Column(name = "cataloguemaster" , length = 18)
+    @Column(name = "cataloguemaster", length = 18)
     private String catalogueMaster;
 
-    @Column(name = "acquisitionsmaster" , length = 18)
+    @Column(name = "acquisitionsmaster", length = 18)
     private String acquisitionsMaster;
 
     @Column(name = "created_on")
     private Date createdOn;
 
-    @Column(name = "acquisition_status" , length = 10)
+    @Column(name = "acquisition_status", length = 10)
     private String acquisitionStatus;
 
-    @Column(name = "cataloguing_status" , length = 10)
+    @Column(name = "cataloguing_status", length = 10)
     private String cataloguingStatus;
 
-    @Column(name = "sm_status" , length = 10)
+    @Column(name = "sm_status", length = 10)
     private String smStatus;
 
     @Column(name = "hostlibraryid")

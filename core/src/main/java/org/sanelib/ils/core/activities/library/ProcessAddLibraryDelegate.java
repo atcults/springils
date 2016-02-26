@@ -31,7 +31,6 @@ public class ProcessAddLibraryDelegate implements JavaDelegate {
         Library entity = new Library();
 
         entity.setId(hibernateHelper.getNextId(Library.class));
-
         entity.setName(command.getName());
         entity.setSerialMaster(command.getSerialMaster());
         entity.setCatalogueMaster(command.getCatalogueMaster());
