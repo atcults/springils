@@ -32,18 +32,18 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
         Binder binder=new Binder();
 
         binder.setBinderId(hibernateHelper.getNextId(Binder.class, "binderId.id"), library.getId());
-        binder.setBinderName("Test Binder");
-        binder.setPrimaryAddress("Primary Address");
-        binder.setSecondaryAddress("Secondary Address");
+        binder.setName("Test Binder");
+        binder.setAddressLine1("Primary Address");
+        binder.setAddressLine2("Secondary Address");
         binder.setCity("TestCity");
         binder.setState("TestState");
         binder.setCountry("TestCountry");
         binder.setPin("654321");
-        binder.setPrimaryPhoneNumber("+91-987654321");
-        binder.setSecondaryPhoneNumber("+91-879654321");
+        binder.setPrimaryPhone("+91-987654321");
+        binder.setSecondaryPhone("+91-879654321");
         binder.setFax("87654321");
         binder.setEmail("user@emailprovider.com");
-        binder.setEntryId("user");
+        binder.setUserCode("user");
 
         persist(binder);
 
@@ -58,11 +58,11 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
         updateBinder.setState("TestUpdateState");
         updateBinder.setCountry("TestUpdateCountry");
         updateBinder.setPin("654321");
-        updateBinder.setPrimaryPhoneNumber("+91-987654321");
-        updateBinder.setSecondaryPhoneNumber("+91-879654321");
-        updateBinder.setFax("87654321");
+        updateBinder.setPrimaryPhone("+91-9876543210");
+        updateBinder.setSecondaryPhone("+91-8796543210");
+        updateBinder.setFax("+91-9876543210");
         updateBinder.setEmail("user@emailprovider.com");
-        updateBinder.setEntryId("user");
+        updateBinder.setUserCode("user");
 
         String result = execute(updateBinder, ActivitiProcessConstants.Admin.UPDATE_BINDER);
 
@@ -72,17 +72,17 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
 
         assertNotNull(dbBinder);
 
-        assertEquals(updateBinder.getBinderName(),dbBinder.getBinderName());
-        assertEquals(updateBinder.getPrimaryAddress(),dbBinder.getPrimaryAddress());
-        assertEquals(updateBinder.getSecondaryAddress(),dbBinder.getSecondaryAddress());
-        assertEquals(updateBinder.getCity(),dbBinder.getCity());
+        assertEquals(updateBinder.getBinderName(), dbBinder.getName());
+        assertEquals(updateBinder.getPrimaryAddress(), dbBinder.getAddressLine1());
+        assertEquals(updateBinder.getSecondaryAddress(), dbBinder.getAddressLine2());
+        assertEquals(updateBinder.getCity(), dbBinder.getCity());
         assertEquals(updateBinder.getState(), dbBinder.getState());
-        assertEquals(updateBinder.getCountry(),dbBinder.getCountry());
-        assertEquals(updateBinder.getPin(),dbBinder.getPin());
-        assertEquals(updateBinder.getPrimaryPhoneNumber(),dbBinder.getPrimaryPhoneNumber());
-        assertEquals(updateBinder.getSecondaryPhoneNumber(),dbBinder.getSecondaryPhoneNumber());
-        assertEquals(updateBinder.getFax(),dbBinder.getFax());
-        assertEquals(updateBinder.getEmail(),dbBinder.getEmail());
-        assertEquals(updateBinder.getEntryId(),dbBinder.getEntryId());
+        assertEquals(updateBinder.getCountry(), dbBinder.getCountry());
+        assertEquals(updateBinder.getPin(), dbBinder.getPin());
+        assertEquals(updateBinder.getPrimaryPhone(), dbBinder.getPrimaryPhone());
+        assertEquals(updateBinder.getSecondaryPhone(), dbBinder.getSecondaryPhone());
+        assertEquals(updateBinder.getFax(), dbBinder.getFax());
+        assertEquals(updateBinder.getEmail(), dbBinder.getEmail());
+        assertEquals(updateBinder.getUserCode(), dbBinder.getUserCode());
     }
 }

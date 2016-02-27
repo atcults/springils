@@ -1,11 +1,9 @@
 package org.sanelib.ils.core.commands.binder;
 
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.Binder;
 
-import java.util.Date;
-
-public class AddBinder extends ProcessCommandWithLibraryId{
+public class AddBinder extends ProcessAuditCommandWithLibraryId {
     @Override
     public Class getRootEntityClass() {
         return Binder.class;
@@ -23,12 +21,10 @@ public class AddBinder extends ProcessCommandWithLibraryId{
     private String state;
     private String country;
     private String pin;
-    private String primaryPhoneNumber;
-    private String secondaryPhoneNumber;
+    private String primaryPhone;
+    private String secondaryPhone;
     private String fax;
     private String email;
-    private String entryId;
-    private Date entryDate;
 
     public String getBinderName() {
         return binderName;
@@ -86,20 +82,20 @@ public class AddBinder extends ProcessCommandWithLibraryId{
         this.pin = pin;
     }
 
-    public String getPrimaryPhoneNumber() {
-        return primaryPhoneNumber;
+    public String getPrimaryPhone() {
+        return primaryPhone;
     }
 
-    public void setPrimaryPhoneNumber(String primaryPhoneNumber) {
-        this.primaryPhoneNumber = primaryPhoneNumber;
+    public void setPrimaryPhone(String primaryPhone) {
+        this.primaryPhone = primaryPhone;
     }
 
-    public String getSecondaryPhoneNumber() {
-        return secondaryPhoneNumber;
+    public String getSecondaryPhone() {
+        return secondaryPhone;
     }
 
-    public void setSecondaryPhoneNumber(String secondaryPhoneNumber) {
-        this.secondaryPhoneNumber = secondaryPhoneNumber;
+    public void setSecondaryPhone(String secondaryPhone) {
+        this.secondaryPhone = secondaryPhone;
     }
 
     public String getFax() {
@@ -116,21 +112,5 @@ public class AddBinder extends ProcessCommandWithLibraryId{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
     }
 }

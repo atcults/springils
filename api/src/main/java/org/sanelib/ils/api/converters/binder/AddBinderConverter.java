@@ -19,44 +19,42 @@ public class AddBinderConverter implements DtoToCommandConverter<BinderDto> {
 
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
 
-        if(Strings.isNullOrEmpty(dto.getBinderName())) {
+        if(Strings.isNullOrEmpty(dto.getName())) {
             processError.addError("common.field.required", "name", "domain.binder.name");
         }else {
-            command.setBinderName(dto.getBinderName());
+            command.setBinderName(dto.getName());
         }
 
-        command.setPrimaryAddress(dto.getPrimaryAddress());
-        command.setSecondaryAddress(dto.getSecondaryAddress());
+        command.setPrimaryAddress(dto.getAddressLine1());
+        command.setSecondaryAddress(dto.getAddressLine2());
         command.setCity(dto.getCity());
         command.setState(dto.getState());
         command.setCountry(dto.getCountry());
         command.setPin(dto.getPin());
 
-        if(!RegularExpressionHelper.checkPhoneFormat(dto.getPrimaryPhoneNumber())){
-            processError.addError("common.field.pattern", "phone1", "domain.binder.phone1", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
+        if(!RegularExpressionHelper.checkPhoneFormat(dto.getPrimaryPhone())){
+            processError.addError("common.field.pattern", "primaryPhone", "domain.address.primaryPhone", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
         }else {
-            command.setPrimaryPhoneNumber(dto.getPrimaryPhoneNumber());
+            command.setPrimaryPhone(dto.getPrimaryPhone());
         }
 
-        if(!RegularExpressionHelper.checkPhoneFormat(dto.getSecondaryPhoneNumber())){
-            processError.addError("common.field.pattern", "phone2", "domain.binder.phone2", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
+        if(!RegularExpressionHelper.checkPhoneFormat(dto.getSecondaryPhone())){
+            processError.addError("common.field.pattern", "secondaryPhone", "domain.address.secondaryPhone", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
         }else{
-            command.setSecondaryPhoneNumber(dto.getSecondaryPhoneNumber());
+            command.setSecondaryPhone(dto.getSecondaryPhone());
         }
 
         if(!RegularExpressionHelper.checkPhoneFormat(dto.getFax())){
-            processError.addError("common.field.pattern", "fax", "domain.binder.fax", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
+            processError.addError("common.field.pattern", "fax", "domain.address.fax", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
         }else {
             command.setFax(dto.getFax());
         }
 
         if(!RegularExpressionHelper.checkEmailFormat(dto.getEmail())){
-            processError.addError("common.field.pattern", "email", "domain.binder.email", RegularExpressionHelper.EMAIL_FORMAT_EXAMPLE);
+            processError.addError("common.field.pattern", "email", "domain.address.email", RegularExpressionHelper.EMAIL_FORMAT_EXAMPLE);
         }else {
             command.setEmail(dto.getEmail());
         }
-
-        command.setEntryId(dto.getEntryId());
 
         return command;
     }

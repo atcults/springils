@@ -33,22 +33,21 @@ public class ProcessAddBinderDelegate implements JavaDelegate{
 
         Integer nextId = hibernateHelper.getNextId(Binder.class, "binderId.id");
         entity.setBinderId(nextId, command.getLibraryId());
-        entity.setBinderName(command.getBinderName());
-        entity.setPrimaryAddress(command.getPrimaryAddress());
-        entity.setSecondaryAddress(command.getSecondaryAddress());
+        entity.setName(command.getBinderName());
+        entity.setAddressLine1(command.getPrimaryAddress());
+        entity.setAddressLine2(command.getSecondaryAddress());
         entity.setCity(command.getCity());
         entity.setState(command.getState());
         entity.setCountry(command.getCountry());
         entity.setPin(command.getPin());
-        entity.setPrimaryPhoneNumber(command.getPrimaryPhoneNumber());
-        entity.setSecondaryPhoneNumber(command.getSecondaryPhoneNumber());
+        entity.setPrimaryPhone(command.getPrimaryPhone());
+        entity.setSecondaryPhone(command.getSecondaryPhone());
         entity.setFax(command.getFax());
         entity.setEmail(command.getEmail());
-        entity.setEntryId(command.getEntryId());
+        entity.setUserCode(command.getUserCode());
 
         binderRepository.save(entity);
 
         execution.setVariable("result", entity.getBinderId().getId());
-
     }
 }

@@ -17,18 +17,17 @@ public class UpdateBinderConverterTest {
         BinderDto dto = new BinderDto();
         dto.setId("1");
         dto.setLibraryId("1");
-        dto.setBinderName("Test Binder");
-        dto.setPrimaryAddress("Primary Address");
-        dto.setSecondaryAddress("Secondary Address");
+        dto.setName("Test Binder");
+        dto.setAddressLine1("Primary Address");
+        dto.setAddressLine2("Secondary Address");
         dto.setCity("TestCity");
         dto.setState("TestState");
         dto.setCountry("TestCountry");
         dto.setPin("654321");
-        dto.setPrimaryPhoneNumber("+91-987654321");
-        dto.setSecondaryPhoneNumber("+91-879654321");
-        dto.setFax("87654321");
+        dto.setPrimaryPhone("+91-9876543210");
+        dto.setSecondaryPhone("+91-8796543210");
+        dto.setFax("+91-9876543210");
         dto.setEmail("user@emailprovider.com");
-        dto.setEntryId("user");
 
         ProcessError processError = new ProcessError();
 
@@ -42,18 +41,16 @@ public class UpdateBinderConverterTest {
 
         assertEquals("Id is not mapped", dto.getId(), String.valueOf(updateBinder.getId()));
         assertEquals("Library Id is not mapped", dto.getLibraryId(), String.valueOf(updateBinder.getLibraryId()));
-        assertEquals("Binder name is not mapped", dto.getBinderName(), updateBinder.getBinderName());
-        assertEquals("Primary Address is not mapped", dto.getPrimaryAddress(), updateBinder.getPrimaryAddress());
-        assertEquals("Seconday Address is not mapped", dto.getSecondaryAddress(), updateBinder.getSecondaryAddress());
+        assertEquals("Binder name is not mapped", dto.getName(), updateBinder.getBinderName());
+        assertEquals("Primary Address is not mapped", dto.getAddressLine1(), updateBinder.getPrimaryAddress());
+        assertEquals("Seconday Address is not mapped", dto.getAddressLine2(), updateBinder.getSecondaryAddress());
         assertEquals("City  is not mapped", dto.getCity(), updateBinder.getCity());
         assertEquals("State  is not mapped", dto.getState(), updateBinder.getState());
         assertEquals("Country  is not mapped", dto.getCountry(), updateBinder.getCountry());
         assertEquals("Pin is not mapped", dto.getPin(), updateBinder.getPin());
-        assertEquals("Primary Phone Number is not mapped", dto.getPrimaryPhoneNumber(), updateBinder.getPrimaryPhoneNumber());
-        assertEquals("Secondary Phone Number is not mapped", dto.getSecondaryPhoneNumber(), updateBinder.getSecondaryPhoneNumber());
+        assertEquals("Primary Phone Number is not mapped", dto.getPrimaryPhone(), updateBinder.getPrimaryPhone());
+        assertEquals("Secondary Phone Number is not mapped", dto.getSecondaryPhone(), updateBinder.getSecondaryPhone());
         assertEquals("Fax is not mapped", dto.getFax(), updateBinder.getFax());
         assertEquals("Email is not mapped", dto.getEmail(), updateBinder.getEmail());
-        assertEquals("Entry Id is not mapped", dto.getEntryId(), updateBinder.getEntryId());
     }
-
 }

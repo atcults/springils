@@ -20,8 +20,6 @@ public class BinderView implements DomainView , ViewWithId{
     private String secondaryPhoneNumber;
     private String fax;
     private String email;
-    private String entryId;
-    private Date entryDate;
 
     @Override
     public Integer getId() {
@@ -128,19 +126,4 @@ public class BinderView implements DomainView , ViewWithId{
         this.email = email;
     }
 
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
 }

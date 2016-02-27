@@ -38,7 +38,7 @@ public class CheckBinderDuplicationDelegate implements JavaDelegate {
         Integer libraryId = ((AddBinder) command).getLibraryId();
         String binderName = ((AddBinder) command).getBinderName();
 
-        List<Binder> binders = binderRepository.findByColumnAndValue(new String[]{"binderId.libraryId", "binderName"}, new Object[] {libraryId, binderName});
+        List<Binder> binders = binderRepository.findByColumnAndValue(new String[]{"binderId.libraryId", "name"}, new Object[] {libraryId, binderName});
 
         Binder dbBinder = binders.isEmpty() ? null : binders.get(0);
 

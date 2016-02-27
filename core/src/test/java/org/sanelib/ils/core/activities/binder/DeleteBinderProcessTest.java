@@ -29,18 +29,18 @@ public class DeleteBinderProcessTest extends EntityIntegrationTestBase {
         Binder binder = new Binder();
 
         binder.setBinderId(hibernateHelper.getNextId(Binder.class, "binderId.id"), library.getId());
-        binder.setBinderName("Test Binder");
-        binder.setPrimaryAddress("Primary Address");
-        binder.setSecondaryAddress("Secondary Address");
+        binder.setName("Test Binder");
+        binder.setAddressLine1("Primary Address");
+        binder.setAddressLine2("Secondary Address");
         binder.setCity("TestCity");
         binder.setState("TestState");
         binder.setCountry("TestCountry");
         binder.setPin("654321");
-        binder.setPrimaryPhoneNumber("+91-987654321");
-        binder.setSecondaryPhoneNumber("+91-879654321");
+        binder.setPrimaryPhone("+91-987654321");
+        binder.setSecondaryPhone("+91-879654321");
         binder.setFax("87654321");
         binder.setEmail("user@emailprovider.com");
-        binder.setEntryId("user");
+        binder.setUserCode("user");
 
         persist(binder);
 

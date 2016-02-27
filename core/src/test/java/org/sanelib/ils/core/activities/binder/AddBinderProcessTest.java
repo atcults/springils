@@ -43,12 +43,11 @@ public class AddBinderProcessTest extends EntityIntegrationTestBase{
         addBinder.setState("TestState");
         addBinder.setCountry("TestCountry");
         addBinder.setPin("654321");
-        addBinder.setPrimaryPhoneNumber("+91-987654321");
-        addBinder.setSecondaryPhoneNumber("+91-879654321");
-        addBinder.setFax("87654321");
+        addBinder.setPrimaryPhone("+91-9876543210");
+        addBinder.setSecondaryPhone("+91-8796543210");
+        addBinder.setFax("+91-9876543210");
         addBinder.setEmail("user@emailprovider.com");
-        addBinder.setEntryId("user");
-        addBinder.setEntryDate(DateHelper.constructDate(2015 , 4 , 1));
+        addBinder.setUserCode("user");
 
         String result = execute(addBinder, ActivitiProcessConstants.Admin.ADD_BINDER);
 
@@ -58,18 +57,17 @@ public class AddBinderProcessTest extends EntityIntegrationTestBase{
 
         assertNotNull(binder);
 
-        assertEquals(addBinder.getBinderName() , binder.getBinderName());
-        assertEquals(addBinder.getPrimaryAddress() , binder.getPrimaryAddress());
-        assertEquals(addBinder.getSecondaryAddress() , binder.getSecondaryAddress());
-        assertEquals(addBinder.getCity() , binder.getCity());
-        assertEquals(addBinder.getState() , binder.getState());
-        assertEquals(addBinder.getCountry() , binder.getCountry());
-        assertEquals(addBinder.getPin() , binder.getPin());
-        assertEquals(addBinder.getPrimaryPhoneNumber() , binder.getPrimaryPhoneNumber());
-        assertEquals(addBinder.getSecondaryPhoneNumber() , binder.getSecondaryPhoneNumber());
-        assertEquals(addBinder.getFax() , binder.getFax());
-        assertEquals(addBinder.getEmail() , binder.getEmail());
-        assertEquals(addBinder.getEntryId() , binder.getEntryId());
-
+        assertEquals(addBinder.getBinderName(), binder.getName());
+        assertEquals(addBinder.getPrimaryAddress(), binder.getAddressLine1());
+        assertEquals(addBinder.getSecondaryAddress(), binder.getAddressLine2());
+        assertEquals(addBinder.getCity(), binder.getCity());
+        assertEquals(addBinder.getState(), binder.getState());
+        assertEquals(addBinder.getCountry(), binder.getCountry());
+        assertEquals(addBinder.getPin(), binder.getPin());
+        assertEquals(addBinder.getPrimaryPhone(), binder.getPrimaryPhone());
+        assertEquals(addBinder.getSecondaryPhone(), binder.getSecondaryPhone());
+        assertEquals(addBinder.getFax(), binder.getFax());
+        assertEquals(addBinder.getEmail(), binder.getEmail());
+        assertEquals(addBinder.getUserCode(), binder.getUserCode());
     }
 }

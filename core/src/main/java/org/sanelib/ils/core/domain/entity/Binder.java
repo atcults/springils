@@ -17,13 +17,13 @@ public class Binder implements DomainEntity {
     private BinderId binderId;
 
     @Column(name = "binder_name")
-    private String binderName;
+    private String name;
 
     @Column(name = "address1")
-    private String primaryAddress;
+    private String addressLine1;
 
     @Column(name = "address2")
-    private String secondaryAddress;
+    private String addressLine2;
 
     @Column(name = "city")
     private String city;
@@ -38,10 +38,10 @@ public class Binder implements DomainEntity {
     private String pin;
 
     @Column(name = "phone1")
-    private String primaryPhoneNumber;
+    private String primaryPhone;
 
     @Column(name = "phone2")
-    private String secondaryPhoneNumber;
+    private String secondaryPhone;
 
     @Column(name = "fax")
     private String fax;
@@ -50,7 +50,7 @@ public class Binder implements DomainEntity {
     private String email;
 
     @Column(name = "entry_id")
-    private String entryId;
+    private String userCode;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -72,28 +72,28 @@ public class Binder implements DomainEntity {
         }
     }
 
-    public String getBinderName() {
-        return binderName;
+    public String getName() {
+        return name;
     }
 
-    public void setBinderName(String binderName) {
-        this.binderName = binderName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPrimaryAddress() {
-        return primaryAddress;
+    public String getAddressLine1() {
+        return addressLine1;
     }
 
-    public void setPrimaryAddress(String primaryAddress) {
-        this.primaryAddress = primaryAddress;
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
     }
 
-    public String getSecondaryAddress() {
-        return secondaryAddress;
+    public String getAddressLine2() {
+        return addressLine2;
     }
 
-    public void setSecondaryAddress(String secondaryAddress) {
-        this.secondaryAddress = secondaryAddress;
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
     }
 
     public String getCity() {
@@ -128,20 +128,20 @@ public class Binder implements DomainEntity {
         this.pin = pin;
     }
 
-    public String getPrimaryPhoneNumber() {
-        return primaryPhoneNumber;
+    public String getPrimaryPhone() {
+        return primaryPhone;
     }
 
-    public void setPrimaryPhoneNumber(String primaryPhoneNumber) {
-        this.primaryPhoneNumber = primaryPhoneNumber;
+    public void setPrimaryPhone(String primaryPhone) {
+        this.primaryPhone = primaryPhone;
     }
 
-    public String getSecondaryPhoneNumber() {
-        return secondaryPhoneNumber;
+    public String getSecondaryPhone() {
+        return secondaryPhone;
     }
 
-    public void setSecondaryPhoneNumber(String secondaryPhoneNumber) {
-        this.secondaryPhoneNumber = secondaryPhoneNumber;
+    public void setSecondaryPhone(String secondaryPhone) {
+        this.secondaryPhone = secondaryPhone;
     }
 
     public String getFax() {
@@ -160,32 +160,16 @@ public class Binder implements DomainEntity {
         this.email = email;
     }
 
-    public String getEntryId() {
-        return entryId;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     @PrePersist
     public void prePersist() {
         entryDate = new Date();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Binder binder = (Binder) o;
-
-        return binderId.equals(binder.binderId);
-
-    }
-
-    @Override
-    public int hashCode() {
-        return binderId.hashCode();
     }
 }
