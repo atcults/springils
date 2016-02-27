@@ -15,6 +15,7 @@ public class BindingTypeMapper implements ViewMapper<BindingTypeView> {
         final String viewName = "cir_co_bind_types";
 
         final BindingTypeView view = new BindingTypeView();
+
         view.setLibraryId(rs.getInt(viewName, "library_id"));
         view.setId(rs.getInt(viewName, "bind_type_id"));
         view.setBindType(rs.getString(viewName, "bind_type"));

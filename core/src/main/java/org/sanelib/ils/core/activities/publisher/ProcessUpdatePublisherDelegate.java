@@ -2,8 +2,6 @@ package org.sanelib.ils.core.activities.publisher;
 
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.JavaDelegate;
-import org.apache.ibatis.annotations.Update;
-import org.sanelib.ils.core.commands.publisher.AddPublisher;
 import org.sanelib.ils.core.commands.publisher.UpdatePublisher;
 import org.sanelib.ils.core.dao.PublisherRepository;
 import org.sanelib.ils.core.domain.entity.Publisher;

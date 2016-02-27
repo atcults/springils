@@ -1,6 +1,5 @@
 package org.sanelib.ils.api.converters.publisher;
 
-import com.google.common.base.Strings;
 import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.publisher.PublisherDto;

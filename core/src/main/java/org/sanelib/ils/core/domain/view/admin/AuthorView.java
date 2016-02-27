@@ -1,9 +1,12 @@
 package org.sanelib.ils.core.domain.view.admin;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithCode;
 
-public class AuthorView implements DomainView , ViewWithCode{
+public class AuthorView implements DomainView, ViewWithCode{
+
     private String code;
     private String lastName;
     private String firstName;
@@ -89,16 +92,6 @@ public class AuthorView implements DomainView , ViewWithCode{
 
     @Override
     public String toString() {
-        return "AuthorView{" +
-                "code='" + code + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", isContract=" + isContract +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

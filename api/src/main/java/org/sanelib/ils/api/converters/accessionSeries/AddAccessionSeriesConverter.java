@@ -12,25 +12,31 @@ import org.springframework.stereotype.Component;
 @Component
 public class AddAccessionSeriesConverter implements DtoToCommandConverter<AccessionSeriesDto> {
 
-   @Override
+    @Override
     public ProcessCommand convert(AccessionSeriesDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
 
-       AddAccessionSeries command = new AddAccessionSeries();
+        AddAccessionSeries command = new AddAccessionSeries();
 
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
         ConverterHelper.checkCodeRequired(dto, command, processError);
 
-       command.setMaxNumber(Integer.valueOf(dto.getMaxNumber()));
-       command.setMaxZero(Integer.valueOf(dto.getMaxZero()));
-       command.setPrefix(dto.getPrefix());
+        AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByName(dto.getAccessionSeriesType());
 
-       AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByValue(String.valueOf(dto.getTypeName()));
+        //Required Series Type Value
+        if (accessionSeriesType == null) {
+            processError.addError("common.field.select", "accessionSeriesType", "domain.accessionSeries.accessionSeriesType");
+        } else {
+            command.setAccessionSeriesType(accessionSeriesType);
+        }
 
-       if(!accessionSeriesType.toString().equals("A") && !accessionSeriesType.toString().equals("B")){
-           processError.addError("common.field.select", "TypeName", "domain.accessionSeries.typeName");
-       }else {
-           command.setTypeName(accessionSeriesType);
-       }
+        //Optional prefix value
+        command.setPrefix(dto.getPrefix());
+
+        //Optional positive number
+        command.setMaxNumber(ConverterHelper.checkOptionalPositiveInteger("maxNumber", dto.getMaxNumber(), "domain.accessionSeries.maxNumber", 0, processError));
+
+        //Optional positive number
+        command.setMaxZero(ConverterHelper.checkOptionalPositiveInteger("maxZero", dto.getMaxZero(), "domain.accessionSeries.maxZero", 0, processError));
 
         return command;
     }

@@ -2,7 +2,6 @@ package org.sanelib.ils.core.commands.accessioSeries;
 
 import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.commands.ProcessCommandWithCode;
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.AccessionSeries;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
 
@@ -19,16 +18,36 @@ public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId impleme
     }
 
     private String code;
+    private AccessionSeriesType accessionSeriesType;
+    private String prefix;
     private Integer maxNumber;
     private Integer maxZero;
-    private String prefix;
-    private AccessionSeriesType typeName;
 
-    public String getCode(){
+    @Override
+    public String getCode() {
         return code;
     }
 
-    public void setCode(String code){ this.code = code; }
+    @Override
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public AccessionSeriesType getAccessionSeriesType() {
+        return accessionSeriesType;
+    }
+
+    public void setAccessionSeriesType(AccessionSeriesType accessionSeriesType) {
+        this.accessionSeriesType = accessionSeriesType;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
 
     public Integer getMaxNumber() {
         return maxNumber;
@@ -45,22 +64,5 @@ public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId impleme
     public void setMaxZero(Integer maxZero) {
         this.maxZero = maxZero;
     }
-
-    public String getPrefix() {
-        return prefix;
-    }
-
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
-    }
-
-    public AccessionSeriesType getTypeName() {
-        return typeName;
-    }
-
-    public void setTypeName(AccessionSeriesType typeName) {
-        this.typeName = typeName;
-    }
-
 }
 

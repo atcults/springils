@@ -17,7 +17,8 @@ import org.sanelib.ils.core.exceptions.ProcessError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class ApiServiceBase {
 

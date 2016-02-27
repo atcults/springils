@@ -55,9 +55,9 @@ public class UpdateAuthorProcessTest extends EntityIntegrationTestBase {
         assertEquals(updateAuthor.getFirstName(), updatedAuthor.getFirstName());
         assertEquals(updateAuthor.getPhone(), updatedAuthor.getPhone());
         assertEquals(updateAuthor.getAddress(), updatedAuthor.getAddress());
-        assertEquals(updateAuthor.getCity() , updatedAuthor.getCity());
-        assertEquals(updateAuthor.getState() ,updatedAuthor.getState());
-        assertEquals(updateAuthor.getZipCode() ,updatedAuthor.getZipCode());
-        assertEquals(updateAuthor.isContract() ,updatedAuthor.isContract());
+        assertEquals(updateAuthor.getCity(), updatedAuthor.getCity());
+        assertEquals(updateAuthor.getState(), updatedAuthor.getState());
+        assertEquals(updateAuthor.getZipCode(), updatedAuthor.getZipCode());
+        assertEquals(updateAuthor.isContract(), updatedAuthor.isContract());
     }
 }

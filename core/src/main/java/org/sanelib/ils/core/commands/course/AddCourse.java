@@ -1,10 +1,7 @@
 package org.sanelib.ils.core.commands.course;
 
 import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.Course;
-
-import java.util.Date;
 
 public class AddCourse extends ProcessAuditCommandWithLibraryId {
 

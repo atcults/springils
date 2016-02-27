@@ -30,13 +30,19 @@ public class ProcessAddFiscalYearDelegate implements JavaDelegate{
         AddFiscalYear command = (AddFiscalYear) execution.getVariable("command");
 
         FiscalYear entity = new FiscalYear();
+
         entity.setLibraryId(command.getLibraryId());
         entity.setStartDate(command.getStartDate());
         entity.setEndDate(command.getEndDate());
+        entity.setUserCode(command.getUserCode());
+
+        execution.setVariable("startDate", command.getStartDate());
+        execution.setVariable("endDate", command.getEndDate());
 
         fiscalYearRepository.save(entity);
 
         execution.setVariable("result", entity.getFiscalYearId().getId());
+
 
     }
 }

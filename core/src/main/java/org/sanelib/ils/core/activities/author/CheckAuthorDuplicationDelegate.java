@@ -8,6 +8,8 @@ import org.sanelib.ils.core.dao.AuthorRepository;
 import org.sanelib.ils.core.domain.entity.Author;
 import org.sanelib.ils.core.exceptions.AppException;
 import org.sanelib.ils.core.exceptions.ProcessError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,12 +20,14 @@ import java.util.Objects;
 @Component
 public class CheckAuthorDuplicationDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(CheckAuthorDuplicationDelegate.class);
+
     @Autowired
     AuthorRepository authorRepository;
 
     @Override
 	public void execute(DelegateExecution execution) throws Exception {
-		System.out.println("Checking authors for duplication");
+		LOG.info("Checking authors for duplication");
 
         Object command = execution.getVariable("command");
         ProcessError processError = (ProcessError) execution.getVariable("errors");

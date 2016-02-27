@@ -119,10 +119,10 @@ patron:
 
 accessionSeries:
   code: Series Name
+  accessionSeriesType: Accession Series Type
+  prefix: Prefix
   maxNumber: Max Number
   maxZero: Max Zero
-  prefix: Prefix
-  typeName: Fixed Or Variable
 
 holiday:
   fiscalYearId: Fiscal Year
@@ -133,6 +133,7 @@ holiday:
 
 patronCategory:
   name: Name
+  overallLoanLimit: Overall Loan Limit
 
 Department:
   name: Department Name
@@ -141,3 +142,7 @@ Department:
 bindingType:
   bindType: Binding Type
   price: Price
+
+
+date:
+  startDate: Start Date

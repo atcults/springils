@@ -3,7 +3,6 @@ package org.sanelib.ils.api.converters.patronCategory;
 
 import org.junit.Test;
 import org.sanelib.ils.api.dto.patronCategory.PatronCategoryDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.patronCategory.UpdatePatronCategory;
 import org.sanelib.ils.core.exceptions.ProcessError;

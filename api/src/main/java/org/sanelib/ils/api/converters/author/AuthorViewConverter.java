@@ -1,17 +1,17 @@
 package org.sanelib.ils.api.converters.author;
 
 import org.sanelib.ils.api.converters.AbstractViewToDtoConverterImpl;
-import org.sanelib.ils.api.dto.author.AuthorDTO;
+import org.sanelib.ils.api.dto.author.AuthorDto;
 import org.sanelib.ils.core.domain.view.admin.AuthorView;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AuthorViewConverter extends AbstractViewToDtoConverterImpl<AuthorDTO, AuthorView> {
+public class AuthorViewConverter extends AbstractViewToDtoConverterImpl<AuthorDto, AuthorView> {
 
     @Override
-    public AuthorDTO convert(AuthorView authorView) {
+    public AuthorDto convert(AuthorView authorView) {
 
-        AuthorDTO authorDTO = new AuthorDTO();
+        AuthorDto authorDTO = new AuthorDto();
 
         authorDTO.setCode(authorView.getCode());
         authorDTO.setLastName(authorView.getLastName());

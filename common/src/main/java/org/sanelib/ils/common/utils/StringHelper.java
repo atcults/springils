@@ -1,10 +1,9 @@
 package org.sanelib.ils.common.utils;
 
-
 public class StringHelper {
     public static String convertPhoneNumber(String phoneNumber){
 
-        phoneNumber = phoneNumber.replaceAll("[\\D]" , "");
+        phoneNumber = phoneNumber.replaceAll("[\\D]", "");
 
         return phoneNumber;
     }

@@ -33,8 +33,9 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         accessionSeries.setMaxNumber(100);
         accessionSeries.setMaxZero(2);
         accessionSeries.setPrefix("AS");
-        accessionSeries.setTypeName(AccessionSeriesType.Fixed);
+        accessionSeries.setAccessionSeriesType(AccessionSeriesType.Variable);
         accessionSeries.setUserCode("1");
+        accessionSeries.setUserLibraryId(library.getId());
 
         persist(accessionSeries);
 
@@ -45,22 +46,24 @@ public class UpdateAccessionSeriesProcessTest extends EntityIntegrationTestBase 
         updateAccessionSeries.setMaxNumber(100);
         updateAccessionSeries.setMaxZero(2);
         updateAccessionSeries.setPrefix("AS");
-        updateAccessionSeries.setTypeName(AccessionSeriesType.Fixed);
+        updateAccessionSeries.setAccessionSeriesType(AccessionSeriesType.Variable);
         updateAccessionSeries.setUserCode("1");
+        updateAccessionSeries.setUserLibraryId(library.getId());
 
         String result = execute(updateAccessionSeries, ActivitiProcessConstants.Admin.UPDATE_ACCESSION_SERIES);
 
         assertNull(result);
 
-        AccessionSeries dbAccessionSeries = fetch(AccessionSeries.class, new AccessionSeriesCode(library.getId(), accessionSeries.getAccessionSeriesCode().getCode()));
+        accessionSeries = fetch(AccessionSeries.class, new AccessionSeriesCode(library.getId(), accessionSeries.getAccessionSeriesCode().getCode()));
 
-        assertNotNull(dbAccessionSeries);
+        assertNotNull(accessionSeries);
 
-        assertEquals(updateAccessionSeries.getCode() , accessionSeries.getAccessionSeriesCode().getCode());
-        assertEquals(updateAccessionSeries.getMaxNumber() ,accessionSeries.getMaxNumber());
-        assertEquals(updateAccessionSeries.getMaxZero() ,accessionSeries.getMaxZero());
-        assertEquals(updateAccessionSeries.getPrefix() ,accessionSeries.getPrefix());
-        assertEquals(updateAccessionSeries.getTypeName() ,accessionSeries.getTypeName());
-        assertEquals(updateAccessionSeries.getUserCode() ,accessionSeries.getUserCode());
+        assertEquals(updateAccessionSeries.getCode(), accessionSeries.getAccessionSeriesCode().getCode());
+        assertEquals(updateAccessionSeries.getMaxNumber(), accessionSeries.getMaxNumber());
+        assertEquals(updateAccessionSeries.getMaxZero(), accessionSeries.getMaxZero());
+        assertEquals(updateAccessionSeries.getPrefix(), accessionSeries.getPrefix());
+        assertEquals(updateAccessionSeries.getAccessionSeriesType(), accessionSeries.getAccessionSeriesType());
+        assertEquals(updateAccessionSeries.getUserCode(), accessionSeries.getUserCode());
+        assertEquals(updateAccessionSeries.getUserLibraryId(), accessionSeries.getUserLibraryId());
     }
 }
