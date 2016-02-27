@@ -57,5 +57,9 @@ public class ActivitiProcessConstants {
         public static final String UPDATE_FISCALYEAR = "updateFiscalYear";
         public static final String DELETE_FISCALYEAR = "deleteFiscalYear";
 
+        public static final String ADD_BINDER = "addBinder";
+        public static final String UPDATE_BINDER = "updateBinder";
+        public static final String DELETE_BINDER = "deleteBinder";
+
     }
 }
