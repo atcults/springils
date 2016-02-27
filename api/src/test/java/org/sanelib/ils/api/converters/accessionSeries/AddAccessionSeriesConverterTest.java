@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 public class AddAccessionSeriesConverterTest {
 
     @Test
-    public void validDataShouldConvertDtoToCommand() throws Exception{
+    public void testValidDataShouldConvertDtoToCommand() throws Exception{
 
         AccessionSeriesDto dto = new AccessionSeriesDto();
 
@@ -36,7 +36,7 @@ public class AddAccessionSeriesConverterTest {
         assertEquals("Library Id is not mapped", dto.getLibraryId(), String.valueOf(addAccessionSeries.getLibraryId()));
         assertEquals("Code is not mapped", dto.getCode(), addAccessionSeries.getCode());
         assertEquals("Prefix of series not mapped",dto.getPrefix(), addAccessionSeries.getPrefix());
-        assertEquals("Type of series not mapped", dto.getAccessionSeriesType(), addAccessionSeries.getAccessionSeriesType().name());
+        assertEquals("Type of series not mapped", dto.getAccessionSeriesType(), addAccessionSeries.getAccessionSeriesType().getName());
         assertEquals("Max Number of series not mapped", dto.getMaxNumber(), String.valueOf(addAccessionSeries.getMaxNumber()));
         assertEquals("Max Zero of series not mapped", dto.getMaxZero(), String.valueOf(addAccessionSeries.getMaxZero()));
     }
