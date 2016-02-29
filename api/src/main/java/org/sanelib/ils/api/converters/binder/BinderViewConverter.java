@@ -15,7 +15,7 @@ public class BinderViewConverter extends AbstractViewToDtoConverterImpl<BinderDt
 
         binderDto.setLibraryId(String.valueOf(binderView.getLibraryId()));
         binderDto.setId(String.valueOf(binderView.getId()));
-        binderDto.setName(binderView.getBinderName());
+        binderDto.setName(binderView.getName());
         binderDto.setAddressLine1(binderView.getPrimaryAddress());
         binderDto.setAddressLine2(binderView.getSecondaryAddress());
         binderDto.setCity(binderView.getCity());

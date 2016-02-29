@@ -12,23 +12,23 @@ public class BinderMapper implements ViewMapper<BinderView>{
     @Override
     public BinderView map(DataResultSet rs) throws SQLException {
 
-        final String binder = "cir_co_binder";
+        final String viewName = "cir_co_binder";
 
         final BinderView binderView = new BinderView();
 
-        binderView.setLibraryId(rs.getInt(binder , "library_id"));
-        binderView.setId(rs.getInt(binder , "binder_id"));
-        binderView.setBinderName(rs.getString(binder , "binder_name"));
-        binderView.setPrimaryAddress(rs.getString(binder , "address1"));
-        binderView.setSecondaryAddress(rs.getString(binder , "address2"));
-        binderView.setCity(rs.getString(binder , "city"));
-        binderView.setState(rs.getString(binder , "state"));
-        binderView.setCountry(rs.getString(binder , "country"));
-        binderView.setPin(rs.getString(binder , "pin"));
-        binderView.setPrimaryPhoneNumber(rs.getString(binder , "phone1"));
-        binderView.setSecondaryPhoneNumber(rs.getString(binder , "phone2"));
-        binderView.setFax(rs.getString(binder , "fax"));
-        binderView.setEmail(rs.getString(binder , "email"));
+        binderView.setLibraryId(rs.getInt(viewName , "library_id"));
+        binderView.setId(rs.getInt(viewName , "binder_id"));
+        binderView.setName(rs.getString(viewName , "binder_name"));
+        binderView.setPrimaryAddress(rs.getString(viewName , "address1"));
+        binderView.setSecondaryAddress(rs.getString(viewName , "address2"));
+        binderView.setCity(rs.getString(viewName , "city"));
+        binderView.setState(rs.getString(viewName , "state"));
+        binderView.setCountry(rs.getString(viewName , "country"));
+        binderView.setPin(rs.getString(viewName , "pin"));
+        binderView.setPrimaryPhoneNumber(rs.getString(viewName , "phone1"));
+        binderView.setSecondaryPhoneNumber(rs.getString(viewName , "phone2"));
+        binderView.setFax(rs.getString(viewName , "fax"));
+        binderView.setEmail(rs.getString(viewName , "email"));
 
         return binderView;
     }

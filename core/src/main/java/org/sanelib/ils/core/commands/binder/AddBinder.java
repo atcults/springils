@@ -14,7 +14,7 @@ public class AddBinder extends ProcessAuditCommandWithLibraryId {
         return "domain.entity.binder";
     }
 
-    private String binderName;
+    private String name;
     private String primaryAddress;
     private String secondaryAddress;
     private String city;
@@ -26,12 +26,12 @@ public class AddBinder extends ProcessAuditCommandWithLibraryId {
     private String fax;
     private String email;
 
-    public String getBinderName() {
-        return binderName;
+    public String getName() {
+        return name;
     }
 
-    public void setBinderName(String binderName) {
-        this.binderName = binderName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPrimaryAddress() {

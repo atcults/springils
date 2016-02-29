@@ -51,7 +51,7 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
 
         updateBinder.setId(binder.getBinderId().getId());
         updateBinder.setLibraryId(library.getId());
-        updateBinder.setBinderName("Test Update Binder");
+        updateBinder.setName("Test Update Binder");
         updateBinder.setPrimaryAddress("Primary Address");
         updateBinder.setSecondaryAddress("Secondary Address");
         updateBinder.setCity("TestUpdateCity");
@@ -72,7 +72,7 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
 
         assertNotNull(dbBinder);
 
-        assertEquals(updateBinder.getBinderName(), dbBinder.getName());
+        assertEquals(updateBinder.getName(), dbBinder.getName());
         assertEquals(updateBinder.getPrimaryAddress(), dbBinder.getAddressLine1());
         assertEquals(updateBinder.getSecondaryAddress(), dbBinder.getAddressLine2());
         assertEquals(updateBinder.getCity(), dbBinder.getCity());

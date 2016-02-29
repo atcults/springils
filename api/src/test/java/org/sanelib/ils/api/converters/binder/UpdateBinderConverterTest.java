@@ -41,7 +41,7 @@ public class UpdateBinderConverterTest {
 
         assertEquals("Id is not mapped", dto.getId(), String.valueOf(updateBinder.getId()));
         assertEquals("Library Id is not mapped", dto.getLibraryId(), String.valueOf(updateBinder.getLibraryId()));
-        assertEquals("Binder name is not mapped", dto.getName(), updateBinder.getBinderName());
+        assertEquals("Binder name is not mapped", dto.getName(), updateBinder.getName());
         assertEquals("Primary Address is not mapped", dto.getAddressLine1(), updateBinder.getPrimaryAddress());
         assertEquals("Seconday Address is not mapped", dto.getAddressLine2(), updateBinder.getSecondaryAddress());
         assertEquals("City  is not mapped", dto.getCity(), updateBinder.getCity());

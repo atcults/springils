@@ -1,15 +1,15 @@
 package org.sanelib.ils.core.domain.view.admin;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithId;
-
-import java.util.Date;
 
 public class BinderView implements DomainView , ViewWithId{
 
     private Integer libraryId;
     private Integer id;
-    private String binderName;
+    private String name;
     private String primaryAddress;
     private String secondaryAddress;
     private String city;
@@ -38,12 +38,12 @@ public class BinderView implements DomainView , ViewWithId{
         this.libraryId = libraryId;
     }
 
-    public String getBinderName() {
-        return binderName;
+    public String getName() {
+        return name;
     }
 
-    public void setBinderName(String binderName) {
-        this.binderName = binderName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPrimaryAddress() {
@@ -126,4 +126,8 @@ public class BinderView implements DomainView , ViewWithId{
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
+    }
 }

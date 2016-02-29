@@ -9,8 +9,8 @@ common:
   updatedOn: Updated On
 
 address:
-  addressLine1: Primary Address
-  address2: Secondary Address
+  addressLine1: Address Line1
+  addressLine2: Address Line2
   city: City
   state: State
   country: Country

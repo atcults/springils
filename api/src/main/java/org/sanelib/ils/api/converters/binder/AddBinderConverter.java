@@ -20,9 +20,9 @@ public class AddBinderConverter implements DtoToCommandConverter<BinderDto> {
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
 
         if(Strings.isNullOrEmpty(dto.getName())) {
-            processError.addError("common.field.required", "name", "domain.binder.name");
+            processError.addError("common.field.required", "name", "domain.common.name");
         }else {
-            command.setBinderName(dto.getName());
+            command.setName(dto.getName());
         }
 
         command.setPrimaryAddress(dto.getAddressLine1());

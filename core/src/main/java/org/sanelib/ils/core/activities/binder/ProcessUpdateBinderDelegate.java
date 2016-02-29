@@ -27,7 +27,7 @@ public class ProcessUpdateBinderDelegate implements JavaDelegate {
 
         Binder entity = binderRepository.get(new BinderId(command.getLibraryId(), command.getId()));
 
-        entity.setName(command.getBinderName());
+        entity.setName(command.getName());
         entity.setAddressLine1(command.getPrimaryAddress());
         entity.setAddressLine2(command.getSecondaryAddress());
         entity.setCity(command.getCity());

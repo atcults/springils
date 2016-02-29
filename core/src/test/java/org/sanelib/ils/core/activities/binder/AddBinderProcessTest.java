@@ -3,7 +3,6 @@ package org.sanelib.ils.core.activities.binder;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.binder.AddBinder;
 import org.sanelib.ils.core.dao.HibernateHelper;
@@ -36,7 +35,7 @@ public class AddBinderProcessTest extends EntityIntegrationTestBase{
         AddBinder addBinder = new AddBinder();
 
         addBinder.setLibraryId(library.getId());
-        addBinder.setBinderName("Test Binder");
+        addBinder.setName("Test Binder");
         addBinder.setPrimaryAddress("Primary Address");
         addBinder.setSecondaryAddress("Secondary Address");
         addBinder.setCity("TestCity");
@@ -57,7 +56,7 @@ public class AddBinderProcessTest extends EntityIntegrationTestBase{
 
         assertNotNull(binder);
 
-        assertEquals(addBinder.getBinderName(), binder.getName());
+        assertEquals(addBinder.getName(), binder.getName());
         assertEquals(addBinder.getPrimaryAddress(), binder.getAddressLine1());
         assertEquals(addBinder.getSecondaryAddress(), binder.getAddressLine2());
         assertEquals(addBinder.getCity(), binder.getCity());
