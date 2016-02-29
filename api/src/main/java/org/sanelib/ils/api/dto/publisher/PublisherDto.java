@@ -1,5 +1,7 @@
 package org.sanelib.ils.api.dto.publisher;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.api.dto.DtoWithCode;
 
 public class PublisherDto implements DtoWithCode {
@@ -52,13 +54,7 @@ public class PublisherDto implements DtoWithCode {
 
     @Override
     public String toString() {
-        return "PublisherDto{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", country='" + country + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
 

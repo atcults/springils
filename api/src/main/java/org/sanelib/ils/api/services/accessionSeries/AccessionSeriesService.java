@@ -55,7 +55,7 @@ public class AccessionSeriesService extends ApiServiceBase {
 
     @DELETE
     @Path("/{libraryId}/{code}")
-    public String deleteAgency(@PathParam("libraryId") String libraryId, @PathParam("code") String code) throws Throwable {
+    public String deleteAccessionSeries(@PathParam("libraryId") String libraryId, @PathParam("code") String code) throws Throwable {
         AccessionSeriesDto accessionSeriesDto = new AccessionSeriesDto();
         accessionSeriesDto.setCode(code);
         accessionSeriesDto.setLibraryId(libraryId);

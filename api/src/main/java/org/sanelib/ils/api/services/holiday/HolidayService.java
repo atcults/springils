@@ -29,7 +29,7 @@ public class HolidayService extends ApiServiceBase {
     HolidayViewRepository holidayViewRepository;
 
     @Autowired
-    HolidayViewConverter holidaysViewConverter;
+    HolidayViewConverter holidayViewConverter;
 
     @GET
     @SuppressWarnings("unchecked")
@@ -52,7 +52,7 @@ public class HolidayService extends ApiServiceBase {
         }
 
         List viewList = holidayViewRepository.getHolidaysForFiscalYear(Integer.parseInt(libraryId), Integer.parseInt(fiscalYearId));
-        return holidaysViewConverter.convert(viewList);
+        return holidayViewConverter.convert(viewList);
     }
 
     @POST

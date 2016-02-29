@@ -36,7 +36,7 @@ public class PatronService extends ApiServiceBase{
 
     @GET
     @SuppressWarnings("unchecked")
-    public List getAllPatron() throws Throwable {
+    public List getAllPatrons() throws Throwable {
         List dtoList = new ArrayList<>();
         List viewList = patronViewRepository.getAll();
         dtoList.addAll((Collection) viewList.stream().map(v -> patronViewConverter.convert((PatronView) v)).collect(Collectors.toList()));
