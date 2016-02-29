@@ -17,7 +17,7 @@ public class AddLibrary implements ProcessCommand {
     private String acquisitionStatus;
     private String cataloguingStatus;
     private String smStatus;
-    private int hostLibraryId;
+    private Integer hostLibraryId;
     private String firstAddress;
     private String secondAddress;
     private String city;
@@ -114,11 +114,11 @@ public class AddLibrary implements ProcessCommand {
         this.smStatus = smStatus;
     }
 
-    public int getHostLibraryId() {
+    public Integer getHostLibraryId() {
         return hostLibraryId;
     }
 
-    public void setHostLibraryId(int hostLibraryId) {
+    public void setHostLibraryId(Integer hostLibraryId) {
         this.hostLibraryId = hostLibraryId;
     }
 

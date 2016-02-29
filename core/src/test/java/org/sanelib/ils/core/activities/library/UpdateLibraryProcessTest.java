@@ -32,7 +32,7 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         library.setAcquisitionStatus("AcqStatus");
         library.setCataloguingStatus("CatStatus");
         library.setSmStatus("SmStatus");
-        library.setHostLibraryId(100);
+        library.setHostLibraryId(1);
         library.setFirstAddress("FirstAddress");
         library.setSecondAddress("SecondAddress");
         library.setCity("city");
@@ -68,7 +68,7 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         updateLibrary.setAcquisitionStatus("AcqStatus");
         updateLibrary.setCataloguingStatus("CatStatus");
         updateLibrary.setSmStatus("SmStatus");
-        updateLibrary.setHostLibraryId(100);
+        updateLibrary.setHostLibraryId(1);
         updateLibrary.setFirstAddress("Updated FirstAddress");
         updateLibrary.setSecondAddress("Updated SecondAddress");
         updateLibrary.setCity("Updated city");
@@ -100,17 +100,17 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         assertNotNull(library);
 
         assertEquals((int) updateLibrary.getId(), updatedLibrary.getId());
-        assertEquals(updateLibrary.getName(),updatedLibrary.getName());
-        assertEquals(updateLibrary.getSerialMaster(),updatedLibrary.getSerialMaster());
-        assertEquals(updateLibrary.getCatalogueMaster(),updatedLibrary.getCatalogueMaster());
-        assertEquals(updateLibrary.getAcquisitionsMaster(),updatedLibrary.getAcquisitionsMaster());
-        assertEquals(updateLibrary.getCreatedOn(),updatedLibrary.getCreatedOn());
-        assertEquals(updateLibrary.getAcquisitionStatus(),updatedLibrary.getAcquisitionStatus());
-        assertEquals(updateLibrary.getCataloguingStatus(),updatedLibrary.getCataloguingStatus());
-        assertEquals(updateLibrary.getSmStatus(),updatedLibrary.getSmStatus());
-        assertEquals(updateLibrary.getHostLibraryId(),updatedLibrary.getHostLibraryId());
-        assertEquals(updateLibrary.getFirstAddress(),updatedLibrary.getFirstAddress());
-        assertEquals(updateLibrary.getSecondAddress(),updatedLibrary.getSecondAddress());
+        assertEquals(updateLibrary.getName(), updatedLibrary.getName());
+        assertEquals(updateLibrary.getSerialMaster(), updatedLibrary.getSerialMaster());
+        assertEquals(updateLibrary.getCatalogueMaster(), updatedLibrary.getCatalogueMaster());
+        assertEquals(updateLibrary.getAcquisitionsMaster(), updatedLibrary.getAcquisitionsMaster());
+        assertEquals(updateLibrary.getCreatedOn(), updatedLibrary.getCreatedOn());
+        assertEquals(updateLibrary.getAcquisitionStatus(), updatedLibrary.getAcquisitionStatus());
+        assertEquals(updateLibrary.getCataloguingStatus(), updatedLibrary.getCataloguingStatus());
+        assertEquals(updateLibrary.getSmStatus(), updatedLibrary.getSmStatus());
+        assertEquals(updateLibrary.getHostLibraryId(), updatedLibrary.getHostLibraryId());
+        assertEquals(updateLibrary.getFirstAddress(), updatedLibrary.getFirstAddress());
+        assertEquals(updateLibrary.getSecondAddress(), updatedLibrary.getSecondAddress());
         assertEquals(updateLibrary.getCity(), updatedLibrary.getCity());
         assertEquals(updateLibrary.getState(), updatedLibrary.getState());
         assertEquals(updateLibrary.getPin(), updatedLibrary.getPin());

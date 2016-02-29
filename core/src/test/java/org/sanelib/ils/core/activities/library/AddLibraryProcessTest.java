@@ -26,7 +26,7 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
         addLibrary.setAcquisitionStatus("AcqStatus");
         addLibrary.setCataloguingStatus("CatStatus");
         addLibrary.setSmStatus("SmStatus");
-        addLibrary.setHostLibraryId(100);
+        addLibrary.setHostLibraryId(1);
         addLibrary.setFirstAddress("FirstAddress");
         addLibrary.setSecondAddress("SecondAddress");
         addLibrary.setCity("city");

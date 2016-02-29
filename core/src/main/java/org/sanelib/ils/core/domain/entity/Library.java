@@ -52,7 +52,7 @@ public class Library implements DomainEntity {
     private String smStatus;
 
     @Column(name = "hostlibraryid")
-    private int hostLibraryId;
+    private Integer hostLibraryId;
 
     @Column(name = "address1")
     private String  firstAddress;
@@ -181,11 +181,11 @@ public class Library implements DomainEntity {
         this.smStatus = smStatus;
     }
 
-    public int getHostLibraryId() {
+    public Integer getHostLibraryId() {
         return hostLibraryId;
     }
 
-    public void setHostLibraryId(int hostLibraryId) {
+    public void setHostLibraryId(Integer hostLibraryId) {
         this.hostLibraryId = hostLibraryId;
     }
 
