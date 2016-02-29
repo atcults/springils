@@ -70,13 +70,13 @@ public class Library implements DomainEntity {
     private String pin;
 
     @Column(name = "phone_number1")
-    private String firstPhoneNumber;
+    private String primaryPhone;
 
     @Column(name = "email")
     private String email;
 
     @Column(name = "phone_number2")
-    private String secondPhoneNumber;
+    private String secondaryPhone;
 
     @Column(name = "fax")
     private String fax;
@@ -229,12 +229,12 @@ public class Library implements DomainEntity {
         this.pin = pin;
     }
 
-    public String getFirstPhoneNumber() {
-        return firstPhoneNumber;
+    public String getPrimaryPhone() {
+        return primaryPhone;
     }
 
-    public void setFirstPhoneNumber(String firstPhoneNumber) {
-        this.firstPhoneNumber = firstPhoneNumber;
+    public void setPrimaryPhone(String primaryPhone) {
+        this.primaryPhone = primaryPhone;
     }
 
     public String getEmail() {
@@ -245,12 +245,12 @@ public class Library implements DomainEntity {
         this.email = email;
     }
 
-    public String getSecondPhoneNumber() {
-        return secondPhoneNumber;
+    public String getSecondaryPhone() {
+        return secondaryPhone;
     }
 
-    public void setSecondPhoneNumber(String secondPhoneNumber) {
-        this.secondPhoneNumber = secondPhoneNumber;
+    public void setSecondaryPhone(String secondaryPhone) {
+        this.secondaryPhone = secondaryPhone;
     }
 
     public String getFax() {

@@ -40,9 +40,9 @@ public class ProcessUpdateLibraryDelegate implements JavaDelegate {
         entity.setCity(command.getCity());
         entity.setState(command.getState());
         entity.setPin(command.getPin());
-        entity.setFirstPhoneNumber(command.getFirstPhoneNumber());
+        entity.setPrimaryPhone(command.getPrimaryPhone());
         entity.setEmail(command.getEmail());
-        entity.setSecondPhoneNumber(command.getSecondPhoneNumber());
+        entity.setSecondaryPhone(command.getSecondaryPhone());
         entity.setFax(command.getFax());
         entity.setCountry(command.getCountry());
         entity.setNetworkName(command.getNetworkName());

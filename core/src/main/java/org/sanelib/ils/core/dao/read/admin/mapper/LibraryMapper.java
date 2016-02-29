@@ -31,9 +31,9 @@ public class LibraryMapper implements ViewMapper<LibraryView> {
         libraryView.setCity(rs.getString(viewName, "city"));
         libraryView.setState(rs.getString(viewName, "state"));
         libraryView.setPin(rs.getString(viewName, "pin"));
-        libraryView.setFirstPhoneNumber(rs.getString(viewName, "phone_number1"));
+        libraryView.setPrimaryPhone(rs.getString(viewName, "phone_number1"));
         libraryView.setEmail(rs.getString(viewName, "email"));
-        libraryView.setSecondPhoneNumber(rs.getString(viewName, "phone_number2"));
+        libraryView.setSecondaryPhone(rs.getString(viewName, "phone_number2"));
         libraryView.setFax(rs.getString(viewName, "fax"));
         libraryView.setCountry(rs.getString(viewName, "country"));
         libraryView.setNetworkName(rs.getString(viewName, "network_name"));

@@ -32,9 +32,9 @@ public class UpdateLibraryConverterTest {
         dto.setCity("city");
         dto.setState("ST");
         dto.setPin("54321");
-        dto.setFirstPhoneNumber("+91-9876543210");
+        dto.setPrimaryPhone("+91-9876543210");
         dto.setEmail("user@emailprovider.com");
-        dto.setSecondPhoneNumber("+91-8976543210");
+        dto.setSecondaryPhone("+91-8976543210");
         dto.setFax("+91-9876543210");
         dto.setCountry("country");
         dto.setNetworkName("Network Name");
@@ -73,9 +73,9 @@ public class UpdateLibraryConverterTest {
         assertEquals("City is not mapped", dto.getCity(), updateLibrary.getCity());
         assertEquals("State is not mapped", dto.getState(), updateLibrary.getState());
         assertEquals("Pin is not mapped", dto.getPin(), updateLibrary.getPin());
-        assertEquals("First Phone number is not mapped", dto.getFirstPhoneNumber(), StringHelper.toOriginalString(updateLibrary.getFirstPhoneNumber()));
+        assertEquals("Primary Phone is not mapped", dto.getPrimaryPhone(), StringHelper.toOriginalString(updateLibrary.getPrimaryPhone()));
         assertEquals("Email is not mapped", dto.getEmail(), updateLibrary.getEmail());
-        assertEquals("Second Phone number is not mapped", dto.getSecondPhoneNumber(), StringHelper.toOriginalString(updateLibrary.getSecondPhoneNumber()));
+        assertEquals("Secondary Phone is not mapped", dto.getSecondaryPhone(), StringHelper.toOriginalString(updateLibrary.getSecondaryPhone()));
         assertEquals("Fax is not mapped", dto.getFax(), StringHelper.toOriginalString(updateLibrary.getFax()));
         assertEquals("Country is not mapped", dto.getCountry(), updateLibrary.getCountry());
         assertEquals("Network Name is not mapped", dto.getNetworkName(), updateLibrary.getNetworkName());

@@ -55,10 +55,10 @@ public class AddLibraryConverter implements DtoToCommandConverter<LibraryDto> {
             command.setPin(dto.getPin());
         }
 
-        if(!RegularExpressionHelper.checkPhoneFormat(dto.getFirstPhoneNumber())) {
-            processError.addError("common.field.pattern", "phone1", "domain.library.phoneNumber1", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
+        if(!RegularExpressionHelper.checkPhoneFormat(dto.getPrimaryPhone())) {
+            processError.addError("common.field.pattern", "phone1", "domain.library.primaryPhone", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
         } else {
-            command.setFirstPhoneNumber(StringHelper.convertPhoneNumber(dto.getFirstPhoneNumber()));
+            command.setPrimaryPhone(StringHelper.convertPhoneNumber(dto.getPrimaryPhone()));
         }
 
         if(!RegularExpressionHelper.checkEmailFormat(dto.getEmail())) {
@@ -67,10 +67,10 @@ public class AddLibraryConverter implements DtoToCommandConverter<LibraryDto> {
             command.setEmail(dto.getEmail());
         }
 
-        if(!RegularExpressionHelper.checkPhoneFormat(dto.getSecondPhoneNumber())) {
-            processError.addError("common.field.pattern", "phone2", "domain.library.phoneNumber2", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
+        if(!RegularExpressionHelper.checkPhoneFormat(dto.getSecondaryPhone())) {
+            processError.addError("common.field.pattern", "phone2", "domain.library.secondaryPhone", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
         } else {
-            command.setSecondPhoneNumber(StringHelper.convertPhoneNumber(dto.getSecondPhoneNumber()));
+            command.setSecondaryPhone(StringHelper.convertPhoneNumber(dto.getSecondaryPhone()));
         }
 
         if(!RegularExpressionHelper.checkPhoneFormat(dto.getFax())) {

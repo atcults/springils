@@ -23,9 +23,9 @@ public class AddLibrary implements ProcessCommand {
     private String city;
     private String state;
     private String pin;
-    private String firstPhoneNumber;
+    private String primaryPhone;
     private String email;
-    private String secondPhoneNumber;
+    private String secondaryPhone;
     private String fax;
     private String country;
     private String networkName;
@@ -162,12 +162,12 @@ public class AddLibrary implements ProcessCommand {
         this.pin = pin;
     }
 
-    public String getFirstPhoneNumber() {
-        return firstPhoneNumber;
+    public String getPrimaryPhone() {
+        return primaryPhone;
     }
 
-    public void setFirstPhoneNumber(String firstPhoneNumber) {
-        this.firstPhoneNumber = firstPhoneNumber;
+    public void setPrimaryPhone(String primaryPhone) {
+        this.primaryPhone = primaryPhone;
     }
 
     public String getEmail() {
@@ -178,12 +178,12 @@ public class AddLibrary implements ProcessCommand {
         this.email = email;
     }
 
-    public String getSecondPhoneNumber() {
-        return secondPhoneNumber;
+    public String getSecondaryPhone() {
+        return secondaryPhone;
     }
 
-    public void setSecondPhoneNumber(String secondPhoneNumber) {
-        this.secondPhoneNumber = secondPhoneNumber;
+    public void setSecondaryPhone(String secondaryPhone) {
+        this.secondaryPhone = secondaryPhone;
     }
 
     public String getFax() {

@@ -32,9 +32,9 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
         addLibrary.setCity("city");
         addLibrary.setState("ST");
         addLibrary.setPin("54321");
-        addLibrary.setFirstPhoneNumber(StringHelper.convertPhoneNumber("+91-9876543210"));
+        addLibrary.setPrimaryPhone(StringHelper.convertPhoneNumber("+91-9876543210"));
         addLibrary.setEmail("user@emailprovider.com");
-        addLibrary.setSecondPhoneNumber("+91-897654321");
+        addLibrary.setSecondaryPhone("+91-897654321");
         addLibrary.setFax("+91-9876543210");
         addLibrary.setCountry("country");
         addLibrary.setNetworkName("Network Name");
@@ -73,9 +73,9 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
         assertEquals(addLibrary.getCity(), library.getCity());
         assertEquals(addLibrary.getState(), library.getState());
         assertEquals(addLibrary.getPin(), library.getPin());
-        assertEquals(addLibrary.getFirstPhoneNumber(), library.getFirstPhoneNumber());
+        assertEquals(addLibrary.getPrimaryPhone(), library.getPrimaryPhone());
         assertEquals(addLibrary.getEmail(), library.getEmail());
-        assertEquals(addLibrary.getSecondPhoneNumber(), library.getSecondPhoneNumber());
+        assertEquals(addLibrary.getSecondaryPhone(), library.getSecondaryPhone());
         assertEquals(addLibrary.getFax(), library.getFax());
         assertEquals(addLibrary.getCountry(), library.getCountry());
         assertEquals(addLibrary.getNetworkName(), library.getNetworkName());

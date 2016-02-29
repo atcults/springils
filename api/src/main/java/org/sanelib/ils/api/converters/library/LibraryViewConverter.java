@@ -28,9 +28,9 @@ public class LibraryViewConverter extends AbstractViewToDtoConverterImpl<Library
         libraryDto.setCity(libraryView.getCity());
         libraryDto.setState(libraryView.getState());
         libraryDto.setPin(libraryView.getPin());
-        libraryDto.setFirstPhoneNumber(libraryView.getFirstPhoneNumber());
+        libraryDto.setPrimaryPhone(libraryView.getPrimaryPhone());
         libraryDto.setEmail(libraryView.getEmail());
-        libraryDto.setSecondPhoneNumber(libraryView.getSecondPhoneNumber());
+        libraryDto.setSecondaryPhone(libraryView.getSecondaryPhone());
         libraryDto.setFax(libraryView.getFax());
         libraryDto.setCountry(libraryView.getCountry());
         libraryDto.setNetworkName(libraryView.getNetworkName());

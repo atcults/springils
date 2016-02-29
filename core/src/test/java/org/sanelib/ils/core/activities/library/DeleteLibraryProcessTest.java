@@ -35,9 +35,9 @@ public class DeleteLibraryProcessTest extends EntityIntegrationTestBase {
         library.setCity("city");
         library.setState("ST");
         library.setPin("54321");
-        library.setFirstPhoneNumber("+91-987654321");
+        library.setPrimaryPhone("+91-987654321");
         library.setEmail("user@emailprovider.com");
-        library.setSecondPhoneNumber("+91-897654321");
+        library.setSecondaryPhone("+91-897654321");
         library.setFax("87654321");
         library.setCountry("country");
         library.setNetworkName("Network Name");

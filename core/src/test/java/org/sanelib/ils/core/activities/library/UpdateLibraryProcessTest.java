@@ -38,9 +38,9 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         library.setCity("city");
         library.setState("ST");
         library.setPin("54321");
-        library.setFirstPhoneNumber("+91-987654321");
+        library.setPrimaryPhone("+91-987654321");
         library.setEmail("user@emailprovider.com");
-        library.setSecondPhoneNumber("+91-897654321");
+        library.setSecondaryPhone("+91-897654321");
         library.setFax("87654321");
         library.setCountry("country");
         library.setNetworkName("Network Name");
@@ -74,9 +74,9 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         updateLibrary.setCity("Updated city");
         updateLibrary.setState("ST");
         updateLibrary.setPin("54321");
-        updateLibrary.setFirstPhoneNumber("+91-987654321");
+        updateLibrary.setPrimaryPhone("+91-987654321");
         updateLibrary.setEmail("user@emailprovider.com");
-        updateLibrary.setSecondPhoneNumber("+91-897654321");
+        updateLibrary.setSecondaryPhone("+91-897654321");
         updateLibrary.setFax("87654321");
         updateLibrary.setCountry("country");
         updateLibrary.setNetworkName("Updated Network Name");
@@ -114,9 +114,9 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         assertEquals(updateLibrary.getCity(), updatedLibrary.getCity());
         assertEquals(updateLibrary.getState(), updatedLibrary.getState());
         assertEquals(updateLibrary.getPin(), updatedLibrary.getPin());
-        assertEquals(updateLibrary.getFirstPhoneNumber(), updatedLibrary.getFirstPhoneNumber());
+        assertEquals(updateLibrary.getPrimaryPhone(), updatedLibrary.getPrimaryPhone());
         assertEquals(updateLibrary.getEmail(), updatedLibrary.getEmail());
-        assertEquals(updateLibrary.getSecondPhoneNumber(), updatedLibrary.getSecondPhoneNumber());
+        assertEquals(updateLibrary.getSecondaryPhone(), updatedLibrary.getSecondaryPhone());
         assertEquals(updateLibrary.getFax(), updatedLibrary.getFax());
         assertEquals(updateLibrary.getCountry(), updatedLibrary.getCountry());
         assertEquals(updateLibrary.getNetworkName(), updatedLibrary.getNetworkName());

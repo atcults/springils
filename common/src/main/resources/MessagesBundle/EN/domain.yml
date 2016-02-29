@@ -38,9 +38,9 @@ library:
   addressLine1: Address Line1
   addressLine2: Address Line2
   pin: Pin
-  firstPhoneNumber: First PhoneNumber
+  primaryPhone: Primary Phone
   email: Email
-  secondPhoneNumber: Second PhoneNumber
+  secondaryPhone: Secondary Phone
   fax: Fax
   networkName: Network Name
   searchForms: Search Forms
