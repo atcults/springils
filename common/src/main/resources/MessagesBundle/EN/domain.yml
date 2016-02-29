@@ -33,6 +33,7 @@ entity:
   department: Department
   patron: Patron
   author: Author
+  binder: Binder
 
 library:
   name: Name
@@ -50,7 +51,7 @@ agency:
   name: Name
 
 binder:
-  noExtra: Dummy entry as all properties are covered in common and address.
+  noExtra: Dummy entry as all properties are covered in common and address
 
 author:
   lname: Last Name
