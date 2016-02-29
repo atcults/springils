@@ -55,10 +55,10 @@ public class Library implements DomainEntity {
     private Integer hostLibraryId;
 
     @Column(name = "address1")
-    private String  firstAddress;
+    private String addressLine1;
 
     @Column(name = "address2")
-    private String secondAddress;
+    private String addressLine2;
 
     @Column(name = "city")
     private String city;
@@ -189,20 +189,20 @@ public class Library implements DomainEntity {
         this.hostLibraryId = hostLibraryId;
     }
 
-    public String getFirstAddress() {
-        return firstAddress;
+    public String getAddressLine1() {
+        return addressLine1;
     }
 
-    public void setFirstAddress(String firstAddress) {
-        this.firstAddress = firstAddress;
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
     }
 
-    public String getSecondAddress() {
-        return secondAddress;
+    public String getAddressLine2() {
+        return addressLine2;
     }
 
-    public void setSecondAddress(String secondAddress) {
-        this.secondAddress = secondAddress;
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
     }
 
     public String getCity() {

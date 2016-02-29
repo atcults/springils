@@ -33,8 +33,8 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         library.setCataloguingStatus("CatStatus");
         library.setSmStatus("SmStatus");
         library.setHostLibraryId(1);
-        library.setFirstAddress("FirstAddress");
-        library.setSecondAddress("SecondAddress");
+        library.setAddressLine1("Address Line1");
+        library.setAddressLine2("Address Line2");
         library.setCity("city");
         library.setState("ST");
         library.setPin("54321");
@@ -69,8 +69,8 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         updateLibrary.setCataloguingStatus("CatStatus");
         updateLibrary.setSmStatus("SmStatus");
         updateLibrary.setHostLibraryId(1);
-        updateLibrary.setFirstAddress("Updated FirstAddress");
-        updateLibrary.setSecondAddress("Updated SecondAddress");
+        updateLibrary.setAddressLine1("Updated Address Line1");
+        updateLibrary.setAddressLine2("Updated Address Line2");
         updateLibrary.setCity("Updated city");
         updateLibrary.setState("ST");
         updateLibrary.setPin("54321");
@@ -109,8 +109,8 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         assertEquals(updateLibrary.getCataloguingStatus(), updatedLibrary.getCataloguingStatus());
         assertEquals(updateLibrary.getSmStatus(), updatedLibrary.getSmStatus());
         assertEquals(updateLibrary.getHostLibraryId(), updatedLibrary.getHostLibraryId());
-        assertEquals(updateLibrary.getFirstAddress(), updatedLibrary.getFirstAddress());
-        assertEquals(updateLibrary.getSecondAddress(), updatedLibrary.getSecondAddress());
+        assertEquals(updateLibrary.getAddressLine1(), updatedLibrary.getAddressLine1());
+        assertEquals(updateLibrary.getAddressLine2(), updatedLibrary.getAddressLine2());
         assertEquals(updateLibrary.getCity(), updatedLibrary.getCity());
         assertEquals(updateLibrary.getState(), updatedLibrary.getState());
         assertEquals(updateLibrary.getPin(), updatedLibrary.getPin());

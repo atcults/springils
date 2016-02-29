@@ -27,8 +27,8 @@ public class AddLibraryConverterTest {
         dto.setCataloguingStatus("CatStatus");
         dto.setSmStatus("SmStatus");
         dto.setHostLibraryId("100");
-        dto.setFirstAddress("FirstAddress");
-        dto.setSecondAddress("SecondAddress");
+        dto.setAddressLine1("Address Line1");
+        dto.setAddressLine2("Address Line2");
         dto.setCity("city");
         dto.setState("ST");
         dto.setPin("54321");
@@ -68,8 +68,8 @@ public class AddLibraryConverterTest {
         assertEquals("Cataloguing status is not mapped", dto.getCataloguingStatus(), addLibrary.getCataloguingStatus());
         assertEquals("SerialMaster status is not mapped", dto.getSmStatus(), addLibrary.getSmStatus());
         assertEquals("Host library Id is not mapped", dto.getHostLibraryId(), String.valueOf(addLibrary.getHostLibraryId()));
-        assertEquals("First Address is not mapped", dto.getFirstAddress(), addLibrary.getFirstAddress());
-        assertEquals("Second Address is not mapped", dto.getSecondAddress(), addLibrary.getSecondAddress());
+        assertEquals("Address Line1 is not mapped", dto.getAddressLine1(), addLibrary.getAddressLine1());
+        assertEquals("Address Line2 is not mapped", dto.getAddressLine2(), addLibrary.getAddressLine2());
         assertEquals("City is not mapped", dto.getCity(), addLibrary.getCity());
         assertEquals("State is not mapped", dto.getState(), addLibrary.getState());
         assertEquals("Pin is not mapped", dto.getPin(), addLibrary.getPin());

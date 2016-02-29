@@ -27,8 +27,8 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
         addLibrary.setCataloguingStatus("CatStatus");
         addLibrary.setSmStatus("SmStatus");
         addLibrary.setHostLibraryId(1);
-        addLibrary.setFirstAddress("FirstAddress");
-        addLibrary.setSecondAddress("SecondAddress");
+        addLibrary.setAddressLine1("Address Line1");
+        addLibrary.setAddressLine2("Address Line2");
         addLibrary.setCity("city");
         addLibrary.setState("ST");
         addLibrary.setPin("54321");
@@ -68,8 +68,8 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
         assertEquals(addLibrary.getCataloguingStatus(), library.getCataloguingStatus());
         assertEquals(addLibrary.getSmStatus(), library.getSmStatus());
         assertEquals(addLibrary.getHostLibraryId(), library.getHostLibraryId());
-        assertEquals(addLibrary.getFirstAddress(), library.getFirstAddress());
-        assertEquals(addLibrary.getSecondAddress(), library.getSecondAddress());
+        assertEquals(addLibrary.getAddressLine1(), library.getAddressLine1());
+        assertEquals(addLibrary.getAddressLine2(), library.getAddressLine2());
         assertEquals(addLibrary.getCity(), library.getCity());
         assertEquals(addLibrary.getState(), library.getState());
         assertEquals(addLibrary.getPin(), library.getPin());

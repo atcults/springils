@@ -30,8 +30,8 @@ public class DeleteLibraryProcessTest extends EntityIntegrationTestBase {
         library.setCataloguingStatus("CatStatus");
         library.setSmStatus("SmStatus");
         library.setHostLibraryId(100);
-        library.setFirstAddress("FirstAddress");
-        library.setSecondAddress("SecondAddress");
+        library.setAddressLine1("Address Line1");
+        library.setAddressLine2("Address Line2");
         library.setCity("city");
         library.setState("ST");
         library.setPin("54321");

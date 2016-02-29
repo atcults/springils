@@ -35,8 +35,8 @@ library:
   cataloguingStatus: Cataloguing Status
   smStatus: Sm Status
   hostLibraryId: Host Library Id
-  firstAddress: First Address
-  secondAddress: Second Address
+  addressLine1: Address Line1
+  addressLine2: Address Line2
   pin: Pin
   firstPhoneNumber: First PhoneNumber
   email: Email

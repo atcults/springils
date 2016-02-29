@@ -23,8 +23,8 @@ public class LibraryViewConverter extends AbstractViewToDtoConverterImpl<Library
         libraryDto.setCataloguingStatus(libraryView.getCataloguingStatus());
         libraryDto.setSmStatus(libraryView.getSmStatus());
         libraryDto.setHostLibraryId(String.valueOf(libraryView.getHostLibraryId()));
-        libraryDto.setFirstAddress(libraryView.getFirstAddress());
-        libraryDto.setSecondAddress(libraryView.getSecondAddress());
+        libraryDto.setAddressLine1(libraryView.getAddressLine1());
+        libraryDto.setAddressLine2(libraryView.getAddressLine2());
         libraryDto.setCity(libraryView.getCity());
         libraryDto.setState(libraryView.getState());
         libraryDto.setPin(libraryView.getPin());

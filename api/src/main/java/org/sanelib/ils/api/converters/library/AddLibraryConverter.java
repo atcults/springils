@@ -41,8 +41,8 @@ public class AddLibraryConverter implements DtoToCommandConverter<LibraryDto> {
         command.setCataloguingStatus(dto.getCataloguingStatus());
         command.setSmStatus(dto.getSmStatus());
         command.setHostLibraryId(Integer.valueOf(dto.getHostLibraryId()));
-        command.setFirstAddress(dto.getFirstAddress());
-        command.setSecondAddress(dto.getSecondAddress());
+        command.setAddressLine1(dto.getAddressLine1());
+        command.setAddressLine2(dto.getAddressLine2());
         command.setCity(dto.getCity());
 
         if(ConverterHelper.checkRequiredLength(dto.getState(), 2, "state", "domain.library.state", processError)){

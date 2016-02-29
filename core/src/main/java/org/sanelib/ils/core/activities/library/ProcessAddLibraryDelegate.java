@@ -40,8 +40,8 @@ public class ProcessAddLibraryDelegate implements JavaDelegate {
         entity.setCataloguingStatus(command.getCataloguingStatus());
         entity.setSmStatus(command.getSmStatus());
         entity.setHostLibraryId(command.getHostLibraryId());
-        entity.setFirstAddress(command.getFirstAddress());
-        entity.setSecondAddress(command.getSecondAddress());
+        entity.setAddressLine1(command.getAddressLine1());
+        entity.setAddressLine2(command.getAddressLine2());
         entity.setCity(command.getCity());
         entity.setState(command.getState());
         entity.setPin(command.getPin());

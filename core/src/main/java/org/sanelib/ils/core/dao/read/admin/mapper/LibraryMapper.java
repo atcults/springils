@@ -26,8 +26,8 @@ public class LibraryMapper implements ViewMapper<LibraryView> {
         libraryView.setCataloguingStatus(rs.getString(viewName, "cataloguing_status"));
         libraryView.setSmStatus(rs.getString(viewName, "sm_status"));
         libraryView.setHostLibraryId(rs.getInt(viewName, "hostlibraryid"));
-        libraryView.setFirstAddress(rs.getString(viewName, "address1"));
-        libraryView.setSecondAddress(rs.getString(viewName, "address2"));
+        libraryView.setAddressLine1(rs.getString(viewName, "address1"));
+        libraryView.setAddressLine2(rs.getString(viewName, "address2"));
         libraryView.setCity(rs.getString(viewName, "city"));
         libraryView.setState(rs.getString(viewName, "state"));
         libraryView.setPin(rs.getString(viewName, "pin"));
