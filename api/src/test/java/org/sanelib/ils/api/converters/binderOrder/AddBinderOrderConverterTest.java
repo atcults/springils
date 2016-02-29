@@ -18,9 +18,9 @@ public class AddBinderOrderConverterTest {
 
         dto.setLibraryId("1");
         dto.setBinderId("101");
-        dto.setOrderDate("2015/11/10");
-        dto.setDueDate("2015/11/25");
-        dto.setReturnedDate("2015/11/24");
+        dto.setOrderDate("2015-11-10");
+        dto.setDueDate("2015-11-25");
+        dto.setReturnedDate("2015-11-24");
         dto.setFormLetterNo("FormLetterNumber");
         dto.setSubject("Subject");
         dto.setContent("Content");
