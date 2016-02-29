@@ -33,8 +33,8 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
 
         binder.setBinderId(hibernateHelper.getNextId(Binder.class, "binderId.id"), library.getId());
         binder.setName("Test Binder");
-        binder.setAddressLine1("Primary Address");
-        binder.setAddressLine2("Secondary Address");
+        binder.setAddressLine1("Address Line1");
+        binder.setAddressLine2("Address Line2");
         binder.setCity("TestCity");
         binder.setState("TestState");
         binder.setCountry("TestCountry");
@@ -52,8 +52,8 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
         updateBinder.setId(binder.getBinderId().getId());
         updateBinder.setLibraryId(library.getId());
         updateBinder.setName("Test Update Binder");
-        updateBinder.setPrimaryAddress("Primary Address");
-        updateBinder.setSecondaryAddress("Secondary Address");
+        updateBinder.setAddressLine1("Address Line1");
+        updateBinder.setAddressLine2("Address Line2");
         updateBinder.setCity("TestUpdateCity");
         updateBinder.setState("TestUpdateState");
         updateBinder.setCountry("TestUpdateCountry");
@@ -73,8 +73,8 @@ public class UpdateBinderProcessTest extends EntityIntegrationTestBase{
         assertNotNull(dbBinder);
 
         assertEquals(updateBinder.getName(), dbBinder.getName());
-        assertEquals(updateBinder.getPrimaryAddress(), dbBinder.getAddressLine1());
-        assertEquals(updateBinder.getSecondaryAddress(), dbBinder.getAddressLine2());
+        assertEquals(updateBinder.getAddressLine1(), dbBinder.getAddressLine1());
+        assertEquals(updateBinder.getAddressLine2(), dbBinder.getAddressLine2());
         assertEquals(updateBinder.getCity(), dbBinder.getCity());
         assertEquals(updateBinder.getState(), dbBinder.getState());
         assertEquals(updateBinder.getCountry(), dbBinder.getCountry());

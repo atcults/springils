@@ -25,8 +25,8 @@ public class AddBinderConverter implements DtoToCommandConverter<BinderDto> {
             command.setName(dto.getName());
         }
 
-        command.setPrimaryAddress(dto.getAddressLine1());
-        command.setSecondaryAddress(dto.getAddressLine2());
+        command.setAddressLine1(dto.getAddressLine1());
+        command.setAddressLine2(dto.getAddressLine2());
         command.setCity(dto.getCity());
         command.setState(dto.getState());
         command.setCountry(dto.getCountry());

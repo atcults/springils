@@ -30,8 +30,8 @@ public class DeleteBinderProcessTest extends EntityIntegrationTestBase {
 
         binder.setBinderId(hibernateHelper.getNextId(Binder.class, "binderId.id"), library.getId());
         binder.setName("Test Binder");
-        binder.setAddressLine1("Primary Address");
-        binder.setAddressLine2("Secondary Address");
+        binder.setAddressLine1("Address Line1");
+        binder.setAddressLine2("Address Line2");
         binder.setCity("TestCity");
         binder.setState("TestState");
         binder.setCountry("TestCountry");

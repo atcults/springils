@@ -36,8 +36,8 @@ public class AddBinderProcessTest extends EntityIntegrationTestBase{
 
         addBinder.setLibraryId(library.getId());
         addBinder.setName("Test Binder");
-        addBinder.setPrimaryAddress("Primary Address");
-        addBinder.setSecondaryAddress("Secondary Address");
+        addBinder.setAddressLine1("Address Line1");
+        addBinder.setAddressLine2("Address Line2");
         addBinder.setCity("TestCity");
         addBinder.setState("TestState");
         addBinder.setCountry("TestCountry");
@@ -57,8 +57,8 @@ public class AddBinderProcessTest extends EntityIntegrationTestBase{
         assertNotNull(binder);
 
         assertEquals(addBinder.getName(), binder.getName());
-        assertEquals(addBinder.getPrimaryAddress(), binder.getAddressLine1());
-        assertEquals(addBinder.getSecondaryAddress(), binder.getAddressLine2());
+        assertEquals(addBinder.getAddressLine1(), binder.getAddressLine1());
+        assertEquals(addBinder.getAddressLine2(), binder.getAddressLine2());
         assertEquals(addBinder.getCity(), binder.getCity());
         assertEquals(addBinder.getState(), binder.getState());
         assertEquals(addBinder.getCountry(), binder.getCountry());
