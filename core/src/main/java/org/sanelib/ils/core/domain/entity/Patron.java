@@ -5,6 +5,7 @@ import org.sanelib.ils.core.enums.PatronTypeConverter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name="patron")
@@ -35,14 +36,8 @@ public class Patron implements DomainEntity {
     @Column(name="patron_category_id")
     private Integer patronCategoryId;
 
-    @Column(name = "is_online")
-    private String isOnline;
-
     @Column(name = "owns")
     private String owns;
-
-    @Column(name = "created_on")
-    private Date createdOn;
 
     @Column(name="other_library_patron_id")
     private Integer otherLibraryPatronId;
@@ -145,20 +140,11 @@ public class Patron implements DomainEntity {
     @Column(name = "common_print")
     private char commonPrint;
 
-    @Column(name="entry_date")
-    private Date entryDate;
-
     @Column(name="user_password")
     private String userPassword;
 
-   @Column(name = "course_id")
+    @Column(name = "course_id")
     private Integer courseId;
-
-    @Column(name = "status")
-    private String status;
-
-    @Column(name="send_to_address")
-    private String sendToAddress;
 
     @Column(name="Custom")
     private String custom;
@@ -182,6 +168,18 @@ public class Patron implements DomainEntity {
     @Column(name = "authenticate_localdatabase")
     private String authenticateLocalDatabase;
 
+    @Column(name = "status")
+    private String isActive;
+
+    @Column(name="send_to_address")
+    private String sendToAddress;
+
+    @Column(name = "created_on")
+    private Date createdOn;
+
+    @Column(name="entry_date")
+    private Date entryDate;
+
     public Integer getPatronCategoryId() {
         return patronCategoryId;
     }
@@ -190,28 +188,12 @@ public class Patron implements DomainEntity {
         this.patronCategoryId = patronCategoryId;
     }
 
-    public String getIsOnline() {
-        return isOnline;
-    }
-
-    public void setIsOnline(String isOnline) {
-        this.isOnline = isOnline;
-    }
-
     public String getOwns() {
         return owns;
     }
 
     public void setOwns(String owns) {
         this.owns = owns;
-    }
-
-    public Date getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
     }
 
     public Integer getOtherLibraryPatronId() {
@@ -476,10 +458,6 @@ public class Patron implements DomainEntity {
         this.commonPrint = commonPrint ? 'Y' : 'N';
     }
 
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
     public String getUserPassword() {
         return userPassword;
     }
@@ -496,20 +474,20 @@ public class Patron implements DomainEntity {
         this.courseId = courseId;
     }
 
-    public String getStatus() {
-        return status;
+    public boolean isActive() {
+        return Objects.equals(isActive, "A");
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setActive(boolean isActive) {
+        this.isActive = isActive ? "A" : "B";
     }
 
-    public String getSendToAddress() {
-        return sendToAddress;
+    public boolean isSendToAddress() {
+        return Objects.equals(sendToAddress, "A");
     }
 
-    public void setSendToAddress(String sendToAddress) {
-        this.sendToAddress = sendToAddress;
+    public void setSendToAddress(boolean sendToAddress) {
+        this.sendToAddress = sendToAddress ? "A" : "B";
     }
 
     public String getCustom() {
@@ -583,5 +561,9 @@ public class Patron implements DomainEntity {
         }
 
         entryDate = new Date();
+
+        if(createdOn == null){
+            createdOn = entryDate;
+        }
     }
 }

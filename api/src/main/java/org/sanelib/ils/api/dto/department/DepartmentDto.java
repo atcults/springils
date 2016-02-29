@@ -7,10 +7,8 @@ public class DepartmentDto implements DtoWithId, DtoWithLibraryId {
 
     private String libraryId;
     private String id;
-    private String deptName;
+    private String name;
     private String hodId;
-    private String entryId;
-    private String entryDate;
 
     @Override
     public String getLibraryId() {
@@ -30,12 +28,12 @@ public class DepartmentDto implements DtoWithId, DtoWithLibraryId {
         this.id = id;
     }
 
-    public String getDeptName() {
-        return deptName;
+    public String getName() {
+        return name;
     }
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getHodId() {
@@ -46,19 +44,4 @@ public class DepartmentDto implements DtoWithId, DtoWithLibraryId {
         this.hodId = hodId;
     }
 
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public String getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(String entryDate) {
-        this.entryDate = entryDate;
-    }
 }

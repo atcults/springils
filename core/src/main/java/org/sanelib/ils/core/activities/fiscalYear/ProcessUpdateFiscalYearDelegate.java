@@ -29,7 +29,6 @@ public class ProcessUpdateFiscalYearDelegate implements JavaDelegate {
 
         entity.setStartDate(command.getStartDate());
         entity.setEndDate(command.getEndDate());
-        entity.setEntryId(command.getEntryId());
 
         execution.setVariable("startDate" , command.getStartDate());
         execution.setVariable("endDate" , command.getEndDate());

@@ -1,6 +1,5 @@
 package org.sanelib.ils.api.converters.accessionSeries;
 
-import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.dto.accessionSeries.AccessionSeriesDto;
 import org.sanelib.ils.common.utils.ReflectionHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
@@ -20,7 +19,6 @@ public class UpdateAccessionSeriesConverter extends AddAccessionSeriesConverter 
         UpdateAccessionSeries updateAccessionSeries = new UpdateAccessionSeries();
 
         ReflectionHelper.copy(addAccessionSeries, updateAccessionSeries);
-        ConverterHelper.checkCodeRequired(dto, updateAccessionSeries, processError);
 
         return updateAccessionSeries;
     }

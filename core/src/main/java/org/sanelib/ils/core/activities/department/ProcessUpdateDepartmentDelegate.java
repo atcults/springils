@@ -21,7 +21,7 @@ public class ProcessUpdateDepartmentDelegate implements JavaDelegate {
 
         UpdateDepartment command = (UpdateDepartment) execution.getVariable("command");
         Department entity = departmentRepository.get(new DepartmentId(command.getLibraryId(), command.getId()));
-        entity.setDeptName(command.getDeptName());
+        entity.setName(command.getName());
         entity.setHodId(command.getHodId());
         departmentRepository.save(entity);
     }

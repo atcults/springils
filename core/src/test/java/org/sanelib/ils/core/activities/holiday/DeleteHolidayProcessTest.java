@@ -32,7 +32,6 @@ public class DeleteHolidayProcessTest extends EntityIntegrationTestBase{
         fiscalYear.setLibraryId(library.getId());
         fiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
         fiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
-        fiscalYear.setEntryId("1");
 
         persist(fiscalYear);
 
@@ -43,8 +42,8 @@ public class DeleteHolidayProcessTest extends EntityIntegrationTestBase{
         holiday.setHolidayDate(DateHelper.constructDate(2016 , 2 , 12));
         holiday.setHolidayType(HolidayType.Specific);
         holiday.setNote("Holiday");
-        holiday.setPatronCode("1");
-        holiday.setPatronLibraryId(1);
+        holiday.setUserCode("1");
+        holiday.setUserLibraryId(1);
 
         persist(holiday);
 
