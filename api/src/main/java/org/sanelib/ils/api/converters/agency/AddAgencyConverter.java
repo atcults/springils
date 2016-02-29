@@ -20,7 +20,7 @@ public class AddAgencyConverter implements DtoToCommandConverter<AgencyDto> {
 
         //Check name and convert
         if(Strings.isNullOrEmpty(dto.getName())){
-            processError.addError("common.field.required", "name", "domain.agency.name");
+            processError.addError("common.field.required", "name", "domain.common.name");
         } else{
             command.setName(dto.getName());
         }
