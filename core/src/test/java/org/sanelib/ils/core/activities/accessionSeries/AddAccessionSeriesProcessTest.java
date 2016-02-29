@@ -42,7 +42,7 @@ public class AddAccessionSeriesProcessTest extends EntityIntegrationTestBase {
         addAccessionSeries.setUserCode("1");
         addAccessionSeries.setLibraryId(library.getId());
 
-        AccessionSeriesType accessionSeriesType = AccessionSeriesType.getByName("Fixed");
+        AccessionSeriesType accessionSeriesType = AccessionSeriesType.Fixed;
         addAccessionSeries.setAccessionSeriesType(accessionSeriesType);
 
         String result = execute(addAccessionSeries, ActivitiProcessConstants.Admin.ADD_ACCESSION_SERIES);
