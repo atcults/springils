@@ -11,18 +11,18 @@ public class AuthorViewConverter extends AbstractViewToDtoConverterImpl<AuthorDt
     @Override
     public AuthorDto convert(AuthorView authorView) {
 
-        AuthorDto authorDTO = new AuthorDto();
+        AuthorDto authorDto = new AuthorDto();
 
-        authorDTO.setCode(authorView.getCode());
-        authorDTO.setLastName(authorView.getLastName());
-        authorDTO.setFirstName(authorView.getFirstName());
-        authorDTO.setPhone(authorView.getPhone());
-        authorDTO.setAddress(authorView.getAddress());
-        authorDTO.setCity(authorView.getCity());
-        authorDTO.setState(authorView.getState());
-        authorDTO.setZipCode(authorView.getZipCode());
-        authorDTO.setContract(String.valueOf(authorView.isContract()));
+        authorDto.setCode(authorView.getCode());
+        authorDto.setLastName(authorView.getLastName());
+        authorDto.setFirstName(authorView.getFirstName());
+        authorDto.setPhone(authorView.getPhone());
+        authorDto.setAddress(authorView.getAddress());
+        authorDto.setCity(authorView.getCity());
+        authorDto.setState(authorView.getState());
+        authorDto.setZipCode(authorView.getZipCode());
+        authorDto.setContract(String.valueOf(authorView.isContract()));
 
-        return authorDTO;
+        return authorDto;
     }
 }
