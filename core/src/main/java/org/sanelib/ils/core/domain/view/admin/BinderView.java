@@ -10,8 +10,8 @@ public class BinderView implements DomainView , ViewWithId{
     private Integer libraryId;
     private Integer id;
     private String name;
-    private String primaryAddress;
-    private String secondaryAddress;
+    private String addressLine1;
+    private String addressLine2;
     private String city;
     private String state;
     private String country;
@@ -46,20 +46,20 @@ public class BinderView implements DomainView , ViewWithId{
         this.name = name;
     }
 
-    public String getPrimaryAddress() {
-        return primaryAddress;
+    public String getAddressLine1() {
+        return addressLine1;
     }
 
-    public void setPrimaryAddress(String primaryAddress) {
-        this.primaryAddress = primaryAddress;
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
     }
 
-    public String getSecondaryAddress() {
-        return secondaryAddress;
+    public String getAddressLine2() {
+        return addressLine2;
     }
 
-    public void setSecondaryAddress(String secondaryAddress) {
-        this.secondaryAddress = secondaryAddress;
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
     }
 
     public String getCity() {

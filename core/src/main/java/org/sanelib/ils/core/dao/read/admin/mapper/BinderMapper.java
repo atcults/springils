@@ -19,8 +19,8 @@ public class BinderMapper implements ViewMapper<BinderView>{
         binderView.setLibraryId(rs.getInt(viewName , "library_id"));
         binderView.setId(rs.getInt(viewName , "binder_id"));
         binderView.setName(rs.getString(viewName , "binder_name"));
-        binderView.setPrimaryAddress(rs.getString(viewName , "address1"));
-        binderView.setSecondaryAddress(rs.getString(viewName , "address2"));
+        binderView.setAddressLine1(rs.getString(viewName , "address1"));
+        binderView.setAddressLine2(rs.getString(viewName , "address2"));
         binderView.setCity(rs.getString(viewName , "city"));
         binderView.setState(rs.getString(viewName , "state"));
         binderView.setCountry(rs.getString(viewName , "country"));
