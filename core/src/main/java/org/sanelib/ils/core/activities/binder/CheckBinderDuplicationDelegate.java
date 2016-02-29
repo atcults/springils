@@ -43,7 +43,7 @@ public class CheckBinderDuplicationDelegate implements JavaDelegate {
         Binder dbBinder = binders.isEmpty() ? null : binders.get(0);
 
         if(dbBinder != null && (!isUpdate || !Objects.equals(binderId, dbBinder.getBinderId().getId()))){
-            processError.addError("common.field.duplicate", "binderName", Arrays.asList("domain.entity.library", "domain.common.name"), binderName);
+            processError.addError("common.field.duplicate", "binderName", Arrays.asList("domain.entity.binder", "domain.common.name"), binderName);
         }
 
         if(!processError.isValid()){
