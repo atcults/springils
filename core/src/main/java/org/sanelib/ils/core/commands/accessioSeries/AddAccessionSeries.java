@@ -1,13 +1,11 @@
 package org.sanelib.ils.core.commands.accessioSeries;
 
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.commands.ProcessCommandWithCode;
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.AccessionSeries;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
 
-import java.util.Date;
-
-public class AddAccessionSeries extends ProcessCommandWithLibraryId implements ProcessCommandWithCode {
+public class AddAccessionSeries extends ProcessAuditCommandWithLibraryId implements ProcessCommandWithCode {
 
     @Override
     public Class getRootEntityClass() {
@@ -20,18 +18,36 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
     }
 
     private String code;
+    private AccessionSeriesType accessionSeriesType;
+    private String prefix;
     private Integer maxNumber;
     private Integer maxZero;
-    private String prefix;
-    private AccessionSeriesType typeName;
-    private String entryId;
-    private Date entryDate;
 
-    public String getCode(){
+    @Override
+    public String getCode() {
         return code;
     }
 
-    public void setCode(String code){ this.code = code; }
+    @Override
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public AccessionSeriesType getAccessionSeriesType() {
+        return accessionSeriesType;
+    }
+
+    public void setAccessionSeriesType(AccessionSeriesType accessionSeriesType) {
+        this.accessionSeriesType = accessionSeriesType;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
 
     public Integer getMaxNumber() {
         return maxNumber;
@@ -47,39 +63,6 @@ public class AddAccessionSeries extends ProcessCommandWithLibraryId implements P
 
     public void setMaxZero(Integer maxZero) {
         this.maxZero = maxZero;
-    }
-
-    public String getPrefix() {
-        return prefix;
-    }
-
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
-    }
-
-    public AccessionSeriesType getTypeName() {
-        return typeName;
-    }
-
-    public void setTypeName(AccessionSeriesType typeName) {
-        this.typeName = typeName;
-    }
-
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
     }
 }
 

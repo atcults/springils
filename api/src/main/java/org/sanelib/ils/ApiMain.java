@@ -1,10 +1,8 @@
 package org.sanelib.ils;
 
-import java.util.Locale;
-
-import org.sanelib.ils.api.services.UserSession;
-import org.sanelib.ils.api.services.UserSessionImpl;
 import org.sanelib.ils.common.properties.AppProperties;
+import org.sanelib.ils.common.session.UserSession;
+import org.sanelib.ils.common.session.impl.UserSessionImpl;
 import org.sanelib.ils.common.utils.Clock;
 import org.sanelib.ils.common.utils.SystemClock;
 import org.sanelib.ils.core.dao.UnitOfWork;
@@ -20,6 +18,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 
 import javax.persistence.EntityManagerFactory;
+import java.util.Locale;
 
 @SpringBootApplication
 @EnableAspectJAutoProxy
@@ -62,5 +61,4 @@ public class ApiMain implements CommandLineRunner {
     public UnitOfWork unitOfWork(){
         return new UnitOfWork(this.entityManagerFactory);
     }
-
 }

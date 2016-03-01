@@ -1,5 +1,8 @@
 package org.sanelib.ils.core.commands;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 public abstract class ProcessCommandWithLibraryId implements ProcessCommand {
 
     private Integer libraryId;
@@ -14,9 +17,7 @@ public abstract class ProcessCommandWithLibraryId implements ProcessCommand {
 
     @Override
     public String toString() {
-        return "ProcessCommandWithLibraryId{" +
-                "libraryId=" + libraryId +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
 

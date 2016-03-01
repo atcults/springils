@@ -19,16 +19,15 @@ public class AddDepartmentConverter implements DtoToCommandConverter<DepartmentD
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
 
         //Check name and convert
-        if (Strings.isNullOrEmpty(dto.getDeptName())){
-            processError.addError("common.field.required", "Department Name", "domain.department.name");
+        if (Strings.isNullOrEmpty(dto.getName())){
+            processError.addError("common.field.required", "departmentName", "domain.common.name");
         }
         else {
-            command.setDeptName(dto.getDeptName());
+            command.setName(dto.getName());
         }
 
         //NOTE: hodId fetch from patron
         command.setHodId(dto.getHodId());
-        command.setEntryId(dto.getEntryId());
 
         return command;
     }

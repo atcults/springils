@@ -1,7 +1,11 @@
 package org.sanelib.ils.core.domain.entity;
 
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -106,7 +110,6 @@ public class PatronCategory implements DomainEntity {
 
         PatronCategory patronCategory = (PatronCategory) o;
         return patronCategoryId.equals(patronCategory.patronCategoryId);
-
     }
 
     @Override

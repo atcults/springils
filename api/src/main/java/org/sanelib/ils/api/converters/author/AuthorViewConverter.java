@@ -1,28 +1,28 @@
 package org.sanelib.ils.api.converters.author;
 
 import org.sanelib.ils.api.converters.AbstractViewToDtoConverterImpl;
-import org.sanelib.ils.api.dto.author.AuthorDTO;
+import org.sanelib.ils.api.dto.author.AuthorDto;
 import org.sanelib.ils.core.domain.view.admin.AuthorView;
 import org.springframework.stereotype.Component;
 
 @Component
-public class AuthorViewConverter extends AbstractViewToDtoConverterImpl<AuthorDTO, AuthorView> {
+public class AuthorViewConverter extends AbstractViewToDtoConverterImpl<AuthorDto, AuthorView> {
 
     @Override
-    public AuthorDTO convert(AuthorView authorView) {
+    public AuthorDto convert(AuthorView authorView) {
 
-        AuthorDTO authorDTO = new AuthorDTO();
+        AuthorDto authorDto = new AuthorDto();
 
-        authorDTO.setCode(authorView.getCode());
-        authorDTO.setLastName(authorView.getLastName());
-        authorDTO.setFirstName(authorView.getFirstName());
-        authorDTO.setPhone(authorView.getPhone());
-        authorDTO.setAddress(authorView.getAddress());
-        authorDTO.setCity(authorView.getCity());
-        authorDTO.setState(authorView.getState());
-        authorDTO.setZipCode(authorView.getZipCode());
-        authorDTO.setContract(String.valueOf(authorView.isContract()));
+        authorDto.setCode(authorView.getCode());
+        authorDto.setLastName(authorView.getLastName());
+        authorDto.setFirstName(authorView.getFirstName());
+        authorDto.setPhone(authorView.getPhone());
+        authorDto.setAddress(authorView.getAddress());
+        authorDto.setCity(authorView.getCity());
+        authorDto.setState(authorView.getState());
+        authorDto.setZipCode(authorView.getZipCode());
+        authorDto.setContract(String.valueOf(authorView.isContract()));
 
-        return authorDTO;
+        return authorDto;
     }
 }

@@ -6,20 +6,25 @@ import org.sanelib.ils.core.commands.department.AddDepartment;
 import org.sanelib.ils.core.dao.DepartmentRepository;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.Department;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessAddDepartmentDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessAddDepartmentDelegate.class);
+
     @Autowired
     HibernateHelper hibernateHelper;
+
     @Autowired
     DepartmentRepository departmentRepository;
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        System.out.println("Process Add Department called");
+        LOG.info("Process Add Department called");
 
         AddDepartment command = (AddDepartment) execution.getVariable("command");
 
@@ -27,9 +32,9 @@ public class ProcessAddDepartmentDelegate implements JavaDelegate {
 
         Integer nextId = hibernateHelper.getNextId(Department.class, "departmentId.id");
         entity.setDepartmentId(nextId, command.getLibraryId());
-        entity.setDeptName(command.getDeptName());
+        entity.setName(command.getName());
         entity.setHodId(command.getHodId());
-        entity.setEntryId(command.getEntryId());
+        entity.setUserCode(command.getUserCode());
 
         departmentRepository.save(entity);
 

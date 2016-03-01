@@ -13,19 +13,19 @@ public class AuthorMapper implements ViewMapper<AuthorView>{
     @Override
     public AuthorView map(final DataResultSet rs) throws SQLException {
 
-        final String author= "authors";
+        final String viewName = "authors";
 
         final AuthorView authorView = new AuthorView();
 
-        authorView.setCode(rs.getString(author , "au_id"));
-        authorView.setLastName(rs.getString(author , "au_lname"));
-        authorView.setFirstName(rs.getString(author , "au_fname"));
-        authorView.setPhone(rs.getString(author , "phone"));
-        authorView.setAddress(rs.getString(author , "address"));
-        authorView.setCity(rs.getString(author , "city"));
-        authorView.setState(rs.getString(author , "state"));
-        authorView.setZipCode(rs.getString(author , "zip"));
-        authorView.setContract(rs.getBoolean(author , "contract"));
+        authorView.setCode(rs.getString(viewName, "au_id"));
+        authorView.setLastName(rs.getString(viewName, "au_lname"));
+        authorView.setFirstName(rs.getString(viewName, "au_fname"));
+        authorView.setPhone(rs.getString(viewName, "phone"));
+        authorView.setAddress(rs.getString(viewName, "address"));
+        authorView.setCity(rs.getString(viewName, "city"));
+        authorView.setState(rs.getString(viewName, "state"));
+        authorView.setZipCode(rs.getString(viewName, "zip"));
+        authorView.setContract(rs.getBoolean(viewName, "contract"));
 
         return authorView;
     }

@@ -1,9 +1,7 @@
 package org.sanelib.ils.core.activities.course;
 
-
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.course.AddCourse;
 import org.sanelib.ils.core.dao.HibernateHelper;
@@ -12,10 +10,8 @@ import org.sanelib.ils.core.domain.entity.Course;
 import org.sanelib.ils.core.domain.entity.CourseId;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-
 
 public class AddCourseProcessTest extends EntityIntegrationTestBase {
 
@@ -32,7 +28,7 @@ public class AddCourseProcessTest extends EntityIntegrationTestBase {
         library.setName("library");
 
         Course advanceCourse = new Course();
-        advanceCourse.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"),library.getId());
+        advanceCourse.setCourseId(hibernateHelper.getNextId(Course.class, "courseId.id"), library.getId());
         advanceCourse.setName("advance");
 
         persist(advanceCourse);
@@ -43,7 +39,7 @@ public class AddCourseProcessTest extends EntityIntegrationTestBase {
 
         addCourse.setLibraryId(library.getId());
         addCourse.setName("basic");
-        addCourse.setPatronCode("1");
+        addCourse.setUserCode("1");
         addCourse.setPromotedCourseId(advanceCourse.getCourseId().getId());
 
         String result = execute(addCourse, ActivitiProcessConstants.Admin.ADD_COURSE);
@@ -53,8 +49,6 @@ public class AddCourseProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(advanceCourse);
 
-        assertEquals(addCourse.getName(),advanceCourse.getName());
+        assertEquals(addCourse.getName(), advanceCourse.getName());
     }
-
-
 }

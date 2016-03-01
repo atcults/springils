@@ -1,10 +1,5 @@
 package org.sanelib.ils.common.properties;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +8,15 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Properties;
+import java.util.StringTokenizer;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @Scope("singleton")

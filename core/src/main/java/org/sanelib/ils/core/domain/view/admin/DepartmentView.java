@@ -1,18 +1,16 @@
 package org.sanelib.ils.core.domain.view.admin;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithId;
 
-import java.util.Date;
-
 public class DepartmentView implements DomainView, ViewWithId {
+
     private Integer libraryId;
     private Integer id;
-    private String deptName;
+    private String name;
     private String hodId;
-    private String entryId;
-    private Date entryDate;
-
 
     public Integer getLibraryId() {
         return libraryId;
@@ -31,40 +29,21 @@ public class DepartmentView implements DomainView, ViewWithId {
         this.id = id;
     }
 
-    public String getDeptName() {
-        return deptName;
+    public String getName() {
+        return name;
     }
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getHodId() { return hodId; }
 
     public void setHodId(String hodId) { this.hodId = hodId; }
 
-    public String getEntryId() { return entryId; }
-
-    public void setEntryId(String entryId) { this.entryId = entryId; }
-
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
-    }
-
     @Override
     public String toString() {
-        return "DepartmentView{" +
-                "libraryId=" + libraryId +
-                ", id=" + id +
-                ", deptName='" + deptName + '\'' +
-                ", hodId='" + hodId + '\'' +
-                ", entryId='" + entryId + '\'' +
-                ", entryDate=" + entryDate +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
 

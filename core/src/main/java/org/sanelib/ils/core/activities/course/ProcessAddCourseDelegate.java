@@ -7,11 +7,15 @@ import org.sanelib.ils.core.commands.course.AddCourse;
 import org.sanelib.ils.core.dao.CourseRepository;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.Course;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessAddCourseDelegate implements JavaDelegate{
+
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessAddCourseDelegate.class);
 
     @Autowired
     HibernateHelper hibernateHelper;
@@ -21,19 +25,20 @@ public class ProcessAddCourseDelegate implements JavaDelegate{
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        System.out.println("Process Add Course called");
+        LOG.info("Process Add Course called");
 
-        AddCourse command= (AddCourse) execution.getVariable("command");
+        AddCourse command = (AddCourse) execution.getVariable("command");
 
-        Course entity=new Course();
+        Course entity = new Course();
 
-        Integer nextId=hibernateHelper.getNextId(Course.class,"courseId.id");
+        Integer nextId = hibernateHelper.getNextId(Course.class, "courseId.id");
         entity.setCourseId(nextId, command.getLibraryId());
         entity.setName(command.getName());
-        entity.setEntryId(command.getPatronCode());
+        entity.setUserCode(command.getUserCode());
         entity.setPromotedCourseId(command.getPromotedCourseId());
 
         courseRepository.save(entity);
+
         execution.setVariable("result", entity.getCourseId().getId());
     }
 }

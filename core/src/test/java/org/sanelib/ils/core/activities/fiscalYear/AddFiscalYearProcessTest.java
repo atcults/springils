@@ -1,6 +1,5 @@
 package org.sanelib.ils.core.activities.fiscalYear;
 
-
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.common.utils.DateHelper;
@@ -40,9 +39,9 @@ public class AddFiscalYearProcessTest extends EntityIntegrationTestBase{
         AddFiscalYear addFiscalYear = new AddFiscalYear();
 
         addFiscalYear.setLibraryId(library.getId());
-        addFiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
-        addFiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
-        addFiscalYear.setEntryId("john");
+        addFiscalYear.setStartDate(DateHelper.constructDate(2015, 4, 1));
+        addFiscalYear.setEndDate(DateHelper.constructDate(2016, 3, 31));
+        addFiscalYear.setUserCode("john");
 
         String result = execute(addFiscalYear, ActivitiProcessConstants.Admin.ADD_FISCAL_YEAR);
 
@@ -52,8 +51,7 @@ public class AddFiscalYearProcessTest extends EntityIntegrationTestBase{
 
         assertNotNull(fiscalYear);
 
-        assertEquals(addFiscalYear.getStartDate(),fiscalYear.getStartDate());
-        assertEquals(addFiscalYear.getEndDate(),fiscalYear.getEndDate());
-        assertEquals(addFiscalYear.getEntryId(),fiscalYear.getEntryId());
+        assertEquals(addFiscalYear.getStartDate(), fiscalYear.getStartDate());
+        assertEquals(addFiscalYear.getEndDate(), fiscalYear.getEndDate());
     }
 }

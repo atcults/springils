@@ -1,6 +1,5 @@
 package org.sanelib.ils.api.converters.agency;
 
-
 import org.junit.Test;
 import org.sanelib.ils.api.dto.agency.AgencyDto;
 import org.sanelib.ils.core.commands.ProcessCommand;
@@ -23,7 +22,7 @@ public class DeleteAgencyConverterTest {
         ProcessError processError= new ProcessError();
 
         DeleteAgencyConverter converter = new DeleteAgencyConverter();
-        ProcessCommand command = converter.convert(dto , processError);
+        ProcessCommand command = converter.convert(dto, processError);
 
         assertTrue("Conversion error occurred", processError.isValid());
         assertTrue("Wrong output " + command, command instanceof DeleteAgency);

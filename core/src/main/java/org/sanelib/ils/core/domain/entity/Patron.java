@@ -3,8 +3,14 @@ package org.sanelib.ils.core.domain.entity;
 import org.sanelib.ils.core.enums.PatronType;
 import org.sanelib.ils.core.enums.PatronTypeConverter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name="patron")
@@ -35,14 +41,8 @@ public class Patron implements DomainEntity {
     @Column(name="patron_category_id")
     private Integer patronCategoryId;
 
-    @Column(name = "is_online")
-    private String isOnline;
-
     @Column(name = "owns")
     private String owns;
-
-    @Column(name = "created_on")
-    private Date createdOn;
 
     @Column(name="other_library_patron_id")
     private Integer otherLibraryPatronId;
@@ -68,10 +68,10 @@ public class Patron implements DomainEntity {
     private String lastName;
 
     @Column(name = "address1")
-    private String address1;
+    private String addressLine1;
 
     @Column(name = "address2")
-    private String address2;
+    private String addressLine2;
 
     @Column(name = "city")
     private String city;
@@ -98,10 +98,10 @@ public class Patron implements DomainEntity {
     private String email;
 
     @Column(name = "paddress1")
-    private String permanentAddress1;
+    private String permanentAddressLine1;
 
     @Column(name = "paddress2")
-    private String permanentAddress2;
+    private String permanentAddressLine2;
 
     @Column(name = "pcity")
     private String permanentCity;
@@ -145,20 +145,11 @@ public class Patron implements DomainEntity {
     @Column(name = "common_print")
     private char commonPrint;
 
-    @Column(name="entry_date")
-    private Date entryDate;
-
     @Column(name="user_password")
     private String userPassword;
 
-   @Column(name = "course_id")
+    @Column(name = "course_id")
     private Integer courseId;
-
-    @Column(name = "status")
-    private String status;
-
-    @Column(name="send_to_address")
-    private String sendToAddress;
 
     @Column(name="Custom")
     private String custom;
@@ -182,6 +173,18 @@ public class Patron implements DomainEntity {
     @Column(name = "authenticate_localdatabase")
     private String authenticateLocalDatabase;
 
+    @Column(name = "status")
+    private String isActive;
+
+    @Column(name="send_to_address")
+    private String sendToAddress;
+
+    @Column(name = "created_on")
+    private Date createdOn;
+
+    @Column(name="entry_date")
+    private Date entryDate;
+
     public Integer getPatronCategoryId() {
         return patronCategoryId;
     }
@@ -190,28 +193,12 @@ public class Patron implements DomainEntity {
         this.patronCategoryId = patronCategoryId;
     }
 
-    public String getIsOnline() {
-        return isOnline;
-    }
-
-    public void setIsOnline(String isOnline) {
-        this.isOnline = isOnline;
-    }
-
     public String getOwns() {
         return owns;
     }
 
     public void setOwns(String owns) {
         this.owns = owns;
-    }
-
-    public Date getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
     }
 
     public Integer getOtherLibraryPatronId() {
@@ -270,20 +257,20 @@ public class Patron implements DomainEntity {
         this.lastName = lastName;
     }
 
-    public String getAddress1() {
-        return address1;
+    public String getAddressLine1() {
+        return addressLine1;
     }
 
-    public void setAddress1(String address1) {
-        this.address1 = address1;
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
     }
 
-    public String getAddress2() {
-        return address2;
+    public String getAddressLine2() {
+        return addressLine2;
     }
 
-    public void setAddress2(String address2) {
-        this.address2 = address2;
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
     }
 
     public String getCity() {
@@ -350,20 +337,20 @@ public class Patron implements DomainEntity {
         this.email = email;
     }
 
-    public String getPermanentAddress1() {
-        return permanentAddress1;
+    public String getPermanentAddressLine1() {
+        return permanentAddressLine1;
     }
 
-    public void setPermanentAddress1(String permanentAddress1) {
-        this.permanentAddress1 = permanentAddress1;
+    public void setPermanentAddressLine1(String permanentAddressLine1) {
+        this.permanentAddressLine1 = permanentAddressLine1;
     }
 
-    public String getPermanentAddress2() {
-        return permanentAddress2;
+    public String getPermanentAddressLine2() {
+        return permanentAddressLine2;
     }
 
-    public void setPermanentAddress2(String permanentAddress2) {
-        this.permanentAddress2 = permanentAddress2;
+    public void setPermanentAddressLine2(String permanentAddressLine2) {
+        this.permanentAddressLine2 = permanentAddressLine2;
     }
 
     public String getPermanentCity() {
@@ -476,10 +463,6 @@ public class Patron implements DomainEntity {
         this.commonPrint = commonPrint ? 'Y' : 'N';
     }
 
-    public Date getEntryDate() {
-        return entryDate;
-    }
-
     public String getUserPassword() {
         return userPassword;
     }
@@ -496,20 +479,20 @@ public class Patron implements DomainEntity {
         this.courseId = courseId;
     }
 
-    public String getStatus() {
-        return status;
+    public boolean isActive() {
+        return Objects.equals(isActive, "A");
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setActive(boolean isActive) {
+        this.isActive = isActive ? "A" : "B";
     }
 
-    public String getSendToAddress() {
-        return sendToAddress;
+    public boolean isSendToAddress() {
+        return Objects.equals(sendToAddress, "A");
     }
 
-    public void setSendToAddress(String sendToAddress) {
-        this.sendToAddress = sendToAddress;
+    public void setSendToAddress(boolean sendToAddress) {
+        this.sendToAddress = sendToAddress ? "A" : "B";
     }
 
     public String getCustom() {
@@ -583,5 +566,9 @@ public class Patron implements DomainEntity {
         }
 
         entryDate = new Date();
+
+        if(createdOn == null){
+            createdOn = entryDate;
+        }
     }
 }

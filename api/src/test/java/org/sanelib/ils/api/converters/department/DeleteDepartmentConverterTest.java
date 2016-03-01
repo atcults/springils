@@ -18,10 +18,10 @@ public class DeleteDepartmentConverterTest {
         dto.setId("1");
         dto.setLibraryId("1");
 
-        ProcessError processError= new ProcessError();
+        ProcessError processError = new ProcessError();
 
         DeleteDepartmentConverter converter = new DeleteDepartmentConverter();
-        ProcessCommand command = converter.convert(dto , processError);
+        ProcessCommand command = converter.convert(dto, processError);
 
         assertTrue("Conversion error occurred", processError.isValid());
         assertTrue("Wrong output " + command, command instanceof DeleteDepartment);

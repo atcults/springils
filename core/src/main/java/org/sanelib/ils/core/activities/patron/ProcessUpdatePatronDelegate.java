@@ -8,28 +8,29 @@ import org.sanelib.ils.core.dao.PatronRepository;
 import org.sanelib.ils.core.domain.entity.Patron;
 import org.sanelib.ils.core.domain.entity.PatronCode;
 import org.sanelib.ils.core.enums.PatronType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessUpdatePatronDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessUpdatePatronDelegate.class);
+
     @Autowired
     PatronRepository patronRepository;
 
-
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        System.out.println("Process Update Patron called");
+        LOG.info("Process Update Patron called");
 
         UpdatePatron command = (UpdatePatron) execution.getVariable("command");
 
         Patron entity = patronRepository.get(new PatronCode(command.getLibraryId(),command.getCode()));
 
         entity.setPatronCategoryId(command.getPatronCategoryId());
-        entity.setIsOnline(command.getIsOnline());
         entity.setOwns(command.getOwns());
-        entity.setCreatedOn(command.getCreatedOn());
         entity.setOtherLibraryPatronId(command.getOtherLibraryPatronId());
         entity.setLibraryPatronId(command.getLibraryPatronId());
         entity.setPatronType(PatronType.Patron);
@@ -37,8 +38,8 @@ public class ProcessUpdatePatronDelegate implements JavaDelegate {
         entity.setFirstName(command.getFirstName());
         entity.setMiddleName(command.getMiddleName());
         entity.setLastName(command.getLastName());
-        entity.setAddress1(command.getAddress1());
-        entity.setAddress2(command.getAddress2());
+        entity.setAddressLine1(command.getAddressLine1());
+        entity.setAddressLine2(command.getAddressLine2());
         entity.setCity(command.getCity());
         entity.setState(command.getState());
         entity.setCountry(command.getCountry());
@@ -47,8 +48,8 @@ public class ProcessUpdatePatronDelegate implements JavaDelegate {
         entity.setPhone2(command.getPhone2());
         entity.setFax(command.getFax());
         entity.setEmail(command.getEmail());
-        entity.setPermanentAddress1(command.getPermanentAddress1());
-        entity.setPermanentAddress2(command.getPermanentAddress2());
+        entity.setPermanentAddressLine1(command.getPermanentAddressLine1());
+        entity.setPermanentAddressLine2(command.getPermanentAddressLine2());
         entity.setPermanentCity(command.getPermanentCity());
         entity.setPermanentState(command.getPermanentState());
         entity.setPermanentCountry(command.getPermanentCountry());
@@ -65,7 +66,6 @@ public class ProcessUpdatePatronDelegate implements JavaDelegate {
         entity.setCommonPrint(command.commonPrint());
         entity.setUserPassword(command.getUserPassword());
         entity.setCourseId(command.getCourseId());
-        entity.setSendToAddress(command.getSendToAddress());
         entity.setCustom(command.getCustom());
         entity.setPrivilege(command.getPrivilege());
         entity.setTwitterId(command.getTwitterId());
@@ -73,6 +73,9 @@ public class ProcessUpdatePatronDelegate implements JavaDelegate {
         entity.setSubLocationId(command.getSubLocationId());
         entity.setLoginId(command.getLoginId());
         entity.setAuthenticateLocalDatabase(command.getAuthenticateLocalDatabase());
+        entity.setSendToAddress(command.isSendToAddress());
+        entity.setActive(command.isActive());
+
         patronRepository.save(entity);
     }
 }

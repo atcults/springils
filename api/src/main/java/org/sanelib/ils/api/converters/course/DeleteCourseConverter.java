@@ -12,10 +12,11 @@ import org.springframework.stereotype.Component;
 public class DeleteCourseConverter implements DtoToCommandConverter<CourseDto> {
 
     public ProcessCommand convert(CourseDto dto, ProcessError processError)throws NoSuchFieldException,IllegalAccessException{
-        DeleteCourse commad=new DeleteCourse();
-        ConverterHelper.checkIdRequired(dto,commad,processError);
-        ConverterHelper.checkLibraryIdRequired(dto,commad,processError);
+        DeleteCourse command = new DeleteCourse();
 
-        return commad;
+        ConverterHelper.checkIdRequired(dto,command,processError);
+        ConverterHelper.checkLibraryIdRequired(dto,command,processError);
+
+        return command;
     }
 }

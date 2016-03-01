@@ -1,6 +1,5 @@
 package org.sanelib.ils.core.activities.patron;
 
-
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.common.utils.DateHelper;
@@ -34,21 +33,19 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
 
         persist(library);
 
-        AddPatron addPatron=new AddPatron();
+        AddPatron addPatron = new AddPatron();
 
         addPatron.setLibraryId(library.getId());
         addPatron.setCode("Pat1");
         addPatron.setPatronCategoryId(1);
-        addPatron.setIsOnline("Is Online");
         addPatron.setOwns("Owns");
-        addPatron.setCreatedOn(DateHelper.constructDate(2014,5,2));
         addPatron.setOtherLibraryPatronId(1);
         addPatron.setLibraryPatronId(1);
         addPatron.setPatronType(PatronType.Patron);
         addPatron.setDeptId(1);
         addPatron.setFirstName("First Name");
-        addPatron.setAddress1("Address1");
-        addPatron.setAddress2("Address2");
+        addPatron.setAddressLine1("Address1");
+        addPatron.setAddressLine2("Address2");
         addPatron.setCity("City");
         addPatron.setState("State");
         addPatron.setCountry("Country");
@@ -57,8 +54,8 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
         addPatron.setPhone2("+91-9876543210");
         addPatron.setFax("+91-9876543210");
         addPatron.setEmail("name@mail.com");
-        addPatron.setPermanentAddress1("PAddress1");
-        addPatron.setPermanentAddress2("PAddress2");
+        addPatron.setPermanentAddressLine1("PAddress1");
+        addPatron.setPermanentAddressLine2("PAddress2");
         addPatron.setPermanentCity("PCity");
         addPatron.setPermanentState("PState");
         addPatron.setPermanentCountry("PCountry");
@@ -94,49 +91,49 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(patron);
 
-        assertEquals(addPatron.getCode() , patron.getPatronCode().getCode());
-        assertEquals(addPatron.getPatronCategoryId() ,patron.getOtherLibraryPatronId());
-        assertEquals(addPatron.getIsOnline() ,patron.getIsOnline());
-        assertEquals(addPatron.getOwns() ,patron.getOwns());
-        assertEquals(addPatron.getCreatedOn() ,patron.getCreatedOn());
-        assertEquals(addPatron.getOtherLibraryPatronId() ,patron.getOtherLibraryPatronId());
-        assertEquals(addPatron.getPatronType() ,patron.getPatronType());
-        assertEquals(addPatron.getDeptId() ,patron.getDeptId());
-        assertEquals(addPatron.getFirstName() ,patron.getFirstName());
-        assertEquals(addPatron.getAddress1() ,patron.getAddress1());
-        assertEquals(addPatron.getAddress2() ,patron.getAddress2());
-        assertEquals(addPatron.getCity() ,patron.getCity());
-        assertEquals(addPatron.getState() ,patron.getState());
-        assertEquals(addPatron.getCountry() ,patron.getCountry());
-        assertEquals(addPatron.getPin() ,patron.getPin());
-        assertEquals(addPatron.getPhone1() ,patron.getPhone1());
-        assertEquals(addPatron.getPhone2() ,patron.getPhone2());
-        assertEquals(addPatron.getFax() ,patron.getFax());
-        assertEquals(addPatron.getEmail() ,patron.getEmail());
-        assertEquals(addPatron.getPermanentAddress1() ,patron.getPermanentAddress1());
-        assertEquals(addPatron.getPermanentAddress2() ,patron.getPermanentAddress2());
-        assertEquals(addPatron.getPermanentCity() ,patron.getPermanentCity());
-        assertEquals(addPatron.getPermanentState() ,patron.getPermanentState());
-        assertEquals(addPatron.getPermanentCountry() ,patron.getPermanentCountry());
-        assertEquals(addPatron.getPermanentPin() ,patron.getPermanentPin());
-        assertEquals(addPatron.getPermanentPhone1() ,patron.getPermanentPhone1());
-        assertEquals(addPatron.getPermanentPhone2() ,patron.getPermanentPhone2());
-        assertEquals(addPatron.getPermanentFax() ,patron.getPermanentFax());
-        assertEquals(addPatron.getPermanentEmail() ,patron.getPermanentEmail());
-        assertEquals(addPatron.getMembershipFrom() ,patron.getMembershipFrom());
-        assertEquals(addPatron.getMembershipTo() ,patron.getMembershipTo());
-        assertEquals(addPatron.getDelinquencyReason() ,patron.getDelinquencyReason());
-        assertEquals(addPatron.commonEmail() ,patron.commonEmail());
-        assertEquals(addPatron.commonInstantMsg() ,patron.commonInstantMsg());
-        assertEquals(addPatron.commonPrint() ,patron.commonPrint());
-        assertEquals(addPatron.getUserPassword() ,patron.getUserPassword());
-        assertEquals(addPatron.getCourseId() ,patron.getCourseId());
-        assertEquals(addPatron.getCustom() ,patron.getCustom());
-        assertEquals(addPatron.getPrivilege() ,patron.getPrivilege());
-        assertEquals(addPatron.getTwitterId() ,patron.getTwitterId());
-        assertEquals(addPatron.getFacebookId() ,patron.getFacebookId());
-        assertEquals(addPatron.getSubLocationId() ,patron.getSubLocationId());
-        assertEquals(addPatron.getLoginId() ,patron.getLoginId());
-        assertEquals(addPatron.getAuthenticateLocalDatabase() ,patron.getAuthenticateLocalDatabase());
+        assertEquals(addPatron.getCode(), patron.getPatronCode().getCode());
+        assertEquals(addPatron.getPatronCategoryId(), patron.getOtherLibraryPatronId());
+        assertEquals(addPatron.getOwns(), patron.getOwns());
+        assertEquals(addPatron.getOtherLibraryPatronId(), patron.getOtherLibraryPatronId());
+        assertEquals(addPatron.getPatronType(), patron.getPatronType());
+        assertEquals(addPatron.getDeptId(), patron.getDeptId());
+        assertEquals(addPatron.getFirstName(), patron.getFirstName());
+        assertEquals(addPatron.getAddressLine1(), patron.getAddressLine1());
+        assertEquals(addPatron.getAddressLine2(), patron.getAddressLine2());
+        assertEquals(addPatron.getCity(), patron.getCity());
+        assertEquals(addPatron.getState(), patron.getState());
+        assertEquals(addPatron.getCountry(), patron.getCountry());
+        assertEquals(addPatron.getPin(), patron.getPin());
+        assertEquals(addPatron.getPhone1(), patron.getPhone1());
+        assertEquals(addPatron.getPhone2(), patron.getPhone2());
+        assertEquals(addPatron.getFax(), patron.getFax());
+        assertEquals(addPatron.getEmail(), patron.getEmail());
+        assertEquals(addPatron.getPermanentAddressLine1(), patron.getPermanentAddressLine1());
+        assertEquals(addPatron.getPermanentAddressLine2(), patron.getPermanentAddressLine2());
+        assertEquals(addPatron.getPermanentCity(), patron.getPermanentCity());
+        assertEquals(addPatron.getPermanentState(), patron.getPermanentState());
+        assertEquals(addPatron.getPermanentCountry(), patron.getPermanentCountry());
+        assertEquals(addPatron.getPermanentPin(), patron.getPermanentPin());
+        assertEquals(addPatron.getPermanentPhone1(), patron.getPermanentPhone1());
+        assertEquals(addPatron.getPermanentPhone2(), patron.getPermanentPhone2());
+        assertEquals(addPatron.getPermanentFax(), patron.getPermanentFax());
+        assertEquals(addPatron.getPermanentEmail(), patron.getPermanentEmail());
+        assertEquals(addPatron.getMembershipFrom(), patron.getMembershipFrom());
+        assertEquals(addPatron.getMembershipTo(), patron.getMembershipTo());
+        assertEquals(addPatron.getDelinquencyReason(), patron.getDelinquencyReason());
+        assertEquals(addPatron.commonEmail(), patron.commonEmail());
+        assertEquals(addPatron.commonInstantMsg(), patron.commonInstantMsg());
+        assertEquals(addPatron.commonPrint(), patron.commonPrint());
+        assertEquals(addPatron.getUserPassword(), patron.getUserPassword());
+        assertEquals(addPatron.getCourseId(), patron.getCourseId());
+        assertEquals(addPatron.getCustom(), patron.getCustom());
+        assertEquals(addPatron.getPrivilege(), patron.getPrivilege());
+        assertEquals(addPatron.getTwitterId(), patron.getTwitterId());
+        assertEquals(addPatron.getFacebookId(), patron.getFacebookId());
+        assertEquals(addPatron.getSubLocationId(), patron.getSubLocationId());
+        assertEquals(addPatron.getLoginId(), patron.getLoginId());
+        assertEquals(addPatron.getAuthenticateLocalDatabase(), patron.getAuthenticateLocalDatabase());
+        assertEquals(addPatron.isSendToAddress(), patron.isSendToAddress());
+        assertEquals(addPatron.isActive(), patron.isActive());
     }
 }

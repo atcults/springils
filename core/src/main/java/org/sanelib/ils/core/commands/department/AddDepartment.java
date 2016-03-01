@@ -1,9 +1,9 @@
 package org.sanelib.ils.core.commands.department;
 
-import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
+import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.domain.entity.Department;
 
-public class AddDepartment extends ProcessCommandWithLibraryId {
+public class AddDepartment extends ProcessAuditCommandWithLibraryId {
 
     @Override
     public Class getRootEntityClass() {
@@ -15,27 +15,19 @@ public class AddDepartment extends ProcessCommandWithLibraryId {
         return "domain.entity.department";
     }
 
-    private String deptName;
+    private String name;
     private String hodId;
-    private String entryId;
 
-    public String getDeptName() {
-        return deptName;
+    public String getName() {
+        return name;
     }
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getHodId() { return hodId; }
 
     public void setHodId(String hodId) { this.hodId = hodId; }
 
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
 }

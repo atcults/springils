@@ -1,10 +1,8 @@
 package org.sanelib.ils.api.helpers;
 
 import org.codehaus.jackson.JsonParser;
-import org.codehaus.jackson.JsonProcessingException;
 import org.codehaus.jackson.map.DeserializationContext;
 import org.codehaus.jackson.map.JsonDeserializer;
-
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -23,5 +21,4 @@ public class ISO8601JsonDateDeserializer extends JsonDeserializer<Date> {
             throw new RuntimeException(e);
         }
 	}
-
 }

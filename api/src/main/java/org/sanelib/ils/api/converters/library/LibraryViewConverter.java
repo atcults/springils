@@ -11,11 +11,13 @@ public class LibraryViewConverter extends AbstractViewToDtoConverterImpl<Library
     @Override
     public LibraryDto convert(LibraryView libraryView) {
         LibraryDto libraryDto = new LibraryDto();
+
         libraryDto.setId(String.valueOf(libraryView.getId()));
         libraryDto.setName(libraryView.getName());
         libraryDto.setCity(libraryView.getCity());
         libraryDto.setState(libraryView.getState());
         libraryDto.setCountry(libraryView.getCountry());
+
         return libraryDto;
     }
 }

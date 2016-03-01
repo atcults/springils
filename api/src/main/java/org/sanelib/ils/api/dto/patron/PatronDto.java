@@ -1,6 +1,7 @@
 package org.sanelib.ils.api.dto.patron;
 
-
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.api.dto.DtoWithCode;
 import org.sanelib.ils.api.dto.DtoWithLibraryId;
 import org.sanelib.ils.core.enums.PatronType;
@@ -10,7 +11,6 @@ public class PatronDto implements DtoWithCode, DtoWithLibraryId {
     private String libraryId;
     private String code;
     private String patronCategoryId;
-    private String isOnline;
     private String owns;
     private String otherLibraryPatronId;
     private String libraryPatronId;
@@ -45,11 +45,8 @@ public class PatronDto implements DtoWithCode, DtoWithLibraryId {
     private boolean commonEmail;
     private boolean commonInstantMsg;
     private boolean commonPrint;
-    private String entryDate;
     private String userPassword;
     private String courseId;
-    private String status;
-    private String sendToAddress;
     private String custom;
     private String privilege;
     private String twitterId;
@@ -57,6 +54,9 @@ public class PatronDto implements DtoWithCode, DtoWithLibraryId {
     private String subLocationId;
     private String loginId;
     private String authenticateLocalDatabase;
+    private boolean isActive;
+    private boolean sendToAddress;
+    private String createdOn;
 
     public String getLibraryId() {
         return libraryId;
@@ -80,14 +80,6 @@ public class PatronDto implements DtoWithCode, DtoWithLibraryId {
 
     public void setPatronCategoryId(String patronCategoryId) {
         this.patronCategoryId = patronCategoryId;
-    }
-
-    public String getIsOnline() {
-        return isOnline;
-    }
-
-    public void setIsOnline(String isOnline) {
-        this.isOnline = isOnline;
     }
 
     public String getOwns() {
@@ -360,14 +352,6 @@ public class PatronDto implements DtoWithCode, DtoWithLibraryId {
         this.commonPrint = commonPrint;
     }
 
-    public String getEntryDate() {
-        return entryDate;
-    }
-
-    public void setEntryDate(String entryDate) {
-        this.entryDate = entryDate;
-    }
-
     public String getUserPassword() {
         return userPassword;
     }
@@ -382,22 +366,6 @@ public class PatronDto implements DtoWithCode, DtoWithLibraryId {
 
     public void setCourseId(String courseId) {
         this.courseId = courseId;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getSendToAddress() {
-        return sendToAddress;
-    }
-
-    public void setSendToAddress(String sendToAddress) {
-        this.sendToAddress = sendToAddress;
     }
 
     public String getCustom() {
@@ -454,5 +422,34 @@ public class PatronDto implements DtoWithCode, DtoWithLibraryId {
 
     public void setAuthenticateLocalDatabase(String authenticateLocalDatabase) {
         this.authenticateLocalDatabase = authenticateLocalDatabase;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public boolean isSendToAddress() {
+        return sendToAddress;
+    }
+
+    public void setSendToAddress(boolean sendToAddress) {
+        this.sendToAddress = sendToAddress;
+    }
+
+    public String getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(String createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

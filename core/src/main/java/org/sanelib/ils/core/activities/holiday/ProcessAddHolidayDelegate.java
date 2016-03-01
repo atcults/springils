@@ -16,7 +16,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Component
 public class ProcessAddHolidayDelegate implements JavaDelegate {
@@ -65,14 +69,14 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
                 entity.setLibraryId(command.getLibraryId());
                 entity.setHolidayDate(currDate);
                 entity.setFiscalYearId(command.getFiscalYearId());
-                entity.setPatronCode(command.getPatronCode());
+                entity.setUserCode(command.getUserCode());
                 entity.setHolidayType(command.getHolidayType());
                 entity.setNote(command.getNote());
                 holidayRepository.save(entity);
                 addedHolidays++;
             } else if(Objects.equals(command.getHolidayType(), HolidayType.Specific)) {
                 Holiday entity = existingHolidays.get(currDate);
-                entity.setPatronCode(command.getPatronCode());
+                entity.setUserCode(command.getUserCode());
                 entity.setHolidayType(command.getHolidayType());
                 entity.setNote(command.getNote());
                 holidayRepository.update(entity);

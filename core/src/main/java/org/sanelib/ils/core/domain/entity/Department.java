@@ -1,7 +1,10 @@
 package org.sanelib.ils.core.domain.entity;
 
-import javax.persistence.*;
-import java.sql.Timestamp;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -14,13 +17,13 @@ public class Department implements DomainEntity {
     private DepartmentId departmentId;
 
     @Column(name = "dept_name")
-    private String deptName;
+    private String name;
 
     @Column(name = "hod_id")
     private String hodId;
 
     @Column(name = "entry_id")
-    private String entryId;
+    private String userCode;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -39,47 +42,28 @@ public class Department implements DomainEntity {
         }
     }
 
-    public String getDeptName() {
-        return deptName;
+    public String getName() {
+        return name;
     }
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getHodId() { return hodId; }
 
     public void setHodId(String hodId) { this.hodId = hodId; }
 
-    public String getEntryId() {
-        return entryId;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
-    public Date getEntryDate() {
-        return entryDate;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
     @PrePersist
     public void prePersist() {
         entryDate = new Date();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Department dept = (Department) o;
-
-        return departmentId.equals(dept.departmentId);
-    }
-
-    @Override
-    public int hashCode() {
-        return departmentId.hashCode();
     }
 }

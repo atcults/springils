@@ -1,6 +1,5 @@
 package org.sanelib.ils.core.commands.holiday;
 
-
 import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.domain.entity.Holiday;

@@ -16,7 +16,6 @@ public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDt
         dto.setLibraryId(String.valueOf(patronView.getLibraryId()));
         dto.setCode(patronView.getCode());
         dto.setPatronCategoryId(String.valueOf(patronView.getPatronCategoryId()));
-        dto.setIsOnline(patronView.getIsOnline());
         dto.setOwns(patronView.getOwns());
         dto.setOtherLibraryPatronId(String.valueOf(patronView.getOtherLibraryPatronId()));
         dto.setLibraryPatronId(String.valueOf(patronView.getLibraryPatronId()));
@@ -25,8 +24,8 @@ public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDt
         dto.setFirstName(patronView.getFirstName());
         dto.setMiddleName(patronView.getMiddleName());
         dto.setLastName(patronView.getLastName());
-        dto.setAddress1(patronView.getAddress1());
-        dto.setAddress2(patronView.getAddress2());
+        dto.setAddress1(patronView.getAddressLine1());
+        dto.setAddress2(patronView.getAddressLine2());
         dto.setCity(patronView.getCity());
         dto.setState(patronView.getState());
         dto.setCountry(patronView.getCountry());
@@ -35,8 +34,8 @@ public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDt
         dto.setPhone2(patronView.getPhone2());
         dto.setFax(patronView.getFax());
         dto.setEmail(patronView.getEmail());
-        dto.setPermanentAddress1(patronView.getPermanentAddress1());
-        dto.setPermanentAddress2(patronView.getPermanentAddress2());
+        dto.setPermanentAddress1(patronView.getPermanentAddressLine1());
+        dto.setPermanentAddress2(patronView.getPermanentAddressLine2());
         dto.setPermanentCity(patronView.getPermanentCity());
         dto.setPermanentState((patronView.getPermanentState()));
         dto.setPermanentCountry(patronView.getPermanentCountry());
@@ -51,11 +50,8 @@ public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDt
         dto.setCommonEmail(patronView.isCommonEmail());
         dto.setCommonInstantMsg(patronView.isCommonInstantMsg());
         dto.setCommonPrint(patronView.isCommonPrint());
-        dto.setEntryDate(DateHelper.toDateString(patronView.getEntryDate()));
         dto.setUserPassword(patronView.getUserPassword());
         dto.setCourseId(String.valueOf(patronView.getCourseId()));
-        dto.setStatus(patronView.getStatus());
-        dto.setSendToAddress(patronView.getSendToAddress());
         dto.setCustom(patronView.getCustom());
         dto.setPrivilege(patronView.getPrivilege());
         dto.setTwitterId(patronView.getTwitterId());
@@ -63,6 +59,8 @@ public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDt
         dto.setSubLocationId(String.valueOf(patronView.getSubLocationId()));
         dto.setLoginId(patronView.getLoginId());
         dto.setAuthenticateLocalDatabase(patronView.getAuthenticateLocalDatabase());
+        dto.setSendToAddress(patronView.isSendToAddress());
+        dto.setActive(patronView.isActive());
 
         return dto;
     }

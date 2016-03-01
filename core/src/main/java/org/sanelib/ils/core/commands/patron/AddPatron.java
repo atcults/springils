@@ -22,9 +22,7 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
 
     private String code;
     private Integer patronCategoryId;
-    private String isOnline;
     private String owns;
-    private Date createdOn;
     private Integer otherLibraryPatronId;
     private Integer libraryPatronId;
     private PatronType patronType;
@@ -32,8 +30,8 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
     private String firstName;
     private String middleName;
     private String lastName;
-    private String address1;
-    private String address2;
+    private String addressLine1;
+    private String addressLine2;
     private String city;
     private String state;
     private String country;
@@ -42,8 +40,8 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
     private String phone2;
     private String fax;
     private String email;
-    private String permanentAddress1;
-    private String permanentAddress2;
+    private String permanentAddressLine1;
+    private String permanentAddressLine2;
     private String permanentCity;
     private String permanentState;
     private String permanentCountry;
@@ -60,8 +58,6 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
     private boolean commonPrint;
     private String userPassword;
     private Integer courseId;
-    private String status;
-    private String sendToAddress;
     private String custom;
     private String privilege;
     private String twitterId;
@@ -69,6 +65,9 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
     private Integer subLocationId;
     private String loginId;
     private String authenticateLocalDatabase;
+    private boolean sendToAddress;
+    private boolean isActive;
+
 
     @Override
     public String getCode() {
@@ -88,28 +87,12 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
         this.patronCategoryId = patronCategoryId;
     }
 
-    public String getIsOnline() {
-        return isOnline;
-    }
-
-    public void setIsOnline(String isOnline) {
-        this.isOnline = isOnline;
-    }
-
     public String getOwns() {
         return owns;
     }
 
     public void setOwns(String owns) {
         this.owns = owns;
-    }
-
-    public Date getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
     }
 
     public Integer getOtherLibraryPatronId() {
@@ -168,20 +151,20 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
         this.lastName = lastName;
     }
 
-    public String getAddress1() {
-        return address1;
+    public String getAddressLine1() {
+        return addressLine1;
     }
 
-    public void setAddress1(String address1) {
-        this.address1 = address1;
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
     }
 
-    public String getAddress2() {
-        return address2;
+    public String getAddressLine2() {
+        return addressLine2;
     }
 
-    public void setAddress2(String address2) {
-        this.address2 = address2;
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
     }
 
     public String getCity() {
@@ -248,20 +231,20 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
         this.email = email;
     }
 
-    public String getPermanentAddress1() {
-        return permanentAddress1;
+    public String getPermanentAddressLine1() {
+        return permanentAddressLine1;
     }
 
-    public void setPermanentAddress1(String permanentAddress1) {
-        this.permanentAddress1 = permanentAddress1;
+    public void setPermanentAddressLine1(String permanentAddressLine1) {
+        this.permanentAddressLine1 = permanentAddressLine1;
     }
 
-    public String getPermanentAddress2() {
-        return permanentAddress2;
+    public String getPermanentAddressLine2() {
+        return permanentAddressLine2;
     }
 
-    public void setPermanentAddress2(String permanentAddress2) {
-        this.permanentAddress2 = permanentAddress2;
+    public void setPermanentAddressLine2(String permanentAddressLine2) {
+        this.permanentAddressLine2 = permanentAddressLine2;
     }
 
     public String getPermanentCity() {
@@ -392,22 +375,6 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
         this.courseId = courseId;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public String getSendToAddress() {
-        return sendToAddress;
-    }
-
-    public void setSendToAddress(String sendToAddress) {
-        this.sendToAddress = sendToAddress;
-    }
-
     public String getCustom() {
         return custom;
     }
@@ -462,5 +429,21 @@ public class AddPatron extends ProcessCommandWithLibraryId implements ProcessCom
 
     public void setAuthenticateLocalDatabase(String authenticateLocalDatabase) {
         this.authenticateLocalDatabase = authenticateLocalDatabase;
+    }
+
+    public boolean isSendToAddress() {
+        return sendToAddress;
+    }
+
+    public void setSendToAddress(boolean sendToAddress) {
+        this.sendToAddress = sendToAddress;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

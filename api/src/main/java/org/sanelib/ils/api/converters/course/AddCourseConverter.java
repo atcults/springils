@@ -17,7 +17,7 @@ public class AddCourseConverter implements DtoToCommandConverter<CourseDto> {
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
 
         if(Strings.isNullOrEmpty(dto.getName())){
-            processError.addError("common.field.required", "CourseName", "domain.course.name");
+            processError.addError("common.field.required", "courseName", "domain.common.name");
         }else{
             command.setName(dto.getName());
         }
