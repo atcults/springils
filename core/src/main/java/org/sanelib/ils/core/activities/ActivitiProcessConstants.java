@@ -46,6 +46,10 @@ public class ActivitiProcessConstants {
         public static final String UPDATE_BINDING_TYPE = "updateBindingType";
         public static final String DELETE_BINDING_TYPE = "deleteBindingType";
 
+        public static final String ADD_BINDER = "addBinder";
+        public static final String UPDATE_BINDER = "updateBinder";
+        public static final String DELETE_BINDER = "deleteBinder";
+
         public static final String ADD_DEPARTMENT = "addDepartment";
         public static final String UPDATE_DEPARTMENT = "updateDepartment";
         public static final String DELETE_DEPARTMENT = "deleteDepartment";

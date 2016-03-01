@@ -8,19 +8,32 @@ common:
   createdOn: Created On
   updatedOn: Updated On
 
+address:
+  addressLine1: Address Line1
+  addressLine2: Address Line2
+  city: City
+  state: State
+  country: Country
+  pin: Pin
+  primaryPhone: Primary Phone
+  secondaryPhone: Secondary Phone
+  fax: Fax
+  email: Email
+
 entity:
-  accessionSeries: Accession Series
+  library: Library
+  publisher: Publisher
   agency: Agency
-  author: Author
-  bindingType: Binding Type
   course: Course
   department: Department
-  fiscalYear: Fiscal Year
-  holiday: Holiday
-  library: Library
-  patron: Patron
+  author: Author
   patronCategory: PatronCategory
-  publisher: Publisher
+  accessionSeries: Accession Series
+  bindingType: Binding Type
+  holiday: Holiday
+  fiscalYear: Fiscal Year
+  patron: Patron
+
 
 library:
   city: City
@@ -34,6 +47,9 @@ publisher:
 
 agency:
   noExtra: Dummy entry as all properties are covered in common
+
+binder:
+  noExtra: Dummy entry as all properties are covered in common and address
 
 author:
   lname: Last Name
