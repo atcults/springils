@@ -4,9 +4,8 @@ import com.google.common.base.Strings;
 import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.library.LibraryDto;
-import org.sanelib.ils.common.utils.DateHelper;
-import org.sanelib.ils.common.utils.StringHelper;
 import org.sanelib.ils.common.utils.RegularExpressionHelper;
+import org.sanelib.ils.common.utils.StringHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.library.AddLibrary;
 import org.sanelib.ils.core.exceptions.ProcessError;
@@ -29,18 +28,6 @@ public class AddLibraryConverter implements DtoToCommandConverter<LibraryDto> {
         command.setSerialMaster(dto.getSerialMaster());
         command.setCatalogueMaster(dto.getCatalogueMaster());
         command.setAcquisitionsMaster(dto.getAcquisitionsMaster());
-
-        if(!RegularExpressionHelper.checkDateFormat(dto.getCreatedOn())){
-            processError.addError("common.field.pattern", "createdOn", "domain.library.createdOn", RegularExpressionHelper.DATE_FORMAT);
-        }
-        else {
-            command.setCreatedOn(DateHelper.fromDateString(dto.getCreatedOn()));
-        }
-
-        command.setAcquisitionStatus(dto.getAcquisitionStatus());
-        command.setCataloguingStatus(dto.getCataloguingStatus());
-        command.setSmStatus(dto.getSmStatus());
-        command.setHostLibraryId(Integer.valueOf(dto.getHostLibraryId()));
         command.setAddressLine1(dto.getAddressLine1());
         command.setAddressLine2(dto.getAddressLine2());
         command.setCity(dto.getCity());
@@ -80,7 +67,6 @@ public class AddLibraryConverter implements DtoToCommandConverter<LibraryDto> {
         }
 
         command.setCountry(dto.getCountry());
-        command.setNetworkName(dto.getNetworkName());
         command.setSearchForms(dto.getSearchForms());
         command.setFacebookWidget(dto.getFacebookWidget());
         command.setTwitterWidget(dto.getTwitterWidget());

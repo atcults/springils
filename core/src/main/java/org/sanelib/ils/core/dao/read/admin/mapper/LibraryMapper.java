@@ -21,11 +21,6 @@ public class LibraryMapper implements ViewMapper<LibraryView> {
         libraryView.setSerialMaster(rs.getString(viewName, "serialmaster"));
         libraryView.setCatalogueMaster(rs.getString(viewName, "cataloguemaster"));
         libraryView.setAcquisitionsMaster(rs.getString(viewName, "acquisitionsmaster"));
-        libraryView.setCreatedOn(rs.getDate(viewName, "created_on"));
-        libraryView.setAcquisitionStatus(rs.getString(viewName, "acquisition_status"));
-        libraryView.setCataloguingStatus(rs.getString(viewName, "cataloguing_status"));
-        libraryView.setSmStatus(rs.getString(viewName, "sm_status"));
-        libraryView.setHostLibraryId(rs.getInt(viewName, "hostlibraryid"));
         libraryView.setAddressLine1(rs.getString(viewName, "address1"));
         libraryView.setAddressLine2(rs.getString(viewName, "address2"));
         libraryView.setCity(rs.getString(viewName, "city"));
@@ -36,7 +31,6 @@ public class LibraryMapper implements ViewMapper<LibraryView> {
         libraryView.setSecondaryPhone(rs.getString(viewName, "phone_number2"));
         libraryView.setFax(rs.getString(viewName, "fax"));
         libraryView.setCountry(rs.getString(viewName, "country"));
-        libraryView.setNetworkName(rs.getString(viewName, "network_name"));
         libraryView.setSearchForms(rs.getString(viewName, "search_forms"));
         libraryView.setFacebookWidget(rs.getString(viewName, "facebook_widget"));
         libraryView.setTwitterWidget(rs.getString(viewName, "twitter_widget"));

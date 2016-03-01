@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.library;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.common.utils.StringHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.library.AddLibrary;
@@ -22,11 +21,6 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
         addLibrary.setSerialMaster("SerialMaster");
         addLibrary.setCatalogueMaster("CatalogueMaster");
         addLibrary.setAcquisitionsMaster("AcquisitionMaster");
-        addLibrary.setCreatedOn(DateHelper.constructDate(2015, 12, 12));
-        addLibrary.setAcquisitionStatus("AcqStatus");
-        addLibrary.setCataloguingStatus("CatStatus");
-        addLibrary.setSmStatus("SmStatus");
-        addLibrary.setHostLibraryId(1);
         addLibrary.setAddressLine1("Address Line1");
         addLibrary.setAddressLine2("Address Line2");
         addLibrary.setCity("city");
@@ -37,7 +31,6 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
         addLibrary.setSecondaryPhone("+91-897654321");
         addLibrary.setFax("+91-9876543210");
         addLibrary.setCountry("country");
-        addLibrary.setNetworkName("Network Name");
         addLibrary.setSearchForms("Search Forms");
         addLibrary.setFacebookWidget("Facebook Widget");
         addLibrary.setTwitterWidget("Twitter Widget");
@@ -63,11 +56,6 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
         assertEquals(addLibrary.getSerialMaster(), library.getSerialMaster());
         assertEquals(addLibrary.getCatalogueMaster(), library.getCatalogueMaster());
         assertEquals(addLibrary.getAcquisitionsMaster(), library.getAcquisitionsMaster());
-        assertEquals(addLibrary.getCreatedOn(), library.getCreatedOn());
-        assertEquals(addLibrary.getAcquisitionStatus(), library.getAcquisitionStatus());
-        assertEquals(addLibrary.getCataloguingStatus(), library.getCataloguingStatus());
-        assertEquals(addLibrary.getSmStatus(), library.getSmStatus());
-        assertEquals(addLibrary.getHostLibraryId(), library.getHostLibraryId());
         assertEquals(addLibrary.getAddressLine1(), library.getAddressLine1());
         assertEquals(addLibrary.getAddressLine2(), library.getAddressLine2());
         assertEquals(addLibrary.getCity(), library.getCity());
@@ -78,7 +66,6 @@ public class AddLibraryProcessTest extends EntityIntegrationTestBase {
         assertEquals(addLibrary.getSecondaryPhone(), library.getSecondaryPhone());
         assertEquals(addLibrary.getFax(), library.getFax());
         assertEquals(addLibrary.getCountry(), library.getCountry());
-        assertEquals(addLibrary.getNetworkName(), library.getNetworkName());
         assertEquals(addLibrary.getSearchForms(), library.getSearchForms());
         assertEquals(addLibrary.getFacebookWidget(), library.getFacebookWidget());
         assertEquals(addLibrary.getTwitterWidget(), library.getTwitterWidget());

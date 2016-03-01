@@ -35,11 +35,6 @@ public class ProcessAddLibraryDelegate implements JavaDelegate {
         entity.setSerialMaster(command.getSerialMaster());
         entity.setCatalogueMaster(command.getCatalogueMaster());
         entity.setAcquisitionsMaster(command.getAcquisitionsMaster());
-        entity.setCreatedOn(command.getCreatedOn());
-        entity.setAcquisitionStatus(command.getAcquisitionStatus());
-        entity.setCataloguingStatus(command.getCataloguingStatus());
-        entity.setSmStatus(command.getSmStatus());
-        entity.setHostLibraryId(command.getHostLibraryId());
         entity.setAddressLine1(command.getAddressLine1());
         entity.setAddressLine2(command.getAddressLine2());
         entity.setCity(command.getCity());
@@ -50,7 +45,6 @@ public class ProcessAddLibraryDelegate implements JavaDelegate {
         entity.setSecondaryPhone(command.getSecondaryPhone());
         entity.setFax(command.getFax());
         entity.setCountry(command.getCountry());
-        entity.setNetworkName(command.getNetworkName());
         entity.setSearchForms(command.getSearchForms());
         entity.setFacebookWidget(command.getFacebookWidget());
         entity.setTwitterWidget(command.getTwitterWidget());

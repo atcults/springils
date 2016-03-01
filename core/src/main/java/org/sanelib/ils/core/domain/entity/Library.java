@@ -3,6 +3,7 @@ package org.sanelib.ils.core.domain.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -149,46 +150,6 @@ public class Library implements DomainEntity {
         this.acquisitionsMaster = acquisitionsMaster;
     }
 
-    public Date getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public String getAcquisitionStatus() {
-        return acquisitionStatus;
-    }
-
-    public void setAcquisitionStatus(String acquisitionStatus) {
-        this.acquisitionStatus = acquisitionStatus;
-    }
-
-    public String getCataloguingStatus() {
-        return cataloguingStatus;
-    }
-
-    public void setCataloguingStatus(String cataloguingStatus) {
-        this.cataloguingStatus = cataloguingStatus;
-    }
-
-    public String getSmStatus() {
-        return smStatus;
-    }
-
-    public void setSmStatus(String smStatus) {
-        this.smStatus = smStatus;
-    }
-
-    public Integer getHostLibraryId() {
-        return hostLibraryId;
-    }
-
-    public void setHostLibraryId(Integer hostLibraryId) {
-        this.hostLibraryId = hostLibraryId;
-    }
-
     public String getAddressLine1() {
         return addressLine1;
     }
@@ -267,14 +228,6 @@ public class Library implements DomainEntity {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public String getNetworkName() {
-        return networkName;
-    }
-
-    public void setNetworkName(String networkName) {
-        this.networkName = networkName;
     }
 
     public String getSearchForms() {
@@ -366,4 +319,18 @@ public class Library implements DomainEntity {
         return this.id;
     }
 
+    @PrePersist
+    public void prePersist() {
+
+        acquisitionStatus = "MASTER";
+        cataloguingStatus = "MASTER";
+        smStatus = "MASTER";
+        networkName = name;
+        hostLibraryId = id;
+
+        if(createdOn == null){
+
+            createdOn = new Date();
+        }
+    }
 }

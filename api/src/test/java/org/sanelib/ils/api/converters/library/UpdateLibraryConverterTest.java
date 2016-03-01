@@ -22,11 +22,6 @@ public class UpdateLibraryConverterTest {
         dto.setSerialMaster("SerialMaster");
         dto.setCatalogueMaster("CatalogueMaster");
         dto.setAcquisitionsMaster("AcquisitionMaster");
-        dto.setCreatedOn("2015-12-12");
-        dto.setAcquisitionStatus("AcqStatus");
-        dto.setCataloguingStatus("CatStatus");
-        dto.setSmStatus("SmStatus");
-        dto.setHostLibraryId("100");
         dto.setAddressLine1("Address Line1");
         dto.setAddressLine2("Address Line2");
         dto.setCity("city");
@@ -37,7 +32,6 @@ public class UpdateLibraryConverterTest {
         dto.setSecondaryPhone("+91-8976543210");
         dto.setFax("+91-9876543210");
         dto.setCountry("country");
-        dto.setNetworkName("Network Name");
         dto.setSearchForms("Search Forms");
         dto.setFacebookWidget("Facebook Widget");
         dto.setTwitterWidget("Twitter Widget");
@@ -63,11 +57,6 @@ public class UpdateLibraryConverterTest {
         assertEquals("Serialmaster is not mapped", dto.getSerialMaster(), updateLibrary.getSerialMaster());
         assertEquals("Cataloguemaster is not mapped", dto.getCatalogueMaster(), updateLibrary.getCatalogueMaster());
         assertEquals("Acquisitionmaster is not mapped", dto.getAcquisitionsMaster(), updateLibrary.getAcquisitionsMaster());
-        assertEquals("Created On date is not mapped", DateHelper.fromDateString(dto.getCreatedOn()), updateLibrary.getCreatedOn());
-        assertEquals("Acquisition status is not mapped", dto.getAcquisitionStatus(), updateLibrary.getAcquisitionStatus());
-        assertEquals("Cataloguing status is not mapped", dto.getCataloguingStatus(), updateLibrary.getCataloguingStatus());
-        assertEquals("SerialMaster status is not mapped", dto.getSmStatus(), updateLibrary.getSmStatus());
-        assertEquals("Host library Id is not mapped", dto.getHostLibraryId(), String.valueOf(updateLibrary.getHostLibraryId()));
         assertEquals("Address Line1 is not mapped", dto.getAddressLine1(), updateLibrary.getAddressLine1());
         assertEquals("Address Line2 is not mapped", dto.getAddressLine2(), updateLibrary.getAddressLine2());
         assertEquals("City is not mapped", dto.getCity(), updateLibrary.getCity());
@@ -78,7 +67,6 @@ public class UpdateLibraryConverterTest {
         assertEquals("Secondary Phone is not mapped", dto.getSecondaryPhone(), StringHelper.toOriginalString(updateLibrary.getSecondaryPhone()));
         assertEquals("Fax is not mapped", dto.getFax(), StringHelper.toOriginalString(updateLibrary.getFax()));
         assertEquals("Country is not mapped", dto.getCountry(), updateLibrary.getCountry());
-        assertEquals("Network Name is not mapped", dto.getNetworkName(), updateLibrary.getNetworkName());
         assertEquals("Search Form is not mapped", dto.getSearchForms(), updateLibrary.getSearchForms());
         assertEquals("Facebook Widget is not mapped", dto.getFacebookWidget(), updateLibrary.getFacebookWidget());
         assertEquals("Twitter Widget is not mapped", dto.getTwitterWidget(), updateLibrary.getTwitterWidget());

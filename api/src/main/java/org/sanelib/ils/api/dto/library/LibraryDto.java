@@ -11,11 +11,6 @@ public class LibraryDto implements DtoWithId {
     private String serialMaster;
     private String catalogueMaster;
     private String acquisitionsMaster;
-    private String createdOn;
-    private String acquisitionStatus;
-    private String cataloguingStatus;
-    private String smStatus;
-    private String hostLibraryId;
     private String addressLine1;
     private String addressLine2;
     private String city;
@@ -26,7 +21,6 @@ public class LibraryDto implements DtoWithId {
     private String secondaryPhone;
     private String fax;
     private String country;
-    private String networkName;
     private String searchForms;
     private String facebookWidget;
     private String twitterWidget;
@@ -76,46 +70,6 @@ public class LibraryDto implements DtoWithId {
 
     public void setAcquisitionsMaster(String acquisitionsMaster) {
         this.acquisitionsMaster = acquisitionsMaster;
-    }
-
-    public String getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(String createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public String getAcquisitionStatus() {
-        return acquisitionStatus;
-    }
-
-    public void setAcquisitionStatus(String acquisitionStatus) {
-        this.acquisitionStatus = acquisitionStatus;
-    }
-
-    public String getCataloguingStatus() {
-        return cataloguingStatus;
-    }
-
-    public void setCataloguingStatus(String cataloguingStatus) {
-        this.cataloguingStatus = cataloguingStatus;
-    }
-
-    public String getSmStatus() {
-        return smStatus;
-    }
-
-    public void setSmStatus(String smStatus) {
-        this.smStatus = smStatus;
-    }
-
-    public String getHostLibraryId() {
-        return hostLibraryId;
-    }
-
-    public void setHostLibraryId(String hostLibraryId) {
-        this.hostLibraryId = hostLibraryId;
     }
 
     public String getAddressLine1() {
@@ -196,14 +150,6 @@ public class LibraryDto implements DtoWithId {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public String getNetworkName() {
-        return networkName;
-    }
-
-    public void setNetworkName(String networkName) {
-        this.networkName = networkName;
     }
 
     public String getSearchForms() {

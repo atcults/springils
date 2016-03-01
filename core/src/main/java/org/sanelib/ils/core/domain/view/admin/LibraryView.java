@@ -5,8 +5,6 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithId;
 
-import java.util.Date;
-
 public class LibraryView implements DomainView, ViewWithId {
 
     private Integer id;
@@ -14,11 +12,6 @@ public class LibraryView implements DomainView, ViewWithId {
     private String serialMaster;
     private String catalogueMaster;
     private String acquisitionsMaster;
-    private Date createdOn;
-    private String acquisitionStatus;
-    private String cataloguingStatus;
-    private String smStatus;
-    private Integer hostLibraryId;
     private String addressLine1;
     private String addressLine2;
     private String city;
@@ -29,7 +22,6 @@ public class LibraryView implements DomainView, ViewWithId {
     private String secondaryPhone;
     private String fax;
     private String country;
-    private String networkName;
     private String searchForms;
     private String facebookWidget;
     private String twitterWidget;
@@ -80,46 +72,6 @@ public class LibraryView implements DomainView, ViewWithId {
 
     public void setAcquisitionsMaster(String acquisitionsMaster) {
         this.acquisitionsMaster = acquisitionsMaster;
-    }
-
-    public Date getCreatedOn() {
-        return createdOn;
-    }
-
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
-    }
-
-    public String getAcquisitionStatus() {
-        return acquisitionStatus;
-    }
-
-    public void setAcquisitionStatus(String acquisitionStatus) {
-        this.acquisitionStatus = acquisitionStatus;
-    }
-
-    public String getCataloguingStatus() {
-        return cataloguingStatus;
-    }
-
-    public void setCataloguingStatus(String cataloguingStatus) {
-        this.cataloguingStatus = cataloguingStatus;
-    }
-
-    public String getSmStatus() {
-        return smStatus;
-    }
-
-    public void setSmStatus(String smStatus) {
-        this.smStatus = smStatus;
-    }
-
-    public Integer getHostLibraryId() {
-        return hostLibraryId;
-    }
-
-    public void setHostLibraryId(Integer hostLibraryId) {
-        this.hostLibraryId = hostLibraryId;
     }
 
     public String getAddressLine1() {
@@ -200,14 +152,6 @@ public class LibraryView implements DomainView, ViewWithId {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public String getNetworkName() {
-        return networkName;
-    }
-
-    public void setNetworkName(String networkName) {
-        this.networkName = networkName;
     }
 
     public String getSearchForms() {

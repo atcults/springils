@@ -2,7 +2,6 @@ package org.sanelib.ils.api.converters.library;
 
 import org.sanelib.ils.api.converters.AbstractViewToDtoConverterImpl;
 import org.sanelib.ils.api.dto.library.LibraryDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.domain.view.admin.LibraryView;
 import org.springframework.stereotype.Component;
 
@@ -18,11 +17,6 @@ public class LibraryViewConverter extends AbstractViewToDtoConverterImpl<Library
         libraryDto.setSerialMaster(libraryView.getSerialMaster());
         libraryDto.setCatalogueMaster(libraryView.getCatalogueMaster());
         libraryDto.setAcquisitionsMaster(libraryView.getAcquisitionsMaster());
-        libraryDto.setCreatedOn(DateHelper.toDateString(libraryView.getCreatedOn()));
-        libraryDto.setAcquisitionStatus(libraryView.getAcquisitionStatus());
-        libraryDto.setCataloguingStatus(libraryView.getCataloguingStatus());
-        libraryDto.setSmStatus(libraryView.getSmStatus());
-        libraryDto.setHostLibraryId(String.valueOf(libraryView.getHostLibraryId()));
         libraryDto.setAddressLine1(libraryView.getAddressLine1());
         libraryDto.setAddressLine2(libraryView.getAddressLine2());
         libraryDto.setCity(libraryView.getCity());
@@ -33,7 +27,6 @@ public class LibraryViewConverter extends AbstractViewToDtoConverterImpl<Library
         libraryDto.setSecondaryPhone(libraryView.getSecondaryPhone());
         libraryDto.setFax(libraryView.getFax());
         libraryDto.setCountry(libraryView.getCountry());
-        libraryDto.setNetworkName(libraryView.getNetworkName());
         libraryDto.setSearchForms(libraryView.getSearchForms());
         libraryDto.setFacebookWidget(libraryView.getFacebookWidget());
         libraryDto.setTwitterWidget(libraryView.getTwitterWidget());

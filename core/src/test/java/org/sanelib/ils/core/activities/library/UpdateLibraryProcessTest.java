@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.library;
 
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.library.UpdateLibrary;
 import org.sanelib.ils.core.dao.HibernateHelper;
@@ -28,11 +27,6 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         library.setSerialMaster("SerialMaster");
         library.setCatalogueMaster("CatalogueMaster");
         library.setAcquisitionsMaster("AcquisitionMaster");
-        library.setCreatedOn(DateHelper.constructDate(2015, 12, 12));
-        library.setAcquisitionStatus("AcqStatus");
-        library.setCataloguingStatus("CatStatus");
-        library.setSmStatus("SmStatus");
-        library.setHostLibraryId(1);
         library.setAddressLine1("Address Line1");
         library.setAddressLine2("Address Line2");
         library.setCity("city");
@@ -43,7 +37,6 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         library.setSecondaryPhone("+91-897654321");
         library.setFax("87654321");
         library.setCountry("country");
-        library.setNetworkName("Network Name");
         library.setSearchForms("Search Forms");
         library.setFacebookWidget("Facebook Widget");
         library.setTwitterWidget("Twitter Widget");
@@ -64,11 +57,6 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         updateLibrary.setSerialMaster("SerialMaster");
         updateLibrary.setCatalogueMaster("CatalogueMaster");
         updateLibrary.setAcquisitionsMaster("AcquisitionMaster");
-        updateLibrary.setCreatedOn(DateHelper.constructDate(2015, 12, 12));
-        updateLibrary.setAcquisitionStatus("AcqStatus");
-        updateLibrary.setCataloguingStatus("CatStatus");
-        updateLibrary.setSmStatus("SmStatus");
-        updateLibrary.setHostLibraryId(1);
         updateLibrary.setAddressLine1("Updated Address Line1");
         updateLibrary.setAddressLine2("Updated Address Line2");
         updateLibrary.setCity("Updated city");
@@ -79,7 +67,6 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         updateLibrary.setSecondaryPhone("+91-897654321");
         updateLibrary.setFax("87654321");
         updateLibrary.setCountry("country");
-        updateLibrary.setNetworkName("Updated Network Name");
         updateLibrary.setSearchForms("Updated Search Forms");
         updateLibrary.setFacebookWidget("Facebook Widget");
         updateLibrary.setTwitterWidget("Twitter Widget");
@@ -104,11 +91,6 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         assertEquals(updateLibrary.getSerialMaster(), updatedLibrary.getSerialMaster());
         assertEquals(updateLibrary.getCatalogueMaster(), updatedLibrary.getCatalogueMaster());
         assertEquals(updateLibrary.getAcquisitionsMaster(), updatedLibrary.getAcquisitionsMaster());
-        assertEquals(updateLibrary.getCreatedOn(), updatedLibrary.getCreatedOn());
-        assertEquals(updateLibrary.getAcquisitionStatus(), updatedLibrary.getAcquisitionStatus());
-        assertEquals(updateLibrary.getCataloguingStatus(), updatedLibrary.getCataloguingStatus());
-        assertEquals(updateLibrary.getSmStatus(), updatedLibrary.getSmStatus());
-        assertEquals(updateLibrary.getHostLibraryId(), updatedLibrary.getHostLibraryId());
         assertEquals(updateLibrary.getAddressLine1(), updatedLibrary.getAddressLine1());
         assertEquals(updateLibrary.getAddressLine2(), updatedLibrary.getAddressLine2());
         assertEquals(updateLibrary.getCity(), updatedLibrary.getCity());
@@ -119,7 +101,6 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         assertEquals(updateLibrary.getSecondaryPhone(), updatedLibrary.getSecondaryPhone());
         assertEquals(updateLibrary.getFax(), updatedLibrary.getFax());
         assertEquals(updateLibrary.getCountry(), updatedLibrary.getCountry());
-        assertEquals(updateLibrary.getNetworkName(), updatedLibrary.getNetworkName());
         assertEquals(updateLibrary.getSearchForms(), updatedLibrary.getSearchForms());
         assertEquals(updateLibrary.getFacebookWidget(), updatedLibrary.getFacebookWidget());
         assertEquals(updateLibrary.getTwitterWidget(), updatedLibrary.getTwitterWidget());
