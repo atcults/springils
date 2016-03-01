@@ -19,11 +19,11 @@ public class BindingTypeViewRepository implements ViewService {
     @Autowired
     ViewServiceHelper viewServiceHelper;
 
-    protected String getStatements() {
+    protected String getStatement() {
         return "select * from cir_co_bind_types";
     }
 
-   public List<BindingTypeView> getAll() throws Throwable {
-        return viewServiceHelper.loadQuery(getStatements(), mapper);
+    public List<BindingTypeView> getAll() throws Throwable {
+        return viewServiceHelper.loadQuery(getStatement(), mapper);
     }
 }

@@ -23,7 +23,7 @@ public class PatronViewRepository implements ViewService {
         return "select * from patron";
     }
 
-   public List<PatronView> getAll() throws Throwable {
+    public List<PatronView> getAll() throws Throwable {
         return viewServiceHelper.loadQuery(getStatement(), mapper);
     }
 }

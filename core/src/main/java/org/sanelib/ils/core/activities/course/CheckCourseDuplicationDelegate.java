@@ -43,7 +43,7 @@ public class CheckCourseDuplicationDelegate implements JavaDelegate {
         Course dbCourse = courses.isEmpty() ? null : courses.get(0);
 
         if(dbCourse!=null && (!isUpdate || !Objects.equals(courseId,dbCourse.getCourseId().getId()))){
-            processError.addError("common.field.duplicate", "name", Arrays.asList("domain.entity.library","domain.course.name"),courseName);
+            processError.addError("common.field.duplicate", "name", Arrays.asList("domain.entity.library","domain.common.name"),courseName);
         }
 
         if (!processError.isValid()){

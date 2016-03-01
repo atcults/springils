@@ -24,8 +24,8 @@ public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDt
         dto.setFirstName(patronView.getFirstName());
         dto.setMiddleName(patronView.getMiddleName());
         dto.setLastName(patronView.getLastName());
-        dto.setAddress1(patronView.getAddress1());
-        dto.setAddress2(patronView.getAddress2());
+        dto.setAddress1(patronView.getAddressLine1());
+        dto.setAddress2(patronView.getAddressLine2());
         dto.setCity(patronView.getCity());
         dto.setState(patronView.getState());
         dto.setCountry(patronView.getCountry());
@@ -34,8 +34,8 @@ public class PatronViewConverter extends AbstractViewToDtoConverterImpl<PatronDt
         dto.setPhone2(patronView.getPhone2());
         dto.setFax(patronView.getFax());
         dto.setEmail(patronView.getEmail());
-        dto.setPermanentAddress1(patronView.getPermanentAddress1());
-        dto.setPermanentAddress2(patronView.getPermanentAddress2());
+        dto.setPermanentAddress1(patronView.getPermanentAddressLine1());
+        dto.setPermanentAddress2(patronView.getPermanentAddressLine2());
         dto.setPermanentCity(patronView.getPermanentCity());
         dto.setPermanentState((patronView.getPermanentState()));
         dto.setPermanentCountry(patronView.getPermanentCountry());

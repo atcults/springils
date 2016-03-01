@@ -9,7 +9,7 @@ public class DepartmentView implements DomainView, ViewWithId {
 
     private Integer libraryId;
     private Integer id;
-    private String deptName;
+    private String name;
     private String hodId;
 
     public Integer getLibraryId() {
@@ -29,12 +29,12 @@ public class DepartmentView implements DomainView, ViewWithId {
         this.id = id;
     }
 
-    public String getDeptName() {
-        return deptName;
+    public String getName() {
+        return name;
     }
 
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getHodId() { return hodId; }

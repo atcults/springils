@@ -41,8 +41,8 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         patron.setPatronType(PatronType.Patron);
         patron.setDeptId(1);
         patron.setFirstName("First Name");
-        patron.setAddress1("Address1");
-        patron.setAddress2("Address2");
+        patron.setAddressLine1("Address1");
+        patron.setAddressLine2("Address2");
         patron.setCity("City");
         patron.setState("State");
         patron.setCountry("Country");
@@ -51,8 +51,8 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         patron.setPhone2("+91-9876543210");
         patron.setFax("+91-987654321");
         patron.setEmail("name@mail.com");
-        patron.setPermanentAddress1("PAddress1");
-        patron.setPermanentAddress2("PAddress2");
+        patron.setPermanentAddressLine1("PAddress1");
+        patron.setPermanentAddressLine2("PAddress2");
         patron.setPermanentCity("PCity");
         patron.setPermanentState("PState");
         patron.setPermanentCountry("PCountry");
@@ -92,8 +92,8 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         updatePatron.setPatronType(PatronType.Patron);
         updatePatron.setDeptId(1);
         updatePatron.setFirstName("First Name updated");
-        updatePatron.setAddress1("Address1 updated");
-        updatePatron.setAddress2("Address2 updated");
+        updatePatron.setAddressLine1("Address1 updated");
+        updatePatron.setAddressLine2("Address2 updated");
         updatePatron.setCity("City updated");
         updatePatron.setState("State updated");
         updatePatron.setCountry("Country updated");
@@ -102,8 +102,8 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         updatePatron.setPhone2("+91-9876543211");
         updatePatron.setFax("+91-987654322");
         updatePatron.setEmail("name@mail.com");
-        updatePatron.setPermanentAddress1("PAddress updated");
-        updatePatron.setPermanentAddress2("PAddress updated");
+        updatePatron.setPermanentAddressLine1("PAddress updated");
+        updatePatron.setPermanentAddressLine2("PAddress updated");
         updatePatron.setPermanentCity("PCity updated");
         updatePatron.setPermanentState("PState updated");
         updatePatron.setPermanentCountry("PCountry updated");
@@ -145,8 +145,8 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         assertEquals(updatePatron.getPatronType(), patron.getPatronType());
         assertEquals(updatePatron.getDeptId(), patron.getDeptId());
         assertEquals(updatePatron.getFirstName(), patron.getFirstName());
-        assertEquals(updatePatron.getAddress1(), patron.getAddress1());
-        assertEquals(updatePatron.getAddress2(), patron.getAddress2());
+        assertEquals(updatePatron.getAddressLine1(), patron.getAddressLine1());
+        assertEquals(updatePatron.getAddressLine2(), patron.getAddressLine2());
         assertEquals(updatePatron.getCity(), patron.getCity());
         assertEquals(updatePatron.getState(), patron.getState());
         assertEquals(updatePatron.getCountry(), patron.getCountry());
@@ -155,8 +155,8 @@ public class UpdatePatronProcessTest extends EntityIntegrationTestBase {
         assertEquals(updatePatron.getPhone2(), patron.getPhone2());
         assertEquals(updatePatron.getFax(), patron.getFax());
         assertEquals(updatePatron.getEmail(), patron.getEmail());
-        assertEquals(updatePatron.getPermanentAddress1(), patron.getPermanentAddress1());
-        assertEquals(updatePatron.getPermanentAddress2(), patron.getPermanentAddress2());
+        assertEquals(updatePatron.getPermanentAddressLine1(), patron.getPermanentAddressLine1());
+        assertEquals(updatePatron.getPermanentAddressLine2(), patron.getPermanentAddressLine2());
         assertEquals(updatePatron.getPermanentCity(), patron.getPermanentCity());
         assertEquals(updatePatron.getPermanentState(), patron.getPermanentState());
         assertEquals(updatePatron.getPermanentCountry(), patron.getPermanentCountry());

@@ -1,6 +1,9 @@
 package org.sanelib.ils.core.exceptions;
 
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 /**
  * Class to map application related exceptions
  * 
@@ -32,8 +35,6 @@ public class AppException extends Exception {
 
     @Override
     public String toString() {
-        return "AppException{" +
-                "processError=" + processError +
-                "} " + super.toString();
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

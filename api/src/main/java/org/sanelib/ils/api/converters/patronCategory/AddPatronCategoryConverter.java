@@ -20,7 +20,7 @@ public class AddPatronCategoryConverter implements DtoToCommandConverter<PatronC
 
         //Check name and convert
         if(Strings.isNullOrEmpty(dto.getName())){
-            processError.addError("common.field.required", "name", "domain.patronCategory.name");
+            processError.addError("common.field.required", "name", "domain.common.name");
         } else{
             command.setName(dto.getName());
         }

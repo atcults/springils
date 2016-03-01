@@ -44,8 +44,8 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
         addPatron.setPatronType(PatronType.Patron);
         addPatron.setDeptId(1);
         addPatron.setFirstName("First Name");
-        addPatron.setAddress1("Address1");
-        addPatron.setAddress2("Address2");
+        addPatron.setAddressLine1("Address1");
+        addPatron.setAddressLine2("Address2");
         addPatron.setCity("City");
         addPatron.setState("State");
         addPatron.setCountry("Country");
@@ -54,8 +54,8 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
         addPatron.setPhone2("+91-9876543210");
         addPatron.setFax("+91-9876543210");
         addPatron.setEmail("name@mail.com");
-        addPatron.setPermanentAddress1("PAddress1");
-        addPatron.setPermanentAddress2("PAddress2");
+        addPatron.setPermanentAddressLine1("PAddress1");
+        addPatron.setPermanentAddressLine2("PAddress2");
         addPatron.setPermanentCity("PCity");
         addPatron.setPermanentState("PState");
         addPatron.setPermanentCountry("PCountry");
@@ -98,8 +98,8 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
         assertEquals(addPatron.getPatronType(), patron.getPatronType());
         assertEquals(addPatron.getDeptId(), patron.getDeptId());
         assertEquals(addPatron.getFirstName(), patron.getFirstName());
-        assertEquals(addPatron.getAddress1(), patron.getAddress1());
-        assertEquals(addPatron.getAddress2(), patron.getAddress2());
+        assertEquals(addPatron.getAddressLine1(), patron.getAddressLine1());
+        assertEquals(addPatron.getAddressLine2(), patron.getAddressLine2());
         assertEquals(addPatron.getCity(), patron.getCity());
         assertEquals(addPatron.getState(), patron.getState());
         assertEquals(addPatron.getCountry(), patron.getCountry());
@@ -108,8 +108,8 @@ public class AddPatronProcessTest extends EntityIntegrationTestBase {
         assertEquals(addPatron.getPhone2(), patron.getPhone2());
         assertEquals(addPatron.getFax(), patron.getFax());
         assertEquals(addPatron.getEmail(), patron.getEmail());
-        assertEquals(addPatron.getPermanentAddress1(), patron.getPermanentAddress1());
-        assertEquals(addPatron.getPermanentAddress2(), patron.getPermanentAddress2());
+        assertEquals(addPatron.getPermanentAddressLine1(), patron.getPermanentAddressLine1());
+        assertEquals(addPatron.getPermanentAddressLine2(), patron.getPermanentAddressLine2());
         assertEquals(addPatron.getPermanentCity(), patron.getPermanentCity());
         assertEquals(addPatron.getPermanentState(), patron.getPermanentState());
         assertEquals(addPatron.getPermanentCountry(), patron.getPermanentCountry());

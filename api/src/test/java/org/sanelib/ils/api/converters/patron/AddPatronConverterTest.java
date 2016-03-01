@@ -83,8 +83,8 @@ public class AddPatronConverterTest {
         assertEquals(dto.getPatronType(), addPatron.getPatronType());
         assertEquals(dto.getDeptId(), String.valueOf(addPatron.getDeptId()));
         assertEquals(dto.getFirstName(), addPatron.getFirstName());
-        assertEquals(dto.getAddress1(), addPatron.getAddress1());
-        assertEquals(dto.getAddress2(), addPatron.getAddress2());
+        assertEquals(dto.getAddress1(), addPatron.getAddressLine1());
+        assertEquals(dto.getAddress2(), addPatron.getAddressLine2());
         assertEquals(dto.getCity(), addPatron.getCity());
         assertEquals(dto.getState(), addPatron.getState());
         assertEquals(dto.getCountry(), addPatron.getCountry());
@@ -93,8 +93,8 @@ public class AddPatronConverterTest {
         assertEquals(dto.getPhone2(), addPatron.getPhone2());
         assertEquals(dto.getFax(), addPatron.getFax());
         assertEquals(dto.getEmail(), addPatron.getEmail());
-        assertEquals(dto.getPermanentAddress1(), addPatron.getPermanentAddress1());
-        assertEquals(dto.getPermanentAddress2(), addPatron.getPermanentAddress2());
+        assertEquals(dto.getPermanentAddress1(), addPatron.getPermanentAddressLine1());
+        assertEquals(dto.getPermanentAddress2(), addPatron.getPermanentAddressLine2());
         assertEquals(dto.getPermanentCity(), addPatron.getPermanentCity());
         assertEquals(dto.getPermanentState(), addPatron.getPermanentState());
         assertEquals(dto.getPermanentCountry(), addPatron.getPermanentCountry());
