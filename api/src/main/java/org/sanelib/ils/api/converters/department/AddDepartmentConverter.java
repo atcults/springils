@@ -20,7 +20,7 @@ public class AddDepartmentConverter implements DtoToCommandConverter<DepartmentD
 
         //Check name and convert
         if (Strings.isNullOrEmpty(dto.getName())){
-            processError.addError("common.field.required", "Department Name", "domain.department.name");
+            processError.addError("common.field.required", "departmentName", "domain.common.name");
         }
         else {
             command.setName(dto.getName());

@@ -4,10 +4,8 @@ import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.JavaDelegate;
 import org.sanelib.ils.core.commands.agency.AddAgency;
 import org.sanelib.ils.core.commands.agency.UpdateAgency;
-import org.sanelib.ils.core.commands.library.AddLibrary;
 import org.sanelib.ils.core.dao.AgencyRepository;
 import org.sanelib.ils.core.domain.entity.Agency;
-import org.sanelib.ils.core.domain.entity.Library;
 import org.sanelib.ils.core.exceptions.AppException;
 import org.sanelib.ils.core.exceptions.ProcessError;
 import org.slf4j.Logger;
@@ -45,7 +43,7 @@ public class CheckAgencyDuplicationDelegate implements JavaDelegate {
         Agency dbAgency = agencies.isEmpty() ? null : agencies.get(0);
 
         if(dbAgency != null && (!isUpdate || !Objects.equals(agencyId, dbAgency.getAgencyId().getId()))){
-            processError.addError("common.field.duplicate", "name", Arrays.asList("domain.entity.library", "domain.agency.name"), agencyName);
+            processError.addError("common.field.duplicate", "name", Arrays.asList("domain.entity.agency", "domain.common.name"), agencyName);
         }
 
         if(!processError.isValid()){

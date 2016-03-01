@@ -15,7 +15,6 @@ import org.sanelib.ils.core.enums.HolidayType;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 public class AddHolidayProcessTest extends EntityIntegrationTestBase{
 
@@ -57,13 +56,13 @@ public class AddHolidayProcessTest extends EntityIntegrationTestBase{
         addHoliday.setLibraryId(library.getId());
         addHoliday.setFiscalYearId(20152016);
         addHoliday.setHolidayType(HolidayType.Specific);
-        addHoliday.setStartDate(DateHelper.constructDate(2016 , 2 , 6));
-        addHoliday.setEndDate(DateHelper.constructDate(2016 , 2, 9));
+        addHoliday.setStartDate(DateHelper.constructDate(2016, 2, 6));
+        addHoliday.setEndDate(DateHelper.constructDate(2016, 2, 9));
         addHoliday.setNote("Test Holiday");
         addHoliday.setUserCode("1");
         addHoliday.setUserLibraryId(library.getId());
 
-        String result = execute(addHoliday , ActivitiProcessConstants.Admin.ADD_HOLIDAY);
+        String result = execute(addHoliday, ActivitiProcessConstants.Admin.ADD_HOLIDAY);
 
         //4 Records should be added
         assertEquals("4", result);

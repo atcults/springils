@@ -3,13 +3,10 @@ package org.sanelib.ils.core.activities.publisher;
 import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
-import org.sanelib.ils.core.commands.publisher.AddPublisher;
 import org.sanelib.ils.core.commands.publisher.UpdatePublisher;
 import org.sanelib.ils.core.domain.entity.Publisher;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class UpdatePublisherProcessTest extends EntityIntegrationTestBase {
 
@@ -32,7 +29,6 @@ public class UpdatePublisherProcessTest extends EntityIntegrationTestBase {
         updatePublisher.setState("MH");
         updatePublisher.setCountry("new country");
 
-
         String result = execute(updatePublisher, ActivitiProcessConstants.Admin.UPDATE_PUBLISHER);
 
         assertNull(result);
@@ -42,9 +38,9 @@ public class UpdatePublisherProcessTest extends EntityIntegrationTestBase {
         assertNotNull(publisher);
 
         assertEquals(updatePublisher.getCode(), updatedPublisher.getCode());
-        assertEquals(updatePublisher.getName() ,updatedPublisher.getName());
-        assertEquals(updatePublisher.getCity() , updatedPublisher.getCity());
-        assertEquals(updatePublisher.getState() ,updatedPublisher.getState());
-        assertEquals(updatePublisher.getCountry() ,updatedPublisher.getCountry());
+        assertEquals(updatePublisher.getName(), updatedPublisher.getName());
+        assertEquals(updatePublisher.getCity(), updatedPublisher.getCity());
+        assertEquals(updatePublisher.getState(), updatedPublisher.getState());
+        assertEquals(updatePublisher.getCountry(), updatedPublisher.getCountry());
     }
 }

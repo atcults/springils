@@ -4,10 +4,8 @@ import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.library.UpdateLibrary;
-import org.sanelib.ils.core.commands.publisher.UpdatePublisher;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.Library;
-import org.sanelib.ils.core.domain.entity.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.*;
@@ -45,9 +43,9 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
         assertNotNull(library);
 
         assertEquals((int) updateLibrary.getId(), updatedLibrary.getId());
-        assertEquals(updateLibrary.getName() ,updatedLibrary.getName());
-        assertEquals(updateLibrary.getCity() , updatedLibrary.getCity());
-        assertEquals(updateLibrary.getState() ,updatedLibrary.getState());
-        assertEquals(updateLibrary.getCountry() ,updatedLibrary.getCountry());
+        assertEquals(updateLibrary.getName(), updatedLibrary.getName());
+        assertEquals(updateLibrary.getCity(), updatedLibrary.getCity());
+        assertEquals(updateLibrary.getState(), updatedLibrary.getState());
+        assertEquals(updateLibrary.getCountry(), updatedLibrary.getCountry());
     }
 }

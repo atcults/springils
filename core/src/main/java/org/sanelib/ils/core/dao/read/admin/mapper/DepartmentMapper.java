@@ -12,18 +12,16 @@ public class DepartmentMapper implements ViewMapper<DepartmentView> {
 
     public DepartmentView map(final DataResultSet rs) throws SQLException {
 
-        final String department = "dept";
+        final String viewName = "dept";
 
-        final DepartmentView view = new DepartmentView();
+        final DepartmentView departmentView = new DepartmentView();
 
-        view.setId(rs.getInt(department, "dept_id"));
-        view.setLibraryId(rs.getInt(department, "library_id"));
-        view.setDeptName(rs.getString(department, "dept_name"));
-        view.setEntryId(rs.getString(department, "entry_id"));
-        view.setEntryDate(rs.getDate(department, "entry_date"));
-        view.setHodId(rs.getString(department, "hod_id"));
+        departmentView.setId(rs.getInt(viewName, "dept_id"));
+        departmentView.setLibraryId(rs.getInt(viewName, "library_id"));
+        departmentView.setName(rs.getString(viewName, "dept_name"));
+        departmentView.setHodId(rs.getString(viewName, "hod_id"));
 
-        return view;
+        return departmentView;
     }
 }
 

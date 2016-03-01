@@ -4,7 +4,6 @@ import com.google.common.base.Strings;
 import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.patronCategory.PatronCategoryDto;
-import org.sanelib.ils.common.utils.DateHelper;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.patronCategory.AddPatronCategory;
 import org.sanelib.ils.core.exceptions.ProcessError;
@@ -21,14 +20,16 @@ public class AddPatronCategoryConverter implements DtoToCommandConverter<PatronC
 
         //Check name and convert
         if(Strings.isNullOrEmpty(dto.getName())){
-            processError.addError("common.field.required", "name", "domain.patronCategory.name");
+            processError.addError("common.field.required", "name", "domain.common.name");
         } else{
             command.setName(dto.getName());
         }
 
         command.setAllowILLFromNet(dto.isAllowILLFromNet());
         command.setAllowRenewalFromNet(dto.isAllowRenewalFromNet());
-        command.setOverallLoanLimit(Integer.parseInt(dto.getOverallLoanLimit()));
+
+        command.setOverallLoanLimit(ConverterHelper.checkOptionalPositiveInteger("overallLoanLimit", dto.getOverallLoanLimit(), "domain.patronCategory.overallLoanLimit", 0, processError));
+
         command.setAllowMultipleCopies(dto.isAllowMultipleCopies());
         command.setAcqWorkflow(dto.getAcqWorkflow());
 

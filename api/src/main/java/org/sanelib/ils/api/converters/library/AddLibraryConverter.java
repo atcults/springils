@@ -17,7 +17,7 @@ public class AddLibraryConverter implements DtoToCommandConverter<LibraryDto> {
 
         //Check name and convert
         if(Strings.isNullOrEmpty(dto.getName())){
-            processError.addError("common.field.required", "name", "domain.library.name");
+            processError.addError("common.field.required", "name", "domain.common.name");
         } else{
             command.setName(dto.getName());
         }

@@ -43,7 +43,7 @@ public class CheckPatronCategoryDuplicationDelegate implements JavaDelegate {
         PatronCategory dbPatronCategory = patronCategories.isEmpty() ? null : patronCategories.get(0);
 
         if(dbPatronCategory != null && (!isUpdate || !Objects.equals(patronCategoryId, dbPatronCategory.getPatronCategoryId().getId()))){
-            processError.addError("common.field.duplicate", "patronCategoryName", Arrays.asList("domain.entity.library", "domain.patronCategory.name"), patronCategoryName);
+            processError.addError("common.field.duplicate", "patronCategoryName", Arrays.asList("domain.entity.patronCategory", "domain.common.name"), patronCategoryName);
         }
 
         if(!processError.isValid()){

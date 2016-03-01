@@ -23,7 +23,9 @@ public class ProcessDeletePublisherDelegate implements JavaDelegate {
         LOG.info("Process Publisher Delete called");
 
         DeletePublisher command = (DeletePublisher) execution.getVariable("command");
+
         Publisher publisher = this.publisherRepository.load(command.getCode());
+
         publisherRepository.remove(publisher);
     }
 }

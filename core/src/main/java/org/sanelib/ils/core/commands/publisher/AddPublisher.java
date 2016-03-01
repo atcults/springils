@@ -1,5 +1,7 @@
 package org.sanelib.ils.core.commands.publisher;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.commands.ProcessCommandWithCode;
 import org.sanelib.ils.core.domain.entity.Publisher;
 
@@ -63,13 +65,7 @@ public class AddPublisher implements ProcessCommandWithCode {
 
     @Override
     public String toString() {
-        return "AddPublisher{" +
-                "code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", country='" + country + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
 

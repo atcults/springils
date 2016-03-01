@@ -9,33 +9,31 @@ common:
   updatedOn: Updated On
 
 entity:
-  library: Library
-  publisher: Publisher
-  agency: Agency
-  course: Course
-  patronCategory: PatronCategory
-  fiscalYear: Fiscal Year
   accessionSeries: Accession Series
-  bindingType: Binding Type
-  holiday: Holiday
-  department: Department
-  patron: Patron
+  agency: Agency
   author: Author
+  bindingType: Binding Type
+  course: Course
+  department: Department
+  fiscalYear: Fiscal Year
+  holiday: Holiday
+  library: Library
+  patron: Patron
+  patronCategory: PatronCategory
+  publisher: Publisher
 
 library:
-  name: Name
   city: City
   state: State
   country: Country
 
 publisher:
-  name: Name
   city: City
   state: State
   country: Country
 
 agency:
-  name: Name
+  noExtra: Dummy entry as all properties are covered in common
 
 author:
   lname: Last Name
@@ -47,7 +45,6 @@ author:
   zip: Zip Code
 
 course:
-  name: Name
   promotedCourseId: Promoted Course Id
 
 fiscalYear:
@@ -64,8 +61,8 @@ patron:
   firstName: FirstName
   middleName: MiddleName
   lastName: LastName
-  address1: Address1
-  address2: Address2
+  addressLine1: AddressLine1
+  addressLine2: AddressLine2
   city: City
   state: State
   country: Country
@@ -74,8 +71,8 @@ patron:
   phone2: Phone2
   fax: Fax
   email: Email
-  permanentAddress1: Permanent Address1
-  permanentAddress2: Permanent Address2
+  permanentAddressLine1: Permanent AddressLine1
+  permanentAddressLine2: Permanent AddressLine2
   permanentCity: Permanent City
   permanentState: Permanent State
   permanentCountry: Permanent Country
@@ -88,7 +85,7 @@ patron:
   membershipTo: Membership To
   delinquencyReason: Delinquency Reason
   commonEmail: Common Email
-  commonInstantMsg: Common Instant Msg
+  commonInstantMsg: Common Instant Message
   commonPrint: Common Print
   userPassword: User Password
   courseId: Course Id
@@ -117,12 +114,14 @@ holiday:
   endDate: End Date
 
 patronCategory:
-  name: Name
+  overallLoanLimit: Overall Loan Limit
 
-Department:
-  name: Department Name
+department:
   hodId: HOD Id
 
 bindingType:
   bindType: Binding Type
   price: Price
+
+date:
+  startDate: Start Date

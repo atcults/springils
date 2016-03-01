@@ -52,6 +52,6 @@ public class UpdateDepartmentProcessTest extends EntityIntegrationTestBase {
         assertNotNull(dbDept);
 
         assertEquals(updateDepartment.getName(), dbDept.getName());
-        assertEquals(updateDepartment.getHodId(),dbDept.getHodId());
+        assertEquals(updateDepartment.getHodId(), dbDept.getHodId());
     }
 }

@@ -12,8 +12,10 @@ import org.springframework.stereotype.Component;
 public class DeleteAgencyConverter implements DtoToCommandConverter<AgencyDto> {
     public ProcessCommand convert(AgencyDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
         DeleteAgency command = new DeleteAgency();
+
         ConverterHelper.checkIdRequired(dto, command, processError);
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
-       return command;
+
+        return command;
     }
 }

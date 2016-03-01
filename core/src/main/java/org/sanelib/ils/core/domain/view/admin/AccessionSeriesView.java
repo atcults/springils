@@ -4,12 +4,10 @@ import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithCode;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
 
-import java.util.Date;
-
 public class AccessionSeriesView implements DomainView, ViewWithCode {
 
     private Integer libraryId;
-    private String seriesName;
+    private String name;
     private AccessionSeriesType accessionSeriesType;
     private String prefix;
     private Integer maxNumber;
@@ -17,7 +15,7 @@ public class AccessionSeriesView implements DomainView, ViewWithCode {
 
     @Override
     public String getCode() {
-        return seriesName;
+        return name;
     }
 
     public Integer getLibraryId() {
@@ -28,12 +26,12 @@ public class AccessionSeriesView implements DomainView, ViewWithCode {
         this.libraryId = libraryId;
     }
 
-    public String getSeriesName() {
-        return seriesName;
+    public String getName() {
+        return name;
     }
 
-    public void setSeriesName(String seriesName) {
-        this.seriesName = seriesName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public AccessionSeriesType getAccessionSeriesType() {

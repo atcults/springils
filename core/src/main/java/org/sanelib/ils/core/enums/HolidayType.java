@@ -1,12 +1,11 @@
 package org.sanelib.ils.core.enums;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
 public enum HolidayType {
-    Repeated("R" , "Repeated"),
-    Specific("S" , "Specific");
+    Repeated("R", "Repeated"),
+    Specific("S", "Specific");
 
     private final String value;
     private final String name;

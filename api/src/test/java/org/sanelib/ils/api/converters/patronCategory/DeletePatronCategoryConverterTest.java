@@ -20,10 +20,10 @@ public class DeletePatronCategoryConverterTest {
         dto.setId("1");
         dto.setLibraryId("1");
 
-        ProcessError processError= new ProcessError();
+        ProcessError processError = new ProcessError();
 
         DeletePatronCategoryConverter converter = new DeletePatronCategoryConverter();
-        ProcessCommand command = converter.convert(dto , processError);
+        ProcessCommand command = converter.convert(dto, processError);
 
         assertTrue("Conversion error occurred", processError.isValid());
         assertTrue("Wrong output " + command, command instanceof DeletePatronCategory);

@@ -30,8 +30,8 @@ public class DeleteHolidayProcessTest extends EntityIntegrationTestBase{
 
         FiscalYear fiscalYear = new FiscalYear();
         fiscalYear.setLibraryId(library.getId());
-        fiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
-        fiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
+        fiscalYear.setStartDate(DateHelper.constructDate(2015, 4, 1));
+        fiscalYear.setEndDate(DateHelper.constructDate(2016, 3, 31));
 
         persist(fiscalYear);
 
@@ -39,7 +39,7 @@ public class DeleteHolidayProcessTest extends EntityIntegrationTestBase{
 
         holiday.setFiscalYearId(20152016);
         holiday.setLibraryId(library.getId());
-        holiday.setHolidayDate(DateHelper.constructDate(2016 , 2 , 12));
+        holiday.setHolidayDate(DateHelper.constructDate(2016, 2, 12));
         holiday.setHolidayType(HolidayType.Specific);
         holiday.setNote("Holiday");
         holiday.setUserCode("1");
@@ -51,8 +51,8 @@ public class DeleteHolidayProcessTest extends EntityIntegrationTestBase{
 
         deleteHoliday.setLibraryId(library.getId());
         deleteHoliday.setFiscalYearId(20152016);
-        deleteHoliday.setStartDate(DateHelper.constructDate(2016 , 2 , 11));
-        deleteHoliday.setEndDate(DateHelper.constructDate(2016 , 2 , 14));
+        deleteHoliday.setStartDate(DateHelper.constructDate(2016, 2, 11));
+        deleteHoliday.setEndDate(DateHelper.constructDate(2016, 2, 14));
         deleteHoliday.setHolidayType(HolidayType.Specific);
 
         String result = execute(deleteHoliday, ActivitiProcessConstants.Admin.DELETE_HOLIDAY);

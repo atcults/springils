@@ -14,8 +14,10 @@ public class DeletePatronConverter implements DtoToCommandConverter<PatronDto> {
     public ProcessCommand convert(PatronDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
 
         DeletePatron command = new DeletePatron();
+
         ConverterHelper.checkCodeRequired(dto, command, processError);
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
+
         return command;
     }
 }

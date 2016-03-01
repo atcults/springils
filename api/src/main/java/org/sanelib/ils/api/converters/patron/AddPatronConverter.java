@@ -20,7 +20,7 @@ public class AddPatronConverter implements DtoToCommandConverter<PatronDto> {
         AddPatron command = new AddPatron();
 
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
-        ConverterHelper.checkCodeRequired(dto,command , processError);
+        ConverterHelper.checkCodeRequired(dto,command, processError);
 
         command.setPatronCategoryId(Integer.parseInt(dto.getPatronCategoryId()));
         command.setOwns(dto.getOwns());
@@ -31,8 +31,8 @@ public class AddPatronConverter implements DtoToCommandConverter<PatronDto> {
         command.setFirstName(dto.getFirstName());
         command.setMiddleName(dto.getMiddleName());
         command.setLastName(dto.getLastName());
-        command.setAddress1(dto.getAddress1());
-        command.setAddress2(dto.getAddress2());
+        command.setAddressLine1(dto.getAddress1());
+        command.setAddressLine2(dto.getAddress2());
         command.setCity(dto.getCity());
         command.setState(dto.getState());
         command.setCountry(dto.getCountry());
@@ -62,8 +62,8 @@ public class AddPatronConverter implements DtoToCommandConverter<PatronDto> {
             command.setEmail(dto.getEmail());
         }
 
-        command.setPermanentAddress1(dto.getPermanentAddress1());
-        command.setPermanentAddress2(dto.getPermanentAddress2());
+        command.setPermanentAddressLine1(dto.getPermanentAddress1());
+        command.setPermanentAddressLine2(dto.getPermanentAddress2());
         command.setPermanentCity(dto.getPermanentCity());
         command.setPermanentState(dto.getPermanentState());
         command.setPermanentCountry(dto.getPermanentCountry());
