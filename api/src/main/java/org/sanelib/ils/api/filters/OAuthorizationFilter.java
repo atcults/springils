@@ -16,8 +16,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.google.common.base.Strings;
-import org.sanelib.ils.api.services.UserSession;
 import org.sanelib.ils.common.properties.MapDictionaryService;
+import org.sanelib.ils.common.session.UserSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +37,8 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 	private static final String INTERNAL_SERVER_ERROR = "common.server.error";
 	private static final String AUTH_HEADER_NOT_VALID = "common.oauth.authorization.header.not.valid";
 
-	@Context HttpServletRequest request;
+	@Context
+    HttpServletRequest request;
 
 	@Autowired
 	private Environment env;
@@ -45,7 +46,8 @@ public class OAuthorizationFilter implements ContainerRequestFilter{
 	@Autowired
 	private MapDictionaryService mapDictionaryService;
 
-	@Autowired UserSession userSession;
+	@Autowired
+    UserSession userSession;
 
 	@Override
 	public void filter(ContainerRequestContext containerRequestContext) throws IOException {
