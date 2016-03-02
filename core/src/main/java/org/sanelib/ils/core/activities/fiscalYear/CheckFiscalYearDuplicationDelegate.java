@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class CheckFiscalYearDuplicationDelegate implements JavaDelegate {
         FiscalYear dbFiscalYear = fiscalYears.isEmpty() ? null : fiscalYears.get(0);
 
         if(!isUpdate && dbFiscalYear != null){
-            processError.addError("common.field.duplicate", "id", "domain.common.id", String.valueOf(fiscalYearId));
+            processError.addError("common.field.duplicate", "id", Arrays.asList("domain.entity.fiscalYear", "domain.common.id"), String.valueOf(fiscalYearId));
         }
 
         if (!processError.isValid()) {

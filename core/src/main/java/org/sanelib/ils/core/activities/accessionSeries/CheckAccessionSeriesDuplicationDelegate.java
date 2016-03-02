@@ -45,7 +45,7 @@ public class CheckAccessionSeriesDuplicationDelegate implements JavaDelegate {
         if(!accessionSeries.isEmpty()) {
             if(!isUpdate || !Objects.equals(existingAccessionSeriesCode, accessionSeries.get(0).getAccessionSeriesCode().getCode())) {
                 processError.addError("common.field.duplicate", "accessionSeries.code",
-                        Arrays.asList("domain.entity.library", "domain.accessionSeries.code"), existingAccessionSeriesCode);
+                        Arrays.asList("domain.entity.accessionSeries", "domain.accessionSeries.code"), existingAccessionSeriesCode);
             }
         }
 
