@@ -2,6 +2,7 @@ package org.sanelib.ils.api.converters.library;
 
 import org.sanelib.ils.api.converters.AbstractViewToDtoConverterImpl;
 import org.sanelib.ils.api.dto.library.LibraryDto;
+import org.sanelib.ils.common.utils.StringHelper;
 import org.sanelib.ils.core.domain.view.admin.LibraryView;
 import org.springframework.stereotype.Component;
 
@@ -22,10 +23,10 @@ public class LibraryViewConverter extends AbstractViewToDtoConverterImpl<Library
         libraryDto.setCity(libraryView.getCity());
         libraryDto.setState(libraryView.getState());
         libraryDto.setPin(libraryView.getPin());
-        libraryDto.setPrimaryPhone(libraryView.getPrimaryPhone());
+        libraryDto.setPrimaryPhone(StringHelper.toOriginalString(libraryView.getPrimaryPhone()));
         libraryDto.setEmail(libraryView.getEmail());
-        libraryDto.setSecondaryPhone(libraryView.getSecondaryPhone());
-        libraryDto.setFax(libraryView.getFax());
+        libraryDto.setSecondaryPhone(StringHelper.toOriginalString(libraryView.getSecondaryPhone()));
+        libraryDto.setFax(StringHelper.toOriginalString(libraryView.getFax()));
         libraryDto.setCountry(libraryView.getCountry());
         libraryDto.setSearchForms(libraryView.getSearchForms());
         libraryDto.setFacebookWidget(libraryView.getFacebookWidget());
