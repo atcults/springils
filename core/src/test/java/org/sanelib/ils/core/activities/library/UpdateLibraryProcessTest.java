@@ -52,7 +52,7 @@ public class UpdateLibraryProcessTest extends EntityIntegrationTestBase {
 
         UpdateLibrary updateLibrary = new UpdateLibrary();
 
-        updateLibrary.setId(1);
+        updateLibrary.setId(library.getId());
         updateLibrary.setName("Updated name");
         updateLibrary.setSerialMaster("SerialMaster");
         updateLibrary.setCatalogueMaster("CatalogueMaster");
