@@ -23,7 +23,7 @@ public class FiscalYearViewRepository implements ViewService {
         return "select * from acc_fiscal_year";
     }
 
-    public List<FiscalYearView> getAllFiscalYears() throws Throwable {
+    public List<FiscalYearView> getAll() throws Throwable {
 
         return viewServiceHelper.loadQuery(getStatement(), mapper);
     }
