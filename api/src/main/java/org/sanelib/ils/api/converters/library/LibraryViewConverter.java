@@ -38,7 +38,7 @@ public class LibraryViewConverter extends AbstractViewToDtoConverterImpl<Library
         libraryDto.setMapWidget(libraryView.getMapWidget());
         libraryDto.setDescription(libraryView.getDescription());
         libraryDto.setWebStatistics(libraryView.getWebStatistics());
-        
+
         return libraryDto;
     }
 }

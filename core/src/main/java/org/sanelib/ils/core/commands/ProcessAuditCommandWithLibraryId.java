@@ -1,5 +1,8 @@
 package org.sanelib.ils.core.commands;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 public abstract class ProcessAuditCommandWithLibraryId extends ProcessCommandWithLibraryId {
 
     private String userCode;
@@ -23,9 +26,6 @@ public abstract class ProcessAuditCommandWithLibraryId extends ProcessCommandWit
 
     @Override
     public String toString() {
-        return "ProcessAuditCommandWithLibraryId{" +
-                "userCode=" + userCode +
-                ", userLibraryId=" + userLibraryId +
-                "} " + super.toString();
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

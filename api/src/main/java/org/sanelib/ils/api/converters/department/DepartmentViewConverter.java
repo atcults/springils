@@ -14,7 +14,7 @@ public class DepartmentViewConverter extends AbstractViewToDtoConverterImpl<Depa
 
         dto.setLibraryId(String.valueOf(departmentView.getLibraryId()));
         dto.setId(String.valueOf(departmentView.getId()));
-        dto.setName(departmentView.getDeptName());
+        dto.setName(departmentView.getName());
         dto.setHodId(departmentView.getHodId());
 
         return dto;

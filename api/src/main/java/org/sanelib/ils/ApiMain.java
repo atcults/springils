@@ -6,6 +6,8 @@ import org.sanelib.ils.common.session.impl.UserSessionImpl;
 import org.sanelib.ils.common.utils.Clock;
 import org.sanelib.ils.common.utils.SystemClock;
 import org.sanelib.ils.core.dao.UnitOfWork;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -21,6 +23,8 @@ import java.util.Locale;
 @SpringBootApplication
 @EnableAspectJAutoProxy
 public class ApiMain implements CommandLineRunner {
+
+	private static final Logger LOG = LoggerFactory.getLogger(ApiMain.class);
 
 	@Autowired
 	private AppProperties appProperties;
@@ -42,13 +46,13 @@ public class ApiMain implements CommandLineRunner {
         return new SystemClock();
     }
 
-    //TODO: Use user session with OAUTH for actual usage. Using it fake for now.
-    @Bean
-  //  @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
+	@Bean
+  	@Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
     public UserSession userSession(){
         UserSession userSession = new UserSessionImpl();
-        userSession.setUserCode("1");
-        userSession.setLibraryId(1);
+		//TODO : Remove it once they are set in OAuthorizationFilter and it is register with JerseyConfig
+		userSession.setLibraryId(1);
+		userSession.setUserCode("1");
         return userSession;
     }
 
@@ -56,6 +60,5 @@ public class ApiMain implements CommandLineRunner {
     @Scope(value = "request", proxyMode = ScopedProxyMode.TARGET_CLASS)
     public UnitOfWork unitOfWork(){
         return new UnitOfWork(this.entityManagerFactory);
-
     }
 }

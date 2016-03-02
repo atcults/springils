@@ -62,8 +62,8 @@ public class HolidayDto implements DtoWithLibraryId{
         this.note = note;
     }
 
+    @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
-
 }

@@ -14,7 +14,7 @@ public class CourseViewConverter extends AbstractViewToDtoConverterImpl<CourseDt
 
         courseDto.setLibraryId(String.valueOf(courseView.getLibraryId()));
         courseDto.setId(String.valueOf(courseView.getId()));
-        courseDto.setName(courseView.getCourseName());
+        courseDto.setName(courseView.getName());
         courseDto.setPromotedCourseId(String.valueOf(courseView.getPromotedCourseId()));
 
         return courseDto;

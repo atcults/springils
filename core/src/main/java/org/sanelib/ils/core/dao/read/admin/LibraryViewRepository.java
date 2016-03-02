@@ -19,11 +19,11 @@ public class LibraryViewRepository implements ViewService {
     @Autowired
     ViewServiceHelper viewServiceHelper;
 
-    private String getStatement() {
+    protected String getStatement() {
         return "select * from library";
     }
 
-   public List<LibraryView> getAll() throws Throwable {
+    public List<LibraryView> getAll() throws Throwable {
         return viewServiceHelper.loadQuery(getStatement(), mapper);
     }
 }

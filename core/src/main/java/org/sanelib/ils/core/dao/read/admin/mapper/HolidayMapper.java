@@ -14,15 +14,15 @@ public class HolidayMapper implements ViewMapper<HolidayView> {
     public HolidayView map(final DataResultSet rs) throws SQLException {
         final String viewName = "adm_co_holiday";
 
-        final HolidayView view = new HolidayView();
+        final HolidayView holidayView = new HolidayView();
 
-        view.setLibraryId(rs.getInt(viewName, "library_id"));
-        view.setFiscalYearId(rs.getInt(viewName, "fiscal_year"));
-        view.setHolidayType(HolidayType.getByValue(rs.getString(viewName, "holi_type")));
-        view.setHolidayDate(rs.getDate(viewName, "holiday"));
-        view.setNote(rs.getString(viewName, "note"));
+        holidayView.setLibraryId(rs.getInt(viewName, "library_id"));
+        holidayView.setFiscalYearId(rs.getInt(viewName, "fiscal_year"));
+        holidayView.setHolidayType(HolidayType.getByValue(rs.getString(viewName, "holi_type")));
+        holidayView.setHolidayDate(rs.getDate(viewName, "holiday"));
+        holidayView.setNote(rs.getString(viewName, "note"));
 
-        return view;
+        return holidayView;
     }
 }
 

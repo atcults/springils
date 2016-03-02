@@ -20,7 +20,7 @@ public class AddPublisherConverter implements DtoToCommandConverter<PublisherDto
 
         //Check name and convert
         if(Strings.isNullOrEmpty(dto.getName())){
-            processError.addError("common.field.required", "name", "domain.publisher.name");
+            processError.addError("common.field.required", "name", "domain.common.name");
         }else{
             command.setName(dto.getName());
         }

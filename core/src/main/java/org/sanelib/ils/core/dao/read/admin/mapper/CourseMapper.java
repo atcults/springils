@@ -20,7 +20,7 @@ public class CourseMapper implements ViewMapper<CourseView> {
 
         courseView.setLibraryId(rs.getInt(viewName, "library_id"));
         courseView.setId(rs.getInt(viewName, "course_id"));
-        courseView.setCourseName(rs.getString(viewName, "course_name"));
+        courseView.setName(rs.getString(viewName, "course_name"));
         courseView.setPromotedCourseId(rs.getInt(viewName, "p_course_id"));
 
         return courseView;

@@ -62,8 +62,8 @@ public class FiscalYearDto implements DtoWithId, DtoWithLibraryId {
         this.endDate = endDate;
     }
 
+    @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
-
 }

@@ -45,8 +45,8 @@ public class CheckPatronDuplicationDelegate implements JavaDelegate {
 
         if(!patron.isEmpty()) {
             if(!isUpdate || !Objects.equals(code, patron.get(0).getPatronCode().getCode())) {
-                processError.addError("common.field.duplicate", "patron.code",
-                        Arrays.asList("domain.entity.library", "domain.patron.code"), code);
+                processError.addError("common.field.duplicate", "code",
+                        Arrays.asList("domain.entity.patron", "domain.common.code"), code);
             }
         }
 

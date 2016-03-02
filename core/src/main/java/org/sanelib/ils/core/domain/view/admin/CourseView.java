@@ -10,7 +10,7 @@ public class CourseView implements DomainView, ViewWithId{
 
     private Integer libraryId;
     private Integer id;
-    private String courseName;
+    private String name;
     private Integer promotedCourseId;
 
     public Integer getLibraryId() {
@@ -21,12 +21,12 @@ public class CourseView implements DomainView, ViewWithId{
         this.libraryId = libraryId;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getName() {
+        return name;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Integer getPromotedCourseId() {

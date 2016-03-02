@@ -41,6 +41,7 @@ subprojects {
     }
 
     dependencies {
+        compile 'org.apache.commons:commons-lang3:3.4'
         compile 'org.codehaus.groovy:groovy-all:2.4.5'
         compile 'com.google.guava:guava:19.0-rc2'
         testCompile 'org.springframework.boot:spring-boot-starter-test'
