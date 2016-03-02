@@ -22,7 +22,7 @@ public class AddCourseConverter implements DtoToCommandConverter<CourseDto> {
             command.setName(dto.getName());
         }
 
-        command.setPromotedCourseId(Integer.parseInt(dto.getPromotedCourseId()));
+        command.setPromotedCourseId(ConverterHelper.checkOptionalInteger("promotedCourseId", dto.getPromotedCourseId(), "domain.course.promotedCourseId", processError));
 
         return command;
     }

@@ -70,6 +70,7 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
                 entity.setHolidayDate(currDate);
                 entity.setFiscalYearId(command.getFiscalYearId());
                 entity.setUserCode(command.getUserCode());
+                entity.setUserLibraryId(command.getUserLibraryId());
                 entity.setHolidayType(command.getHolidayType());
                 entity.setNote(command.getNote());
                 holidayRepository.save(entity);
@@ -77,6 +78,7 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
             } else if(Objects.equals(command.getHolidayType(), HolidayType.Specific)) {
                 Holiday entity = existingHolidays.get(currDate);
                 entity.setUserCode(command.getUserCode());
+                entity.setUserLibraryId(command.getUserLibraryId());
                 entity.setHolidayType(command.getHolidayType());
                 entity.setNote(command.getNote());
                 holidayRepository.update(entity);

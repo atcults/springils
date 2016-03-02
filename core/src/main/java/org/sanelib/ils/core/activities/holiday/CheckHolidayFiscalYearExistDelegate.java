@@ -2,7 +2,6 @@ package org.sanelib.ils.core.activities.holiday;
 
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.JavaDelegate;
-import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.commands.holiday.AddHoliday;
 import org.sanelib.ils.core.commands.holiday.DeleteHoliday;
@@ -50,7 +49,7 @@ public class CheckHolidayFiscalYearExistDelegate implements JavaDelegate {
         FiscalYear fiscalYear = fiscalYearRepository.get(new FiscalYearId(libraryId, id));
 
         if(fiscalYear == null){
-            processError.addError("common.field.notExist", "id", Arrays.asList(((ProcessCommand) command).getRootEntityName(), "domain.common.id"), String.valueOf(id));
+            processError.addError("common.field.notExist", "id", Arrays.asList("domain.entity.fiscalYear", "domain.common.id"), String.valueOf(id));
         }
 
         if(!processError.isValid()){
