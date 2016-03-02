@@ -30,7 +30,6 @@ library:
   serialMaster: Serial Master
   catalogueMaster: Catalogue Master
   acquisitionsMaster: Acquisitions Master
-  createdOn: CreatedOn
   acquisitionStatus: Acquisition Status
   cataloguingStatus: Cataloguing Status
   smStatus: Sm Status
