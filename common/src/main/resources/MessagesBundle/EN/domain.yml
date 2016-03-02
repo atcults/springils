@@ -36,9 +36,6 @@ entity:
 
 
 library:
-  city: City
-  state: State
-  country: Country
   serialMaster: Serial Master
   catalogueMaster: Catalogue Master
   acquisitionsMaster: Acquisitions Master
@@ -46,13 +43,6 @@ library:
   cataloguingStatus: Cataloguing Status
   smStatus: Sm Status
   hostLibraryId: Host Library Id
-  addressLine1: Address Line1
-  addressLine2: Address Line2
-  pin: Pin
-  primaryPhone: Primary Phone
-  email: Email
-  secondaryPhone: Secondary Phone
-  fax: Fax
   networkName: Network Name
   searchForms: Search Forms
   facebookWidget: Facebook Widget

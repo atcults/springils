@@ -32,36 +32,36 @@ public class AddLibraryConverter implements DtoToCommandConverter<LibraryDto> {
         command.setAddressLine2(dto.getAddressLine2());
         command.setCity(dto.getCity());
 
-        if(ConverterHelper.checkRequiredLength(dto.getState(), 2, "state", "domain.library.state", processError)){
+        if(ConverterHelper.checkRequiredLength(dto.getState(), 2, "state", "domain.address.state", processError)){
             command.setState(dto.getState());
         }
 
         if(!RegularExpressionHelper.checkZipCodeFormat(dto.getPin())) {
-            processError.addError("common.field.pattern", "pin", "domain.library.pin", RegularExpressionHelper.ZIP_FORMAT_EXAMPLE);
+            processError.addError("common.field.pattern", "pin", "domain.address.pin", RegularExpressionHelper.ZIP_FORMAT_EXAMPLE);
         } else {
             command.setPin(dto.getPin());
         }
 
         if(!RegularExpressionHelper.checkPhoneFormat(dto.getPrimaryPhone())) {
-            processError.addError("common.field.pattern", "phone1", "domain.library.primaryPhone", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
+            processError.addError("common.field.pattern", "phone1", "domain.address.primaryPhone", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
         } else {
             command.setPrimaryPhone(StringHelper.convertPhoneNumber(dto.getPrimaryPhone()));
         }
 
         if(!RegularExpressionHelper.checkEmailFormat(dto.getEmail())) {
-            processError.addError("common.field.pattern", "email", "domain.library.email", RegularExpressionHelper.EMAIL_FORMAT_EXAMPLE);
+            processError.addError("common.field.pattern", "email", "domain.address.email", RegularExpressionHelper.EMAIL_FORMAT_EXAMPLE);
         } else {
             command.setEmail(dto.getEmail());
         }
 
         if(!RegularExpressionHelper.checkPhoneFormat(dto.getSecondaryPhone())) {
-            processError.addError("common.field.pattern", "phone2", "domain.library.secondaryPhone", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
+            processError.addError("common.field.pattern", "phone2", "domain.address.secondaryPhone", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
         } else {
             command.setSecondaryPhone(StringHelper.convertPhoneNumber(dto.getSecondaryPhone()));
         }
 
         if(!RegularExpressionHelper.checkPhoneFormat(dto.getFax())) {
-            processError.addError("common.field.pattern", "fax", "domain.library.fax", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
+            processError.addError("common.field.pattern", "fax", "domain.address.fax", RegularExpressionHelper.PHONE_FORMAT_EXAMPLE);
         } else {
             command.setFax(StringHelper.convertPhoneNumber(dto.getFax()));
         }
