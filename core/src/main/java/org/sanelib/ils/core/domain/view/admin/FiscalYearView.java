@@ -7,12 +7,21 @@ import java.util.Date;
 
 public class FiscalYearView implements DomainView, ViewWithId {
 
+    private Integer libraryId;
     private Integer id;
     private Integer startYear;
     private Integer endYear;
     private Date startDate;
     private Date endDate;
 
+
+    public Integer getLibraryId() {
+        return libraryId;
+    }
+
+    public void setLibraryId(Integer libraryId) {
+        this.libraryId = libraryId;
+    }
 
     @Override
     public Integer getId() {
