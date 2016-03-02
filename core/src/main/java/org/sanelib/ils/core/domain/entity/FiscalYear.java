@@ -32,8 +32,8 @@ public class FiscalYear implements DomainEntity{
     @Column(name = "year2")
     private Integer endYear;
 
-    @Column(name = "status")
-    String status;
+    @Column(name = "status" , length = 1)
+    private String status;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -94,7 +94,8 @@ public class FiscalYear implements DomainEntity{
 
     @PrePersist
     public void prePersist() {
-        status = "0";
+        status = "O";
+
         startYear = 0;
         if(startDate != null){
             Calendar cal = Calendar.getInstance();
