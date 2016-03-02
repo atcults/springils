@@ -310,10 +310,6 @@ public class Library implements DomainEntity {
         this.webStatistics = webStatistics;
     }
 
-    public final boolean isPersisted() {
-        return id == 0;
-    }
-
     @Override
     public int hashCode() {
         return this.id;
