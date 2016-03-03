@@ -39,11 +39,8 @@ agency:
   name: Name
 
 serialBoundVolume:
-  name: Name
   color: Color
   price: Price
-  entryId: Entry Id
-  entryDate: Entry Date
 
 author:
   lname: Last Name

@@ -19,13 +19,13 @@ public class AddSerialBoundVolumeConverter implements DtoToCommandConverter<Seri
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
 
         if(Strings.isNullOrEmpty(dto.getName())){
-            processError.addError("common.field.required", "name", "domain.serialBoundVolume.name");
+            processError.addError("common.field.required", "name", "domain.common.name");
         } else{
             command.setName(dto.getName());
         }
 
         command.setColor(dto.getColor());
-        command.setPrice(Double.valueOf(dto.getPrice()));
+        command.setPrice(ConverterHelper.checkOptionalPositiveDecimal("price" , dto.getPrice(),"domain.serialBoundVolume.price" , 0.00, processError));
 
         return command;
     }
