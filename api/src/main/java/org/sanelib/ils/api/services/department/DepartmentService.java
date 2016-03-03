@@ -36,7 +36,7 @@ public class DepartmentService extends ApiServiceBase {
 
     @GET
     @SuppressWarnings("unchecked")
-    public List getAllPatronCategories() throws Throwable {
+    public List getAllDepartment() throws Throwable {
         List dtoList = new ArrayList<>();
         List viewList = departmentViewRepository.getAll();
         dtoList.addAll((Collection) viewList.stream().map(v -> departmentViewConverter.convert((DepartmentView) v)).collect(Collectors.toList()));

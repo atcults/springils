@@ -14,14 +14,14 @@ public class BindingTypeMapper implements ViewMapper<BindingTypeView> {
 
         final String viewName = "cir_co_bind_types";
 
-        final BindingTypeView view = new BindingTypeView();
+        final BindingTypeView bindingTypeView = new BindingTypeView();
 
-        view.setLibraryId(rs.getInt(viewName, "library_id"));
-        view.setId(rs.getInt(viewName, "bind_type_id"));
-        view.setBindType(rs.getString(viewName, "bind_type"));
-        view.setPrice(rs.getDouble(viewName, "price"));
+        bindingTypeView.setLibraryId(rs.getInt(viewName, "library_id"));
+        bindingTypeView.setId(rs.getInt(viewName, "bind_type_id"));
+        bindingTypeView.setBindType(rs.getString(viewName, "bind_type"));
+        bindingTypeView.setPrice(rs.getDouble(viewName, "price"));
 
-        return view;
+        return bindingTypeView;
     }
 }
 

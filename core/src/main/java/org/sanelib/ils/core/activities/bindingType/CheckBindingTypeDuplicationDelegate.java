@@ -43,7 +43,7 @@ public class CheckBindingTypeDuplicationDelegate implements JavaDelegate {
         BindingType dbBindingType = bindingTypes.isEmpty() ? null : bindingTypes.get(0);
 
         if(dbBindingType != null && (!isUpdate || !Objects.equals(bindingTypeId, dbBindingType.getBindingTypeId().getId()))){
-            processError.addError("common.field.duplicate", "bindType", Arrays.asList("domain.entity.library", "domain.bindingType.bindType"), bindingType);
+            processError.addError("common.field.duplicate", "bindType", Arrays.asList("domain.entity.bindingType", "domain.bindingType.bindType"), bindingType);
         }
 
         if(!processError.isValid()){

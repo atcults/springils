@@ -35,9 +35,9 @@ public class AgencyDto implements DtoWithId, DtoWithLibraryId {
         this.libraryId = libraryId;
     }
 
+    @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
-
 }
 

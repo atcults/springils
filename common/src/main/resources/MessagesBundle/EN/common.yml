@@ -23,3 +23,8 @@ date:
 holiday:
   startDateOutOfRange: ~0 should not be in past date. Today is ^0
   endDateOutOfRange: ~0 should not after fiscal year end date ^0
+
+oauth:
+  server.endpoint.not.configured: Authorization server endpoint is not configured.
+  user.request.rejected: Access token is not valid.Please generate access token using valid refresh token or regenerate access token.
+  authorization.header.not.valid: Authentication header value is not valid or present in the request.

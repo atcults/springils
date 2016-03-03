@@ -30,10 +30,8 @@ public class MapDictionaryServiceImpl implements MapDictionaryService {
     private final Map<String, Map<String, String>> mapDictionary = new ConcurrentHashMap<>();
 
 	private Map<String, String> buildMapDictionary(String locale) {
-
+		LOG.info("Generating MapDictionary");
 		String messageBundle = appProperties.getMessageBundle();
-
-		LOG.info("Generating MapDictionary.....................");
 
 		Map<String, String> keyValuePair = new HashMap<>();
 		String directoryPath = "classpath:MessagesBundle/" + locale + "/*." + messageBundle;
@@ -57,7 +55,7 @@ public class MapDictionaryServiceImpl implements MapDictionaryService {
 			LOG.error("Directory/Locale Not Found.");
 		}
 
-		LOG.info("Finished Generating MapDictionary...............");
+		LOG.info("Finished Generating MapDictionary");
 
 		return keyValuePair;
 	}

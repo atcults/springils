@@ -19,7 +19,7 @@ public class DepartmentViewRepository implements ViewService {
     @Autowired
     ViewServiceHelper viewServiceHelper;
 
-    public String getStatement() {
+    protected String getStatement() {
         return "select * from dept";
     }
 

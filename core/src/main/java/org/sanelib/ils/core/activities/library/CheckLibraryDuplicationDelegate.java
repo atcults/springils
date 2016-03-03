@@ -42,7 +42,7 @@ public class CheckLibraryDuplicationDelegate implements JavaDelegate {
         Library dbLibrary = libraries.isEmpty() ? null : libraries.get(0);
 
         if(dbLibrary != null && (!isUpdate || !Objects.equals(libraryId, dbLibrary.getId()))){
-            processError.addError("common.field.duplicate", "name", Arrays.asList("domain.entity.library", "domain.library.name"), libraryName);
+            processError.addError("common.field.duplicate", "name", Arrays.asList("domain.entity.library", "domain.common.name"), libraryName);
         }
 
         if(!processError.isValid()){
