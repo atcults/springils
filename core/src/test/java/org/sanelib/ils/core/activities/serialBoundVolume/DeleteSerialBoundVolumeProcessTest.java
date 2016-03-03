@@ -40,7 +40,7 @@ public class DeleteSerialBoundVolumeProcessTest extends EntityIntegrationTestBas
         deleteSerialBoundVolume.setId(serialBoundVolume.getSerialBoundVolumeId().getId());
         deleteSerialBoundVolume.setLibraryId(library.getId());
 
-        String result = execute(deleteSerialBoundVolume, ActivitiProcessConstants.Admin.DELETE_SERIALBOUNDVOLUME);
+        String result = execute(deleteSerialBoundVolume, ActivitiProcessConstants.Admin.DELETE_SERIAL_BOUND_VOLUME);
 
         assertNull(result);
 

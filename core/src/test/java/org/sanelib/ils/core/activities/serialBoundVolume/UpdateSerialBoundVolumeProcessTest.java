@@ -43,7 +43,7 @@ public class UpdateSerialBoundVolumeProcessTest extends EntityIntegrationTestBas
         updateSerialBoundVolume.setColor("Updated Color");
         updateSerialBoundVolume.setPrice(10.10);
 
-        String result = execute(updateSerialBoundVolume, ActivitiProcessConstants.Admin.UPDATE_SERIALBOUNDVOLUME);
+        String result = execute(updateSerialBoundVolume, ActivitiProcessConstants.Admin.UPDATE_SERIAL_BOUND_VOLUME);
 
         assertNull(result);
 

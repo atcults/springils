@@ -36,7 +36,7 @@ public class SerialBoundVolumeService extends ApiServiceBase {
 
     @GET
     @SuppressWarnings("unchecked")
-    public List getAllAgencies() throws Throwable {
+    public List getAllSerialBoundVolume() throws Throwable {
 
         List dtoList = new ArrayList<>();
         List viewList = serialBoundVolumeViewRepository.getAll();
@@ -48,12 +48,12 @@ public class SerialBoundVolumeService extends ApiServiceBase {
 
     @POST
     public String addSerialBoundVolume(SerialBoundVolumeDto dto) throws Throwable {
-        return execute(dto, ActivitiProcessConstants.Admin.ADD_SERIALBOUNDVOLUME);
+        return execute(dto, ActivitiProcessConstants.Admin.ADD_SERIAL_BOUND_VOLUME);
     }
 
     @PUT
     public String updateSerialBoundVolume(SerialBoundVolumeDto dto) throws Throwable {
-        return execute(dto, ActivitiProcessConstants.Admin.UPDATE_SERIALBOUNDVOLUME);
+        return execute(dto, ActivitiProcessConstants.Admin.UPDATE_SERIAL_BOUND_VOLUME);
     }
 
     @DELETE
@@ -64,6 +64,6 @@ public class SerialBoundVolumeService extends ApiServiceBase {
         serialBoundVolumeDto.setLibraryId(libraryId);
         serialBoundVolumeDto.setId(id);
 
-        return execute(serialBoundVolumeDto, ActivitiProcessConstants.Admin.DELETE_SERIALBOUNDVOLUME);
+        return execute(serialBoundVolumeDto, ActivitiProcessConstants.Admin.DELETE_SERIAL_BOUND_VOLUME);
     }
 }
