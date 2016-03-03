@@ -12,15 +12,15 @@ public class SerialBoundVolumeMapper implements ViewMapper<SerialBoundVolumeView
     @Override
     public SerialBoundVolumeView map(DataResultSet rs) throws SQLException {
 
-        final String sm_co_bind_specification = "sm_co_bind_specification";
+        final String viewName = "sm_co_bind_specification";
 
         final SerialBoundVolumeView serialBoundVolumeView=new SerialBoundVolumeView();
 
-        serialBoundVolumeView.setLibraryId(rs.getInt(sm_co_bind_specification,"library_id"));
-        serialBoundVolumeView.setBindTypeId(rs.getInt(sm_co_bind_specification,"bind_type_id"));
-        serialBoundVolumeView.setName(rs.getString(sm_co_bind_specification,"name"));
-        serialBoundVolumeView.setColor(rs.getString(sm_co_bind_specification,"color"));
-        serialBoundVolumeView.setPrice(rs.getDouble(sm_co_bind_specification,"price"));
+        serialBoundVolumeView.setLibraryId(rs.getInt(viewName,"library_id"));
+        serialBoundVolumeView.setBindTypeId(rs.getInt(viewName,"bind_type_id"));
+        serialBoundVolumeView.setName(rs.getString(viewName,"name"));
+        serialBoundVolumeView.setColor(rs.getString(viewName,"color"));
+        serialBoundVolumeView.setPrice(rs.getDouble(viewName,"price"));
 
         return serialBoundVolumeView;
     }

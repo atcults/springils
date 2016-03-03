@@ -19,12 +19,12 @@ public class SerialBoundVolumeViewRepository implements ViewService {
     @Autowired
     ViewServiceHelper viewServiceHelper;
 
-    protected String getStatements() {
+    protected String getStatement() {
         return "select * from sm_co_bind_specification";
     }
 
     public List<SerialBoundVolumeView> getAll() throws Throwable {
 
-        return viewServiceHelper.loadQuery(getStatements(), mapper);
+        return viewServiceHelper.loadQuery(getStatement(), mapper);
     }
 }
