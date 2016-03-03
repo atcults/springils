@@ -1,5 +1,7 @@
 package org.sanelib.ils.core.domain.view.admin;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithId;
 
@@ -39,12 +41,7 @@ public class SerialBoundVolumeView implements DomainView, ViewWithId {
 
     @Override
     public String toString() {
-        return "SerialBoundVolumeView{" +
-                "libraryId=" + libraryId +
-                ", bindTypeId=" + bindTypeId +
-                ", name='" + name + '\'' +
-                ", color='" + color + '\'' +
-                ", price=" + price +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
+
 }
