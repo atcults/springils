@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-@Path(ApiEndPointConstants.Admin.SERIALBOUNDVOLUME_END_POINT)
+@Path(ApiEndPointConstants.Admin.SERIAL_BOUND_VOLUME_END_POINT)
 @Produces(MediaType.APPLICATION_JSON)
 public class SerialBoundVolumeService extends ApiServiceBase {
 
