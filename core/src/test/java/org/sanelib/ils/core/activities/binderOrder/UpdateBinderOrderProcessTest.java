@@ -62,7 +62,7 @@ public class UpdateBinderOrderProcessTest extends EntityIntegrationTestBase {
         updateBinderOrder.setPrintStatus(true);
         updateBinderOrder.setStatus("Updated Status");
 
-        String result = execute(updateBinderOrder, ActivitiProcessConstants.Admin.UPDATE_BINDERORDER);
+        String result = execute(updateBinderOrder, ActivitiProcessConstants.Admin.UPDATE_BINDER_ORDER);
 
         assertNull(result);
 

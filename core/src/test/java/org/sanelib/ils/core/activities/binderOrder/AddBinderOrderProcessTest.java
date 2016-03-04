@@ -46,7 +46,7 @@ public class AddBinderOrderProcessTest extends EntityIntegrationTestBase {
         addBinderOrder.setPrintStatus(true);
         addBinderOrder.setStatus("SetStatus");
 
-        String result = execute(addBinderOrder, ActivitiProcessConstants.Admin.ADD_BINDERORDER);
+        String result = execute(addBinderOrder, ActivitiProcessConstants.Admin.ADD_BINDER_ORDER);
 
         assertNotNull(result);
 

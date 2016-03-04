@@ -48,7 +48,7 @@ public class DeleteBinderOrderProcessTest extends EntityIntegrationTestBase {
         deleteBinderOrder.setId(binderOrder.getBinderOrderId().getId());
         deleteBinderOrder.setLibraryId(library.getId());
 
-        String result = execute(deleteBinderOrder, ActivitiProcessConstants.Admin.DELETE_BINDERORDER);
+        String result = execute(deleteBinderOrder, ActivitiProcessConstants.Admin.DELETE_BINDER_ORDER);
 
         assertNull(result);
 

@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-@Path(ApiEndPointConstants.Admin.BINDERORDER_END_POINT)
+@Path(ApiEndPointConstants.Admin.BINDER_ORDER_END_POINT)
 @Produces(MediaType.APPLICATION_JSON)
 public class BinderOrderService extends ApiServiceBase {
 
@@ -47,12 +47,12 @@ public class BinderOrderService extends ApiServiceBase {
 
     @POST
     public String addBinderOrder(BinderOrderDto dto) throws Throwable {
-        return execute(dto, ActivitiProcessConstants.Admin.ADD_BINDERORDER);
+        return execute(dto, ActivitiProcessConstants.Admin.ADD_BINDER_ORDER);
     }
 
     @PUT
     public String updateBinderOrder(BinderOrderDto dto) throws Throwable {
-        return execute(dto, ActivitiProcessConstants.Admin.UPDATE_BINDERORDER);
+        return execute(dto, ActivitiProcessConstants.Admin.UPDATE_BINDER_ORDER);
     }
 
     @DELETE
@@ -63,6 +63,6 @@ public class BinderOrderService extends ApiServiceBase {
         binderOrderDto.setLibraryId(libraryId);
         binderOrderDto.setId(id);
 
-        return execute(binderOrderDto, ActivitiProcessConstants.Admin.DELETE_BINDERORDER);
+        return execute(binderOrderDto, ActivitiProcessConstants.Admin.DELETE_BINDER_ORDER);
     }
 }
