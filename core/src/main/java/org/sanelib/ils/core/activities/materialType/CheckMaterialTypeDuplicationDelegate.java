@@ -37,7 +37,7 @@ public class CheckMaterialTypeDuplicationDelegate implements JavaDelegate {
         MaterialType dbMaterialType = materialTypes.isEmpty() ? null : materialTypes.get(0);
 
         if(dbMaterialType != null){
-            processError.addError("common.field.duplicate", "materialType", Arrays.asList("domain.entity.materialType", "domain.materialType.materialType"), materialType);
+            processError.addError("common.field.duplicate", "materialType", Arrays.asList("domain.entity.materialType", "domain.common.name"), materialType);
         }
 
         if(!processError.isValid()){
