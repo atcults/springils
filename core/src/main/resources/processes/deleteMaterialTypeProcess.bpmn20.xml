@@ -13,7 +13,7 @@
     <process id="deleteMaterialTypeProcess" name="deleteMaterialTypeProcess" isExecutable="true">
         <documentation>To process delete materiaType command</documentation>
         <startEvent id="startProcessID" name="start"/>
-        <serviceTask id="checkMaterialExist" name="materialTypeExistance" activiti:delegateExpression="${checkIdReferenceDelegate}"/>
+        <serviceTask id="checkMaterialExist" name="materialTypeExistance" activiti:delegateExpression="${checkMaterialTypeIdReferenceDelegate}"/>
         <serviceTask id="processDeleteMaterialType" name="processDeleteMaterialTypeProcess" activiti:delegateExpression="${processDeleteMaterialTypeDelegate}"/>
         <endEvent id="endProcessID" name="end"/>
 
