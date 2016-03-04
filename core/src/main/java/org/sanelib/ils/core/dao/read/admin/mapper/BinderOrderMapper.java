@@ -25,8 +25,8 @@ public class BinderOrderMapper implements ViewMapper<BinderOrderView> {
         view.setFormLetterNo(rs.getString(viewName, "form_letter_no"));
         view.setSubject(rs.getString(viewName, "subject"));
         view.setContent(rs.getString(viewName, "content"));
-        view.setMailStatus(Objects.equals(rs.getString(viewName, "mail_status"),"Y"));
-        view.setPrintStatus(Objects.equals(rs.getString(viewName, "print_status"),"Y"));
+        view.setMailStatus(Objects.equals(rs.getString(viewName, "mail_status"), "Y"));
+        view.setPrintStatus(Objects.equals(rs.getString(viewName, "print_status"), "Y"));
         view.setStatus(rs.getString(viewName, "status"));
 
         return view;

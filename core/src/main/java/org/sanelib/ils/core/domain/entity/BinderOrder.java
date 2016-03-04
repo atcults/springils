@@ -37,10 +37,10 @@ public class BinderOrder implements DomainEntity{
     @Column(name = "content")
     private String content;
 
-    @Column(name = "mail_status")
+    @Column(name = "mail_status" , length = 1)
     private char mailStatus;
 
-    @Column(name = "print_status")
+    @Column(name = "print_status" , length = 1)
     private char printStatus;
 
     @Column(name = "status")
