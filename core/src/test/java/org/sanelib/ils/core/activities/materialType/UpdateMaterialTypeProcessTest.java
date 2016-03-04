@@ -34,7 +34,7 @@ public class UpdateMaterialTypeProcessTest extends EntityIntegrationTestBase{
         updateMaterialType.setId(materialType.getId());
         updateMaterialType.setMaterialType("Book");
 
-        String result = execute(updateMaterialType, ActivitiProcessConstants.Admin.UPDATE_MATERIALTYPE);
+        String result = execute(updateMaterialType, ActivitiProcessConstants.Admin.UPDATE_MATERIAL_TYPE);
 
         assertNull(result);
     }

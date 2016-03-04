@@ -47,12 +47,12 @@ public class MaterialTypeService extends ApiServiceBase {
 
     @POST
     public String addMaterialType(MaterialTypeDto dto) throws Throwable {
-        return execute(dto, ActivitiProcessConstants.Admin.ADD_MATERIALTYPE);
+        return execute(dto, ActivitiProcessConstants.Admin.ADD_MATERIAL_TYPE);
     }
 
     @PUT
     public String updateLibrary(MaterialTypeDto dto) throws Throwable {
-        return execute(dto, ActivitiProcessConstants.Admin.UPDATE_MATERIALTYPE);
+        return execute(dto, ActivitiProcessConstants.Admin.UPDATE_MATERIAL_TYPE);
     }
 
     @DELETE
@@ -62,6 +62,6 @@ public class MaterialTypeService extends ApiServiceBase {
 
         materialTypeDto.setId(id);
 
-        return execute(materialTypeDto, ActivitiProcessConstants.Admin.DELETE_MATERIALTYPE);
+        return execute(materialTypeDto, ActivitiProcessConstants.Admin.DELETE_MATERIAL_TYPE);
     }
 }

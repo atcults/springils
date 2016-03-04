@@ -20,16 +20,16 @@ public class DeleteMaterialTypeProcessTest extends EntityIntegrationTestBase{
 
         MaterialType materialType = new MaterialType();
 
-        materialType.setId(2);
+        materialType.setId(7);
         materialType.setMaterialType("MicroForm");
 
         persist(materialType);
 
         DeleteMaterialType deleteMaterialType = new DeleteMaterialType();
 
-        deleteMaterialType.setId(2);
+        deleteMaterialType.setId(7);
 
-        String result = execute(deleteMaterialType, ActivitiProcessConstants.Admin.DELETE_MATERIALTYPE);
+        String result = execute(deleteMaterialType, ActivitiProcessConstants.Admin.DELETE_MATERIAL_TYPE);
 
         assertNull(result);
 

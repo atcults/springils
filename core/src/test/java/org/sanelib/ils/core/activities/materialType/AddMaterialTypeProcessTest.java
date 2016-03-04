@@ -26,7 +26,7 @@ public class AddMaterialTypeProcessTest extends EntityIntegrationTestBase {
 
         addMaterialType.setMaterialType("MicroForm1");
 
-        String result = execute(addMaterialType, ActivitiProcessConstants.Admin.ADD_MATERIALTYPE);
+        String result = execute(addMaterialType, ActivitiProcessConstants.Admin.ADD_MATERIAL_TYPE);
 
         Integer materialTypeId = Integer.parseInt(result);
 
