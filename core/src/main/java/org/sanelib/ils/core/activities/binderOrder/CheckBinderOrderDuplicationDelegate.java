@@ -44,7 +44,7 @@ public class CheckBinderOrderDuplicationDelegate implements JavaDelegate {
         BinderOrder dbBinderOrder = binderOrders.isEmpty() ? null : binderOrders.get(0);
 
         if(dbBinderOrder != null && (!isUpdate || !Objects.equals(binderOrderId, dbBinderOrder.getBinderOrderId().getId()))){
-            processError.addError("common.field.duplicate", "binderId", Arrays.asList("domain.entity.library", "domain.binderOrder.binderId"), String.valueOf(binderId));
+            processError.addError("common.field.duplicate", "binderId", Arrays.asList("domain.entity.binderOrder", "domain.binderOrder.binderId"), String.valueOf(binderId));
         }
 
         if(!processError.isValid()){
