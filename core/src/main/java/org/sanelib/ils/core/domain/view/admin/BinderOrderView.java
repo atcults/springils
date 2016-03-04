@@ -1,6 +1,8 @@
 package org.sanelib.ils.core.domain.view.admin;
 
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
 import org.sanelib.ils.core.domain.view.ViewWithId;
 
@@ -112,19 +114,7 @@ public class BinderOrderView implements DomainView, ViewWithId {
 
     @Override
     public String toString() {
-        return "BinderOrderView{" +
-                "libraryId=" + libraryId +
-                ", id=" + id +
-                ", binderId=" + binderId +
-                ", orderDate=" + orderDate +
-                ", dueDate=" + dueDate +
-                ", returnedDate=" + returnedDate +
-                ", formLetterNo='" + formLetterNo + '\'' +
-                ", subject='" + subject + '\'' +
-                ", content='" + content + '\'' +
-                ", mailStatus=" + mailStatus +
-                ", printStatus=" + printStatus +
-                ", status='" + status + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
+
 }
