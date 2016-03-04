@@ -6,11 +6,15 @@ import org.sanelib.ils.core.commands.materialType.AddMaterialType;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.MaterialTypeRepository;
 import org.sanelib.ils.core.domain.entity.MaterialType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class ProcessAddMaterialTypeDelegate implements JavaDelegate{
+
+    private static final Logger LOG = LoggerFactory.getLogger(ProcessAddMaterialTypeDelegate.class);
 
     @Autowired
     HibernateHelper hibernateHelper;
@@ -20,7 +24,7 @@ public class ProcessAddMaterialTypeDelegate implements JavaDelegate{
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        System.out.println("Process Add Material Type called");
+        LOG.info("Process Add Material Type called");
 
         AddMaterialType command= (AddMaterialType) execution.getVariable("command");
 
