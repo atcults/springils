@@ -38,8 +38,8 @@ public class DeletePatronProcessTest extends EntityIntegrationTestBase {
         patron.setPatronType(PatronType.Patron);
         patron.setDeptId(1);
         patron.setFirstName("First Name");
-        patron.setAddress1("Address1");
-        patron.setAddress2("Address2");
+        patron.setAddressLine1("Address1");
+        patron.setAddressLine2("Address2");
         patron.setCity("City");
         patron.setState("State");
         patron.setCountry("Country");
@@ -48,8 +48,8 @@ public class DeletePatronProcessTest extends EntityIntegrationTestBase {
         patron.setPhone2("+91-9876543210");
         patron.setFax("+91-987654321");
         patron.setEmail("name@mail.com");
-        patron.setPermanentAddress1("PAddress1");
-        patron.setPermanentAddress2("PAddress2");
+        patron.setPermanentAddressLine1("PAddress1");
+        patron.setPermanentAddressLine2("PAddress2");
         patron.setPermanentCity("PCity");
         patron.setPermanentState("PState");
         patron.setPermanentCountry("PCountry");

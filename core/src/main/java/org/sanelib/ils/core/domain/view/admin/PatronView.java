@@ -21,8 +21,8 @@ public class PatronView implements DomainView, ViewWithCode {
     private String firstName;
     private String middleName;
     private String lastName;
-    private String address1;
-    private String address2;
+    private String addressLine1;
+    private String addressLine2;
     private String city;
     private String state;
     private String country;
@@ -31,8 +31,8 @@ public class PatronView implements DomainView, ViewWithCode {
     private String phone2;
     private String fax;
     private String email;
-    private String permanentAddress1;
-    private String permanentAddress2;
+    private String permanentAddressLine1;
+    private String permanentAddressLine2;
     private String permanentCity;
     private String permanentState;
     private String permanentCountry;
@@ -149,20 +149,20 @@ public class PatronView implements DomainView, ViewWithCode {
         this.lastName = lastName;
     }
 
-    public String getAddress1() {
-        return address1;
+    public String getAddressLine1() {
+        return addressLine1;
     }
 
-    public void setAddress1(String address1) {
-        this.address1 = address1;
+    public void setAddressLine1(String addressLine1) {
+        this.addressLine1 = addressLine1;
     }
 
-    public String getAddress2() {
-        return address2;
+    public String getAddressLine2() {
+        return addressLine2;
     }
 
-    public void setAddress2(String address2) {
-        this.address2 = address2;
+    public void setAddressLine2(String addressLine2) {
+        this.addressLine2 = addressLine2;
     }
 
     public String getCity() {
@@ -229,20 +229,20 @@ public class PatronView implements DomainView, ViewWithCode {
         this.email = email;
     }
 
-    public String getPermanentAddress1() {
-        return permanentAddress1;
+    public String getPermanentAddressLine1() {
+        return permanentAddressLine1;
     }
 
-    public void setPermanentAddress1(String permanentAddress1) {
-        this.permanentAddress1 = permanentAddress1;
+    public void setPermanentAddressLine1(String permanentAddressLine1) {
+        this.permanentAddressLine1 = permanentAddressLine1;
     }
 
-    public String getPermanentAddress2() {
-        return permanentAddress2;
+    public String getPermanentAddressLine2() {
+        return permanentAddressLine2;
     }
 
-    public void setPermanentAddress2(String permanentAddress2) {
-        this.permanentAddress2 = permanentAddress2;
+    public void setPermanentAddressLine2(String permanentAddressLine2) {
+        this.permanentAddressLine2 = permanentAddressLine2;
     }
 
     public String getPermanentCity() {

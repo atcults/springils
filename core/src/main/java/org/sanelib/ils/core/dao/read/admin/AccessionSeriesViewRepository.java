@@ -19,11 +19,11 @@ public class AccessionSeriesViewRepository implements ViewService {
     @Autowired
     ViewServiceHelper viewServiceHelper;
 
-    protected String getStatements() {
+    protected String getStatement() {
         return "select * from accession_series";
     }
 
     public List<AccessionSeriesView> getAll() throws Throwable {
-        return viewServiceHelper.loadQuery(getStatements(), mapper);
+        return viewServiceHelper.loadQuery(getStatement(), mapper);
     }
 }

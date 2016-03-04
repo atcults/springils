@@ -19,12 +19,12 @@ public class FiscalYearViewRepository implements ViewService {
     @Autowired
     ViewServiceHelper viewServiceHelper;
 
-    protected String getStatements() {
+    protected String getStatement() {
         return "select * from acc_fiscal_year";
     }
 
     public List<FiscalYearView> getAllFiscalYears() throws Throwable {
 
-        return viewServiceHelper.loadQuery(getStatements(), mapper);
+        return viewServiceHelper.loadQuery(getStatement(), mapper);
     }
 }

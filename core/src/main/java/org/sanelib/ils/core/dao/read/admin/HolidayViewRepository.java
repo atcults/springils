@@ -19,7 +19,7 @@ public class HolidayViewRepository implements ViewService {
     @Autowired
     ViewServiceHelper viewServiceHelper;
 
-    public String getStatement() {
+    protected String getStatement() {
         return "select * from adm_co_holiday";
     }
 
