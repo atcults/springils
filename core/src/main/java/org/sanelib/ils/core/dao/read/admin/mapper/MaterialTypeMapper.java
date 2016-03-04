@@ -13,11 +13,12 @@ public class MaterialTypeMapper implements ViewMapper<MaterialTypeView> {
     @Override
     public MaterialTypeView map(DataResultSet rs) throws SQLException {
 
-        final String materialType = "adm_co_material_type";
+        final String viewName = "adm_co_material_type";
 
         final MaterialTypeView materialTypeView = new MaterialTypeView();
 
-        materialTypeView.setMaterialTypeName(rs.getString(materialType , "material_type"));
+        materialTypeView.setId(rs.getInt(viewName , "material_type_id"));
+        materialTypeView.setMaterialTypeName(rs.getString(viewName, "material_type"));
 
         return materialTypeView;
     }

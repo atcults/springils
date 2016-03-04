@@ -12,6 +12,7 @@ public class MaterialTypeViewConverter extends AbstractViewToDtoConverterImpl<Ma
     public MaterialTypeDto convert(MaterialTypeView materialTypeView){
         MaterialTypeDto dto = new MaterialTypeDto();
 
+        dto.setId(String.valueOf(materialTypeView.getId()));
         dto.setMaterialType(materialTypeView.getMaterialTypeName());
 
         return dto;
