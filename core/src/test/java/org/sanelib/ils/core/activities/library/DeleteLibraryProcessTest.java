@@ -20,10 +20,30 @@ public class DeleteLibraryProcessTest extends EntityIntegrationTestBase {
 
         Library library = new Library();
         library.setId(hibernateHelper.getNextId(Library.class));
-        library.setName("Library");
-        library.setCity("City");
-        library.setState("State");
-        library.setCountry("Country");
+        library.setName("name");
+        library.setSerialMaster("SerialMaster");
+        library.setCatalogueMaster("CatalogueMaster");
+        library.setAcquisitionsMaster("AcquisitionMaster");
+        library.setAddressLine1("Address Line1");
+        library.setAddressLine2("Address Line2");
+        library.setCity("city");
+        library.setState("ST");
+        library.setPin("54321");
+        library.setPrimaryPhone("+91-987654321");
+        library.setEmail("user@emailprovider.com");
+        library.setSecondaryPhone("+91-897654321");
+        library.setFax("87654321");
+        library.setCountry("country");
+        library.setSearchForms("Search Forms");
+        library.setFacebookWidget("Facebook Widget");
+        library.setTwitterWidget("Twitter Widget");
+        library.setAboutLibrary("About Library");
+        library.setAboutOrganization("About Organization");
+        library.setLibraryTimings("Library Timings");
+        library.setContactUs("Contact Us");
+        library.setMapWidget("Map Widget");
+        library.setDescription("Description");
+        library.setWebStatistics("Web Statistics");
 
         persist(library);
 

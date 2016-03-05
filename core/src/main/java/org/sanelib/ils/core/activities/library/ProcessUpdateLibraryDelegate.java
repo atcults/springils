@@ -27,10 +27,30 @@ public class ProcessUpdateLibraryDelegate implements JavaDelegate {
         Library entity = libraryRepository.get(command.getId());
 
         entity.setName(command.getName());
+        entity.setSerialMaster(command.getSerialMaster());
+        entity.setCatalogueMaster(command.getCatalogueMaster());
+        entity.setAcquisitionsMaster(command.getAcquisitionsMaster());
+        entity.setAddressLine1(command.getAddressLine1());
+        entity.setAddressLine2(command.getAddressLine2());
         entity.setCity(command.getCity());
         entity.setState(command.getState());
+        entity.setPin(command.getPin());
+        entity.setPrimaryPhone(command.getPrimaryPhone());
+        entity.setEmail(command.getEmail());
+        entity.setSecondaryPhone(command.getSecondaryPhone());
+        entity.setFax(command.getFax());
         entity.setCountry(command.getCountry());
+        entity.setSearchForms(command.getSearchForms());
+        entity.setFacebookWidget(command.getFacebookWidget());
+        entity.setTwitterWidget(command.getTwitterWidget());
+        entity.setAboutLibrary(command.getAboutLibrary());
+        entity.setAboutOrganization(command.getAboutOrganization());
+        entity.setLibraryTimings(command.getLibraryTimings());
+        entity.setContactUs(command.getContactUs());
+        entity.setMapWidget(command.getMapWidget());
+        entity.setDescription(command.getDescription());
+        entity.setWebStatistics(command.getWebStatistics());
 
         libraryRepository.save(entity);
-	}
+    }
 }

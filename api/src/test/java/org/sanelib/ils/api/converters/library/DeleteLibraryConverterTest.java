@@ -20,8 +20,8 @@ public class DeleteLibraryConverterTest {
 
         ProcessError processError= new ProcessError();
 
-        DeleteLibraryConverter deletePublisherConverter = new DeleteLibraryConverter();
-        ProcessCommand command = deletePublisherConverter.convert(dto, processError);
+        DeleteLibraryConverter deleteLibraryConverter = new DeleteLibraryConverter();
+        ProcessCommand command = deleteLibraryConverter.convert(dto, processError);
 
         assertTrue("Conversion error occurred", processError.isValid());
         assertTrue("Wrong output " + command, command instanceof DeleteLibrary);
@@ -30,5 +30,4 @@ public class DeleteLibraryConverterTest {
 
         assertEquals("Id is not mapped", dto.getId(), String.valueOf(deleteLibrary.getId()));
     }
-
 }

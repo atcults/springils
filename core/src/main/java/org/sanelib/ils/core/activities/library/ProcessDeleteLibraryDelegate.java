@@ -25,8 +25,8 @@ public class ProcessDeleteLibraryDelegate implements JavaDelegate {
 
         DeleteLibrary command = (DeleteLibrary) execution.getVariable("command");
 
-        Library publisher = this.libraryRepository.load(command.getId());
+        Library library = this.libraryRepository.load(command.getId());
 
-        libraryRepository.remove(publisher);
+        libraryRepository.remove(library);
     }
 }

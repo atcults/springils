@@ -18,9 +18,29 @@ public class LibraryMapper implements ViewMapper<LibraryView> {
 
         libraryView.setId(rs.getInt(viewName, "library_id"));
         libraryView.setName(rs.getString(viewName, "library_name"));
+        libraryView.setSerialMaster(rs.getString(viewName, "serialmaster"));
+        libraryView.setCatalogueMaster(rs.getString(viewName, "cataloguemaster"));
+        libraryView.setAcquisitionsMaster(rs.getString(viewName, "acquisitionsmaster"));
+        libraryView.setAddressLine1(rs.getString(viewName, "address1"));
+        libraryView.setAddressLine2(rs.getString(viewName, "address2"));
         libraryView.setCity(rs.getString(viewName, "city"));
         libraryView.setState(rs.getString(viewName, "state"));
+        libraryView.setPin(rs.getString(viewName, "pin"));
+        libraryView.setPrimaryPhone(rs.getString(viewName, "phone_number1"));
+        libraryView.setEmail(rs.getString(viewName, "email"));
+        libraryView.setSecondaryPhone(rs.getString(viewName, "phone_number2"));
+        libraryView.setFax(rs.getString(viewName, "fax"));
         libraryView.setCountry(rs.getString(viewName, "country"));
+        libraryView.setSearchForms(rs.getString(viewName, "search_forms"));
+        libraryView.setFacebookWidget(rs.getString(viewName, "facebook_widget"));
+        libraryView.setTwitterWidget(rs.getString(viewName, "twitter_widget"));
+        libraryView.setAboutLibrary(rs.getString(viewName, "about_library"));
+        libraryView.setAboutOrganization(rs.getString(viewName, "about_organization"));
+        libraryView.setLibraryTimings(rs.getString(viewName, "library_timings"));
+        libraryView.setContactUs(rs.getString(viewName, "contact_us"));
+        libraryView.setMapWidget(rs.getString(viewName, "map_widget"));
+        libraryView.setDescription(rs.getString(viewName, "description"));
+        libraryView.setWebStatistics(rs.getString(viewName, "web_statistics"));
 
         return libraryView;
     }
