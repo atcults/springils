@@ -14,6 +14,7 @@ public class FiscalYearViewConverter extends AbstractViewToDtoConverterImpl<Fisc
 
         FiscalYearDto dto = new FiscalYearDto();
 
+        dto.setLibraryId(String.valueOf(fiscalYearView.getLibraryId()));
         dto.setId(String.valueOf(fiscalYearView.getId()));
         dto.setStartYear(String.valueOf(fiscalYearView.getStartYear()));
         dto.setEndYear(String.valueOf(fiscalYearView.getEndYear()));

@@ -17,6 +17,7 @@ public class FiscalYearMapper implements ViewMapper<FiscalYearView> {
 
         final FiscalYearView fiscalYearView = new FiscalYearView();
 
+        fiscalYearView.setLibraryId(rs.getInt(viewName , "library_id"));
         fiscalYearView.setId(rs.getInt(viewName, "fiscal_year"));
         fiscalYearView.setStartYear(rs.getInt(viewName, "year1"));
         fiscalYearView.setEndYear(rs.getInt(viewName, "year2"));

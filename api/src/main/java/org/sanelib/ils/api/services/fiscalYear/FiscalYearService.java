@@ -38,7 +38,7 @@ public class FiscalYearService extends ApiServiceBase {
     @SuppressWarnings("unchecked")
     public List getAllFiscalYears() throws Throwable {
         List dtoList = new ArrayList<>();
-        List viewList = fiscalYearViewRepository.getAllFiscalYears();
+        List viewList = fiscalYearViewRepository.getAll();
         dtoList.addAll((Collection) viewList.stream().map(v -> fiscalYearViewConverter.convert((FiscalYearView) v)).collect(Collectors.toList()));
         return dtoList;
     }
