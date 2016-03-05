@@ -24,6 +24,7 @@ entity:
   library: Library
   publisher: Publisher
   agency: Agency
+  binderOrder: BinderOrder
   course: Course
   department: Department
   author: Author
@@ -33,7 +34,7 @@ entity:
   holiday: Holiday
   fiscalYear: Fiscal Year
   patron: Patron
-
+  author: Author
 
 library:
   city: City
@@ -141,3 +142,15 @@ bindingType:
 
 date:
   startDate: Start Date
+
+binderOrder:
+  binderId: Binder Id
+  orderDate: Order Date
+  dueDate: Due Date
+  returnedDate: Returned Date
+  formLetterNo: Form Letter Number
+  subject: Subject
+  content: Content
+  mailStatus: Mail Status
+  printStatus: Print Status
+  status: Status

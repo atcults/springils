@@ -15,6 +15,10 @@ public class ActivitiProcessConstants {
         public static final String UPDATE_AGENCY = "updateAgency";
         public static final String DELETE_AGENCY = "deleteAgency";
 
+        public static final String ADD_BINDER_ORDER = "addBinderOrder";
+        public static final String UPDATE_BINDER_ORDER = "updateBinderOrder";
+        public static final String DELETE_BINDER_ORDER = "deleteBinderOrder";
+
         public static final String ADD_PATRON = "addPatron";
         public static final String UPDATE_PATRON = "updatePatron";
         public static final String DELETE_PATRON = "deletePatron";
