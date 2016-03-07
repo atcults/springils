@@ -55,7 +55,7 @@ public class CheckMaterialTypeIdReferenceDelegate implements JavaDelegate{
         }
 
         if(idReferred == true){
-            processError.addError("common.field.duplicate" , "id" , Arrays.asList("domain.entity.materialType","domain.common.id") , String.valueOf(id));
+            processError.addError("common.field.reffered" , "id" , "domain.entity.materialType" , String.valueOf(id));
         }
 
         if(!processError.isValid()){
