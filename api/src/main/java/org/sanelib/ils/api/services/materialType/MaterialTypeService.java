@@ -51,13 +51,13 @@ public class MaterialTypeService extends ApiServiceBase {
     }
 
     @PUT
-    public String updateLibrary(MaterialTypeDto dto) throws Throwable {
+    public String updateMaterialType(MaterialTypeDto dto) throws Throwable {
         return execute(dto, ActivitiProcessConstants.Admin.UPDATE_MATERIAL_TYPE);
     }
 
     @DELETE
     @Path("/{id}")
-    public String deleteLibrary(@PathParam("id") String id) throws Throwable {
+    public String deleteMaterialType(@PathParam("id") String id) throws Throwable {
         MaterialTypeDto materialTypeDto = new MaterialTypeDto();
 
         materialTypeDto.setId(id);
