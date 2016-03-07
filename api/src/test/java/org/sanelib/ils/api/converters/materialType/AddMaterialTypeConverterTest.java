@@ -16,7 +16,6 @@ public class AddMaterialTypeConverterTest {
 
         MaterialTypeDto dto = new MaterialTypeDto();
 
-        dto.setId("1");
         dto.setMaterialType("MicroForm");
 
         ProcessError processError = new ProcessError();
@@ -29,7 +28,6 @@ public class AddMaterialTypeConverterTest {
 
         AddMaterialType addMaterialType = (AddMaterialType) command;
 
-        assertEquals("Id is not mapped", dto.getId(), String.valueOf(addMaterialType.getId()));
         assertEquals("Material Type is not mapped", dto.getMaterialType(), addMaterialType.getMaterialType());
     }
 }

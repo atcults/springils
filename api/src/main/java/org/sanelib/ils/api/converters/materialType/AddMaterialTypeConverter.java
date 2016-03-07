@@ -1,7 +1,6 @@
 package org.sanelib.ils.api.converters.materialType;
 
 import com.google.common.base.Strings;
-import org.sanelib.ils.api.converters.ConverterHelper;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.materialType.MaterialTypeDto;
 import org.sanelib.ils.core.commands.ProcessCommand;
@@ -15,8 +14,6 @@ public class AddMaterialTypeConverter implements DtoToCommandConverter<MaterialT
     public ProcessCommand convert(MaterialTypeDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
 
         AddMaterialType command = new AddMaterialType();
-
-        ConverterHelper.checkIdRequired(dto , command , processError);
 
         if(Strings.isNullOrEmpty(dto.getMaterialType())){
             processError.addError("common.field.required", "materialType", "domain.materialType.materialType");
