@@ -10,13 +10,10 @@ import org.sanelib.ils.core.domain.entity.FiscalYear;
 import org.sanelib.ils.core.domain.entity.FiscalYearId;
 import org.sanelib.ils.core.domain.entity.Library;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.Date;
-
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertEquals;
-
 
 public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
 
@@ -34,14 +31,13 @@ public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
 
         FiscalYear fiscalYear = new FiscalYear();
         fiscalYear.setLibraryId(library.getId());
-        fiscalYear.setStartDate(DateHelper.constructDate(2015 , 4 ,1));
-        fiscalYear.setEndDate(DateHelper.constructDate(2016 , 3 , 31));
-        fiscalYear.setEntryId("1");
+        fiscalYear.setStartDate(DateHelper.constructDate(2015, 4, 1));
+        fiscalYear.setEndDate(DateHelper.constructDate(2016, 3, 31));
 
         persist(fiscalYear);
 
         Date startDate = DateHelper.constructDate(2015, 4, 1);
-        Date endDate = DateHelper.constructDate(2016, 3 ,31);
+        Date endDate = DateHelper.constructDate(2016, 3, 31);
 
         UpdateFiscalYear updateFiscalYear = new UpdateFiscalYear();
 
@@ -49,9 +45,9 @@ public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
         updateFiscalYear.setLibraryId(library.getId());
         updateFiscalYear.setStartDate(startDate);
         updateFiscalYear.setEndDate(endDate);
-        updateFiscalYear.setEntryId("1");
+        updateFiscalYear.setUserCode("1");
 
-        String result = execute(updateFiscalYear, ActivitiProcessConstants.Admin.UPDATE_FISCALYEAR);
+        String result = execute(updateFiscalYear, ActivitiProcessConstants.Admin.UPDATE_FISCAL_YEAR);
 
         assertNull(result);
 
@@ -61,6 +57,6 @@ public class UpdateFiscalYearProcessTest extends EntityIntegrationTestBase {
 
         assertEquals(startDate, fiscalYear.getStartDate());
         assertEquals(endDate, fiscalYear.getEndDate());
-        assertEquals("1", updateFiscalYear.getEntryId());
+        assertEquals("1", updateFiscalYear.getUserCode());
     }
 }

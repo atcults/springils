@@ -1,5 +1,7 @@
 package org.sanelib.ils.api.dto.holiday;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.api.dto.DtoWithLibraryId;
 
 public class HolidayDto implements DtoWithLibraryId{
@@ -58,5 +60,10 @@ public class HolidayDto implements DtoWithLibraryId{
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }

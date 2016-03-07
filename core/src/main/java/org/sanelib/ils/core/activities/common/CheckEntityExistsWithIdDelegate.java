@@ -3,7 +3,6 @@ package org.sanelib.ils.core.activities.common;
 import org.activiti.engine.delegate.DelegateExecution;
 import org.activiti.engine.delegate.JavaDelegate;
 import org.sanelib.ils.core.commands.ProcessCommand;
-import org.sanelib.ils.core.commands.ProcessCommandWithCode;
 import org.sanelib.ils.core.commands.ProcessCommandWithId;
 import org.sanelib.ils.core.dao.UnitOfWork;
 import org.sanelib.ils.core.exceptions.AppException;
@@ -25,7 +24,7 @@ public class CheckEntityExistsWithIdDelegate implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        LOG.info("Checking id for duplication");
+        LOG.info("Checking entity exists");
 
         Object command = execution.getVariable("command");
         ProcessError processError = (ProcessError) execution.getVariable("errors");

@@ -12,8 +12,10 @@ import org.springframework.stereotype.Component;
 public class DeletePatronCategoryConverter implements DtoToCommandConverter<PatronCategoryDto> {
     public ProcessCommand convert(PatronCategoryDto dto, ProcessError processError) throws NoSuchFieldException, IllegalAccessException {
         DeletePatronCategory command = new DeletePatronCategory();
+
         ConverterHelper.checkIdRequired(dto, command, processError);
         ConverterHelper.checkLibraryIdRequired(dto, command, processError);
+
        return command;
     }
 }

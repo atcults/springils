@@ -11,6 +11,7 @@ public class PatronCategoryViewConverter extends AbstractViewToDtoConverterImpl<
     @Override
     public PatronCategoryDto convert(PatronCategoryView libraryView) {
         PatronCategoryDto dto = new PatronCategoryDto();
+
         dto.setId(String.valueOf(libraryView.getId()));
         dto.setName(libraryView.getName());
         dto.setLibraryId(String.valueOf(libraryView.getLibraryId()));
@@ -19,6 +20,7 @@ public class PatronCategoryViewConverter extends AbstractViewToDtoConverterImpl<
         dto.setAllowMultipleCopies(libraryView.isAllowMultipleCopies());
         dto.setOverallLoanLimit(String.valueOf(libraryView.getOverallLoanLimit()));
         dto.setAcqWorkflow(libraryView.getAcqWorkflow());
+
         return dto;
     }
 }

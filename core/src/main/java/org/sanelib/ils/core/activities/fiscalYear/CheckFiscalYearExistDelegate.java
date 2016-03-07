@@ -51,7 +51,7 @@ public class CheckFiscalYearExistDelegate implements JavaDelegate {
         List list = criteria.list();
 
         if(list.isEmpty()){
-            processError.addError("common.field.notExist", "id", Arrays.asList(((ProcessCommand) command).getRootEntityName(), "domain.common.id"), String.valueOf(id));
+            processError.addError("common.field.notExist", "fiscalYear", Arrays.asList(((ProcessCommand) command).getRootEntityName(), "domain.common.id"), String.valueOf(id));
         }
 
         if(!processError.isValid()){

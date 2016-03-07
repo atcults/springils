@@ -11,13 +11,21 @@ import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.HolidayRepository;
 import org.sanelib.ils.core.domain.entity.Holiday;
 import org.sanelib.ils.core.enums.HolidayType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Component
 public class ProcessAddHolidayDelegate implements JavaDelegate {
+
+	private static final Logger LOG = LoggerFactory.getLogger(ProcessAddHolidayDelegate.class);
 
     @Autowired
     HibernateHelper hibernateHelper;
@@ -31,7 +39,7 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
     @Override
     public void execute(DelegateExecution execution) throws Exception {
 
-        System.out.println("Process Add Holiday Called");
+        LOG.info("Process Add Holiday Called");
 
         AddHoliday command = (AddHoliday) execution.getVariable("command");
 
@@ -61,14 +69,14 @@ public class ProcessAddHolidayDelegate implements JavaDelegate {
                 entity.setLibraryId(command.getLibraryId());
                 entity.setHolidayDate(currDate);
                 entity.setFiscalYearId(command.getFiscalYearId());
-                entity.setEntryId(command.getEntryId());
+                entity.setUserCode(command.getUserCode());
                 entity.setHolidayType(command.getHolidayType());
                 entity.setNote(command.getNote());
                 holidayRepository.save(entity);
                 addedHolidays++;
             } else if(Objects.equals(command.getHolidayType(), HolidayType.Specific)) {
                 Holiday entity = existingHolidays.get(currDate);
-                entity.setEntryId(command.getEntryId());
+                entity.setUserCode(command.getUserCode());
                 entity.setHolidayType(command.getHolidayType());
                 entity.setNote(command.getNote());
                 holidayRepository.update(entity);

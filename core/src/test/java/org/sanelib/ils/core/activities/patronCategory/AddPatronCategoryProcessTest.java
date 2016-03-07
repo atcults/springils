@@ -6,7 +6,9 @@ import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.patronCategory.AddPatronCategory;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.dao.LibraryRepository;
-import org.sanelib.ils.core.domain.entity.*;
+import org.sanelib.ils.core.domain.entity.Library;
+import org.sanelib.ils.core.domain.entity.PatronCategory;
+import org.sanelib.ils.core.domain.entity.PatronCategoryId;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.assertEquals;
@@ -21,7 +23,7 @@ public class AddPatronCategoryProcessTest extends EntityIntegrationTestBase {
     LibraryRepository libraryRepository;
 
     @Test
-    public void testAddPatronCategroyProcess() throws Throwable {
+    public void testAddPatronCategoryProcess() throws Throwable {
 
         Library library = new Library();
         library.setId(hibernateHelper.getNextId(Library.class));
@@ -52,6 +54,6 @@ public class AddPatronCategoryProcessTest extends EntityIntegrationTestBase {
         assertEquals(addPatronCategory.isAllowRenewalFromNet(), patronCategory.isAllowRenewalFromNet());
         assertEquals(addPatronCategory.getOverallLoanLimit(), patronCategory.getOverallLoanLimit());
         assertEquals(addPatronCategory.isAllowMultipleCopies(), patronCategory.isAllowMultipleCopies());
-        assertEquals(addPatronCategory.getAcqWorkflow(),patronCategory.getAcqWorkflow());
+        assertEquals(addPatronCategory.getAcqWorkflow(), patronCategory.getAcqWorkflow());
     }
 }

@@ -4,10 +4,8 @@ import org.junit.Test;
 import org.sanelib.ils.EntityIntegrationTestBase;
 import org.sanelib.ils.core.activities.ActivitiProcessConstants;
 import org.sanelib.ils.core.commands.library.DeleteLibrary;
-import org.sanelib.ils.core.commands.publisher.DeletePublisher;
 import org.sanelib.ils.core.dao.HibernateHelper;
 import org.sanelib.ils.core.domain.entity.Library;
-import org.sanelib.ils.core.domain.entity.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.assertNull;

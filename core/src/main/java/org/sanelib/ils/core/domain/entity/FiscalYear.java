@@ -1,6 +1,10 @@
 package org.sanelib.ils.core.domain.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -16,11 +20,11 @@ public class FiscalYear implements DomainEntity{
     @Column(name = "start_date")
     private Date startDate;
 
+    @Column(name = "entry_id ")
+    private String userCode;
+
     @Column(name = "end_date")
     private Date endDate;
-
-    @Column(name = "entry_id ")
-    private String entryId;
 
     @Column(name = "year1")
     private Integer startYear;
@@ -28,8 +32,8 @@ public class FiscalYear implements DomainEntity{
     @Column(name = "year2")
     private Integer endYear;
 
-    @Column(name = "status")
-    String status;
+    @Column(name = "status" , length = 1)
+    private String status;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -49,6 +53,14 @@ public class FiscalYear implements DomainEntity{
         this.fiscalYearId.setLibraryId(libraryId);
     }
 
+    public String getUserCode() {
+        return userCode;
+    }
+
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
+    }
+
     public Date getStartDate() {
         return startDate;
     }
@@ -65,14 +77,6 @@ public class FiscalYear implements DomainEntity{
         this.endDate = endDate;
     }
 
-    public String getEntryId() {
-        return entryId;
-    }
-
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -81,7 +85,6 @@ public class FiscalYear implements DomainEntity{
         FiscalYear fiscalYear = (FiscalYear) o;
 
         return fiscalYearId.equals(fiscalYear.fiscalYearId);
-
     }
 
     @Override
@@ -91,7 +94,8 @@ public class FiscalYear implements DomainEntity{
 
     @PrePersist
     public void prePersist() {
-        status = "0";
+        status = "O";
+
         startYear = 0;
         if(startDate != null){
             Calendar cal = Calendar.getInstance();
@@ -105,6 +109,7 @@ public class FiscalYear implements DomainEntity{
             endYear = cal.get(Calendar.YEAR);
         }
         getFiscalYearId().setId(startYear * 10000 + endYear);
+
         entryDate = new Date();
     }
 }

@@ -4,7 +4,7 @@ import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
 @Converter
-public class HolidayTypeConverter implements AttributeConverter<HolidayType , String>{
+public class HolidayTypeConverter implements AttributeConverter<HolidayType, String>{
 
     @Override
     public String convertToDatabaseColumn(HolidayType holidayType) {

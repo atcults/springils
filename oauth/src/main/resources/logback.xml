@@ -1,0 +1,68 @@
+<configuration>
+
+    <property name="log-dir" value="logs"/>
+
+    <appender name="CONSOLE-LOG-APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5level %logger{36}.%method [%line] - %m%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <appender name="GENERAL-LOG-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <prudent>true</prudent>
+        <append>true</append>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log-dir}/OAuth_general.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5level %logger{36}.%method [%line] - %m%n</pattern>
+        </encoder>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+
+    </appender>
+
+    <appender name="ERROR-LOG-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+
+        <prudent>true</prudent>
+        <append>true</append>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log-dir}/OAuth_error.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %-5level %logger{36}.%method [%line] - %m%n</pattern>
+        </encoder>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE-LOG-APPENDER" />
+        <appender-ref ref="GENERAL-LOG-APPENDER" />
+        <appender-ref ref="ERROR-LOG-APPENDER" />
+    </root>
+
+    <!-- To log queries , change level to DEBUG to following logger-->
+    <logger name="org.sanelib.ils" level="INFO" />
+    <logger name="org.apache.ibatis" level="WARN"/>
+    <logger name="org.mybatis.spring" level="WARN"/>
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.glassfish.jersey" level="INFO"/>
+    <logger name="org.apache.oltu.oauth2" level="INFO"/>
+
+</configuration>

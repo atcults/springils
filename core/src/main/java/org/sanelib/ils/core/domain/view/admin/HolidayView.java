@@ -1,7 +1,8 @@
 package org.sanelib.ils.core.domain.view.admin;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.domain.view.DomainView;
-import org.sanelib.ils.core.domain.view.ViewWithId;
 import org.sanelib.ils.core.enums.HolidayType;
 
 import java.util.Date;
@@ -56,13 +57,7 @@ public class HolidayView implements DomainView {
 
     @Override
     public String toString() {
-        return "HolidayView{" +
-                "libraryId=" + libraryId +
-                ", holidayDate=" + holidayDate +
-                ", fiscalYearId=" + fiscalYearId +
-                ", holidayType=" + holidayType +
-                ", note='" + note + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
 

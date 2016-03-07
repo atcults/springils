@@ -1,10 +1,5 @@
 package org.sanelib.ils.common.properties;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +8,15 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.Yaml;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Properties;
+import java.util.StringTokenizer;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 @Scope("singleton")
@@ -26,10 +30,8 @@ public class MapDictionaryServiceImpl implements MapDictionaryService {
     private final Map<String, Map<String, String>> mapDictionary = new ConcurrentHashMap<>();
 
 	private Map<String, String> buildMapDictionary(String locale) {
-
+		LOG.info("Generating MapDictionary");
 		String messageBundle = appProperties.getMessageBundle();
-
-		LOG.info("Generating MapDictionary.....................");
 
 		Map<String, String> keyValuePair = new HashMap<>();
 		String directoryPath = "classpath:MessagesBundle/" + locale + "/*." + messageBundle;
@@ -47,13 +49,13 @@ public class MapDictionaryServiceImpl implements MapDictionaryService {
 					}
 				}
 			} else {
-				System.err.println("Directory/Locale Not Found");
+				LOG.error("Directory/Locale Not Found");
 			}
 		} catch (IOException e) {
-			System.err.println("Directory/Locale Not Found.");
+			LOG.error("Directory/Locale Not Found.");
 		}
 
-		LOG.info("Finished Generating MapDictionary...............");
+		LOG.info("Finished Generating MapDictionary");
 
 		return keyValuePair;
 	}

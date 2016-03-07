@@ -8,6 +8,7 @@ import org.activiti.engine.impl.pvm.PvmException;
 import org.activiti.engine.runtime.ProcessInstance;
 import org.sanelib.ils.api.converters.DtoToCommandConverter;
 import org.sanelib.ils.api.dto.Dto;
+import org.sanelib.ils.common.session.UserSession;
 import org.sanelib.ils.core.commands.ProcessAuditCommandWithLibraryId;
 import org.sanelib.ils.core.commands.ProcessCommand;
 import org.sanelib.ils.core.dao.UnitOfWork;
@@ -16,7 +17,8 @@ import org.sanelib.ils.core.exceptions.ProcessError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class ApiServiceBase {
 
@@ -55,8 +57,8 @@ public abstract class ApiServiceBase {
         //NOTE: This is to globally resolve entry patron and its library id.
         if(command instanceof ProcessAuditCommandWithLibraryId){
             ProcessAuditCommandWithLibraryId auditCommandWithLibraryId = (ProcessAuditCommandWithLibraryId) command;
-            auditCommandWithLibraryId.setEntryId(userSession.getUserId());
-            auditCommandWithLibraryId.setEntryLibraryId(userSession.getLibraryId());
+            auditCommandWithLibraryId.setUserCode(userSession.getUserCode());
+            auditCommandWithLibraryId.setUserLibraryId(userSession.getLibraryId());
         }
 
         String processName = processKey + "Process";

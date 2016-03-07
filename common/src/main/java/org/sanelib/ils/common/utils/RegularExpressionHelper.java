@@ -9,12 +9,15 @@ import java.util.regex.Pattern;
 public class RegularExpressionHelper {
 
     public static final String ID_FORMAT = "^[0-9]{1,8}$";
+    public static final String NUMBER_FORMAT = "^-?[0-9]{1,8}$";
+    public static final String DECIMAL_FORMAT = "^-?\\d+(\\.\\d{1,2})?$";
     public static final String PHONE_FORMAT = "^\\+(\\d{2})-(\\d{10})$";
     public static final String PHONE_FORMAT_EXAMPLE = "+91-9876543210";
     public static final String EMAIL_FORMAT = "^[_a-z0-9-]+(\\.[_a-z0-9-]+)*\\@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,4})$";
     public static final String EMAIL_FORMAT_EXAMPLE = "megh@yahoo.com or megh.94@yahoo.com";
     public static final String DATE_FORMAT ="^\\d{4}\\-(0[1-9]|1[012])\\-(0[1-9]|[12][0-9]|3[01])$";
     public static final String DATE_FORMAT_EXAMPLE ="1991-01-01";
+    public static final String ZIP_FORMAT="[0-9]{5}";
 
     public static boolean checkIdFormat(String id) {
 
@@ -30,6 +33,33 @@ public class RegularExpressionHelper {
         return matcher.matches();
     }
 
+    public static boolean checkNumber(String id) {
+
+        if(Strings.isNullOrEmpty(id)){
+            return false;
+        }
+
+        // Create a Pattern object
+        Pattern pattern = Pattern.compile(NUMBER_FORMAT);
+
+        // Create matcher object.
+        Matcher matcher = pattern.matcher(id);
+        return matcher.matches();
+    }
+
+    public static boolean checkDecimal(String id) {
+
+        if(Strings.isNullOrEmpty(id)){
+            return false;
+        }
+
+        // Create a Pattern object
+        Pattern pattern = Pattern.compile(DECIMAL_FORMAT);
+
+        // Create matcher object.
+        Matcher matcher = pattern.matcher(id);
+        return matcher.matches();
+    }
 
     public static boolean checkPhoneFormat(String phone) {
 
@@ -73,4 +103,17 @@ public class RegularExpressionHelper {
         return matcher.matches();
     }
 
+    public static boolean checkZipCodeFormat(String zip) {
+
+        if(Strings.isNullOrEmpty(zip)){
+            return false;
+        }
+
+        // Create a Pattern object
+        Pattern pattern = Pattern.compile(ZIP_FORMAT);
+
+        // Create matcher object.
+        Matcher matcher = pattern.matcher(zip);
+        return matcher.matches();
+    }
 }
