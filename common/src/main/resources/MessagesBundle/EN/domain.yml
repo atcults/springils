@@ -31,6 +31,7 @@ entity:
   accessionSeries: Accession Series
   bindingType: Binding Type
   holiday: Holiday
+  materialType: Material Type
   fiscalYear: Fiscal Year
   patron: Patron
 
@@ -141,3 +142,7 @@ bindingType:
 
 date:
   startDate: Start Date
+  name: Name
+
+materialType:
+  materialType: Material Type

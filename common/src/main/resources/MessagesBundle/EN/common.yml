@@ -10,6 +10,8 @@ field:
   pattern: ~0 format is incorrect. Ex. ^0
   notExist: ~0 with ~1 ^0 does not exist.
   length: ~0 length should not more than ^0
+  select: ~0 should be selected from list.
+  reffered: The id of ~0 ^0 is reffered in another table
   select: ~0 should be selected from list
   invalidInteger: ~0 is invalid integer
   invalidDecimal: ~0 is invalid decimal

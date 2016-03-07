@@ -54,5 +54,9 @@ public class ActivitiProcessConstants {
         public static final String UPDATE_DEPARTMENT = "updateDepartment";
         public static final String DELETE_DEPARTMENT = "deleteDepartment";
 
+
+        public static final String ADD_MATERIAL_TYPE = "addMaterialType";
+        public static final String DELETE_MATERIAL_TYPE = "deleteMaterialType";
+        public static final String UPDATE_MATERIAL_TYPE = "updateMaterialType";
     }
 }
