@@ -1,5 +1,9 @@
 # Setting up CI server in amazon ec2
 
+# To extend storage size you need to follow below link
+
+Follow this [link](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html).
+
 ### How to install MySQL on an Amazon EC2 Server Instance? 
 
 Being a newbie to server administration especially with Linux, I found
@@ -8,14 +12,14 @@ instance! Here is what worked for me on the Amazon EC2 instance:
 
 ### To install a MySQL Server
 
-	$ yum install mysql-server
+	$ sudo yum install mysql-server
 
 When you are prompted, type 'y'.
 
 **To start the installed MySQL Server**
 
-	 $ chkconfig mysqld on
-     $ service mysqld start
+	 $ sudo chkconfig mysqld on
+     $ sudo service mysqld start
 
 Response: Starting mysqld
 
@@ -24,9 +28,7 @@ Response: Starting mysqld
 	 $ mysqladmin –u root password \[your\_new\_password\]
 	 $ mysqladmin –u root –p create \[your\_new\_db\]
 
-When you are prompted for a password, type \[your\_new\_pwd\]. Well
-that's it. There rest of the MySQL functionality is as usual. For more
-details on other functionalities please use the MySQL website.
+When you are prompted for a password, type \[your\_new\_pwd\]. You can set password blank by not providing any password.
 
 **Using MySQL Externally**
 
@@ -43,8 +45,83 @@ You can also manually add port 3306. Save and whoala ready to go! - See
 more at
 [here](http://www.text-analytics101.com/2013/11/how-to-install-mysql-on-amazon-ec2.html#sthash.G4R5uYoq.dpuf)
 
-### Replacing OpenJDK with Oracle JDK 
+# Install and Use PostgreSQL
 
+Introduction
+------------
+
+Relational database management systems are a key component of many web
+sites and applications. They provide a structured way to store,
+organize, and access information.
+
+**PostgreSQL**, or Postgres, is a relational database management system
+that provides an implementation of the SQL querying language. It is a
+popular choice for many small and large projects and has the advantage
+of being standards-compliant and having many advanced features like
+reliable transactions and concurrency without read locks.
+
+In this guide, we will demonstrate how to install Postgres on CentOS 7
+and go over some basic ways to use it.
+
+Installation
+------------
+
+CentOS's default repositories contain Postgres packages, so we can
+install them without a hassle using the yum package system.
+
+Install the postgresql-server package and the "contrib" package, that
+adds some additional utilities and functionality:
+
+**Give default priviledge**
+
+	$ sudo su
+
+**To install a Postgresql Server**
+
+	$ yum install postgresql-server postgresql-contrib
+
+When you are prompted, type 'y'.
+
+**Post-installation**
+
+Due to policies for Red Hat family distributions, the PostgreSQL
+installation will not be enabled for automatic start or have the
+database initialized automatically. To make your database installation
+complete, you need to perform these two steps:
+
+	$ service postgresql initdb
+	$ chkconfig postgresql on
+
+By default, PostgreSQL does not allow password authentication. We will
+change that by editing its host-based authentication (HBA)
+configuration.
+
+**Open the HBA configuration**
+
+	$ vi /var/lib/pgsql9/data/pg\_hba.conf
+
+pg\_hba.conf excerpt (updated)
+
+    host    all     all                     trust
+	host	all     all     127.0.0.1/32	trust
+	host	all	    all		::1/128			trust
+	host    all     all     0.0.0.0/0       trust
+
+Save and exit. PostgreSQL is now configured to allow connection without password.
+
+    $ vi /var/lib/pgsql/data/postgresql.conf 
+    
+Set listen_address = '*' and and port = 5432
+
+Save and exit. PostgreSQL is not listen all incoming connection at 5432 port.
+
+**Start and check postgresql service status**
+
+	$ service postgresql start
+	$ service –-status-all | grep postgres*
+
+
+### Replacing OpenJDK with Oracle JDK 
 
 EC2 instance is a RedHat distribution, that uses OpenJDK by default. To
 the cloud integration on TeamCity to work properly we need to replace
@@ -53,8 +130,7 @@ OpenJDK with Oracle JDK. - See more at
 
 **Check the current OpenJDK:**
 
-	$ java -version
-response:
+	$ java -version
 
     java version "1.7.0\_85"'
     OpenJDK Runtime Environment (IcedTea6 1.13.3) 	(rhel-5.1.13.3.el6\_5-x86\_64)
@@ -126,11 +202,11 @@ file, change the port number in the HTTP/1.1 connector (here the port
 number is 8111):
 ```
   <Connector port="8111" protocol="HTTP/1.1"
-  connectionTimeout="20000"
-  redirectPort="8443"
-  enableLookup="false"
-  useBodyEncodingForURI="true"
-  />
+  connectionTimeout="20000"
+  redirectPort="8443"
+  enableLookup="false"
+  useBodyEncodingForURI="true"
+  />
   ```
 
 It is recommended to use mysql user other than root but in my case I
