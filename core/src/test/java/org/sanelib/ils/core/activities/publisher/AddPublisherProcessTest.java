@@ -31,7 +31,7 @@ public class AddPublisherProcessTest extends EntityIntegrationTestBase {
         assertNotNull(publisher);
 
         assertEquals(addPublisher.getCode(), publisher.getCode());
-        assertEquals(addPublisher.getName() ,publisher.getName());
-        assertEquals(addPublisher.getCity() , publisher.getCity());
+        assertEquals(addPublisher.getName(), publisher.getName());
+        assertEquals(addPublisher.getCity(), publisher.getCity());
     }
 }

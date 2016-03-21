@@ -31,8 +31,6 @@ public class AddFiscalYearConverter implements DtoToCommandConverter<FiscalYearD
             command.setEndDate(DateHelper.fromDateString(dto.getEndDate()));
         }
 
-        command.setEntryId(dto.getEntryId());
-
         return command;
     }
 }

@@ -8,14 +8,19 @@ import org.sanelib.ils.core.dao.FiscalYearRepository;
 import org.sanelib.ils.core.domain.entity.FiscalYear;
 import org.sanelib.ils.core.exceptions.AppException;
 import org.sanelib.ils.core.exceptions.ProcessError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
 @Component
 public class CheckFiscalYearDuplicationDelegate implements JavaDelegate {
+
+    private static final Logger LOG = LoggerFactory.getLogger(CheckFiscalYearDuplicationDelegate.class);
 
     @Autowired
     FiscalYearRepository fiscalYearRepository;
@@ -23,7 +28,7 @@ public class CheckFiscalYearDuplicationDelegate implements JavaDelegate {
     @Override
     public void execute(DelegateExecution execution) throws Exception {
 
-        System.out.println("Checking fiscal year for duplication");
+        LOG.info("Checking fiscal year for duplication");
 
         Object command = execution.getVariable("command");
         ProcessError processError = (ProcessError) execution.getVariable("errors");
@@ -41,12 +46,12 @@ public class CheckFiscalYearDuplicationDelegate implements JavaDelegate {
         cal.setTime(addFiscalYear.getEndDate());
         fiscalYearId += cal.get(Calendar.YEAR);
 
-        List<FiscalYear> firstFiscalYears = fiscalYearRepository.findByColumnAndValue(new String[] {"fiscalYearId.libraryId" ,"fiscalYearId.id"}, new Object[]{libraryId, fiscalYearId});
+        List<FiscalYear> fiscalYears = fiscalYearRepository.findByColumnAndValue(new String[] {"fiscalYearId.libraryId", "fiscalYearId.id"}, new Object[]{libraryId, fiscalYearId});
 
-        FiscalYear dbFiscalYear = firstFiscalYears.isEmpty() ? null : firstFiscalYears.get(0);
+        FiscalYear dbFiscalYear = fiscalYears.isEmpty() ? null : fiscalYears.get(0);
 
         if(!isUpdate && dbFiscalYear != null){
-            processError.addError("common.field.duplicate", "id", "domain.fiscalYear.firstFiscalYear", String.valueOf(fiscalYearId));
+            processError.addError("common.field.duplicate", "fiscalYear", Arrays.asList("domain.entity.fiscalYear" , "domain.common.id"), String.valueOf(fiscalYearId));
         }
 
         if (!processError.isValid()) {

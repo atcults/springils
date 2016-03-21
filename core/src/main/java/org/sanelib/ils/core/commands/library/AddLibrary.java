@@ -1,9 +1,9 @@
 package org.sanelib.ils.core.commands.library;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.sanelib.ils.core.commands.ProcessCommand;
-import org.sanelib.ils.core.commands.ProcessCommandWithId;
 import org.sanelib.ils.core.domain.entity.Library;
-import org.sanelib.ils.core.domain.entity.Publisher;
 
 public class AddLibrary implements ProcessCommand {
 
@@ -56,12 +56,7 @@ public class AddLibrary implements ProcessCommand {
 
     @Override
     public String toString() {
-        return "AddLibrary{" +
-                "name='" + name + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", country='" + country + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
 }
 

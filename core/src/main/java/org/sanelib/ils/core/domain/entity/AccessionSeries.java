@@ -3,7 +3,12 @@ package org.sanelib.ils.core.domain.entity;
 import org.sanelib.ils.core.enums.AccessionSeriesType;
 import org.sanelib.ils.core.enums.AccessionSeriesTypeConverter;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Convert;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -19,11 +24,7 @@ public class AccessionSeries implements DomainEntity {
         return accessionSeriesCode;
     }
 
-    public void setAccessionSeriesCode(AccessionSeriesCode accessionSeriesCode) {
-        this.accessionSeriesCode = accessionSeriesCode;
-    }
-
-    public void setAccessionSeriesCode(String code, int libraryId){
+    public void setAccessionSeriesCode(String code, int libraryId) {
         if(this.accessionSeriesCode == null){
             this.accessionSeriesCode = new AccessionSeriesCode(libraryId, code);
         } else {
@@ -32,22 +33,25 @@ public class AccessionSeries implements DomainEntity {
         }
     }
 
+    //NOTE: Series type is fixed or variable. Stores 1 character.
+    @Convert( converter = AccessionSeriesTypeConverter.class )
+    @Column(name = "fixed_variable")
+    private AccessionSeriesType accessionSeriesType;
+
+    @Column(name = "prefix")
+    private String prefix;
+
     @Column(name = "max_number")
     private Integer maxNumber;
 
     @Column(name = "max_zero")
     private Integer maxZero;
 
-    @Column(name = "prefix")
-    private String prefix;
-
-    //NOTE: Fixed_variable stores 1 character. Series type is fixed or variable.
-    @Convert( converter = AccessionSeriesTypeConverter.class )
-    @Column(name = "fixed_variable")
-    private AccessionSeriesType typeName;
-
     @Column(name="entry_id")
-    private String entryId;
+    private String userCode;
+
+    @Column(name="entry_library_id")
+    private Integer userLibraryId;
 
     @Column(name = "entry_date")
     private Date entryDate;
@@ -74,27 +78,32 @@ public class AccessionSeries implements DomainEntity {
         this.prefix = prefix;
     }
 
-    public AccessionSeriesType getTypeName() {
-        return typeName;
+    public AccessionSeriesType getAccessionSeriesType() {
+        return accessionSeriesType;
     }
 
-    public void setTypeName(AccessionSeriesType typeName) {
-        this.typeName = typeName;
+    public void setAccessionSeriesType(AccessionSeriesType accessionSeriesType) {
+        this.accessionSeriesType = accessionSeriesType;
     }
 
-    public String getEntryId() {
-        return entryId;
+    public String getUserCode() {
+        return userCode;
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
+    public void setUserCode(String userCode) {
+        this.userCode = userCode;
     }
 
-    public Date getEntryDate() {
-        return entryDate;
+    public Integer getUserLibraryId() {
+        return userLibraryId;
     }
 
-    public void setEntryDate(Date entryDate) {
-        this.entryDate = entryDate;
+    public void setUserLibraryId(Integer userLibraryId) {
+        this.userLibraryId = userLibraryId;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        entryDate = new Date();
     }
 }

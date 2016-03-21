@@ -11,7 +11,7 @@
 **Note:**
  
  1. Request header should have authenticated hearer token. The user should have admin privilege.
- 2. entry_id is patron id who has sent REST request. As of now we do not have any security implementation so we will pass default value from ApiBase. One interface is required to check if request needs entry_id like we pass library_id from client.
+ 2. entry_id is patron code who has sent REST request. As of now we do not have any security implementation so we will pass default value from ApiBase. One interface is required to check if request needs entry_id like we pass library_id from client.
  3. holi_type, entry_id, entry_date will not expose outside domain. NOTE: Follow fiscal year entity.
  	- holi_type : 'R'	 
  	- entry_date : Current Time

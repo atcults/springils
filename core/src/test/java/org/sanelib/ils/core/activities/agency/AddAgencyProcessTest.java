@@ -44,6 +44,6 @@ public class AddAgencyProcessTest extends EntityIntegrationTestBase {
 
         assertNotNull(agency);
 
-        assertEquals(addAgency.getName() ,agency.getName());
+        assertEquals(addAgency.getName(), agency.getName());
     }
 }

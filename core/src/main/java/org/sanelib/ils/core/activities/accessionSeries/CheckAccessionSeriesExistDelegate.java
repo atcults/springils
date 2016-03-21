@@ -10,6 +10,8 @@ import org.sanelib.ils.core.commands.ProcessCommandWithLibraryId;
 import org.sanelib.ils.core.dao.UnitOfWork;
 import org.sanelib.ils.core.exceptions.AppException;
 import org.sanelib.ils.core.exceptions.ProcessError;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,12 +21,14 @@ import java.util.List;
 @Component
 public class CheckAccessionSeriesExistDelegate implements JavaDelegate {
 
+    private static final Logger LOG = LoggerFactory.getLogger(CheckAccessionSeriesExistDelegate.class);
+
     @Autowired
     UnitOfWork unitOfWork;
 
     @Override
     public void execute(DelegateExecution execution) throws Exception {
-        System.out.println("Checking AccessionSeries with code and library id");
+        LOG.info("Checking AccessionSeries with code and library id");
 
         Object command = execution.getVariable("command");
         ProcessError processError = (ProcessError) execution.getVariable("errors");
@@ -47,7 +51,7 @@ public class CheckAccessionSeriesExistDelegate implements JavaDelegate {
         List list = criteria.list();
 
         if(list.isEmpty()){
-            processError.addError("common.field.notExist", "code", Arrays.asList(((ProcessCommand) command).getRootEntityName(), "domain.common.code"), String.valueOf(code));
+            processError.addError("common.field.notExist", "code", Arrays.asList(((ProcessCommand) command).getRootEntityName(), "domain.accessionSeries.code"), String.valueOf(code));
         }
 
         if(!processError.isValid()){

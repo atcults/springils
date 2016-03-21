@@ -1,19 +1,21 @@
 package org.sanelib.ils.core.dao;
 
-import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
-import java.util.List;
-
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
-import org.hibernate.criterion.*;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
 import org.sanelib.ils.core.domain.entity.Constants;
 import org.sanelib.ils.core.domain.entity.DBValue;
 import org.sanelib.ils.core.domain.entity.DomainEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
 @SuppressWarnings({"rawtypes", "unchecked"})
 public abstract class EntityRepositoryBase<T extends DomainEntity> implements EntityRepository<T> {
@@ -138,10 +140,9 @@ public abstract class EntityRepositoryBase<T extends DomainEntity> implements En
 	}
 
 	@Override
-	public List<T> executeQueryObject(final DetachedCriteria detachedCriteria, Class clazz) {
+	public List<T> executeQueryObject(final DetachedCriteria detachedCriteria) {
 		Criteria criteria = detachedCriteria.getExecutableCriteria(getSession());
-		return criteria.setResultTransformer(Transformers.aliasToBean(clazz)).list();
-
+        return criteria.list();
 	}
 
 	private void setParamValues(final String[] paramValues, SQLQuery query) {

@@ -16,6 +16,8 @@ db:
   url: jdbc:postgresql://localhost:5439/ils
   username: postgres
   password:
+  connection:
+   properties: stringtype=unspecified
 
 # Hibernate
 hibernate:
@@ -26,3 +28,7 @@ hibernate:
 # Entity Manager
 entitymanager:
   packagesToScan: org.sanelib.ils.core
+
+oauth:
+ token.endpoint: http://localhost:8050/oauth2/token
+ token.validate.endpoint: http://localhost:8050/oauth2/token/validate
