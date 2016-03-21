@@ -181,6 +181,17 @@ Then save and close file. Make it executable and run it.
 	$ chmod +x /etc/profile.d/java.sh
 	$ source /etc/profile.d/java.sh
 
+
+**TODO
+Update document for setting up java (Multiple version)
+Install GIT
+Install Gradle
+Install Maven
+Install nodejs
+Install bower (General default package manager - Required)
+
+
+
 **Some useful commands**
 
     uptime: Uptime of server
