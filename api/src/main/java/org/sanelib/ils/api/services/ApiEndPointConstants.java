@@ -9,6 +9,7 @@ public class ApiEndPointConstants {
         public static final String PATRON_END_POINT = "/patron";
         public static final String PATRON_CATEGORY_END_POINT = "/patronCategory";
         public static final String COURSE_END_POINT = "/course";
+        public static final String SERIAL_BOUND_VOLUME_END_POINT = "/serialBoundVolume";
         public static final String FISCAL_YEAR_END_POINT = "/fiscalYear";
         public static final String ACCESSION_SERIES_END_POINT = "/accessionSeries";
         public static final String HOLIDAY_END_POINT = "/holiday";

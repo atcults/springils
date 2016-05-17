@@ -15,6 +15,10 @@ public class ActivitiProcessConstants {
         public static final String UPDATE_AGENCY = "updateAgency";
         public static final String DELETE_AGENCY = "deleteAgency";
 
+        public static final String ADD_SERIAL_BOUND_VOLUME = "addSerialBoundVolume";
+        public static final String UPDATE_SERIAL_BOUND_VOLUME = "updateSerialBoundVolume";
+        public static final String DELETE_SERIAL_BOUND_VOLUME = "deleteSerialBoundVolume";
+
         public static final String ADD_PATRON = "addPatron";
         public static final String UPDATE_PATRON = "updatePatron";
         public static final String DELETE_PATRON = "deletePatron";
